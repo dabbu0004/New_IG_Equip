@@ -1,0 +1,62 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const FirstPage = () => {
+  return (
+    <>
+      <div className="max-w-7xl container mx-auto">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 md:px-16 py-10 bg-white">
+
+          {/* Left Section - Animated */}
+          <motion.div
+            className="w-full lg:w-1/2 text-left"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
+              Quality Without
+            </h1>
+            <h2 className="text-4xl md:text-5xl font-medium text-black mb-6">
+              Compromise
+            </h2>
+            <p className="text-gray-900 text-base md:text-lg mb-6">
+              Power your business with gas gensets—cut energy <br />
+              costs, reduce your carbon footprint, and ensure <br />
+              24/7 efficiency. A smart step toward sustainable <br />
+              profitability.
+            </p>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-red-500 to-orange-400 text-white px-4 py-3 rounded-md text-lg font-extrabold shadow-md transition-all duration-300"
+              >
+                Go Gas. Grow Profits
+              </motion.button>
+            </Link>
+          </motion.div>
+
+          {/* Right Section - Image with animation */}
+          <motion.div
+            className="w-full lg:w-1/2 flex justify-center mb-10 lg:mb-0"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <img
+              src="/images/image/blob.jpg"
+              alt="Genset"
+              className="w-full max-w-md md:max-w-lg"
+            />
+          </motion.div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default FirstPage;
