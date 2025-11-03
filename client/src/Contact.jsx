@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
-  const navigate = useNavigate(); // ✅ useNavigate hook
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -166,19 +166,14 @@ const Contact = () => {
         {/* Left Section */}
         <div className="w-full lg:w-1/2 text-white text-center lg:text-left space-y-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium mb-2 sm:mb-4">
-              <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span>Premium Support Experience</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-snug sm:leading-tight">
-              Let's{" "}
-              <span className="bg-gradient-to-r from-yellow-300 via-yellow-200 to-white bg-clip-text text-transparent animate-pulse">
-                Talk
-              </span>
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-snug sm:leading-tight">
+              Partner with Inventive Gas Equipment for a Sustainable Future
             </h1>
-            <p className="text-base sm:text-lg font-light opacity-90 leading-relaxed">
-              Transform your business with our expert guidance. We're here to
-              make it happen!
+            <p className="text-xl md:text-2xl font-light opacity-90 leading-relaxed">
+              Let’s power your business with{" "}
+              <span className="font-bold">
+                clean, efficient, and future-ready energy solutions.
+              </span>
             </p>
           </div>
 
@@ -211,8 +206,8 @@ const Contact = () => {
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                   Send us a message
                 </h2>
-                <p className="text-sm text-gray-600">
-                  We'd love to hear from you and help grow your business.
+                <p className="text-lg text-gray-600">
+                  Contact us today to discuss your requirements.{" "}
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

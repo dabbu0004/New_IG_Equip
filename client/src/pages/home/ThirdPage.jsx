@@ -17,30 +17,30 @@ const ThirdPage = () => {
           <div className="inline-block bg-gradient-to-r from-red-500 to-orange-400 font-semibold px-5 py-2 rounded-xl text-2xl mb-2">
             Our Products
           </div>
-          <h2 className="text-xl md:text-2xl font-extralight">
-            Comprehensive Solutions for
+          <h2 className="text-xl md:text-4xl font-bold">
+            Gas Equipment Solutions for Every Industry{" "}
           </h2>
-          <h2 className="text-xl md:text-2xl font-extralight">
-            Diverse Industries
-          </h2>
+          <h3 className="text-xl md:text-2xl font-extralight">
+            Comprehensive Products for Industrial & Commercial Applications
+          </h3>
         </motion.div>
 
         {/* Product Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              title: "RECD",
-              desc: "In a time of growing environmental concerns, Vayu Pure RECD offers an advanced solution to reduce harmful emissions from diesel generators. It ensures cleaner air, strict compliance, and strong performance without compromising reliability or operational standards.",
+              title: "Vayu Pure RECD – Retrofit Emission Control Device",
+              desc: "Reduce diesel generator emissions with our CPCB-approved RECD technology. Ensure compliance, minimize air pollution, and support India’s clean energy mission",
               link: "/retrofit-emission-control-device-recd",
             },
             {
-              title: "Dual Fuel Kit",
-              desc: "Our Dual Fuel Technology uses both diesel and natural gas to boost fuel efficiency, lower emissions, and reduce costs. It's a smart and cleaner alternative that enhances engine performance while promoting sustainability for industrial operations.",
+              title: "Dual-Fuel Kits for Diesel Generators",
+              desc: "Switch between diesel and natural gas with our dual-fuel conversion kits. Save fuel costs, lower emissions, and extend generator life.",
               link: "/dual-fuel-kit",
             },
             {
-              title: "Gas Gen Set",
-              desc: "We provide Gas Gensets designed for clean, uninterrupted power. Operating on biogas or natural gas, our PSI Gensets deliver consistent output, reduce emissions, and help industries worldwide meet modern energy and sustainability standards efficiently.",
+              title: "PSI Gas Gensets",
+              desc: "Our industrial gas gensets deliver reliable, efficient, and eco-friendly power for manufacturing, healthcare, and commercial applications.",
               link: "/",
             },
           ].map((product, index) => (
@@ -53,7 +53,7 @@ const ThirdPage = () => {
               className="bg-white text-black rounded-2xl p-6 shadow-md flex flex-col justify-between"
             >
               <div>
-                <h3 className="text-lg md:text-4xl font-bold mb-3">
+                <h3 className="text-lg md:text-2xl font-bold mb-3">
                   {product.title}
                 </h3>
                 <p className="text-xl text-gray-900 font-medium">

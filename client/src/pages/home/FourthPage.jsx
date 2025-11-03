@@ -11,25 +11,22 @@ const sectors = [
   {
     icon: <FaIndustry className="text-orange-500 text-4xl mb-4" />,
     title: "Manufacturing",
-    description:
-      "Increasing the efficiency and sustainability of production processes.",
+    description: "Reduce costs with efficient gas gensets",
   },
   {
     icon: <FaHandHoldingHeart className="text-orange-500 text-4xl mb-4" />,
     title: "Healthcare",
-    description:
-      "Clean and reliable energy solutions for critical healthcare facilities.",
+    description: "Ensure uninterrupted power for critical operations",
   },
   {
     icon: <FaLeaf className="text-orange-500 text-4xl mb-4" />,
     title: "Agriculture",
-    description:
-      "Providing efficient biogas solutions to promote sustainable farming practices.",
+    description: "Adopt sustainable biogas energy for farming.",
   },
   {
     icon: <FaTrash className="text-orange-500 text-4xl mb-4" />,
     title: "Waste Management",
-    description: "Transforming waste into energy with biogas technology.",
+    description: "Turn organic waste into renewable energy.",
   },
 ];
 
@@ -45,8 +42,7 @@ const FourthPage = () => {
         className="text-center mb-12"
       >
         <h2 className="text-2xl md:text-5xl font-bold italic">
-          <span className="font-extrabold">Sectors We Serve:</span> Customized
-          Solutions for All
+          Powering Industries with Reliable Gas Solutions
         </h2>
         <p className="mt-2 text-xl">
           Our innovative solutions span multiple industries. Which includes:

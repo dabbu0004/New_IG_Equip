@@ -4,26 +4,24 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 const faqs = [
   {
     question:
-      "Why should you choose biogas solutions from IG Equipment for your industrial settings?",
+      "Why should industries use gas gensets from Inventive Gas Equipment?",
     answer:
-      "With our biogas system, industries can efficiently cut down operational costs and contribute less carbon to the atmosphere. Our solutions allow on-site biogas production using organic waste.",
+      "Our gas gensets provide eco-friendly, cost-efficient, and reliable power, making them ideal for industries seeking clean energy solutions.",
   },
   {
-    question:
-      "What should industries consider before switching to different cleaner energy systems by Inventive Gas Equipment?",
+    question: "What is a Retrofit Emission Control Device (RECD)?",
     answer:
-      "We recommend evaluating infrastructure compatibility for the usage of technology, regulatory requirements, and your current fuel usage.",
+      "The Vayu Pure RECD reduces diesel generator emissions, ensures CPCB compliance, and helps industries meet environmental regulations.",
   },
   {
-    question:
-      "How do you ensure customized solutions for different industry needs?",
+    question: "How do dual-fuel kits work?",
     answer:
-      "Inventive Gas Equipment offers solutions tailored to your specific operational goals, fuel types, and environmental targets.",
+      "Dual-fuel kits allow generators to run on both diesel and natural gas, offering cost savings and reduced emissions.",
   },
   {
-    question: "What industries does Inventive Gas Equipment serve?",
+    question: "Do you provide customized energy solutions?",
     answer:
-      "We serve a variety of sectors, including manufacturing, agriculture, power generation, and food processing. IG Equipment provides gas-based solutions that are energy-efficient and environmentally responsible.",
+      "Yes. Our experts design custom gas genset systems, dual-fuel kits, and RECDs to match industry-specific requirements.",
   },
 ];
 
@@ -38,7 +36,7 @@ const FaqSection = () => {
     <div className="py-16 px-4 md:px-20 flex flex-col items-center bg-gradient-to-r from-red-500 to-orange-400">
       {/* Heading */}
       <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-red-500 to-orange-400 text-white px-4 py-1 rounded-md mb-8 self-start md:self-center">
-        Frequently Asked Questions
+        FAQ – Gas Gensets, Dual-Fuel Kits & RECD{" "}
       </h2>
 
       {/* FAQ Boxes */}
