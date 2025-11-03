@@ -1,4 +1,4 @@
- import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -13,9 +13,12 @@ const ThankYou = () => {
         <div className="w-20 h-20 mx-auto bg-green-100 rounded-full flex items-center justify-center shadow-inner mb-6">
           <CheckCircle className="text-green-500 w-10 h-10" />
         </div>
-        <h2 className="text-3xl font-extrabold text-gray-800 mb-3">Thank You!</h2>
+        <h2 className="text-3xl font-extrabold text-gray-800 mb-3">
+          Thank You!
+        </h2>
         <p className="text-gray-600 text-sm sm:text-base mb-6">
-          Your message has been successfully sent. Our team will get back to you as soon as possible.
+          Your message has been successfully sent. Our team will get back to you
+          as soon as possible.
         </p>
         <Link
           to="/"

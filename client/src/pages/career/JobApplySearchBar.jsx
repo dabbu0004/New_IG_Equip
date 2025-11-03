@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
-  Upload, Send, User, Mail, Phone, MessageSquare,
-  FileText, X, CheckCircle
+  Upload,
+  Send,
+  User,
+  Mail,
+  Phone,
+  MessageSquare,
+  FileText,
+  X,
+  CheckCircle,
 } from "lucide-react";
 
 const JobApplySearchBar = () => {
@@ -38,7 +45,8 @@ const JobApplySearchBar = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name required";
     if (!formData.email.trim()) newErrors.email = "Email required";
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Invalid email";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Invalid email";
     if (!formData.phone.trim()) newErrors.phone = "Phone required";
     if (!resume) newErrors.resume = "Resume required";
 
@@ -50,7 +58,7 @@ const JobApplySearchBar = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -58,21 +66,21 @@ const JobApplySearchBar = () => {
     const file = e.target.files[0];
     if (file) {
       if (file.type !== "application/pdf") {
-        setErrors(prev => ({ ...prev, resume: "PDF only" }));
+        setErrors((prev) => ({ ...prev, resume: "PDF only" }));
         return;
       }
       if (file.size > 5 * 1024 * 1024) {
-        setErrors(prev => ({ ...prev, resume: "Max 5MB" }));
+        setErrors((prev) => ({ ...prev, resume: "Max 5MB" }));
         return;
       }
       setResume(file);
-      setErrors(prev => ({ ...prev, resume: "" }));
+      setErrors((prev) => ({ ...prev, resume: "" }));
     }
   };
 
   const removeFile = () => {
     setResume(null);
-    setErrors(prev => ({ ...prev, resume: "" }));
+    setErrors((prev) => ({ ...prev, resume: "" }));
   };
 
   const handleSubmit = async () => {
@@ -83,7 +91,7 @@ const JobApplySearchBar = () => {
     const resumeLink = await uploadToTmpFiles(resume);
 
     if (!resumeLink) {
-      setErrors(prev => ({ ...prev, resume: "Upload failed" }));
+      setErrors((prev) => ({ ...prev, resume: "Upload failed" }));
       setLoading(false);
       return;
     }
@@ -97,35 +105,35 @@ const JobApplySearchBar = () => {
       jobTitle: "Job Application",
     };
 
-    emailjs.send(
-      "service_hawndof",
-      "template_e4n0izn",
-      templateParams,
-      "WY_Qj_U52qx43oUia"
-    )
-    .then(() => {
-      alert("Application sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-      setResume(null);
-      setErrors({});
-    })
-    .catch((err) => {
-      console.error("Email send error:", err);
-      alert("Failed to send application: " + err.message);
-    })
-    .finally(() => setLoading(false));
+    emailjs
+      .send(
+        "service_hawndof",
+        "template_e4n0izn",
+        templateParams,
+        "WY_Qj_U52qx43oUia"
+      )
+      .then(() => {
+        alert("Application sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+        setResume(null);
+        setErrors({});
+      })
+      .catch((err) => {
+        console.error("Email send error:", err);
+        alert("Failed to send application: " + err.message);
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
     <div className="w-full max-w-7xl mx-auto mt-4">
       <div className="bg-white shadow-xl rounded-xl px-10 py-6">
         <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-4">
-
           {/* Name Input */}
           <div className="flex-1 min-w-0 w-full lg:w-auto">
             <div className="relative">
@@ -137,13 +145,15 @@ const JobApplySearchBar = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className={`w-full pl-10 pr-4 py-3 rounded-full border transition-all duration-200 text-sm ${
-                  errors.name 
-                    ? 'border-red-300 focus:border-red-500 focus:ring-red-200' 
-                    : 'border-gray-300 focus:border-orange-500 focus:ring-orange-200'
+                  errors.name
+                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
+                    : "border-gray-300 focus:border-orange-500 focus:ring-orange-200"
                 } focus:ring-2 focus:ring-opacity-50 outline-none`}
               />
             </div>
-            {errors.name && <p className="text-red-500 text-xs mt-1 ml-3">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-red-500 text-xs mt-1 ml-3">{errors.name}</p>
+            )}
           </div>
 
           {/* Email Input */}
@@ -157,13 +167,15 @@ const JobApplySearchBar = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className={`w-full pl-10 pr-4 py-3 rounded-full border transition-all duration-200 text-sm ${
-                  errors.email 
-                    ? 'border-red-300 focus:border-red-500 focus:ring-red-200' 
-                    : 'border-gray-300 focus:border-orange-500 focus:ring-orange-200'
+                  errors.email
+                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
+                    : "border-gray-300 focus:border-orange-500 focus:ring-orange-200"
                 } focus:ring-2 focus:ring-opacity-50 outline-none`}
               />
             </div>
-            {errors.email && <p className="text-red-500 text-xs mt-1 ml-3">{errors.email}</p>}
+            {errors.email && (
+              <p className="text-red-500 text-xs mt-1 ml-3">{errors.email}</p>
+            )}
           </div>
 
           {/* Phone Input */}
@@ -177,24 +189,28 @@ const JobApplySearchBar = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 className={`w-full pl-10 pr-4 py-3 rounded-full border transition-all duration-200 text-sm ${
-                  errors.phone 
-                    ? 'border-red-300 focus:border-red-500 focus:ring-red-200' 
-                    : 'border-gray-300 focus:border-orange-500 focus:ring-orange-200'
+                  errors.phone
+                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
+                    : "border-gray-300 focus:border-orange-500 focus:ring-orange-200"
                 } focus:ring-2 focus:ring-opacity-50 outline-none`}
               />
             </div>
-            {errors.phone && <p className="text-red-500 text-xs mt-1 ml-3">{errors.phone}</p>}
+            {errors.phone && (
+              <p className="text-red-500 text-xs mt-1 ml-3">{errors.phone}</p>
+            )}
           </div>
 
           {/* File Upload */}
           <div className="relative">
-            <label className={`flex items-center px-4 py-3 rounded-full cursor-pointer transition-all duration-200 text-sm font-medium ${
-              resume 
-                ? 'bg-green-100 text-green-700 border-2 border-green-300' 
-                : errors.resume 
-                  ? 'bg-red-100 text-red-700 border-2 border-red-300' 
-                  : 'bg-orange-100 text-orange-700 border-2 border-orange-300 hover:bg-orange-200'
-            } whitespace-nowrap`}>
+            <label
+              className={`flex items-center px-4 py-3 rounded-full cursor-pointer transition-all duration-200 text-sm font-medium ${
+                resume
+                  ? "bg-green-100 text-green-700 border-2 border-green-300"
+                  : errors.resume
+                  ? "bg-red-100 text-red-700 border-2 border-red-300"
+                  : "bg-orange-100 text-orange-700 border-2 border-orange-300 hover:bg-orange-200"
+              } whitespace-nowrap`}
+            >
               {resume ? (
                 <>
                   <CheckCircle className="w-4 h-4 mr-2" />
@@ -219,7 +235,9 @@ const JobApplySearchBar = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <FileText className="w-4 h-4 text-green-600 mr-2" />
-                    <span className="text-sm text-gray-700 truncate max-w-[120px]">{resume.name}</span>
+                    <span className="text-sm text-gray-700 truncate max-w-[120px]">
+                      {resume.name}
+                    </span>
                   </div>
                   <button
                     type="button"
@@ -231,7 +249,11 @@ const JobApplySearchBar = () => {
                 </div>
               </div>
             )}
-            {errors.resume && <p className="text-red-500 text-xs mt-1 absolute top-full left-0 whitespace-nowrap">{errors.resume}</p>}
+            {errors.resume && (
+              <p className="text-red-500 text-xs mt-1 absolute top-full left-0 whitespace-nowrap">
+                {errors.resume}
+              </p>
+            )}
           </div>
 
           {/* Message Input */}
@@ -255,9 +277,9 @@ const JobApplySearchBar = () => {
             onClick={handleSubmit}
             disabled={loading}
             className={`flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-200 text-sm whitespace-nowrap ${
-              loading 
-                ? 'bg-gray-400 cursor-not-allowed text-white' 
-                : 'bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
+              loading
+                ? "bg-gray-400 cursor-not-allowed text-white"
+                : "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             }`}
           >
             {loading ? (

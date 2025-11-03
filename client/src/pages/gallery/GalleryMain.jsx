@@ -1,14 +1,12 @@
-import React from 'react'
-import Gallery from './Gallery'
- 
+import React from "react";
+import Gallery from "./Gallery";
 
 const GalleryMain = () => {
   return (
     <div>
-      <Gallery/>
-     
+      <Gallery />
     </div>
-  )
-}
+  );
+};
 
-export default GalleryMain
+export default GalleryMain;

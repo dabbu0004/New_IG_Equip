@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import Contact from "./Contact";
-import { Helmet } from "react-helmet-async"; 
+import { Helmet } from "react-helmet-async";
 import {
   Mail,
   Phone,

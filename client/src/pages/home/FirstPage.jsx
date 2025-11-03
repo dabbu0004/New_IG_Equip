@@ -1,13 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const FirstPage = () => {
   return (
     <>
       <div className="max-w-7xl container mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 md:px-16 py-10 bg-white">
-
           {/* Left Section - Animated */}
           <motion.div
             className="w-full lg:w-1/2 text-left"

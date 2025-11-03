@@ -74,22 +74,25 @@ const FourthPage = () => {
 
           <ul className="space-y-4 text-[17px] lg:text-[22px] leading-relaxed opacity-90">
             <li>
-              <strong>High Efficiency:</strong> Reduces HC, CO, and PM emissions by over 99%.
+              <strong>High Efficiency:</strong> Reduces HC, CO, and PM emissions
+              by over 99%.
             </li>
             <li>
-              <strong>State-of-the-Art Technology:</strong> Incorporates a Diesel Oxidation Catalyst (DOC)
-              with flow-through design.
+              <strong>State-of-the-Art Technology:</strong> Incorporates a
+              Diesel Oxidation Catalyst (DOC) with flow-through design.
             </li>
             <li>
-              <strong>Proprietary Catalyst Coating:</strong> Enhanced with Platinum (Pt) and Palladium (Pd)
-              for superior performance.
+              <strong>Proprietary Catalyst Coating:</strong> Enhanced with
+              Platinum (Pt) and Palladium (Pd) for superior performance.
             </li>
             <li>
-              <strong>Exothermic Reaction:</strong> Converts harmful gases into safer emissions while releasing heat.
+              <strong>Exothermic Reaction:</strong> Converts harmful gases into
+              safer emissions while releasing heat.
             </li>
             <li>
-              <strong>Seamless Integration:</strong> Designed to work perfectly with DPF solutions, ensuring
-              optimal exhaust flow and back pressure.
+              <strong>Seamless Integration:</strong> Designed to work perfectly
+              with DPF solutions, ensuring optimal exhaust flow and back
+              pressure.
             </li>
           </ul>
 

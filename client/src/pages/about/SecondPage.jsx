@@ -1,12 +1,12 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const fadeDown = {
   hidden: { opacity: 0, y: -50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
+    transition: { duration: 0.8, ease: "easeOut" },
   },
 };
 
@@ -22,17 +22,22 @@ const SecondPage = () => {
         variants={fadeDown}
       >
         <h2 className="italic text-xl md:text-5xl font-semibold">
-          Shaping the Future of{' '}
+          Shaping the Future of{" "}
           <span className="font-extrabold">Industrial Gas Solutions</span>
         </h2>
         <p className="mt-4 md:mt-6 text-sm md:text-3xl leading-relaxed">
-          Welcome to <span className="font-semibold">Inventive Gas Equipment</span>, where innovation meets sustainability.
+          Welcome to{" "}
+          <span className="font-semibold">Inventive Gas Equipment</span>, where
+          innovation meets sustainability.
           <br className="hidden md:block" />
-          We develop advanced industrial gas systems that enable businesses to flourish
+          We develop advanced industrial gas systems that enable businesses to
+          flourish
           <br className="hidden md:block" />
-          while creating a more resilient planet. Whether it's through energy-efficient
+          while creating a more resilient planet. Whether it's through
+          energy-efficient
           <br className="hidden md:block" />
-          systems or tailored products, we're committed to providing quality that meets
+          systems or tailored products, we're committed to providing quality
+          that meets
           <br className="hidden md:block" />
           the diverse needs of our clients while remaining eco-conscious.
         </p>
@@ -58,15 +63,19 @@ const SecondPage = () => {
         {/* Text Section */}
         <div className="w-full md:w-1/2 text-white">
           <div className="bg-gradient-to-r from-red-600 to-orange-300 px-5 py-2 inline-block rounded-lg mb-4">
-            <h3 className="text-white font-bold text-lg md:text-xl">Who We Are?</h3>
+            <h3 className="text-white font-bold text-lg md:text-xl">
+              Who We Are?
+            </h3>
           </div>
           <p className="text-sm md:text-2xl leading-relaxed">
-            At <span className="font-bold">IG Equipment</span>, we are not just industrial gas equipment suppliers;
-            we are your partner for innovation and sustainability.
-            With decades of in-depth experience and a forward-thinking attitude,
-            our team develops tailored solutions designed to meet your unique requirements.
-            From modifying emission control devices to improving biogas system efficiency through generator refurbishment,
-            we’ve made our mark in terms of reliability, efficiency, and care.
+            At <span className="font-bold">IG Equipment</span>, we are not just
+            industrial gas equipment suppliers; we are your partner for
+            innovation and sustainability. With decades of in-depth experience
+            and a forward-thinking attitude, our team develops tailored
+            solutions designed to meet your unique requirements. From modifying
+            emission control devices to improving biogas system efficiency
+            through generator refurbishment, we’ve made our mark in terms of
+            reliability, efficiency, and care.
           </p>
         </div>
       </motion.div>

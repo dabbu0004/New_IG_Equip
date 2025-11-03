@@ -6,10 +6,10 @@ const SecondPage = () => {
     <section className="container mx-auto max-w-7xl bg-white px-3 sm:px-6 md:px-20 py-6 sm:py-10">
       {/* Our Legacy Section */}
       <div className="relative bg-gray-600 text-white rounded-2xl p-2 sm:p-6 flex flex-row md:flex-row justify-between items-center gap-2 sm:gap-6 mb-10 shadow-md overflow-hidden">
-      <div className="hidden sm:block text-left w-full md:w-auto">
-  <h3 className="text-2xl font-light">Our Legacy</h3>
-  <p className="text-xl text-gray-300">long-term, visionary tone</p>
-</div>
+        <div className="hidden sm:block text-left w-full md:w-auto">
+          <h3 className="text-2xl font-light">Our Legacy</h3>
+          <p className="text-xl text-gray-300">long-term, visionary tone</p>
+        </div>
 
         <div className="text-center">
           <p className="text-xl sm:text-5xl font-bold">900+</p>
@@ -51,21 +51,24 @@ const SecondPage = () => {
           <div className="flex items-start gap-3">
             <FaBolt className="text-orange-500 text-lg sm:text-3xl mt-1" />
             <p>
-              Cut down on energy usage with advanced,<br className="hidden sm:inline" />
+              Cut down on energy usage with advanced,
+              <br className="hidden sm:inline" />
               proven energy-smart technologies
             </p>
           </div>
           <div className="flex items-start gap-3">
             <FaLeaf className="text-orange-500 text-lg sm:text-3xl mt-1" />
             <p>
-              Enjoy zero upfront investment through our <br className="hidden sm:inline" />
+              Enjoy zero upfront investment through our{" "}
+              <br className="hidden sm:inline" />
               save-as-you-go payment model
             </p>
           </div>
           <div className="flex items-start gap-3">
             <FaArrowUp className="text-orange-500 text-lg sm:text-3xl mt-1" />
             <p>
-              Upgrade your infrastructure with future-ready, <br className="hidden sm:inline" />
+              Upgrade your infrastructure with future-ready,{" "}
+              <br className="hidden sm:inline" />
               clean energy systems
             </p>
           </div>

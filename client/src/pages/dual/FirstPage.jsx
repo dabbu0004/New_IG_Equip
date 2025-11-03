@@ -40,13 +40,16 @@ const FirstPage = () => {
             </div>
 
             <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 leading-relaxed text-gray-700">
-              Revolutionizing clean air solutions for diesel gensets through advanced retrofit technology.
+              Revolutionizing clean air solutions for diesel gensets through
+              advanced retrofit technology.
             </p>
 
             {/* Stats Pills */}
             <div className="flex flex-row flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8">
               <div className="flex items-center bg-gradient-to-r from-red-500 to-orange-400 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full flex-1 min-w-[150px]">
-                <span className="text-xl sm:text-2xl font-extrabold mr-2">99%</span>
+                <span className="text-xl sm:text-2xl font-extrabold mr-2">
+                  99%
+                </span>
                 <div className="text-xs sm:text-sm leading-snug">
                   <div className="font-semibold">Emission Reduction</div>
                   <div className="text-[10px] sm:text-xs opacity-90">
@@ -61,12 +64,12 @@ const FirstPage = () => {
                 </div>
                 <div className="text-xs sm:text-sm leading-snug">
                   <div className="font-semibold">Quick Installation</div>
-                  <div className="text-[10px] sm:text-xs opacity-90">Minimum Downtime</div>
+                  <div className="text-[10px] sm:text-xs opacity-90">
+                    Minimum Downtime
+                  </div>
                 </div>
               </div>
             </div>
-
-         
           </motion.div>
 
           {/* Right Image Section */}

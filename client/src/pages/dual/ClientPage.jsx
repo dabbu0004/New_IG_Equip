@@ -4,10 +4,22 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 const clientLogos = [
-  "/images/1.jpeg", "/images/10.jpeg", "/images/11.jpeg", "/images/13.jpeg",
-  "/images/1.jpeg", "/images/10.jpeg", "/images/11.jpeg", "/images/13.jpeg",
-  "/images/1.jpeg", "/images/10.jpeg", "/images/11.jpeg", "/images/13.jpeg",
-  "/images/1.jpeg", "/images/10.jpeg", "/images/11.jpeg", "/images/13.jpeg",
+  "/images/1.jpeg",
+  "/images/10.jpeg",
+  "/images/11.jpeg",
+  "/images/13.jpeg",
+  "/images/1.jpeg",
+  "/images/10.jpeg",
+  "/images/11.jpeg",
+  "/images/13.jpeg",
+  "/images/1.jpeg",
+  "/images/10.jpeg",
+  "/images/11.jpeg",
+  "/images/13.jpeg",
+  "/images/1.jpeg",
+  "/images/10.jpeg",
+  "/images/11.jpeg",
+  "/images/13.jpeg",
 ];
 
 const ClientPage = () => {
@@ -25,10 +37,10 @@ const ClientPage = () => {
           spaceBetween={16}
           slidesPerView={3} // 👈 Default: Mobile view
           breakpoints={{
-            640: { slidesPerView: 4, spaceBetween: 18 },   // small tablets
-            768: { slidesPerView: 5, spaceBetween: 20 },   // medium screens
-            1024: { slidesPerView: 6, spaceBetween: 24 },  // laptops
-            1280: { slidesPerView: 7, spaceBetween: 28 },  // desktops
+            640: { slidesPerView: 4, spaceBetween: 18 }, // small tablets
+            768: { slidesPerView: 5, spaceBetween: 20 }, // medium screens
+            1024: { slidesPerView: 6, spaceBetween: 24 }, // laptops
+            1280: { slidesPerView: 7, spaceBetween: 28 }, // desktops
           }}
         >
           {clientLogos.map((logo, index) => (
@@ -48,4 +60,4 @@ const ClientPage = () => {
   );
 };
 
-export default  ClientPage ;
+export default ClientPage;

@@ -61,7 +61,9 @@ const NinePage = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-5 text-center">
-                <h3 className="text-xl font-bold text-gray-800">{item.title}</h3>
+                <h3 className="text-xl font-bold text-gray-800">
+                  {item.title}
+                </h3>
                 <p className="text-sm text-gray-600 mt-2">{item.description}</p>
               </div>
             </div>
@@ -81,7 +83,9 @@ const NinePage = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-5 text-center">
-                <h3 className="text-xl font-bold text-gray-800">{item.title}</h3>
+                <h3 className="text-xl font-bold text-gray-800">
+                  {item.title}
+                </h3>
                 <p className="text-sm text-gray-600 mt-2">{item.description}</p>
               </div>
             </div>

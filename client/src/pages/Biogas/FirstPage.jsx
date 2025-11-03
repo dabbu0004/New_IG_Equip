@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const images = [
-  "/images/Bio gas banner.png",
-  "/images/Bio gas banner 2.png",
-];
+const images = ["/images/Bio gas banner.png", "/images/Bio gas banner 2.png"];
 
 const FirstPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,7 +50,9 @@ const FirstPage = () => {
               key={index}
               onClick={() => handleDotClick(index)}
               className={`w-2 h-2 rounded-full ${
-                index === currentIndex ? "bg-orange-600 scale-125" : "bg-gray-400"
+                index === currentIndex
+                  ? "bg-orange-600 scale-125"
+                  : "bg-gray-400"
               } transition duration-300`}
             />
           ))}

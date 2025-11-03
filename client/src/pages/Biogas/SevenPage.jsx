@@ -43,7 +43,8 @@ export default function SevenPage() {
                       LED lamps for GenSet running, shutdown, warning, etc.
                     </li>
                     <li>
-                      Alphanumeric display with pushbuttons for engine/alternator data.
+                      Alphanumeric display with pushbuttons for
+                      engine/alternator data.
                     </li>
                     <li>Fault history and GenSet model data.</li>
                     <li>RS485 Modbus interface.</li>

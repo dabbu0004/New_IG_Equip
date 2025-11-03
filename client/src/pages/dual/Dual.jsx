@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet-async"; 
+import { Helmet } from "react-helmet-async";
 
 import FirstPage from "./FirstPage";
 import SecondPage from "./SecondPage";
@@ -15,12 +15,16 @@ const Dual = () => {
   return (
     <div>
       <Helmet>
-        <title>Vayu Pure RECD – Retrofit Emission Control Device | CPCB Approved Solution by Inventive
-Gas Equipment
-</title>
-        <meta name="description" content="Inventive Gas Equipment is India’s No.1 RECD Device Manufacturer. Discover CPCB-approved
+        <title>
+          Vayu Pure RECD – Retrofit Emission Control Device | CPCB Approved
+          Solution by Inventive Gas Equipment
+        </title>
+        <meta
+          name="description"
+          content="Inventive Gas Equipment is India’s No.1 RECD Device Manufacturer. Discover CPCB-approved
 Vayu pure Retrofit Emission Control Devices to reduce diesel generator emissions and ensure
-compliance." />
+compliance."
+        />
       </Helmet>
 
       <EkPage />

@@ -40,7 +40,9 @@ const FourthPage = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-3">Inventive Control System</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3">
+            Inventive Control System
+          </h1>
           <div className="h-1 bg-gradient-to-r from-yellow-400 to-orange-300 w-32 mx-auto rounded-full"></div>
         </div>
 
@@ -58,7 +60,9 @@ const FourthPage = () => {
               Integrated Power Solutions
             </h2>
             <p className="text-lg leading-relaxed">
-              From generating sets and transfer switches to remote monitoring and CHP systems, Inventive provides full-scope services with over 15 years of gas power experience.
+              From generating sets and transfer switches to remote monitoring
+              and CHP systems, Inventive provides full-scope services with over
+              15 years of gas power experience.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="bg-white/20 p-4 rounded-lg text-center">
@@ -83,7 +87,8 @@ const FourthPage = () => {
             className="text-center mb-10"
           >
             <h2 className="text-2xl md:text-4xl font-bold italic">
-              <span className="font-extrabold">Ready to Go:</span> Integrated Power Solutions
+              <span className="font-extrabold">Ready to Go:</span> Integrated
+              Power Solutions
             </h2>
             <p className="mt-2 text-lg">
               Our innovative solutions span multiple industries, including:

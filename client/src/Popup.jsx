@@ -49,11 +49,7 @@ const Popup = ({ onClose }) => {
     };
 
     try {
-      await emailjs.send(
-        "service_hawndof",
-        "template_oq9wtp3",
-        templateParams
-      );
+      await emailjs.send("service_hawndof", "template_oq9wtp3", templateParams);
 
       setSubmitted(true);
       setFormData({

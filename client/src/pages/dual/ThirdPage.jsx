@@ -52,9 +52,9 @@ const ThirdPage = () => {
           ref={contentRef}
           className="text-center mb-8 sm:mb-12 opacity-0 transform -translate-y-12"
         >
-         <h2 className="text-[18px] sm:text-3xl lg:text-5xl font-bold italic mb-4 leading-snug text-left sm:text-center">
-  Cut Emissions, Not Performance.
-</h2>
+          <h2 className="text-[18px] sm:text-3xl lg:text-5xl font-bold italic mb-4 leading-snug text-left sm:text-center">
+            Cut Emissions, Not Performance.
+          </h2>
 
           <p className="text-xs sm:text-base lg:text-xl max-w-2xl mx-auto text-white opacity-90 leading-relaxed">
             With Vayu Pure RECD, reduce harmful emissions from your diesel

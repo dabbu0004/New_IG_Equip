@@ -6,17 +6,20 @@ const industries = [
   {
     icon: <FaIndustry size={40} className="text-orange-500" />,
     title: "Manufacturing",
-    description: "Increasing the efficiency and sustainability of production processes.",
+    description:
+      "Increasing the efficiency and sustainability of production processes.",
   },
   {
     icon: <FaHospitalSymbol size={40} className="text-orange-500" />,
     title: "Healthcare",
-    description: "Clean and reliable energy solutions for critical healthcare facilities.",
+    description:
+      "Clean and reliable energy solutions for critical healthcare facilities.",
   },
   {
     icon: <GiPlantRoots size={40} className="text-orange-500" />,
     title: "Agriculture",
-    description: "Providing efficient biogas solutions to promote sustainable farming practices.",
+    description:
+      "Providing efficient biogas solutions to promote sustainable farming practices.",
   },
   {
     icon: <FaRecycle size={40} className="text-orange-500" />,

@@ -97,19 +97,67 @@ const Contact = () => {
   };
 
   const formFields = [
-    { label: "First Name", name: "firstName", type: "text", icon: User, placeholder: "Enter your first name" },
-    { label: "Last Name", name: "lastName", type: "text", icon: User, placeholder: "Enter your last name" },
-    { label: "Company Name", name: "company", type: "text", icon: Building, placeholder: "Your company name" },
-    { label: "Location", name: "location", type: "text", icon: MapPin, placeholder: "City, Country" },
-    { label: "Phone Number", name: "phone", type: "tel", icon: Phone, placeholder: "+91 12345 67890" },
-    { label: "Company Email", name: "email", type: "email", icon: Mail, placeholder: "email@company.com" },
+    {
+      label: "First Name",
+      name: "firstName",
+      type: "text",
+      icon: User,
+      placeholder: "Enter your first name",
+    },
+    {
+      label: "Last Name",
+      name: "lastName",
+      type: "text",
+      icon: User,
+      placeholder: "Enter your last name",
+    },
+    {
+      label: "Company Name",
+      name: "company",
+      type: "text",
+      icon: Building,
+      placeholder: "Your company name",
+    },
+    {
+      label: "Location",
+      name: "location",
+      type: "text",
+      icon: MapPin,
+      placeholder: "City, Country",
+    },
+    {
+      label: "Phone Number",
+      name: "phone",
+      type: "tel",
+      icon: Phone,
+      placeholder: "+91 12345 67890",
+    },
+    {
+      label: "Company Email",
+      name: "email",
+      type: "email",
+      icon: Mail,
+      placeholder: "email@company.com",
+    },
   ];
 
   const features = [
-    { icon: Phone, text: "+918830317796 , +917042100426", color: "from-blue-400 to-cyan-400" },
-    { icon: MessageCircle, text: "Quick Response Time", color: "from-green-400 to-emerald-400" },
+    {
+      icon: Phone,
+      text: "+918830317796 , +917042100426",
+      color: "from-blue-400 to-cyan-400",
+    },
+    {
+      icon: MessageCircle,
+      text: "Quick Response Time",
+      color: "from-green-400 to-emerald-400",
+    },
     { icon: Globe, text: "Global Reach", color: "from-purple-400 to-pink-400" },
-    { icon: MapPin, text: "Plot No.65, Udyog Vihar, Ecotech II, Greater Noida, 201306 India", color: "from-yellow-400 to-orange-400" },
+    {
+      icon: MapPin,
+      text: "Plot No.65, Udyog Vihar, Ecotech II, Greater Noida, 201306 India",
+      color: "from-yellow-400 to-orange-400",
+    },
   ];
 
   return (
@@ -129,7 +177,8 @@ const Contact = () => {
               </span>
             </h1>
             <p className="text-base sm:text-lg font-light opacity-90 leading-relaxed">
-              Transform your business with our expert guidance. We're here to make it happen!
+              Transform your business with our expert guidance. We're here to
+              make it happen!
             </p>
           </div>
 
@@ -162,7 +211,9 @@ const Contact = () => {
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                   Send us a message
                 </h2>
-                <p className="text-sm text-gray-600">We'd love to hear from you and help grow your business.</p>
+                <p className="text-sm text-gray-600">
+                  We'd love to hear from you and help grow your business.
+                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {formFields.map((field) => {
@@ -176,7 +227,11 @@ const Contact = () => {
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <IconComponent
-                            className={`w-4 h-4 ${focusedField === field.name || isFieldFilled ? "text-orange-500" : "text-gray-400"}`}
+                            className={`w-4 h-4 ${
+                              focusedField === field.name || isFieldFilled
+                                ? "text-orange-500"
+                                : "text-gray-400"
+                            }`}
                           />
                         </div>
                         <input
@@ -202,11 +257,18 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Additional Information</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  Additional Information
+                </label>
                 <div className="relative">
                   <div className="absolute top-2 left-3 pointer-events-none">
                     <MessageCircle
-                      className={`w-4 h-4 ${focusedField === "message" || formData.message.length > 0 ? "text-orange-500" : "text-gray-400"}`}
+                      className={`w-4 h-4 ${
+                        focusedField === "message" ||
+                        formData.message.length > 0
+                          ? "text-orange-500"
+                          : "text-gray-400"
+                      }`}
                     />
                   </div>
                   <textarea
@@ -237,8 +299,12 @@ const Contact = () => {
                   className="mt-0.5 h-4 w-4 text-orange-500 border-2 border-gray-300 rounded"
                 />
                 <p className="text-xs text-gray-700">
-                  I agree to the <span className="text-orange-600 font-semibold cursor-pointer hover:underline">privacy policy</span> and acknowledge that my
-                  information will remain confidential and secure.
+                  I agree to the{" "}
+                  <span className="text-orange-600 font-semibold cursor-pointer hover:underline">
+                    privacy policy
+                  </span>{" "}
+                  and acknowledge that my information will remain confidential
+                  and secure.
                 </p>
               </div>
 

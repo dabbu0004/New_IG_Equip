@@ -8,7 +8,7 @@ const ThirdPage = () => {
       {/* Product Cards Section */}
       <section className="max-w-7xl mx-auto container px-4 md:px-20 py-8 text-white">
         <h1 className="text-center text-3xl md:text-5xl font-bold mb-10">
-        Gas Gensets Built for Every Purpose
+          Gas Gensets Built for Every Purpose
         </h1>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -59,8 +59,6 @@ const ThirdPage = () => {
         <div className="absolute bottom-40 right-20 w-48 h-48 bg-orange-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-red-300/10 rounded-full blur-xl animate-pulse delay-500"></div>
       </div>
-
-     
     </div>
   );
 };

@@ -34,10 +34,7 @@ const Footer = () => {
           >
             Vayu Pure RECD
           </a>
-          <a
-            href="/gas-ganset"
-            className="hover:text-orange-600"
-          >
+          <a href="/gas-ganset" className="hover:text-orange-600">
             Gas Ganset
           </a>
           <a href="/biogas" className="hover:text-orange-600">
@@ -74,8 +71,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Address */}
           <div className="text-center md:text-left text-sm font-medium text-gray-800 mb-3 md:mb-0">
-            Inventive Gas Equipment, Plot No.65, Udyog Vihar, Ecotech II, Greater
-            Noida, 201306 India
+            Inventive Gas Equipment, Plot No.65, Udyog Vihar, Ecotech II,
+            Greater Noida, 201306 India
           </div>
 
           {/* Phone Numbers */}

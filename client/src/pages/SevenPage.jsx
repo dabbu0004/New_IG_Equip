@@ -303,4 +303,3 @@ const SevenPage = () => {
 };
 
 export default SevenPage;
-

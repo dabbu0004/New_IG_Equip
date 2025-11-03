@@ -16,7 +16,8 @@ const GasMain = () => {
       <>
         <Helmet>
           <title>
-          Gas Genset Solutions | Reliable & Clean Power by Inventive Gas Equipment
+            Gas Genset Solutions | Reliable & Clean Power by Inventive Gas
+            Equipment
           </title>
           <meta
             name="description"

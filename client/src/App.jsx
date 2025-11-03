@@ -13,7 +13,7 @@ import ContactPages from "./ContactPages";
 import WhatsApp from "./WhatsApp";
 import CallButton from "./CallButton";
 import TermsAndCondition from "./TermsAndConditionsPage";
- 
+
 import CareerPage from "./pages/career/CareerPage";
 import GasMain from "./pages/gas/GasMain";
 import Popup from "./Popup"; // Adjust path as needed
@@ -63,10 +63,16 @@ const App = () => {
         <Route path="/gas-ganset" element={<GasMain />} />
         <Route path="/Contact" element={<ContactPages />} />
         <Route path="/thank-you" element={<ThankYou />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+        <Route
+          path="/terms-and-conditions"
+          element={<TermsAndConditionsPage />}
+        />
         <Route path="/privacy-policy" element={<PrivacyPage />} />
         <Route path="/biogas" element={<BioGas />} />
-        <Route path="/retrofit-emission-control-device-recd" element={<Dual />} />
+        <Route
+          path="/retrofit-emission-control-device-recd"
+          element={<Dual />}
+        />
         <Route path="/career" element={<CareerPage />} />
       </Routes>
 

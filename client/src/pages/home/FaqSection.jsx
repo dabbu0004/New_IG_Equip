@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 const faqs = [
   {
-    question: 'Why should you choose biogas solutions from IG Equipment for your industrial settings?',
-    answer: 'With our biogas system, industries can efficiently cut down operational costs and contribute less carbon to the atmosphere. Our solutions allow on-site biogas production using organic waste.',
+    question:
+      "Why should you choose biogas solutions from IG Equipment for your industrial settings?",
+    answer:
+      "With our biogas system, industries can efficiently cut down operational costs and contribute less carbon to the atmosphere. Our solutions allow on-site biogas production using organic waste.",
   },
   {
-    question: 'What should industries consider before switching to different cleaner energy systems by Inventive Gas Equipment?',
-    answer: 'We recommend evaluating infrastructure compatibility for the usage of technology, regulatory requirements, and your current fuel usage.',
+    question:
+      "What should industries consider before switching to different cleaner energy systems by Inventive Gas Equipment?",
+    answer:
+      "We recommend evaluating infrastructure compatibility for the usage of technology, regulatory requirements, and your current fuel usage.",
   },
   {
-    question: 'How do you ensure customized solutions for different industry needs?',
-    answer: 'Inventive Gas Equipment offers solutions tailored to your specific operational goals, fuel types, and environmental targets.',
+    question:
+      "How do you ensure customized solutions for different industry needs?",
+    answer:
+      "Inventive Gas Equipment offers solutions tailored to your specific operational goals, fuel types, and environmental targets.",
   },
   {
-    question: 'What industries does Inventive Gas Equipment serve?',
-    answer: 'We serve a variety of sectors, including manufacturing, agriculture, power generation, and food processing. IG Equipment provides gas-based solutions that are energy-efficient and environmentally responsible.',
+    question: "What industries does Inventive Gas Equipment serve?",
+    answer:
+      "We serve a variety of sectors, including manufacturing, agriculture, power generation, and food processing. IG Equipment provides gas-based solutions that are energy-efficient and environmentally responsible.",
   },
 ];
 
@@ -48,7 +55,7 @@ const FaqSection = () => {
               <span className="text-base sm:text-lg">{faq.question}</span>
               <MdKeyboardDoubleArrowDown
                 className={`transform transition-transform duration-300 text-3xl sm:text-4xl ${
-                  openIndex === index ? 'rotate-180' : ''
+                  openIndex === index ? "rotate-180" : ""
                 }`}
               />
             </button>

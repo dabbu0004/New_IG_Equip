@@ -22,7 +22,9 @@ const gensetData = [
 const SixPage = () => {
   return (
     <div className="p-4 sm:p-10 bg-gradient-to-r from-red-500 to-orange-400">
-      <h2 className="text-2xl sm:text-5xl font-bold text-center mb-6 text-white">Gas Genset Models</h2>
+      <h2 className="text-2xl sm:text-5xl font-bold text-center mb-6 text-white">
+        Gas Genset Models
+      </h2>
       <div className="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
         <table className="min-w-full text-sm text-center border-collapse">
           <thead className="bg-[#f79a1f] text-white uppercase tracking-wider">
@@ -31,7 +33,6 @@ const SixPage = () => {
               <th className="px-4 py-3 border">Application</th>
               <th className="px-4 py-3 border">Power Rating (kW)</th>
               <th className="px-4 py-3 border">Power Rating (kVA)</th>
-               
             </tr>
           </thead>
           <tbody>
@@ -41,7 +42,6 @@ const SixPage = () => {
                 <td className="px-4 py-2 border">{item.application}</td>
                 <td className="px-4 py-2 border">{item.kw}</td>
                 <td className="px-4 py-2 border">{item.kva}</td>
-                 
               </tr>
             ))}
           </tbody>

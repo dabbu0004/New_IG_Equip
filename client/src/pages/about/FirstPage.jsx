@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const FirstPage = () => {
   return (
@@ -6,7 +6,9 @@ const FirstPage = () => {
       {/* Top Banner */}
       <div className="max-w-[98%] mx-auto container bg-gradient-to-r from-red-500 to-orange-400 text-white text-center py-6 rounded-2xl">
         <h2 className="text-3xl md:text-5xl font-bold">About Us</h2>
-        <p className="text-lg md:text-2xl mt-2">Inventive Gas Equipment Pvt. Ltd</p>
+        <p className="text-lg md:text-2xl mt-2">
+          Inventive Gas Equipment Pvt. Ltd
+        </p>
       </div>
       <br />
 

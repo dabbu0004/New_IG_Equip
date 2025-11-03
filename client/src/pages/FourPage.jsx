@@ -459,8 +459,6 @@ const FourPage = () => {
 
     animate();
 
- 
-
     // Handle resize
     const handleResize = () => {
       camera.aspect = currentMount.clientWidth / currentMount.clientHeight;

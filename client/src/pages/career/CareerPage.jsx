@@ -74,7 +74,9 @@ const CareerPage = () => {
   return (
     <>
       <Helmet>
-        <title>Careers at Inventive Gas Equipment | Build a Future with Innovation</title>
+        <title>
+          Careers at Inventive Gas Equipment | Build a Future with Innovation
+        </title>
         <meta
           name="description"
           content="Join the team at Inventive Gas Equipment — a workplace where innovation meets purpose.

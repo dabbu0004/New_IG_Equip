@@ -345,51 +345,46 @@ const PanchPage = () => {
     };
   }, []);
 
-  
-
   return (
     <>
-    <div className="min-h-screen bg-gray-900 py-16 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        
-      </div>
+      <div className="min-h-screen bg-gray-900 py-16 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Animated title section */}
-        <div className="text-center mb-8 relative">
-          <div className="inline-block relative">
-            {/* Improved heading with 3D hover effect */}
-            <h1
-              
-              className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 cursor-default transition-transform duration-300"
-              style={{
-                color: "#FF9500",
-                transformStyle: "preserve-3d",
-                backfaceVisibility: "hidden",
-              }}
-            >
-              Retrofit Emission Control Device
-            </h1>
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Animated title section */}
+          <div className="text-center mb-8 relative">
+            <div className="inline-block relative">
+              {/* Improved heading with 3D hover effect */}
+              <h1
+                className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 cursor-default transition-transform duration-300"
+                style={{
+                  color: "#FF9500",
+                  transformStyle: "preserve-3d",
+                  backfaceVisibility: "hidden",
+                }}
+              >
+                Retrofit Emission Control Device
+              </h1>
 
-            {/* Modified decorative line with a thinner height */}
-            <div className="w-32 h-0.5 bg-orange-500 mx-auto mt-4 relative">
-              <div className="absolute -top-1 left-1/2 w-3 h-3 bg-orange-600 rounded-full transform -translate-x-1/2 animate-ping"></div>
+              {/* Modified decorative line with a thinner height */}
+              <div className="w-32 h-0.5 bg-orange-500 mx-auto mt-4 relative">
+                <div className="absolute -top-1 left-1/2 w-3 h-3 bg-orange-600 rounded-full transform -translate-x-1/2 animate-ping"></div>
+              </div>
+
+              <p className="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
+                Advanced technology designed to reduce harmful emissions while
+                maintaining optimal engine performance.
+              </p>
             </div>
-
-            <p className="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
-              Advanced technology designed to reduce harmful emissions while
-              maintaining optimal engine performance.
-            </p>
           </div>
-        </div>
 
-        {/* Animated feature grid with hover effects */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`group bg-white border border-gray-200 rounded-lg p-6 shadow-sm
+          {/* Animated feature grid with hover effects */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className={`group bg-white border border-gray-200 rounded-lg p-6 shadow-sm
                       hover:shadow-xl hover:border-orange-300 transition-all duration-500 transform
                       ${
                         animatedItems.includes(index)
@@ -398,44 +393,43 @@ const PanchPage = () => {
                       }
                       ${hoveredFeature === index ? "scale-105 z-10" : ""} 
                       relative overflow-hidden`}
-              onMouseEnter={() => setHoveredFeature(index)}
-              onMouseLeave={() => setHoveredFeature(null)}
-              style={{
-                transitionDelay: `${index * 50}ms`,
-              }}
-            >
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/5 to-orange-200/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                onMouseEnter={() => setHoveredFeature(index)}
+                onMouseLeave={() => setHoveredFeature(null)}
+                style={{
+                  transitionDelay: `${index * 50}ms`,
+                }}
+              >
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/5 to-orange-200/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-              <div className="flex flex-col items-center relative z-10">
-                {/* Animated icon with glow effect */}
-                <div
-                  className="w-16 h-16 flex items-center justify-center rounded-full
+                <div className="flex flex-col items-center relative z-10">
+                  {/* Animated icon with glow effect */}
+                  <div
+                    className="w-16 h-16 flex items-center justify-center rounded-full
                             bg-orange-100 text-orange-500 mb-4
                             group-hover:bg-orange-500 group-hover:text-white
                             transition-all duration-500 relative"
-                >
-                  {feature.icon}
-                  <span className="absolute inset-0 rounded-full bg-orange-400 opacity-0 group-hover:opacity-30 group-hover:animate-ping"></span>
+                  >
+                    {feature.icon}
+                    <span className="absolute inset-0 rounded-full bg-orange-400 opacity-0 group-hover:opacity-30 group-hover:animate-ping"></span>
+                  </div>
+
+                  {/* Title with hover effect */}
+                  <h3 className="text-sm md:text-base font-medium text-gray-800 text-center group-hover:text-orange-600 transition-colors duration-300 mb-2">
+                    {feature.title}
+                  </h3>
+
+                  {/* Description that appears on hover */}
+                  <p className="text-xs text-gray-500 text-center mt-1 opacity-0 max-h-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+                    {feature.description}
+                  </p>
                 </div>
-
-                {/* Title with hover effect */}
-                <h3 className="text-sm md:text-base font-medium text-gray-800 text-center group-hover:text-orange-600 transition-colors duration-300 mb-2">
-                  {feature.title}
-                </h3>
-
-                {/* Description that appears on hover */}
-                <p className="text-xs text-gray-500 text-center mt-1 opacity-0 max-h-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                  {feature.description}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-<Contact/>
-
+      <Contact />
     </>
   );
 };

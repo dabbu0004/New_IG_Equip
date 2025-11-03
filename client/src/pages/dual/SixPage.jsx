@@ -6,7 +6,6 @@ const SixPage = () => {
     <div className="w-full bg-gradient-to-r from-red-500 to-orange-400">
       {/* Centered inner container with max-width */}
       <div className="max-w-7xl mx-auto  py-12 px-4 flex flex-col md:flex-row items-center justify-between rounded-xl">
-
         {/* Left Section */}
         <div className="md:w-1/2 w-full text-white px-4 mb-10 md:mb-0">
           <h2 className="text-6xl font-semibold mb-4">Let’s Talk</h2>
