@@ -2,12 +2,7 @@ import React from "react";
 import OnePage from "./OnePage";
 import TwoPage from "./TwoPage";
 import ThreePage from "./ThreePage";
-import FourPage from "./FourPage";
-import PanchPage from "./PanchPage";
-import { Helmet } from "react-helmet-async"; // ✅ Helmet import
-
-import SixPage from "./SixPage";
-import SevenPage from "./SevenPage";
+import { Helmet } from "react-helmet-async";
 import Contact from "../Contact";
 
 const Recd = () => {
@@ -15,23 +10,19 @@ const Recd = () => {
     <div>
       <Helmet>
         <title>
-          Dual Fuel Kit for Diesel Generators | Gas Conversion Solutions by
-          Inventive Gas Equipment
+          Dual Fuel Kits for Diesel Gensets | Save Fuel, Cut Emissions, Boost
+          Efficiency
         </title>
         <meta
           name="description"
-          content="Upgrade your diesel generators with our advanced Dual Fuel Kit. Convert to gas and reduce
-emissions, fuel costs & maintenance. Trusted solution by Inventive Gas Equipment."
+          content="Switch your diesel genset to a Dual Fuel Kit by Inventive Gas
+Equipment. Save energy costs, reduce emissions, and ensure reliable 24/7 clean power."
         />
       </Helmet>
       <OnePage />
       <TwoPage />
       <ThreePage />
       <Contact />
-      {/* <FourPage/>
-      <SevenPage/>
-      <SixPage/>
-      <PanchPage/> */}
     </div>
   );
 };
