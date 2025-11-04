@@ -52,26 +52,6 @@ const EightPage = () => {
       className="bg-gradient-to-r from-red-500 to-orange-400 py-16 px-6 lg:px-20 text-center w-full"
       ref={sectionRef}
     >
-      {/* Animation CSS */}
-      <style>
-        {`
-          @keyframes fadeUp {
-            from {
-              opacity: 0;
-              transform: translateY(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .animate-fade-up {
-            animation: fadeUp 0.7s ease-out forwards;
-          }
-        `}
-      </style>
-
       <h2 className="text-xl lg:text-5xl font-bold mb-12 text-white leading-tight">
         Features of Retrofit Emission <br /> Control Device (RECD)
       </h2>
@@ -91,6 +71,24 @@ const EightPage = () => {
           </div>
         ))}
       </div>
+      <style>
+        {`
+          @keyframes fadeUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-fade-up {
+            animation: fadeUp 0.7s ease-out forwards;
+          }
+        `}
+      </style>
     </div>
   );
 };

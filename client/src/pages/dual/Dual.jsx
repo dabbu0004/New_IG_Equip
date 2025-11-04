@@ -1,37 +1,36 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-
-import FirstPage from "./FirstPage";
-import SecondPage from "./SecondPage";
+import SecondPage from "../home/SecondPage";
 import ThirdPage from "./ThirdPage";
-import FourthPage from "./FourthPage";
 import SevenPage from "../SevenPage";
 import EightPage from "./EightPage";
 import Contact from "../../Contact";
 import ClientPage from "./ClientPage";
 import EkPage from "./EkPage";
+import SectionData from "../../data/SectionData";
+import Section from "../../pages/dual/SectionPage";
 
 const Dual = () => {
   return (
     <div>
       <Helmet>
         <title>
-          Vayu Pure RECD – Retrofit Emission Control Device | CPCB Approved
-          Solution by Inventive Gas Equipment
+          Retrofit Emission Control Device (RECD) | Emission Control Device by
+          IGE
         </title>
         <meta
           name="description"
-          content="Inventive Gas Equipment is India’s No.1 RECD Device Manufacturer. Discover CPCB-approved
-Vayu pure Retrofit Emission Control Devices to reduce diesel generator emissions and ensure
-compliance."
+          content="Retrofit Emission Control Device (RECD) by Inventive Gas Equipment ensures CPCB &
+ICAT compliance with advanced technology for cleaner air."
         />
       </Helmet>
 
       <EkPage />
-      {/* <FirstPage /> */}
       <SecondPage />
       <ThirdPage />
-      <FourthPage />
+      {SectionData.map((section) => (
+        <Section key={section.id} section={section} />
+      ))}
       <EightPage />
       <SevenPage />
       <ClientPage />

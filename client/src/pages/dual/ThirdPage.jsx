@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import NinePage from "./NinePage";
 
 const ThirdPage = () => {
   const contentRef = useRef(null);
@@ -25,27 +24,7 @@ const ThirdPage = () => {
   }, []);
 
   return (
-    <>
-      {/* Custom Drop Animation CSS */}
-      <style>
-        {`
-          @keyframes dropDown {
-            0% {
-              opacity: 0;
-              transform: translateY(-50px);
-            }
-            100% {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .animate-drop-down {
-            animation: dropDown 0.8s ease-out forwards;
-          }
-        `}
-      </style>
-
+    <>     
       <div className="bg-gradient-to-r from-red-500 to-orange-400 text-white px-4 sm:px-6 lg:px-24 py-5 sm:py-14 overflow-hidden">
         {/* Top Heading */}
         <div
@@ -64,9 +43,24 @@ const ThirdPage = () => {
           </p>
         </div>
       </div>
+       <style>
+        {`
+          @keyframes dropDown {
+            0% {
+              opacity: 0;
+              transform: translateY(-50px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
 
-      {/* NinePage Component */}
-      <NinePage />
+          .animate-drop-down {
+            animation: dropDown 0.8s ease-out forwards;
+          }
+        `}
+      </style>
     </>
   );
 };
