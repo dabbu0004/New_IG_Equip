@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import Contact from "./Contact";
+import Contact from "../components/ContactForm";
 import { Helmet } from "react-helmet-async";
 import {
   Mail,

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaBriefcase } from "react-icons/fa";
-import JobApplyForm from "./JobApplyForm";
-import JobApplySearchBar from "./JobApplySearchBar";
 import { Helmet } from "react-helmet-async";
+import JobApplyForm from "../components/career/JobApplyForm";
+import JobApplySearchBar from "../components/career/JobApplySearchBar";
 
 const jobs = [
   {

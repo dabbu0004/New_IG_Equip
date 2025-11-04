@@ -1,24 +1,24 @@
+import "./App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import HomeMain from "./pages/home/HomeMain";
-import AboutMain from "./pages/about/AboutMain";
-import Recd from "./pages/Recd";
-import Dual from "./pages/dual/Dual";
-import ContactPages from "./ContactPages";
-import WhatsApp from "./WhatsApp";
-import CallButton from "./CallButton";
-import CareerPage from "./pages/career/CareerPage";
-import GasMain from "./pages/gas/GasMain";
-import Popup from "./Popup";
-import BioGas from "./pages/Biogas/BioGas";
-import PrivacyPage from "./PrivacyPage";
-import TermsAndConditionsPage from "./TermsAndConditionsPage";
-import ThankYou from "./pages/ThankYou";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import RecdPage from "./pages/RecdPage";
+import DualFuelPage from "./pages/DualFuelPage";
+import CareerPage from "./pages/CareerPage";
+import GasPage from "./pages/GasPage";
+import BiogasPage from "./pages/BiogasPage";
+import ContactPage from "./pages/ContactPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+import ThankYouPage from "./pages/ThankYouPage";
+import WhatsApp from "./components/WhatsAppButton";
+import CallButton from "./components/CallButton";
+import Popup from "./components/PopupForm";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -52,21 +52,21 @@ const App = () => {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomeMain />} />
-        <Route path="/about" element={<AboutMain />} />
-        <Route path="/dual-fuel-kit" element={<Recd />} />
-        <Route path="/gas-ganset" element={<GasMain />} />
-        <Route path="/Contact" element={<ContactPages />} />
-        <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/dual-fuel-kit" element={<DualFuelPage />} />
+        <Route path="/gas-ganset" element={<GasPage />} />
+        <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/thank-you" element={<ThankYouPage />} />
         <Route
           path="/terms-and-conditions"
           element={<TermsAndConditionsPage />}
         />
-        <Route path="/privacy-policy" element={<PrivacyPage />} />
-        <Route path="/biogas" element={<BioGas />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/biogas" element={<BiogasPage />} />
         <Route
           path="/retrofit-emission-control-device-recd"
-          element={<Dual />}
+          element={<RecdPage />}
         />
         <Route path="/career" element={<CareerPage />} />
       </Routes>

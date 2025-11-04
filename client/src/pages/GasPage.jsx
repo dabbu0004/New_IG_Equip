@@ -1,14 +1,13 @@
 import React from "react";
-import FirstPage from "./FirstPage";
-import SecondPage from "../home/SecondPage";
-import ThirdPage from "./ThirdPage";
-import FourthPage from "./FourthPage";
-import { Helmet } from "react-helmet-async"; // ✅ Helmet import
-
-import Contact from "../../Contact";
-import ClientPage from "../dual/ClientPage";
-import SixPage from "./SixPage";
-import SevenPage from "./SevenPage";
+import { Helmet } from "react-helmet-async";
+import FirstPage from "../components/gas/FirstPage";
+import SecondPage from "../components/home/SecondPage";
+import ThirdPage from "../components/gas/ThirdPage";
+import FourthPage from "../components/gas/FourthPage";
+import ClientPage from "../components/home/ClientsSection";
+import SixPage from "../components/gas/SixPage";
+import SevenPage from "../components/gas/SevenPage";
+import Contact from "../components/ContactForm";
 
 const GasMain = () => {
   return (

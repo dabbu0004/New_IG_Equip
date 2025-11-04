@@ -1,15 +1,12 @@
 import React from "react";
-import FirstPage from "./FirstPage";
-import SecondPage from "./SecondPage";
-
-import ThirdPage from "./ThirdPage";
-import Contact from "../../Contact";
-import ClientPage from "../dual/ClientPage";
-import { Helmet } from "react-helmet-async"; // ✅ Helmet import
-import ProductPage from "./ProductPage";
-
-import NinePage from "./NinePage";
-
+import { Helmet } from "react-helmet-async";
+import FirstPage from "../components/biogas/FirstPage";
+import SecondPage from "../components/biogas/SecondPage";
+import ThirdPage from "../components/biogas/ThirdPage";
+import Contact from "../components/ContactForm";
+import ClientPage from "../components/home/ClientsSection";
+import ProductPage from "../components/biogas/ProductPage";
+import NinePage from "../components/biogas/NinePage";
 const BioGas = () => {
   return (
     <div>

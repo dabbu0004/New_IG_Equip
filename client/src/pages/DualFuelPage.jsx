@@ -1,11 +1,11 @@
 import React from "react";
-import OnePage from "./OnePage";
-import TwoPage from "./TwoPage";
-import ThreePage from "./ThreePage";
 import { Helmet } from "react-helmet-async";
-import Contact from "../Contact";
+import OnePage from "../components/dualFuel/OnePage";
+import TwoPage from "../components/dualFuel/TwoPage";
+import ThreePage from "../components/dualFuel/ThreePage";
+import Contact from "../components/ContactForm";
 
-const Recd = () => {
+const DualFuelPage = () => { 
   return (
     <div>
       <Helmet>
@@ -27,4 +27,4 @@ Equipment. Save energy costs, reduce emissions, and ensure reliable 24/7 clean p
   );
 };
 
-export default Recd;
+export default DualFuelPage;

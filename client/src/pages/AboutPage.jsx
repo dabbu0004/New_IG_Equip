@@ -1,16 +1,15 @@
 import React from "react";
-import { Helmet } from "react-helmet-async"; // ✅ Import Helmet
-import FirstPage from "./FirstPage";
-import Contact from "../../Contact";
-import SecondPage from "./SecondPage";
-import FourthPage from "./FourthPage";
-import ThirdPage from "./ThirdPage";
-import FivePage from "./FivePage";
+import { Helmet } from "react-helmet-async";
+import FirstPage from "../components/about/FirstPage";
+import ContactForm from "../components/ContactForm";
+import SecondPage from "../components/about/SecondPage";
+import FourthPage from "../components/about/FourthPage";
+import ThirdPage from "../components/about/ThirdPage";
+import FivePage from "../components/about/FivePage";
 
 const AboutMain = () => {
   return (
     <div>
-      {/* ✅ Add meta tags for About Us page */}
       <Helmet>
         <title>
           About Us | Inventive Gas Equipment – Leaders in Clean Energy
@@ -27,7 +26,7 @@ const AboutMain = () => {
       <ThirdPage />
       <FourthPage />
       <FivePage />
-      <Contact />
+      <ContactForm />
     </div>
   );
 };

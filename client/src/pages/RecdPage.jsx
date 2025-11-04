@@ -1,16 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import SecondPage from "../home/SecondPage";
-import ThirdPage from "./ThirdPage";
-import SevenPage from "../SevenPage";
-import EightPage from "./EightPage";
-import Contact from "../../Contact";
-import ClientPage from "./ClientPage";
-import EkPage from "./EkPage";
-import SectionData from "../../data/SectionData";
-import Section from "../../pages/dual/SectionPage";
+import SecondPage from "../components/home/SecondPage";
+import ThirdPage from "../components/recd/ThirdPage";
+import SevenPage from "../components/recd/SevenPage";
+import EightPage from "../components/recd/EightPage";
+import ClientSection from "../components/home/ClientsSection";
+import EkPage from "../components/recd/EkPage";
+import SectionData from "../data/SectionData";
+import Section from "../components/recd/SectionPage";
+import ContactForm from "../components/ContactForm";
 
-const Dual = () => {
+const RecdPage = () => {
   return (
     <div>
       <Helmet>
@@ -33,10 +33,10 @@ ICAT compliance with advanced technology for cleaner air."
       ))}
       <EightPage />
       <SevenPage />
-      <ClientPage />
-      <Contact />
+      <ClientSection />
+      <ContactForm />
     </div>
   );
 };
 
-export default Dual;
+export default RecdPage;
