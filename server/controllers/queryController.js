@@ -1,0 +1,329 @@
+import shortQueryModel from "../models/shortQueryModel.js";
+import longQueryModel from "../models/longQueryModel.js";
+import sendMail from "../routes/sendMailRoute.js";
+
+const shortQueryPostController = async (req, res) => {
+  try {
+    const { name, phone, email, message } = req.body;
+
+    if (!name || !phone || !email) {
+      return res.status(400).json({
+        message: "Name, Phone, and Email are required",
+        success: false,
+      });
+    }
+
+    const newQuery = new shortQueryModel({
+      name: name.trim(),
+      phone: phone.trim(),
+      email: email.trim(),
+      message: message.trim(),
+    });
+
+    const savedQuery = await newQuery.save();
+
+    try {
+      await sendMail({
+        from: process.env.GMAIL_USERNAME,
+        to: "coc.webdevelopment@gmail.com",
+        subject: "New Equipment Inquiry | IG-Equip",
+        html: `
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f8fafc;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#f8fafc;">
+      <tr>
+        <td>
+          <!-- Header -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#1e40af;">
+            <tr>
+              <td align="center" style="padding:32px 16px;">
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:28px;color:#ffffff;font-weight:700;">IG-Equip</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#dbeafe;margin-top:8px;">New Equipment Inquiry Received</div>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Content -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#f8fafc;">
+            <tr>
+              <td style="padding:32px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+                  <tr>
+                    <td style="padding:32px;">
+                      <div style="font-family:Segoe UI,Arial,sans-serif;font-size:20px;color:#1e40af;font-weight:700;margin:0 0 24px 0;border-bottom:2px solid #3b82f6;padding-bottom:12px;">Customer Information</div>
+
+                      <!-- Name Section -->
+                      <div style="margin-bottom:20px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#1e40af;font-weight:600;margin-bottom:6px;">Customer Name</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#1f2937;font-weight:600;padding:12px;background:#f3f4f6;border-radius:6px;border-left:4px solid #3b82f6;">${name}</div>
+                      </div>
+
+                      <!-- Email Section -->
+                      <div style="margin-bottom:20px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#1e40af;font-weight:600;margin-bottom:6px;">Email Address</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#1f2937;font-weight:600;padding:12px;background:#f3f4f6;border-radius:6px;border-left:4px solid #3b82f6;">${email}</div>
+                      </div>
+
+                      <!-- Phone Section -->
+                      <div style="margin-bottom:20px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#1e40af;font-weight:600;margin-bottom:6px;">Phone Number</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#1f2937;font-weight:600;padding:12px;background:#f3f4f6;border-radius:6px;border-left:4px solid #3b82f6;">${phone}</div>
+                      </div>
+
+                      <!-- Message Section -->
+                      <div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#1e40af;font-weight:600;margin-bottom:8px;">Equipment Requirements</div>
+                        <div style="background:#eff6ff;border:2px solid #93c5fd;border-radius:8px;padding:16px;font-family:Segoe UI,Arial,sans-serif;font-size:15px;color:#1f2937;line-height:1.6;">
+                          ${message || "No specific requirements mentioned."}
+                        </div>
+                      </div>
+
+                      <!-- Action Required -->
+                      <div style="margin-top:24px;padding:16px;background:#fef3c7;border-left:4px solid #f59e0b;border-radius:6px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#92400e;font-weight:600;">⚡ Action Required</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:13px;color:#78350f;margin-top:4px;">Please respond to this inquiry within 24 hours for optimal customer service.</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Footer -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#1f2937;">
+            <tr>
+              <td align="center" style="padding:24px 16px;">
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:18px;color:#3b82f6;font-weight:700;">IG-Equip</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#9ca3af;margin-top:6px;">Industrial & General Equipment Solutions</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:12px;color:#6b7280;margin-top:12px;">This is an automated notification from your website contact form.</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+        `,
+        text: `NEW EQUIPMENT INQUIRY | IG-Equip
+
+Customer Information
+-------------------
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Equipment Requirements:
+${message || "No specific requirements mentioned."}
+
+---
+IG-Equip - Industrial & General Equipment Solutions
+Automated notification - Please respond within 24 hours`,
+      });
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+    }
+
+    res.status(201).json({
+      message: "Inquiry received and notification sent successfully",
+      success: true,
+      data: {
+        id: savedQuery._id,
+        name: savedQuery.name,
+        phone: savedQuery.phone,
+        email: savedQuery.email,
+      },
+    });
+  } catch (err) {
+    console.error("Controller error:", err);
+    res.status(500).json({
+      message: "Failed to process inquiry. Please try again.",
+      success: false,
+    });
+  }
+};
+
+const longQueryPostController = async (req, res) => {
+  try {
+    const { name, phone, companyName, companyEmail, location, message } =
+      req.body;
+
+    if (!name || !phone || !companyName || !companyEmail || !location) {
+      return res.status(400).json({
+        message:
+          "Name, phone, company name, company email, and location are required",
+        success: false,
+      });
+    }
+
+    const newQuery = new longQueryModel({
+      name: name.trim(),
+      phone: phone.trim(),
+      companyName: companyName.trim(),
+      companyEmail: companyEmail.trim(),
+      location: location.trim(),
+      message: message ? message.trim() : "",
+    });
+
+    const savedQuery = await newQuery.save();
+
+    try {
+      await sendMail({
+        from: process.env.GMAIL_USERNAME,
+        to: "coc.webdevelopment@gmail.com",
+        subject: "New Corporate Equipment Inquiry | IG-Equip",
+        html: `
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f8fafc;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#f8fafc;">
+      <tr>
+        <td>
+          <!-- Header -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#059669;">
+            <tr>
+              <td align="center" style="padding:32px 16px;">
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:28px;color:#ffffff;font-weight:700;">IG-Equip</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#a7f3d0;margin-top:8px;">New Corporate Equipment Inquiry</div>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Content -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#f8fafc;">
+            <tr>
+              <td style="padding:32px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:700px;margin:0 auto;background:#ffffff;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+                  <tr>
+                    <td style="padding:32px;">
+                      <!-- Corporate Badge -->
+                      <div style="text-align:center;margin-bottom:24px;">
+                        <span style="background:#059669;color:#ffffff;padding:8px 16px;border-radius:20px;font-family:Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;">🏢 Corporate Inquiry</span>
+                      </div>
+
+                      <div style="font-family:Segoe UI,Arial,sans-serif;font-size:20px;color:#059669;font-weight:700;margin:0 0 24px 0;border-bottom:2px solid #10b981;padding-bottom:12px;">Company & Contact Information</div>
+
+                      <!-- Company Name Section -->
+                      <div style="margin-bottom:20px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:6px;">Company Name</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:18px;color:#1f2937;font-weight:700;padding:14px;background:#ecfdf5;border-radius:8px;border-left:4px solid #10b981;">${companyName}</div>
+                      </div>
+
+                      <!-- Company Email Section -->
+                      <div style="margin-bottom:20px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:6px;">Company Email</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#1f2937;font-weight:600;padding:12px;background:#f3f4f6;border-radius:6px;border-left:4px solid #10b981;">${companyEmail}</div>
+                      </div>
+
+                      <!-- Location Section -->
+                      <div style="margin-bottom:20px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:6px;">Business Location</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#1f2937;font-weight:600;padding:12px;background:#f3f4f6;border-radius:6px;border-left:4px solid #10b981;">📍 ${location}</div>
+                      </div>
+
+                      <div style="font-family:Segoe UI,Arial,sans-serif;font-size:20px;color:#059669;font-weight:700;margin:32px 0 24px 0;border-bottom:2px solid #10b981;padding-bottom:12px;">Primary Contact Person</div>
+
+                      <!-- Contact Name Section -->
+                      <div style="margin-bottom:20px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:6px;">Contact Person</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#1f2937;font-weight:600;padding:12px;background:#f3f4f6;border-radius:6px;border-left:4px solid #10b981;">${name}</div>
+                      </div>
+
+                      <!-- Phone Section -->
+                      <div style="margin-bottom:24px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:6px;">Phone Number</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#1f2937;font-weight:600;padding:12px;background:#f3f4f6;border-radius:6px;border-left:4px solid #10b981;">📞 ${phone}</div>
+                      </div>
+
+                      <!-- Message Section -->
+                      <div style="margin-bottom:24px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:8px;">Equipment Requirements & Details</div>
+                        <div style="background:#f0fdfa;border:2px solid #5eead4;border-radius:8px;padding:16px;font-family:Segoe UI,Arial,sans-serif;font-size:15px;color:#1f2937;line-height:1.6;min-height:60px;">
+                          ${
+                            message ||
+                            "No specific requirements mentioned. Please contact the company for detailed discussions."
+                          }
+                        </div>
+                      </div>
+
+                      <!-- Priority Alert -->
+                      <div style="padding:16px;background:#fef2f2;border-left:4px solid #ef4444;border-radius:6px;">
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#dc2626;font-weight:600;">🔥 High Priority - Corporate Client</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:13px;color:#7f1d1d;margin-top:4px;">Corporate inquiries require immediate attention. Please respond within 4 hours.</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Footer -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#1f2937;">
+            <tr>
+              <td align="center" style="padding:24px 16px;">
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:18px;color:#10b981;font-weight:700;">IG-Equip</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#9ca3af;margin-top:6px;">Industrial & General Equipment Solutions</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:12px;color:#6b7280;margin-top:12px;">Corporate inquiry notification - Priority response required</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+        `,
+        text: `NEW CORPORATE EQUIPMENT INQUIRY | IG-Equip
+
+Company Information
+-------------------
+Company: ${companyName}
+Company Email: ${companyEmail}
+Location: ${location}
+
+Primary Contact
+---------------
+Name: ${name}
+Phone: ${phone}
+
+Equipment Requirements:
+${
+  message ||
+  "No specific requirements mentioned. Please contact for detailed discussions."
+}
+
+---
+🔥 HIGH PRIORITY - CORPORATE CLIENT
+Please respond within 4 hours.
+
+IG-Equip - Industrial & General Equipment Solutions`,
+      });
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+    }
+
+    res.status(201).json({
+      message: "Corporate inquiry received and notification sent successfully",
+      success: true,
+      data: {
+        id: savedQuery._id,
+        name: savedQuery.name,
+        phone: savedQuery.phone,
+        companyName: savedQuery.companyName,
+        companyEmail: savedQuery.companyEmail,
+        location: savedQuery.location,
+      },
+    });
+  } catch (err) {
+    console.error("Controller error:", err);
+    res.status(500).json({
+      message: "Failed to process corporate inquiry. Please try again.",
+      success: false,
+    });
+  }
+};
+
+export { shortQueryPostController, longQueryPostController };
