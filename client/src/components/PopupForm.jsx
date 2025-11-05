@@ -7,8 +7,9 @@ import {
   IoCall,
   IoMail,
   IoChatbubble,
+  IoClose,
 } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import {
   handleError,
@@ -16,8 +17,10 @@ import {
   handleWarning,
 } from "../components/handleUtils";
 
-const PopupForm = ({ onClose }) => {
+const PopupForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -28,6 +31,43 @@ const PopupForm = ({ onClose }) => {
 
   const [focusedField, setFocusedField] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const shownRoutes = JSON.parse(
+      localStorage.getItem("popupShownRoutes") || "[]"
+    );
+    const currentRoute = location.pathname;
+    if (!shownRoutes.includes(currentRoute)) {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+        const updatedRoutes = [...shownRoutes, currentRoute];
+        localStorage.setItem("popupShownRoutes", JSON.stringify(updatedRoutes));
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname]);
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isVisible]);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    setSubmitted(false);
+    setForm({
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+    });
+  };
 
   const handleFormChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -62,7 +102,7 @@ const PopupForm = ({ onClose }) => {
       handleSuccess("Your equipment inquiry has been submitted successfully!");
       setSubmitted(true);
       setTimeout(() => {
-        onClose();
+        handleClose();
       }, 2000);
     } catch (err) {
       handleError("Something went wrong. Please try again.");
@@ -70,34 +110,23 @@ const PopupForm = ({ onClose }) => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (loading) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [loading]);
+  if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl flex flex-col md:flex-row overflow-hidden relative">
-        {/* Close Button */}
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl flex flex-col md:flex-row overflow-hidden relative transform transition-all duration-300 animate-bounce-in">
         <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 text-xl hover:text-red-500 z-10"
+          onClick={handleClose}
+          className="absolute top-3 right-3 text-gray-500 text-xl hover:text-red-500 z-10 transition-colors duration-200"
+          aria-label="Close popup"
         >
-          ×
+          <IoClose className="w-6 h-6" />
         </button>
 
         {/* Image - Always Visible */}
         <div className="w-full md:w-1/2">
           <img
             src="/images/CPCB & ICAT Approved.png"
-            alt="Popup Visual"
             className="w-full h-full object-cover"
           />
         </div>
@@ -105,7 +134,7 @@ const PopupForm = ({ onClose }) => {
         {/* Form - Hidden on mobile */}
         <div className="w-full md:w-1/2 p-6 md:p-8 hidden md:block">
           {submitted ? (
-            <div className="text-center py-6 space-y-3">
+            <div className="text-center py-6 space-y-3 flex items-center justify-center flex-col">
               <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto">
                 <IoCheckmarkCircle className="w-7 h-7 text-green-600" />
               </div>
@@ -232,7 +261,7 @@ const PopupForm = ({ onClose }) => {
 
               <div className="flex items-start gap-2 text-xs bg-gray-50 p-3 rounded-md border border-gray-200">
                 <p className="text-gray-700">
-                  I agree to the{" "}
+                  By Submitting the Form, you agree to our{" "}
                   <span className="text-orange-600 font-semibold cursor-pointer hover:underline">
                     privacy policy
                   </span>
@@ -262,6 +291,28 @@ const PopupForm = ({ onClose }) => {
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes bounce-in {
+          0% {
+            transform: scale(0.3) translateY(-50px);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          70% {
+            transform: scale(0.9);
+          }
+          100% {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+          }
+        }
+        .animate-bounce-in {
+          animation: bounce-in 0.6s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 };

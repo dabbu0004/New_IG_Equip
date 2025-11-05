@@ -22,8 +22,6 @@ import Popup from "./components/PopupForm";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [showPopup, setShowPopup] = useState(false);
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -35,17 +33,6 @@ const App = () => {
 
     const handleScroll = () => AOS.refresh();
     window.addEventListener("scroll", handleScroll);
-    const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
-
-    if (!hasSeenPopup) {
-      const timer = setTimeout(() => {
-        setShowPopup(true);
-        sessionStorage.setItem("hasSeenPopup", "true");
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -76,7 +63,7 @@ const App = () => {
           <CallButton />
           <Footer />
           <WhatsApp />
-          {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+          <Popup />
         </HelmetProvider>
       </BrowserRouter>
     </>
