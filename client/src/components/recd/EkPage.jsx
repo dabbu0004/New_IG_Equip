@@ -31,7 +31,7 @@ const Ekpage = () => {
             src={img}
             alt={`Slide ${index}`}
             className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ease-in-out ${
-              currentIndex === index ? "opacity-100 z-10" : "opacity-0 z-0"
+              currentIndex === index ? "opacity-100 z-1" : "opacity-0 z-0"
             }`}
           />
         ))}
@@ -60,7 +60,7 @@ const Ekpage = () => {
             src={img}
             alt={`Slide ${index}`}
             className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ease-in-out ${
-              currentIndex === index ? "opacity-100 z-10" : "opacity-0 z-0"
+              currentIndex === index ? "opacity-100 z-1" : "opacity-0 z-0"
             }`}
           />
         ))}
