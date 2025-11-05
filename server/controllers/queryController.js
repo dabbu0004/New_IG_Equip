@@ -25,8 +25,8 @@ const shortQueryPostController = async (req, res) => {
     try {
       await sendMail({
         from: process.env.GMAIL_USERNAME,
-        to: "coc.webdevelopment@gmail.com",
-        subject: "New Equipment Inquiry | IG-Equip",
+        to: "Sales@igequipment.com",
+        subject: "New Query Received | IG-Equipment",
         html: `
 <!doctype html>
 <html>
@@ -38,8 +38,8 @@ const shortQueryPostController = async (req, res) => {
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#1e40af;">
             <tr>
               <td align="center" style="padding:32px 16px;">
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:28px;color:#ffffff;font-weight:700;">IG-Equip</div>
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#dbeafe;margin-top:8px;">New Equipment Inquiry Received</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:28px;color:#ffffff;font-weight:700;">Inventive Gas Equipment</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#dbeafe;margin-top:8px;">New Inquiry Received</div>
               </td>
             </tr>
           </table>
@@ -73,16 +73,10 @@ const shortQueryPostController = async (req, res) => {
 
                       <!-- Message Section -->
                       <div>
-                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#1e40af;font-weight:600;margin-bottom:8px;">Equipment Requirements</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#1e40af;font-weight:600;margin-bottom:8px;">Message</div>
                         <div style="background:#eff6ff;border:2px solid #93c5fd;border-radius:8px;padding:16px;font-family:Segoe UI,Arial,sans-serif;font-size:15px;color:#1f2937;line-height:1.6;">
                           ${message || "No specific requirements mentioned."}
                         </div>
-                      </div>
-
-                      <!-- Action Required -->
-                      <div style="margin-top:24px;padding:16px;background:#fef3c7;border-left:4px solid #f59e0b;border-radius:6px;">
-                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#92400e;font-weight:600;">⚡ Action Required</div>
-                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:13px;color:#78350f;margin-top:4px;">Please respond to this inquiry within 24 hours for optimal customer service.</div>
                       </div>
                     </td>
                   </tr>
@@ -95,8 +89,7 @@ const shortQueryPostController = async (req, res) => {
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#1f2937;">
             <tr>
               <td align="center" style="padding:24px 16px;">
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:18px;color:#3b82f6;font-weight:700;">IG-Equip</div>
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#9ca3af;margin-top:6px;">Industrial & General Equipment Solutions</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#9ca3af;margin-top:6px;">Inventive Gas Equipment</div>
                 <div style="font-family:Segoe UI,Arial,sans-serif;font-size:12px;color:#6b7280;margin-top:12px;">This is an automated notification from your website contact form.</div>
               </td>
             </tr>
@@ -107,20 +100,19 @@ const shortQueryPostController = async (req, res) => {
   </body>
 </html>
         `,
-        text: `NEW EQUIPMENT INQUIRY | IG-Equip
+        text: `NEW EQUIPMENT INQUIRY | Inventive Gas Equipment
 
 Customer Information
 -------------------
 Name: ${name}
 Email: ${email}
 Phone: ${phone}
-
-Equipment Requirements:
+Message:
 ${message || "No specific requirements mentioned."}
 
 ---
-IG-Equip - Industrial & General Equipment Solutions
-Automated notification - Please respond within 24 hours`,
+Inventive Gas Equipment
+Automated notification`,
       });
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
@@ -173,7 +165,7 @@ const longQueryPostController = async (req, res) => {
       await sendMail({
         from: process.env.GMAIL_USERNAME,
         to: "coc.webdevelopment@gmail.com",
-        subject: "New Corporate Equipment Inquiry | IG-Equip",
+        subject: "New Query Received | Inventive Gas Equipment",
         html: `
 <!doctype html>
 <html>
@@ -185,8 +177,7 @@ const longQueryPostController = async (req, res) => {
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#059669;">
             <tr>
               <td align="center" style="padding:32px 16px;">
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:28px;color:#ffffff;font-weight:700;">IG-Equip</div>
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:16px;color:#a7f3d0;margin-top:8px;">New Corporate Equipment Inquiry</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:28px;color:#ffffff;font-weight:700;">Inventive Gas Equipment</div>
               </td>
             </tr>
           </table>
@@ -239,7 +230,7 @@ const longQueryPostController = async (req, res) => {
 
                       <!-- Message Section -->
                       <div style="margin-bottom:24px;">
-                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:8px;">Equipment Requirements & Details</div>
+                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#059669;font-weight:600;margin-bottom:8px;">Message</div>
                         <div style="background:#f0fdfa;border:2px solid #5eead4;border-radius:8px;padding:16px;font-family:Segoe UI,Arial,sans-serif;font-size:15px;color:#1f2937;line-height:1.6;min-height:60px;">
                           ${
                             message ||
@@ -264,8 +255,7 @@ const longQueryPostController = async (req, res) => {
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#1f2937;">
             <tr>
               <td align="center" style="padding:24px 16px;">
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:18px;color:#10b981;font-weight:700;">IG-Equip</div>
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#9ca3af;margin-top:6px;">Industrial & General Equipment Solutions</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#9ca3af;margin-top:6px;">Inventive Gas Equipment</div>
                 <div style="font-family:Segoe UI,Arial,sans-serif;font-size:12px;color:#6b7280;margin-top:12px;">Corporate inquiry notification - Priority response required</div>
               </td>
             </tr>
@@ -276,7 +266,7 @@ const longQueryPostController = async (req, res) => {
   </body>
 </html>
         `,
-        text: `NEW CORPORATE EQUIPMENT INQUIRY | IG-Equip
+        text: `New Query Received | Inventive Gas Equipment
 
 Company Information
 -------------------
@@ -289,24 +279,23 @@ Primary Contact
 Name: ${name}
 Phone: ${phone}
 
-Equipment Requirements:
+Message:
 ${
   message ||
   "No specific requirements mentioned. Please contact for detailed discussions."
 }
 
 ---
-🔥 HIGH PRIORITY - CORPORATE CLIENT
-Please respond within 4 hours.
+HIGH PRIORITY - CORPORATE CLIENT
 
-IG-Equip - Industrial & General Equipment Solutions`,
+Inventive Gas Equipment`,
       });
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
     }
 
     res.status(201).json({
-      message: "Corporate inquiry received and notification sent successfully",
+      message: "Inquiry received and notification sent successfully",
       success: true,
       data: {
         id: savedQuery._id,
