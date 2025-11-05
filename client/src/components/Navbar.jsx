@@ -4,104 +4,111 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Navigation items configuration
+  const navItems = [
+    { path: "/about", label: "About" },
+    { path: "/retrofit-emission-control-device-recd", label: "Vayu Pure RECD" },
+    { path: "/dual-fuel-kit", label: "Dual-Fuel Kit" },
+    { path: "/gas-ganset", label: "Gas Ganset" },
+    { path: "/biogas", label: "Bio Gas" },
+    { path: "/career", label: "Career" },
+  ];
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  // Reusable Navigation Link Component
+  const NavLink = ({ item, className = "", onClick = null }) => (
+    <Link
+      to={item.path}
+      className={`hover:text-orange-500 transition-colors ${className}`}
+      onClick={onClick}
+    >
+      {item.label}
+    </Link>
+  );
+
+  // Reusable CTA Button Component
+  const CTAButton = ({ className = "", onClick = null }) => (
+    <Link to="/contact" className={className} onClick={onClick}>
+      <button className="bg-gradient-to-r from-red-500 to-orange-400 text-white px-5 py-2 rounded-xl font-semibold shadow hover:scale-105 transition-transform">
+        Get in touch
+      </button>
+    </Link>
+  );
+
+  // Hamburger Menu Icon Component
+  const HamburgerIcon = () => (
+    <button
+      className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none z-20"
+      onClick={toggleMenu}
+      aria-label="Toggle menu"
+    >
+      {[0, 1, 2].map((index) => (
+        <span
+          key={index}
+          className={`w-6 h-0.5 bg-black transition-all duration-300 ${
+            isMenuOpen
+              ? index === 0
+                ? "rotate-45 translate-y-2"
+                : index === 1
+                ? "opacity-0"
+                : "-rotate-45 -translate-y-2"
+              : ""
+          }`}
+        />
+      ))}
+    </button>
+  );
+
+  // Close Menu Icon Component
+  const CloseIcon = () => (
+    <button
+      onClick={toggleMenu}
+      className="w-8 h-8 flex items-center justify-center"
+      aria-label="Close menu"
+    >
+      <span className="w-6 h-0.5 bg-black rotate-45 absolute" />
+      <span className="w-6 h-0.5 bg-black -rotate-45 absolute" />
+    </button>
+  );
+
   return (
     <div className="max-w-full relative overflow-hidden">
       <header className="container mx-auto max-w-7xl relative bg-white shadow-md z-50 rounded-bl-[2rem]">
-        {/* Left Vertical Orange Curve with Gradient */}
-        <div className="absolute top-0 left-0 h-full w-2 bg-orange-400 rounded-tl-[2rem] rounded-bl-[2rem] z-0" />
+        {/* Left Vertical Orange Curve */}
+        <div className="absolute top-0 left-0 h-full w-2 bg-orange-300 rounded-tl-[2rem] rounded-bl-[2rem] z-0" />
 
         {/* Top Bar */}
         <div className="relative z-10 flex items-center justify-between px-4 md:px-16 py-4">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <a href="/">
+            <Link to="/">
               <img
                 src="/images/logo.webp"
                 alt="Inventive Logo"
                 className="h-8 md:h-12 w-auto"
               />
-            </a>
+            </Link>
           </div>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10 font-medium text-black text-lg">
-            <Link
-              to="/about"
-              className="hover:text-orange-500 transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              to="/retrofit-emission-control-device-recd"
-              className="hover:text-orange-500 transition-colors"
-            >
-              Vayu Pure RECD
-            </Link>
-            <Link
-              to="/dual-fuel-kit"
-              className="hover:text-orange-500 transition-colors"
-            >
-              Dual-Fuel Kit
-            </Link>
-            <Link
-              to="/gas-ganset"
-              className="hover:text-orange-500 transition-colors"
-            >
-              Gas Ganset
-            </Link>
-            <Link
-              to="/biogas"
-              className="hover:text-orange-500 transition-colors"
-            >
-              Bio Gas
-            </Link>
-            <Link
-              to="/career"
-              className="hover:text-orange-500 transition-colors"
-            >
-              Career
-            </Link>
-            <Link
-              to="/Contact"
-              className="hover:text-orange-500 transition-colors"
-            >
-              Contact
-            </Link>
+            {navItems.map((item) => (
+              <NavLink key={item.path} item={item} />
+            ))}
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none z-20"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`w-6 h-0.5 bg-black transition-all duration-300 ${
-                isMenuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-black transition-all duration-300 ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-black transition-all duration-300 ${
-                isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></span>
-          </button>
+          <HamburgerIcon />
 
           {/* Desktop CTA Button */}
-          <Link to="/contact" className="hidden md:block">
-            <button className="bg-gradient-to-r from-red-500 to-orange-400 text-white text-xl px-5 py-2 rounded-xl font-semibold shadow hover:scale-105 transition-transform">
-              Get in touch
-            </button>
-          </Link>
+          <CTAButton className="hidden md:block" />
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -122,80 +129,28 @@ const Navbar = () => {
                 alt="Inventive Logo"
                 className="h-8 w-auto"
               />
-              <button
-                onClick={toggleMenu}
-                className="w-8 h-8 flex items-center justify-center"
-                aria-label="Close menu"
-              >
-                <span className="w-6 h-0.5 bg-black rotate-45 absolute"></span>
-                <span className="w-6 h-0.5 bg-black -rotate-45 absolute"></span>
-              </button>
+              <CloseIcon />
             </div>
 
             {/* Mobile Menu Links */}
-            <nav className="flex flex-col p-6 space-y-6">
-              <Link
-                to="/about"
-                className="text-lg font-medium text-black hover:text-orange-500 transition-colors border-b border-gray-100 pb-3"
-                onClick={toggleMenu}
-              >
-                About
-              </Link>
-              <Link
-                to="/retrofit-emission-control-device-recd"
-                className="text-lg font-medium text-black hover:text-orange-500 transition-colors border-b border-gray-100 pb-3"
-                onClick={toggleMenu}
-              >
-                Vayur Pure RECD
-              </Link>
-              <Link
-                to="/dual-fuel-kit"
-                className="text-lg font-medium text-black hover:text-orange-500 transition-colors border-b border-gray-100 pb-3"
-                onClick={toggleMenu}
-              >
-                Dual-Fuel Kit
-              </Link>
-              <Link
-                to="/career"
-                className="text-lg font-medium text-black hover:text-orange-500 transition-colors border-b border-gray-100 pb-3"
-                onClick={toggleMenu}
-              >
-                Career
-              </Link>
-              <Link
-                to="/gas-ganset"
-                className="text-lg font-medium text-black hover:text-orange-500 transition-colors border-b border-gray-100 pb-3"
-                onClick={toggleMenu}
-              >
-                Gas Ganset
-              </Link>
-              <Link
-                to="/biogas"
-                className="text-lg font-medium text-black hover:text-orange-500 transition-colors border-b border-gray-100 pb-3"
-                onClick={toggleMenu}
-              >
-                Bio Gas
-              </Link>
-              <Link
-                to="/Contact"
-                className="text-lg font-medium text-black hover:text-orange-500 transition-colors border-b border-gray-100 pb-3"
-                onClick={toggleMenu}
-              >
-                Contact
-              </Link>
+            <nav className="flex flex-col p-6 space-y-3">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.path}
+                  item={item}
+                  className="text-xl font-medium text-black pb-1 mb-2 border-b-2 w-fit border-gray-800"
+                  onClick={closeMenu}
+                />
+              ))}
 
               {/* Mobile CTA Button */}
-              <Link to="/contact" onClick={toggleMenu}>
-                <button className="w-full bg-gradient-to-r from-red-500 to-orange-400 text-white text-lg px-6 py-3 rounded-xl font-semibold shadow hover:scale-105 transition-transform mt-6">
-                  Get in touch
-                </button>
-              </Link>
+              <CTAButton className="w-full mt-3" onClick={closeMenu} />
             </nav>
           </div>
         </div>
 
-        {/* Bottom Orange Bar with Gradient and Curve */}
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-400 rounded-bl-[2rem] rounded-br-[2rem] z-0" />
+        {/* Bottom Orange Bar */}
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-300 rounded-bl-[2rem] rounded-br-[2rem] z-0" />
       </header>
     </div>
   );
