@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
@@ -50,30 +51,34 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/dual-fuel-kit" element={<DualFuelPage />} />
-        <Route path="/gas-ganset" element={<GasPage />} />
-        <Route path="/Contact" element={<ContactPage />} />
-        <Route path="/thank-you" element={<ThankYouPage />} />
-        <Route
-          path="/terms-and-conditions"
-          element={<TermsAndConditionsPage />}
-        />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/biogas" element={<BiogasPage />} />
-        <Route
-          path="/retrofit-emission-control-device-recd"
-          element={<RecdPage />}
-        />
-        <Route path="/career" element={<CareerPage />} />
-      </Routes>
-      <CallButton />
-      <Footer />
-      <WhatsApp />
-      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+      <BrowserRouter>
+        <HelmetProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/dual-fuel-kit" element={<DualFuelPage />} />
+            <Route path="/gas-ganset" element={<GasPage />} />
+            <Route path="/Contact" element={<ContactPage />} />
+            <Route path="/thank-you" element={<ThankYouPage />} />
+            <Route
+              path="/terms-and-conditions"
+              element={<TermsAndConditionsPage />}
+            />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/biogas" element={<BiogasPage />} />
+            <Route
+              path="/retrofit-emission-control-device-recd"
+              element={<RecdPage />}
+            />
+            <Route path="/career" element={<CareerPage />} />
+          </Routes>
+          <CallButton />
+          <Footer />
+          <WhatsApp />
+          {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+        </HelmetProvider>
+      </BrowserRouter>
     </>
   );
 };
