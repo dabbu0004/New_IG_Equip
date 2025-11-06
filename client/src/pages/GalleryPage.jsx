@@ -1,12 +1,14 @@
 import React from "react";
-import Gallery from "../components/gallery/Gallery";
+import GalleryMain from "../components/gallery/GalleryMain";
+import GalleryHeader from "../components/gallery/GalleryHeader";
 
-const GalleryMain = () => {
+const GalleryPage = () => {
   return (
     <div>
-      <Gallery />
+      <GalleryHeader />
+      <GalleryMain />
     </div>
   );
 };
 
-export default GalleryMain;
+export default GalleryPage;

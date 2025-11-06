@@ -4,7 +4,7 @@ import SecondPage from "../components/home/SecondPage";
 import FourthPage from "../components/home/FourthPage";
 import FivePage from "../components/home/FivePage";
 import FaqSection from "../components/home/FaqSection";
-import GalleryPage from "./GalleryPage";
+import Gallery from "../components/home/Gallery";
 import ClientPage from "../components/home/ClientsSection";
 import ThirdPage from "../components/home/ThirdPage";
 import Contact from "../components/ContactForm";
@@ -18,7 +18,7 @@ const HomeMain = () => {
       <FourthPage />
       <FivePage />
       <ClientPage />
-      <GalleryPage />
+      <Gallery />
       <FaqSection />
       <Contact />
     </div>

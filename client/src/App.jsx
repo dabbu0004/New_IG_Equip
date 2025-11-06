@@ -22,6 +22,9 @@ import CallButton from "./components/CallButton";
 import Popup from "./components/PopupForm";
 import Footer from "./components/Footer";
 import BlogsPage from "./pages/BlogsPage";
+import GalleryPage from "./pages/GalleryPage";
+import ExhibitionsPage from "./pages/ExhibitionsPage";
+
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -62,6 +65,8 @@ const App = () => {
             />
             <Route path="/career" element={<CareerPage />} />
             <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/exhibitions" element={<ExhibitionsPage />} />
           </Routes>
           <CallButton />
           <Footer />
