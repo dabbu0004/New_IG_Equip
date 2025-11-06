@@ -164,7 +164,7 @@ const longQueryPostController = async (req, res) => {
     try {
       await sendMail({
         from: process.env.GMAIL_USERNAME,
-        to: "coc.webdevelopment@gmail.com",
+        to: "sales@igequipment.com",
         subject: "New Query Received | Inventive Gas Equipment",
         html: `
 <!doctype html>
