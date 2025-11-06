@@ -189,11 +189,6 @@ const longQueryPostController = async (req, res) => {
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:700px;margin:0 auto;background:#ffffff;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
                   <tr>
                     <td style="padding:32px;">
-                      <!-- Corporate Badge -->
-                      <div style="text-align:center;margin-bottom:24px;">
-                        <span style="background:#059669;color:#ffffff;padding:8px 16px;border-radius:20px;font-family:Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;">🏢 Corporate Inquiry</span>
-                      </div>
-
                       <div style="font-family:Segoe UI,Arial,sans-serif;font-size:20px;color:#059669;font-weight:700;margin:0 0 24px 0;border-bottom:2px solid #10b981;padding-bottom:12px;">Company & Contact Information</div>
 
                       <!-- Company Name Section -->
@@ -237,13 +232,7 @@ const longQueryPostController = async (req, res) => {
                             "No specific requirements mentioned. Please contact the company for detailed discussions."
                           }
                         </div>
-                      </div>
-
-                      <!-- Priority Alert -->
-                      <div style="padding:16px;background:#fef2f2;border-left:4px solid #ef4444;border-radius:6px;">
-                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#dc2626;font-weight:600;">🔥 High Priority - Corporate Client</div>
-                        <div style="font-family:Segoe UI,Arial,sans-serif;font-size:13px;color:#7f1d1d;margin-top:4px;">Corporate inquiries require immediate attention. Please respond within 4 hours.</div>
-                      </div>
+                      </div>                     
                     </td>
                   </tr>
                 </table>
@@ -256,7 +245,7 @@ const longQueryPostController = async (req, res) => {
             <tr>
               <td align="center" style="padding:24px 16px;">
                 <div style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#9ca3af;margin-top:6px;">Inventive Gas Equipment</div>
-                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:12px;color:#6b7280;margin-top:12px;">Corporate inquiry notification - Priority response required</div>
+                <div style="font-family:Segoe UI,Arial,sans-serif;font-size:12px;color:#6b7280;margin-top:12px;">Corporate Contact Form - Priority response required</div>
               </td>
             </tr>
           </table>
@@ -284,9 +273,6 @@ ${
   message ||
   "No specific requirements mentioned. Please contact for detailed discussions."
 }
-
----
-HIGH PRIORITY - CORPORATE CLIENT
 
 Inventive Gas Equipment`,
       });
