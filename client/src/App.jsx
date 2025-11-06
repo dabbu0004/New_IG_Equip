@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { ToastContainer } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
@@ -39,6 +40,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <ToastContainer />
         <HelmetProvider>
           <Navbar />
           <Routes>
