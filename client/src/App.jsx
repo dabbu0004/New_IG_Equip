@@ -21,7 +21,7 @@ import WhatsApp from "./components/WhatsAppButton";
 import CallButton from "./components/CallButton";
 import Popup from "./components/PopupForm";
 import Footer from "./components/Footer";
-
+import BlogsPage from "./pages/BlogsPage";
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -61,6 +61,7 @@ const App = () => {
               element={<RecdPage />}
             />
             <Route path="/career" element={<CareerPage />} />
+            <Route path="/blogs" element={<BlogsPage />} />
           </Routes>
           <CallButton />
           <Footer />
