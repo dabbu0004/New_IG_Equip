@@ -1,2 +1,2 @@
 # IG-Equip
-Developer - Nouman Khan
+Developer Name- Nouman Khan
