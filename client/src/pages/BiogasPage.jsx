@@ -21,10 +21,8 @@ const BioGas = () => {
           />
         </Helmet>
         <FirstPage />
-
         <SecondPage />
         <ProductPage />
-
         <ThirdPage />
         <NinePage />
         <ClientPage />
