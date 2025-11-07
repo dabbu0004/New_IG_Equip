@@ -24,6 +24,7 @@ import Footer from "./components/Footer";
 import BlogsPage from "./pages/BlogsPage";
 import GalleryPage from "./pages/GalleryPage";
 import ExhibitionsPage from "./pages/ExhibitionsPage";
+import TopMarquee from "./components/TopMarquee";
 
 const App = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const App = () => {
       <BrowserRouter>
         <ToastContainer />
         <HelmetProvider>
+          <TopMarquee />
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
