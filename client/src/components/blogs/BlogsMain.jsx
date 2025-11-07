@@ -12,11 +12,11 @@ const BlogsMain = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-5">
           Our Latest Blogs
         </h1>
-        <div className="flex flex-wrap gap-6 w-full md:w-1/2 hover:scale-105 transition-all duration-300">
+        <div className="flex flex-row gap-6 w-full">
           {BlogsData.map((blog) => (
             <div
               key={blog.id}
-              className="blog-card group bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
+              className="blog-card hover:scale-105 transition-all duration-300  group bg-white rounded-lg overflow-hidden cursor-pointer hover:shadow-lg"
               onClick={() => handleBlogClick(blog.slug)}
             >
               {/* Blog Image */}
