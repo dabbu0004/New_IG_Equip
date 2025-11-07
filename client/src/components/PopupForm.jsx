@@ -33,20 +33,18 @@ const PopupForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const shownRoutes = JSON.parse(
-      localStorage.getItem("popupShownRoutes") || "[]"
-    );
-    const currentRoute = location.pathname;
-    if (!shownRoutes.includes(currentRoute)) {
+    const popupShownInSession = sessionStorage.getItem("popupShownInSession");
+
+    if (!popupShownInSession) {
       const timer = setTimeout(() => {
         setIsVisible(true);
-        const updatedRoutes = [...shownRoutes, currentRoute];
-        localStorage.setItem("popupShownRoutes", JSON.stringify(updatedRoutes));
-      }, 1000);
+        sessionStorage.setItem("popupShownInSession", "true");
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
-  }, [location.pathname]);
+  }, []);
+
   useEffect(() => {
     if (isVisible) {
       document.body.style.overflow = "hidden";
