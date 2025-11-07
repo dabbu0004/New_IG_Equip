@@ -88,35 +88,35 @@ const Contact = () => {
 
   const formFields = [
     {
-      label: "Your Name",
+      label: "Your Name*",
       name: "name",
       type: "text",
       icon: IoPerson,
       placeholder: "Enter your Full Name",
     },
     {
-      label: "Phone Number",
+      label: "Phone Number*",
       name: "phone",
       type: "tel",
       icon: IoCall,
       placeholder: "+91 9876543210",
     },
     {
-      label: "Company Name",
+      label: "Company Name*",
       name: "companyName",
       type: "text",
       icon: IoBusiness,
       placeholder: "Your company name",
     },
     {
-      label: "Company Email",
+      label: "Company Email*",
       name: "companyEmail",
       type: "email",
       icon: IoMail,
       placeholder: "email@company.com",
     },
     {
-      label: "Location",
+      label: "Location*",
       name: "location",
       type: "text",
       icon: IoLocationSharp,
@@ -258,7 +258,7 @@ const Contact = () => {
                 {/* Location Field - Full Width */}
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    Location
+                    Location*
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
