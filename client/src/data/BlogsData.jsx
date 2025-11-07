@@ -1282,6 +1282,182 @@ const BlogsData = [
       ],
     },
   },
+  {
+    id: 6,
+    slug: "grap-stage-ii-delhi-ncr-diesel-genset-restrictions",
+    title:
+      "GRAP Stage-II Delhi-NCR: What Industries Must Know About Diesel Genset Restrictions",
+    description:
+      "Understand the impact of GRAP Stage-II on diesel generator operations in Delhi-NCR. Learn key directives, compliance solutions, and how Inventive Gas Equipment helps industries stay operational and environmentally responsible.",
+    image: img1,
+    content: {
+      sections: [
+        {
+          type: "heading2",
+          content:
+            "GRAP Stage-II Delhi-NCR: What Industries Must Know About Diesel Genset Restrictions",
+        },
+        {
+          type: "paragraph",
+          content:
+            "As Delhi-NCR experiences one of its worst air quality phases each year, the Commission for Air Quality Management (CAQM) has enforced GRAP Stage-II, a stricter set of rules to control pollution during the high-smog season.\n\nThese rules have significant effects for diesel generator (DG) users, especially in the industrial, commercial, and institutional sectors. At Inventive Gas Equipment Pvt. Ltd., we help organizations stay compliant, operational, and environmentally responsible through improved emission control and clean-fuel technologies.",
+        },
+        {
+          type: "heading3",
+          content: "What Is GRAP Stage-II?",
+        },
+        {
+          type: "paragraph",
+          content:
+            "GRAP (Graded Response Action Plan) is a government-mandated framework activated when Delhi-NCR’s air quality index (AQI) reaches the Very Poor category (AQI 301-400). The Stage-II restrictions aim to minimize emissions from diesel gensets, construction dust, and industrial operations, which are among the biggest sources of particulate pollution in the region.",
+        },
+        {
+          type: "heading2",
+          content: "GRAP Stage-II: Key Directives for Diesel Genset Users",
+        },
+        {
+          type: "list",
+          items: [
+            {
+              title: "Stricter Restrictions on Diesel Gensets",
+              description:
+                "The operation of diesel generators is prohibited except for essential or emergency services like hospitals, data centers, airports, and public utilities. Other users must adopt emission control technologies or cleaner fuel systems to continue operations.",
+            },
+            {
+              title:
+                "Mandatory Use of Emission Control Devices (RECDs) or Dual-Fuel Systems",
+              description:
+                "Only gensets fitted with CPCB-approved Retrofit Emission Control Devices (RECDs) or Dual Fuel/Alternative Fuel Kits are permitted for use. These technologies can reduce harmful emissions by up to 90%, allowing compliance without stopping operations.",
+            },
+            {
+              title: "Enhanced Industrial Monitoring",
+              description:
+                "Industrial units are under continuous air-quality surveillance. Failing to meet emission norms may lead to penalties, suspension, or closure.",
+            },
+            {
+              title: "Ban on Construction and Demolition Activities",
+              description:
+                "Except for essential government and public infrastructure projects, all construction and demolition work is restricted to reduce dust generation.",
+            },
+            {
+              title: "Road Dust & Air Management Measures",
+              description:
+                "Mechanical road sweeping, water sprinkling, and dust suppression are mandatory in affected areas.",
+            },
+            {
+              title: "Restriction on Polluting Fuels",
+              description:
+                "Industries using coal, furnace oil, or other high-emission fuels must switch to cleaner options like natural gas, biogas, or LPG.",
+            },
+            {
+              title: "Faster Enforcement and Penalties",
+              description:
+                "Inspection drives are increasing. Violations result in heavy fines, shutdowns, and legal action under environmental protection laws.",
+            },
+          ],
+        },
+        {
+          type: "heading2",
+          content: "What This Means for Diesel Genset Operators",
+        },
+        {
+          type: "paragraph",
+          content:
+            "If your business operates diesel gensets in Delhi-NCR, compliance with GRAP Stage-II is crucial. Operating without approved emission control or dual-fuel systems can lead to shutdowns or penalties. To continue operations legally and responsibly, DG users must choose one of the following solutions:",
+        },
+        {
+          type: "list",
+          items: [
+            {
+              title:
+                "Install a CPCB-approved RECD (Retrofit Emission Control Device)",
+              description:
+                "This filter captures particulate matter, hydrocarbons, and CO, reducing pollution by up to 90%.",
+            },
+            {
+              title: "Upgrade to a Dual-Fuel System",
+              description:
+                "This converts your diesel genset into a gas-diesel hybrid system, cutting diesel usage by 50-70% and lowering emissions greatly.",
+            },
+          ],
+        },
+        {
+          type: "paragraph",
+          content:
+            "Both solutions are officially recognized under GRAP guidelines as compliant technologies for DG operation.",
+        },
+        {
+          type: "heading2",
+          content: "How Inventive Gas Equipment Helps You Stay Compliant",
+        },
+        {
+          type: "paragraph",
+          content:
+            "At Inventive Gas Equipment Pvt. Ltd., we provide complete clean-air solutions to help organizations in Delhi-NCR meet GRAP and CPCB standards without disrupting power continuity.",
+        },
+        {
+          type: "heading3",
+          content: "Our Solutions:",
+        },
+        {
+          type: "list",
+          items: [
+            {
+              title: "Vayu Pure RECD",
+              description:
+                "A CPCB-approved Retrofit Emission Control Device compatible with gensets from 125 kVA to 2000 kVA.",
+            },
+            {
+              title: "Dual Fuel Kits",
+              description:
+                "Designed systems enabling diesel and natural gas/biogas operation for maximum fuel efficiency and minimal emissions.",
+            },
+            {
+              title: "Custom Integration & Support",
+              description:
+                "Expert site assessments, installation, and after-sales maintenance to ensure continuous compliance.",
+            },
+          ],
+        },
+        {
+          type: "heading3",
+          content: "Our Advantage:",
+        },
+        {
+          type: "list",
+          items: [
+            { title: "100% CPCB and NGT compliant products.", description: "" },
+            {
+              title: "Proven installations across industries and institutions.",
+              description: "",
+            },
+            {
+              title: "Quick retrofitting with minimal genset downtime.",
+              description: "",
+            },
+            {
+              title: "Technical support for documentation and audits.",
+              description: "",
+            },
+          ],
+        },
+        {
+          type: "paragraph",
+          content:
+            "By upgrading now, industries can avoid penalties, reduce emissions, and contribute to Delhi-NCR’s clean air initiative.",
+        },
+        {
+          type: "heading2",
+          content: "Moving Forward: From Compliance to Sustainability",
+        },
+        {
+          type: "paragraph",
+          content:
+            "The enforcement of GRAP Stage-II highlights a crucial truth: clean air and responsible energy use are now essential.\n\nThrough technologies like Retrofit Emission Control Devices and Dual Fuel Systems, businesses can operate while supporting India’s larger Net Zero 2070 and Sustainable Energy goals.\n\nAt Inventive Gas Equipment Pvt. Ltd., we’re not just helping you comply; we’re helping you lead the way to smarter, cleaner, and more sustainable power generation.",
+        },
+      ],
+    },
+  },
 ];
 
 export default BlogsData;
