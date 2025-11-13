@@ -13,11 +13,11 @@ const TopMarquee = () => {
 
   return (
     <div className="w-full bg-white border-b border-gray-200 overflow-hidden">
-      <div className="flex animate-marquee whitespace-nowrap">
+      <div className="flex animate-marquee">
         {regulations.map((regulation, index) => (
           <span
             key={index}
-            className="text-red-700 text-md font-semibold px-8 py-1 inline-block"
+            className="text-red-700 text-md font-semibold px-8 py-1 inline-block whitespace-nowrap"
           >
             {regulation}
           </span>
@@ -25,7 +25,7 @@ const TopMarquee = () => {
         {regulations.map((regulation, index) => (
           <span
             key={`duplicate-${index}`}
-            className="text-red-700 text-md font-semibold px-8 py-1 inline-block"
+            className="text-red-700 text-md font-semibold px-8 py-1 inline-block whitespace-nowrap"
           >
             {regulation}
           </span>
@@ -43,18 +43,17 @@ const TopMarquee = () => {
         }
 
         .animate-marquee {
-          animation: marquee 15s linear infinite;
+          animation: marquee 50s linear infinite;
           will-change: transform;
-          backface-visibility: hidden;
-          perspective: 1000px;
+          display: flex;
+          width: fit-content;
         }
 
         /* Responsive animation speed */
         @media (max-width: 768px) {
           .animate-marquee {
-            animation: marquee 4s linear infinite;
+            animation: marquee 40s linear infinite;
           }
-        }
         }
       `}</style>
     </div>
