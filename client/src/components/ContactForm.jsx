@@ -127,7 +127,7 @@ const Contact = () => {
   const features = [
     {
       icon: IoCall,
-      text: "+918830317796 , +917042100426",
+      text: "+91 8830317796 , +91 7042100426",
       color: "from-blue-400 to-cyan-400",
     },
     {
@@ -142,7 +142,7 @@ const Contact = () => {
     },
     {
       icon: IoLocationSharp,
-      text: "Plot No.65, Udyog Vihar, Ecotech II, Greater Noida, 201306 India",
+      text: "2nd Floor, Plot No-21, Udyog Vihar Extension, Ecotech-II, Surajpur, Greater Noida, Uttar Pradesh 201306",
       color: "from-yellow-400 to-orange-400",
     },
   ];
