@@ -6,7 +6,7 @@ import SecondPage from "../components/about/SecondPage";
 import FourthPage from "../components/about/FourthPage";
 import ThirdPage from "../components/about/ThirdPage";
 import FivePage from "../components/about/FivePage";
-
+import AddressMap from "../components/AddressMap";
 const AboutMain = () => {
   return (
     <div>
@@ -27,6 +27,7 @@ const AboutMain = () => {
       <FourthPage />
       <FivePage />
       <ContactForm />
+      <AddressMap />
     </div>
   );
 };

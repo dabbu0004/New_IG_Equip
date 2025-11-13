@@ -8,6 +8,7 @@ import ClientPage from "../components/home/ClientsSection";
 import SixPage from "../components/gas/SixPage";
 import SevenPage from "../components/gas/SevenPage";
 import Contact from "../components/ContactForm";
+import AddressMap from "../components/AddressMap";
 
 const GasMain = () => {
   return (
@@ -32,6 +33,7 @@ efficient, and cost-effective power generation. Power smarter, the sustainable w
         <SevenPage />
         <ClientPage />
         <Contact />
+        <AddressMap />
       </>
     </div>
   );

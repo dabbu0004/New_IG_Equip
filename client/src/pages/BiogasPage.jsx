@@ -7,6 +7,7 @@ import Contact from "../components/ContactForm";
 import ClientPage from "../components/home/ClientsSection";
 import ProductPage from "../components/biogas/ProductPage";
 import NinePage from "../components/biogas/NinePage";
+import AddressMap from "../components/AddressMap";
 const BioGas = () => {
   return (
     <div>
@@ -27,6 +28,7 @@ const BioGas = () => {
         <NinePage />
         <ClientPage />
         <Contact />
+        <AddressMap />
       </>
     </div>
   );

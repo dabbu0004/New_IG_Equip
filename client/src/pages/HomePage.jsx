@@ -8,6 +8,7 @@ import Gallery from "../components/home/Gallery";
 import ClientPage from "../components/home/ClientsSection";
 import ThirdPage from "../components/home/ThirdPage";
 import Contact from "../components/ContactForm";
+import AddressMap from "../components/AddressMap";
 
 const HomeMain = () => {
   return (
@@ -21,6 +22,7 @@ const HomeMain = () => {
       <Gallery />
       <FaqSection />
       <Contact />
+      <AddressMap />
     </div>
   );
 };

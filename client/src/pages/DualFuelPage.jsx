@@ -4,6 +4,7 @@ import OnePage from "../components/dualFuel/OnePage";
 import TwoPage from "../components/dualFuel/TwoPage";
 import ThreePage from "../components/dualFuel/ThreePage";
 import Contact from "../components/ContactForm";
+import AddressMap from "../components/AddressMap";
 
 const DualFuelPage = () => { 
   return (
@@ -23,6 +24,7 @@ Equipment. Save energy costs, reduce emissions, and ensure reliable 24/7 clean p
       <TwoPage />
       <ThreePage />
       <Contact />
+      <AddressMap />
     </div>
   );
 };

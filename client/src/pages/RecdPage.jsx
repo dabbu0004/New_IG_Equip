@@ -9,6 +9,7 @@ import EkPage from "../components/recd/EkPage";
 import SectionData from "../data/SectionData";
 import Section from "../components/recd/SectionPage";
 import ContactForm from "../components/ContactForm";
+import AddressMap from "../components/AddressMap";
 
 const RecdPage = () => {
   return (
@@ -35,6 +36,7 @@ ICAT compliance with advanced technology for cleaner air."
       <SevenPage />
       <ClientSection />
       <ContactForm />
+      <AddressMap />
     </div>
   );
 };
