@@ -24,7 +24,6 @@ Equipment. Save energy costs, reduce emissions, and ensure reliable 24/7 clean p
       <TwoPage />
       <ThreePage />
       <Contact />
-      <AddressMap />
     </div>
   );
 };

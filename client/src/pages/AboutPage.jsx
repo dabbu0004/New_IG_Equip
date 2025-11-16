@@ -27,7 +27,6 @@ const AboutMain = () => {
       <FourthPage />
       <FivePage />
       <ContactForm />
-      <AddressMap />
     </div>
   );
 };

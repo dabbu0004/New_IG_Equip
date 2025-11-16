@@ -28,7 +28,6 @@ const BioGas = () => {
         <NinePage />
         <ClientPage />
         <Contact />
-        <AddressMap />
       </>
     </div>
   );

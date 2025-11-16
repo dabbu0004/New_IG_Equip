@@ -22,7 +22,6 @@ const HomeMain = () => {
       <Gallery />
       <FaqSection />
       <Contact />
-      <AddressMap />
     </div>
   );
 };

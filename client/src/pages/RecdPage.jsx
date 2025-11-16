@@ -36,7 +36,6 @@ ICAT compliance with advanced technology for cleaner air."
       <SevenPage />
       <ClientSection />
       <ContactForm />
-      <AddressMap />
     </div>
   );
 };

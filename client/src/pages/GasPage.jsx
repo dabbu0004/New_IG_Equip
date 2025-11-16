@@ -33,7 +33,6 @@ efficient, and cost-effective power generation. Power smarter, the sustainable w
         <SevenPage />
         <ClientPage />
         <Contact />
-        <AddressMap />
       </>
     </div>
   );

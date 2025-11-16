@@ -458,9 +458,6 @@ const GalleryMain = () => {
                 <p className="text-lg font-medium text-center">
                   {displayedImages[selectedImageIndex].category}
                 </p>
-                <p className="text-sm text-gray-300 text-center">
-                  {selectedImageIndex + 1} of {displayedImages.length}
-                </p>
               </div>
             </div>
           </div>
