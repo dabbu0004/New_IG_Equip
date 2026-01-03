@@ -142,7 +142,7 @@ const Contact = () => {
     },
     {
       icon: IoLocationSharp,
-      text: "2nd Floor, Plot No-21, Udyog Vihar Extension, Ecotech-II, Surajpur, Greater Noida, Uttar Pradesh 201306",
+      text: "21, Udyog Vihar, Ecotech-II, Udyog Vihar, Greater Noida, Uttar Pradesh 201306",
       color: "from-yellow-400 to-orange-400",
     },
   ];

@@ -5,7 +5,7 @@ const AddressMap = () => {
   const API_KEY = "AIzaSyCgNEq1xSPkgj-H_99kscSOQTRQnYiLHHo";
 
   const FULL_ADDRESS =
-    "Inventive House- RECD & Dual Fuel Device For DG Set- Manufacturer in India, 2nd Floor, Plot No-21, Udyog Vihar Extension, Ecotech-II, Surajpur, Greater Noida, Uttar Pradesh 201306";
+    "21, Udyog Vihar, Ecotech-II, Udyog Vihar, Greater Noida, Uttar Pradesh 201306";
   const encodedAddress = encodeURIComponent(FULL_ADDRESS);
   const embedSrc = `https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=${encodedAddress}`;
 

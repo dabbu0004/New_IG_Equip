@@ -71,8 +71,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Address */}
           <div className="text-center md:text-left text-sm font-medium text-gray-800 mb-3 md:mb-0">
-            Inventive Gas Equipment, Plot No.65, Udyog Vihar, Ecotech II,
-            Greater Noida, 201306 India
+            21, Udyog Vihar, Ecotech-II, Udyog Vihar, Greater Noida, Uttar Pradesh 201306
           </div>
 
           {/* Phone Numbers */}
