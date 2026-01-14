@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 import analyzerImg from "../../assets/services/sensors.jpeg";
 import samplingImg from "../../assets/services/stack.jpeg";
@@ -7,6 +8,9 @@ import serverImg from "../../assets/services/server.jpeg";
 import calibrationImg from "../../assets/services/calibration.jpeg";
 
 const Service5 = () => {
+  const headerRef = useRef(null);
+  const rowsRef = useRef(null);
+
   const components = [
     {
       image: analyzerImg,
@@ -55,10 +59,31 @@ const Service5 = () => {
     },
   ];
 
+  useEffect(() => {
+    gsap.fromTo(
+      headerRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      rowsRef.current.children,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.15,
+        delay: 0.2,
+      }
+    );
+  }, []);
+
   return (
     <section className="w-full py-16 text-white bg-gradient-to-r from-red-500 to-orange-400">
       <div className="container max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
+        <div ref={headerRef} className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-2">
             OCEMS System Components
           </h2>
@@ -69,7 +94,7 @@ const Service5 = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-20">
+        <div ref={rowsRef} className="flex flex-col gap-20">
           {components.map((item, index) => {
             const isReverse = index % 2 !== 0;
 
@@ -81,7 +106,7 @@ const Service5 = () => {
                 } gap-6 items-center rounded-2xl`}
               >
                 <div className="max-w-xl flex-shrink-0 w-full">
-                  <div className="w-full h-fit md:h-[400px] object-cover flex items-center justify-center rounded-3xl md:p-4">
+                  <div className="w-full md:h-[400px] flex items-center justify-center rounded-3xl md:p-4">
                     <img
                       src={item.image}
                       alt={item.title}

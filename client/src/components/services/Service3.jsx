@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   FaCheck,
   FaBroadcastTower,
@@ -6,9 +6,13 @@ import {
   FaExclamationTriangle,
   FaLeaf,
 } from "react-icons/fa";
+import { gsap } from "gsap";
 import nplLogo from "../../assets/services/npl.png";
 
 const Service3 = () => {
+  const headerRef = useRef(null);
+  const cardsRef = useRef(null);
+
   const mandatoryPoints = [
     {
       icon: FaCheck,
@@ -42,13 +46,35 @@ const Service3 = () => {
     },
   ];
 
+  useEffect(() => {
+    gsap.fromTo(
+      headerRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      cardsRef.current.children,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.1,
+        delay: 0.2,
+      }
+    );
+  }, []);
+
   return (
     <section className="relative w-full py-20 bg-gray-100">
       <div className="container max-w-7xl mx-auto px-4">
-        <div className="relative mb-14">
+        <div ref={headerRef} className="relative mb-14">
           <div className="absolute max-h-40 max-w-40 left-0 top-1/2 -translate-y-1/2 hidden md:block">
             <img src={nplLogo} className="w-full h-full opacity-90" />
           </div>
+
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               Why OCEMS is Mandatory
@@ -65,7 +91,7 @@ const Service3 = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8">
+        <div ref={cardsRef} className="flex flex-wrap justify-center gap-8">
           {mandatoryPoints.map((item, index) => {
             const Icon = item.icon;
             return (
