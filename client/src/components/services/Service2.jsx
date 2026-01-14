@@ -1,27 +1,61 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ocemsImg from "../../assets/services/ocems.png";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Service2 = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      textRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        textRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power2.out" }
-    );
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="relative py-10 w-full text-white bg-gradient-to-r from-red-500 to-orange-400">
+    <section
+      ref={sectionRef}
+      className="relative py-10 w-full text-white bg-gradient-to-r from-red-500 to-orange-400"
+    >
       <div className="relative max-w-7xl mx-auto flex justify-center items-center px-4">
         <div className="flex flex-col lg:flex-row items-center">
           <div ref={textRef} className="flex-1">

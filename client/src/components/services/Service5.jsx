@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import analyzerImg from "../../assets/services/sensors.jpeg";
 import samplingImg from "../../assets/services/stack.jpeg";
@@ -7,9 +8,12 @@ import dahsImg from "../../assets/services/dahs.jpeg";
 import serverImg from "../../assets/services/server.jpeg";
 import calibrationImg from "../../assets/services/calibration.jpeg";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Service5 = () => {
   const headerRef = useRef(null);
   const rowsRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const components = [
     {
@@ -60,28 +64,51 @@ const Service5 = () => {
   ];
 
   useEffect(() => {
-    gsap.fromTo(
-      headerRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      rowsRef.current.children,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.15,
-        delay: 0.2,
-      }
-    );
+      gsap.fromTo(
+        rowsRef.current.children,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: rowsRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="w-full py-16 text-white bg-gradient-to-r from-red-500 to-orange-400">
+    <section
+      ref={sectionRef}
+      className="w-full py-16 text-white bg-gradient-to-r from-red-500 to-orange-400"
+    >
       <div className="container max-w-7xl mx-auto px-4">
         <div ref={headerRef} className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-2">

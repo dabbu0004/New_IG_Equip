@@ -7,11 +7,15 @@ import {
   FaLeaf,
 } from "react-icons/fa";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import nplLogo from "../../assets/services/npl.png";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Service3 = () => {
   const headerRef = useRef(null);
   const cardsRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const mandatoryPoints = [
     {
@@ -47,28 +51,48 @@ const Service3 = () => {
   ];
 
   useEffect(() => {
-    gsap.fromTo(
-      headerRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      cardsRef.current.children,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.1,
-        delay: 0.2,
-      }
-    );
+      gsap.fromTo(
+        cardsRef.current.children,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="relative w-full py-20 bg-gray-100">
+    <section ref={sectionRef} className="relative w-full py-20 bg-gray-100">
       <div className="container max-w-7xl mx-auto px-4">
         <div ref={headerRef} className="relative mb-14">
           <div className="absolute max-h-40 max-w-40 left-0 top-1/2 -translate-y-1/2 hidden md:block">

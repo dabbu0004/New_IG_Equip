@@ -1,10 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import facilityImg from "../../assets/gallery/img6.webp";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Service4 = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const points = [
     "CPCB-compliant OCEMS solutions.",
@@ -15,21 +19,51 @@ const Service4 = () => {
   ];
 
   useEffect(() => {
-    gsap.fromTo(
-      textRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+    const ctx = gsap.context(
+      () => {
+        gsap.fromTo(
+          textRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              end: "top 30%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          imageRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              end: "top 30%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      },
+      sectionRef
     );
 
-    gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power2.out" }
-    );
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="relative w-full py-10 bg-gray-50">
+    <section ref={sectionRef} className="relative w-full py-10 bg-gray-50">
       <div className="relative container max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div ref={textRef} className="flex-1">

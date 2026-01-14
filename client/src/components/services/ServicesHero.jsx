@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import img1 from "../../assets/services/sensors.jpeg";
 import img2 from "../../assets/services/stack.jpeg";
 import img3 from "../../assets/services/dahs.jpeg";
 import img4 from "../../assets/services/server.jpeg";
 import img5 from "../../assets/services/calibration.jpeg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const recdImages = [img1, img2, img3, img4, img5];
 
@@ -20,22 +23,50 @@ const ServicesHero = () => {
   const navigate = useNavigate();
   const sliderRef = useRef(null);
   const contentRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const [current, setCurrent] = useState(1);
   const [transition, setTransition] = useState(true);
 
   useEffect(() => {
-    gsap.fromTo(
-      sliderRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        sliderRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      contentRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power2.out" }
-    );
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
@@ -67,7 +98,7 @@ const ServicesHero = () => {
   }, [transition]);
 
   return (
-    <section className="w-full bg-white pb-10 md:py-10">
+    <section ref={sectionRef} className="w-full bg-white pb-10 md:py-10">
       <div className="container max-w-7xl bg-gray-50 md:border-2 md:shadow-md border-gray-100 md:p-12 rounded-none md:rounded-3xl mx-auto md:px-4">
         <div className="flex flex-col lg:flex-row gap-12 items-stretch">
           <div className="flex-1" ref={sliderRef}>
