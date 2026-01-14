@@ -26,6 +26,7 @@ import EachBlogs from "./components/blogs/EachBlogs";
 import GalleryPage from "./pages/GalleryPage";
 import ExhibitionsPage from "./pages/ExhibitionsPage";
 import TopMarquee from "./components/TopMarquee";
+import ServicesPage from "./pages/ServicesPage";
 
 const App = () => {
   useEffect(() => {
@@ -71,6 +72,8 @@ const App = () => {
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/exhibitions" element={<ExhibitionsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="*" element={<HomePage />} />
           </Routes>
           <CallButton />
           <Footer />

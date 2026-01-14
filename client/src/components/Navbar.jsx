@@ -6,7 +6,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCareerDropdownOpen, setIsCareerDropdownOpen] = useState(false);
 
-  // Navigation items configuration
   const navItems = [
     { path: "/about", label: "About" },
     { path: "/retrofit-emission-control-device-recd", label: "Vayu Pure RECD" },
@@ -15,8 +14,8 @@ const Navbar = () => {
     { path: "/biogas", label: "Bio Gas" },
   ];
 
-  // Career dropdown items
   const careerDropdownItems = [
+    { path: "/services", label: "Services" },
     { path: "/blogs", label: "Blogs/News" },
     { path: "/exhibitions", label: "Exhibitions" },
     { path: "/gallery", label: "Gallery" },
@@ -36,7 +35,6 @@ const Navbar = () => {
     setIsCareerDropdownOpen(!isCareerDropdownOpen);
   };
 
-  // Reusable Navigation Link Component
   const NavLink = ({ item, className = "", onClick = null }) => (
     <Link
       to={item.path}
@@ -47,7 +45,6 @@ const Navbar = () => {
     </Link>
   );
 
-  // Reusable CTA Button Component
   const CTAButton = ({ className = "", onClick = null }) => (
     <Link to="/contact" className={className} onClick={onClick}>
       <button className="bg-gradient-to-r from-red-500 to-orange-400 text-white px-5 py-2 rounded-xl font-semibold shadow hover:scale-105 transition-transform">
@@ -56,7 +53,6 @@ const Navbar = () => {
     </Link>
   );
 
-  // Hamburger Menu Icon Component
   const HamburgerIcon = () => (
     <button
       className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none z-20"
@@ -80,7 +76,6 @@ const Navbar = () => {
     </button>
   );
 
-  // Close Menu Icon Component
   const CloseIcon = () => (
     <button
       onClick={toggleMenu}
@@ -92,7 +87,6 @@ const Navbar = () => {
     </button>
   );
 
-  // Desktop Career Dropdown Component
   const CareerDropdown = () => (
     <div className="relative group focus-within:z-[60]">
       <button
@@ -104,7 +98,6 @@ const Navbar = () => {
         <IoChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
       </button>
 
-      {/* Dropdown Menu */}
       <div
         className="
           absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200
@@ -130,7 +123,6 @@ const Navbar = () => {
     </div>
   );
 
-  // Mobile Career Dropdown Component
   const MobileCareerDropdown = () => (
     <div className="w-full">
       <button
@@ -145,7 +137,6 @@ const Navbar = () => {
         />
       </button>
 
-      {/* Mobile Dropdown Items */}
       <div
         className={`overflow-hidden transition-all duration-300 ${
           isCareerDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -170,12 +161,9 @@ const Navbar = () => {
   return (
     <div className="max-w-full relative">
       <header className="container mx-auto max-w-7xl relative bg-white shadow-md rounded-bl-[2rem]">
-        {/* Left Vertical Orange Curve */}
         <div className="absolute top-0 left-0 h-full w-2 bg-orange-300 rounded-tl-[2rem] rounded-bl-[2rem] z-0" />
 
-        {/* Top Bar */}
         <div className="relative z-10 flex items-center justify-between px-4 md:px-16 py-4">
-          {/* Logo */}
           <div className="flex items-center space-x-3">
             <Link to="/">
               <img
@@ -186,7 +174,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10 font-medium text-black text-lg">
             {navItems.map((item) => (
               <NavLink key={item.path} item={item} />
@@ -194,7 +181,6 @@ const Navbar = () => {
             <CareerDropdown />
           </nav>
 
-          {/* Mobile Menu Button */}
           <HamburgerIcon />
 
           <CTAButton className="hidden md:block" />

@@ -18,7 +18,7 @@ import {
   handleWarning,
 } from "../components/handleUtils";
 
-const Contact = () => {
+const ContactForm = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -364,4 +364,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactForm;
