@@ -24,9 +24,8 @@ import Footer from "./components/Footer";
 import BlogsPage from "./pages/BlogsPage";
 import EachBlogs from "./components/blogs/EachBlogs";
 import GalleryPage from "./pages/GalleryPage";
-import ExhibitionsPage from "./pages/ExhibitionsPage";
 import TopMarquee from "./components/TopMarquee";
-import ServicesPage from "./pages/ServicesPage";
+import OcemsPage from "./pages/OcemsPage";
 
 const App = () => {
   useEffect(() => {
@@ -71,8 +70,7 @@ const App = () => {
             <Route path="/blogs/:slug" element={<EachBlogs />} />
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/exhibitions" element={<ExhibitionsPage />} />
-            <Route path="/ocems" element={<ServicesPage />} />
+            <Route path="/ocems" element={<OcemsPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
           <CallButton />
