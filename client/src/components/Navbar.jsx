@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
 
   const careerDropdownItems = [
-    { path: "/services", label: "Services" },
+    { path: "/ocems", label: "OCEMS" },
     { path: "/blogs", label: "Blogs/News" },
     { path: "/exhibitions", label: "Exhibitions" },
     { path: "/gallery", label: "Gallery" },
