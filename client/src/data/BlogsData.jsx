@@ -1,4 +1,9 @@
-import img1 from "../assets/recd.png";
+import img1 from "../assets/blogs/1.webp";
+import img4 from "../assets/blogs/2.webp";
+import img3 from "../assets/blogs/3.webp";
+import img2 from "../assets/blogs/4.webp";
+import img5 from "../assets/blogs/5.webp";
+import img6 from "../assets/blogs/6.png";
 
 const BlogsData = [
   {
@@ -73,7 +78,7 @@ const BlogsData = [
       "The Complete Guide to Biogas Plants: Turning Waste into Renewable Energy",
     description:
       "As the world moves toward sustainable and renewable energy, the focus has shifted from fossil fuels to cleaner, smarter alternatives. Among these, biogas has emerged as one of the most practical and eco-friendly solutions for industries, institutions, and communities alike.",
-    image: img1,
+    image: img2,
     content: {
       sections: [
         {
@@ -352,7 +357,7 @@ const BlogsData = [
       "PSI Gensets – Reliable Power Systems for Industrial and Commercial Applications",
     description:
       "In today's fast-paced industrial world, uninterrupted power supply is the backbone of every successful operation. Whether it's manufacturing, data centers, hospitals, or commercial establishments — reliable power ensures seamless productivity and safety.",
-    image: img1,
+    image: img3,
     content: {
       sections: [
         {
@@ -656,7 +661,7 @@ const BlogsData = [
       "Dual Fuel Kits – Revolutionizing Diesel Genset Efficiency and Sustainability",
     description:
       "Dual fuel technology is redefining how diesel generators operate. The combination of diesel and natural gas (or biogas) through Dual Fuel Kits offers a sustainable, high-performance solution that reduces emissions, optimizes fuel consumption, and extends engine life.",
-    image: img1,
+    image: img4,
     content: {
       sections: [
         {
@@ -970,7 +975,7 @@ const BlogsData = [
       "Retrofit Emission Control Device (RECD) – Clean Air Technology for Diesel Generators",
     description:
       "Vayu Pure RECD by Inventive Gas Equipment is a CPCB-approved emission control device for diesel generators, engineered to cut down particulate matter, hydrocarbons, and carbon monoxide for cleaner air and regulatory compliance.",
-    image: img1,
+    image: img5,
     content: {
       sections: [
         {
@@ -1289,7 +1294,7 @@ const BlogsData = [
       "GRAP Stage-II Delhi-NCR: What Industries Must Know About Diesel Genset Restrictions",
     description:
       "Understand the impact of GRAP Stage-II on diesel generator operations in Delhi-NCR. Learn key directives, compliance solutions, and how Inventive Gas Equipment helps industries stay operational and environmentally responsible.",
-    image: img1,
+    image: img6,
     content: {
       sections: [
         {
