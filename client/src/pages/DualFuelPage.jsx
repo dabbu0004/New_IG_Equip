@@ -1,12 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import OnePage from "../components/dualFuel/OnePage";
-import TwoPage from "../components/dualFuel/TwoPage";
-import ThreePage from "../components/dualFuel/ThreePage";
+import OnePage from "../components/dualFuelKit/DualFuelKitHero";
+import TwoPage from "../components/dualFuelKit/TwoPage";
+import ThreePage from "../components/dualFuelKit/ThreePage";
 import Contact from "../components/ContactForm";
-import AddressMap from "../components/AddressMap";
 
-const DualFuelPage = () => { 
+const DualFuelPage = () => {
   return (
     <div>
       <Helmet>

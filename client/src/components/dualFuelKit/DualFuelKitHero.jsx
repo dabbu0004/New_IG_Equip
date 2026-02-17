@@ -1,16 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import dualFuelKitImage from "../../assets/dualFuelKit.webp";
 
 const FirstPage = () => {
   const navigate = useNavigate();
   return (
-    // Outer full-width container with white background
     <div className="w-full bg-white py-12 px-6">
-      {/* Centered inner container with 80% width */}
       <div className="w-[80%] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
-        {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-2 text-center lg:text-left">
-          <h1 className="text-4xl lg:text-5xl font-medium text-black leading-tight">
+          <h1 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
             Dual Fuel Kits for Diesel Gensets – Switch to Smart, Clean Energy
           </h1>
 
@@ -35,13 +33,11 @@ const FirstPage = () => {
             Go Gas. Grow Profits
           </button>
         </div>
-
-        {/* Right Image */}
         <div className="w-full lg:w-1/2 flex justify-center">
           <img
-            src="/images/image/blob.jpg"
-            alt="Diesel Genset"
-            className="w-[360px] lg:w-[480px] rounded-br-full"
+            src={dualFuelKitImage}
+            alt="Dual Fuel Kit"
+            className="w-[360px] lg:w-full rounded-br-3xl rounded-tl-3xl shadow-lg"
           />
         </div>
       </div>

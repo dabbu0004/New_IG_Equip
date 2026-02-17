@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 const ThirdPage = () => {
   return (
     <div className="bg-gradient-to-r from-red-500 to-orange-400 text-white px-4 md:px-16 py-12 relative overflow-hidden">
-      {/* Product Cards Section */}
       <section className="max-w-7xl mx-auto container px-4 md:px-20 py-8 text-white">
         <h1 className="text-center text-3xl md:text-5xl font-bold mb-10">
           Gas Gensets Built for Every Purpose
@@ -53,7 +52,6 @@ const ThirdPage = () => {
           ))}
         </div>
       </section>
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-pulse"></div>
         <div className="absolute bottom-40 right-20 w-48 h-48 bg-orange-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>

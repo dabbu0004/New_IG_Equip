@@ -1,14 +1,13 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import FirstPage from "../components/gas/FirstPage";
-import SecondPage from "../components/home/SecondPage";
-import ThirdPage from "../components/gas/ThirdPage";
-import FourthPage from "../components/gas/FourthPage";
+import GasGensetHero from "../components/gasGenset/gasGensetHero";
+import SecondPage from "../components/biogas/SecondPage";
+import ThirdPage from "../components/gasGenset/ThirdPage";
+import FourthPage from "../components/gasGenset/FourthPage";
 import ClientPage from "../components/home/ClientsSection";
-import SixPage from "../components/gas/SixPage";
-import SevenPage from "../components/gas/SevenPage";
+import SixPage from "../components/gasGenset/SixPage";
+import SevenPage from "../components/gasGenset/SevenPage";
 import Contact from "../components/ContactForm";
-import AddressMap from "../components/AddressMap";
 
 const GasMain = () => {
   return (
@@ -25,7 +24,7 @@ const GasMain = () => {
 efficient, and cost-effective power generation. Power smarter, the sustainable way."
           />
         </Helmet>
-        <FirstPage />
+        <GasGensetHero />
         <SecondPage />
         <ThirdPage />
         <FourthPage />
