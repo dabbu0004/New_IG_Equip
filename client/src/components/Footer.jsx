@@ -54,7 +54,7 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex items-center space-x-4 mt-4 md:mt-0">
           <span className="text-sm text-gray-600">Follow Us</span>
-          <a href="https://www.facebook.com/">
+          <a href="https://www.facebook.com/InventiveGasEquipment">
             <FaFacebookF className="text-blue-600 hover:scale-110" />
           </a>
           <a href="https://www.instagram.com/igequipment/">
