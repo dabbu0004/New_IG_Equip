@@ -4,14 +4,15 @@ import { IoChevronDown } from "react-icons/io5";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCareerDropdownOpen, setIsCareerDropdownOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isCareerOpen, setIsCareerOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navItems = [
     { path: "/about", label: "About" },
     { path: "/retrofit-emission-control-device-recd", label: "Vayu Pure RECD" },
     { path: "/dual-fuel-kit", label: "Dual-Fuel Kit" },
     { path: "/gas-ganset", label: "Gas Ganset" },
-    { path: "/biogas", label: "Bio Gas" },
   ];
 
   const careerDropdownItems = [
@@ -21,17 +22,26 @@ const Navbar = () => {
     { path: "/career", label: "Career" },
   ];
 
+  const productsDropdownItems = [
+    { path: "/flare-system", label: "Flare System" },
+    { path: "/biogas-membrane-holder", label: "Biogas Membrane Holder" },
+    { path: "/digester-technology", label: "Digester & Technology" },
+    { path: "/co2-removal", label: "Co2 Removal" },
+    { path: "/cbg-plant-support", label: "CBG Plant & Support" },
+  ];
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setIsCareerDropdownOpen(false);
+    setIsProductsOpen(false);
+    setIsCareerOpen(false);
   };
 
-  const toggleCareerDropdown = () => {
-    setIsCareerDropdownOpen(!isCareerDropdownOpen);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const NavLink = ({ item, className = "", onClick = null }) => (
@@ -66,8 +76,8 @@ const Navbar = () => {
               ? index === 0
                 ? "rotate-45 translate-y-2"
                 : index === 1
-                ? "opacity-0"
-                : "-rotate-45 -translate-y-2"
+                  ? "opacity-0"
+                  : "-rotate-45 -translate-y-2"
               : ""
           }`}
         />
@@ -87,24 +97,26 @@ const Navbar = () => {
   );
 
   const CareerDropdown = () => (
-    <div className="relative group focus-within:z-[60]">
+    <div
+      className="relative career-dropdown"
+      style={{ zIndex: 60 }}
+      onMouseEnter={() => setIsCareerOpen(true)}
+      onMouseLeave={() => setIsCareerOpen(false)}
+    >
       <button
-        className="hover:text-orange-500 transition-colors flex items-center space-x-1 focus:outline-none"
+        className="hover:text-orange-500 transition-colors flex items-center space-x-1 focus:outline-none career-dropdown-btn"
         aria-haspopup="menu"
-        aria-expanded="false"
+        aria-expanded={isCareerOpen}
+        onClick={() => setIsCareerOpen((v) => !v)}
+        type="button"
       >
         <span>Other</span>
-        <IoChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+        <IoChevronDown
+          className={`w-4 h-4 transition-transform ${isCareerOpen ? "rotate-180" : ""}`}
+        />
       </button>
-
       <div
-        className="
-          absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200
-          opacity-0 invisible -translate-y-2
-          group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
-          group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0
-          transition-all duration-200 z-[70]
-        "
+        className={`absolute top-4 left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
         role="menu"
       >
         <div className="py-2">
@@ -113,6 +125,81 @@ const Navbar = () => {
               key={item.path}
               to={item.path}
               className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+              onClick={closeMenu}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const ProductsDropdown = () => (
+    <div
+      className="relative products-dropdown"
+      style={{ zIndex: 60 }}
+      onMouseEnter={() => setIsProductsOpen(true)}
+      onMouseLeave={() => setIsProductsOpen(false)}
+    >
+      <button
+        className="hover:text-orange-500 transition-colors flex items-center space-x-1 focus:outline-none products-dropdown-btn"
+        aria-haspopup="menu"
+        aria-expanded={isProductsOpen}
+        onClick={() => setIsProductsOpen((v) => !v)}
+        type="button"
+      >
+        <span>Products</span>
+        <IoChevronDown
+          className={`w-4 h-4 transition-transform ${isProductsOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+      <div
+        className={`absolute top-4 left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
+        role="menu"
+      >
+        <div className="py-2">
+          {productsDropdownItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+              onClick={closeMenu}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const MobileProductsDropdown = () => (
+    <div className="w-full">
+      <button
+        className="flex items-center justify-between w-full text-xl font-medium text-black pb-1 mb-2 border-b-2 border-gray-800"
+        onClick={toggleDropdown}
+      >
+        <span>Products</span>
+        <IoChevronDown
+          className={`w-4 h-4 transition-transform ${
+            isDropdownOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="pl-4 space-y-2 mb-4">
+          {productsDropdownItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="block text-lg font-medium text-gray-600 hover:text-orange-500 transition-colors py-1"
+              onClick={closeMenu}
             >
               {item.label}
             </Link>
@@ -126,19 +213,19 @@ const Navbar = () => {
     <div className="w-full">
       <button
         className="flex items-center justify-between w-full text-xl font-medium text-black pb-1 mb-2 border-b-2 border-gray-800"
-        onClick={toggleCareerDropdown}
+        onClick={toggleDropdown}
       >
         <span>Other</span>
         <IoChevronDown
           className={`w-4 h-4 transition-transform ${
-            isCareerDropdownOpen ? "rotate-180" : ""
+            isDropdownOpen ? "rotate-180" : ""
           }`}
         />
       </button>
 
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isCareerDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          isDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="pl-4 space-y-2 mb-4">
@@ -177,6 +264,7 @@ const Navbar = () => {
             {navItems.map((item) => (
               <NavLink key={item.path} item={item} />
             ))}
+            <ProductsDropdown />
             <CareerDropdown />
           </nav>
 
@@ -218,6 +306,7 @@ const Navbar = () => {
                   />
                 ))}
                 <MobileCareerDropdown />
+                <MobileProductsDropdown />
                 <div className="pt-4">
                   <CTAButton className="w-full" onClick={closeMenu} />
                 </div>
