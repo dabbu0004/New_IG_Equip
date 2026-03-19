@@ -23,11 +23,14 @@ const Navbar = () => {
   ];
 
   const productsDropdownItems = [
-    { path: "/flare-system", label: "Flare System" },
-    { path: "/biogas-membrane-holder", label: "Biogas Membrane Holder" },
-    { path: "/digester-technology", label: "Digester & Technology" },
-    { path: "/co2-removal", label: "Co2 Removal" },
-    { path: "/cbg-plant-support", label: "CBG Plant & Support" },
+    { path: "/products/flare-system", label: "Flare System" },
+    {
+      path: "/products/biogas-membrane-holder",
+      label: "Biogas Membrane Holder",
+    },
+    { path: "/products/digester-technology", label: "Digester & Technology" },
+    { path: "/products/co2-removal", label: "Co2 Removal" },
+    { path: "/products/cbg-plant-support", label: "CBG Plant & Support" },
   ];
 
   const toggleMenu = () => {

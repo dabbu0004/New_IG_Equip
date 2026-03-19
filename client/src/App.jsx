@@ -12,7 +12,6 @@ import RecdPage from "./pages/RecdPage";
 import DualFuelPage from "./pages/DualFuelPage";
 import CareerPage from "./pages/CareerPage";
 import GasPage from "./pages/GasPage";
-import BiogasPage from "./pages/BiogasPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
@@ -26,6 +25,7 @@ import EachBlogs from "./components/blogs/EachBlogs";
 import GalleryPage from "./pages/GalleryPage";
 import TopMarquee from "./components/TopMarquee";
 import OcemsPage from "./pages/OcemsPage";
+import ProductsPage from "./pages/ProductsPage";
 
 const App = () => {
   useEffect(() => {
@@ -61,7 +61,6 @@ const App = () => {
               element={<TermsAndConditionsPage />}
             />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/biogas" element={<BiogasPage />} />
             <Route
               path="/retrofit-emission-control-device-recd"
               element={<RecdPage />}
@@ -71,6 +70,7 @@ const App = () => {
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/ocems" element={<OcemsPage />} />
+            {/* <Route path="/products/:slug" element={<ProductsPage />} /> */}
             <Route path="*" element={<HomePage />} />
           </Routes>
           <CallButton />
