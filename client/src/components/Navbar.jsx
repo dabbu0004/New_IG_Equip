@@ -249,9 +249,7 @@ const Navbar = () => {
 
   return (
     <div className="max-w-full relative">
-      <header className="container mx-auto max-w-7xl relative bg-white shadow-md rounded-bl-[2rem]">
-        <div className="absolute top-0 left-0 h-full w-2 bg-orange-300 rounded-tl-[2rem] rounded-bl-[2rem] z-0" />
-
+      <header className="container mx-auto max-w-full relative bg-white shadow-md rounded-bl-[2rem]">
         <div className="relative z-10 flex items-center justify-between px-4 md:px-16 py-4">
           <div className="flex items-center space-x-3">
             <Link to="/">
@@ -275,7 +273,7 @@ const Navbar = () => {
 
           <CTAButton className="hidden md:block" />
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-300 rounded-bl-[2rem] rounded-br-[2rem] z-0" />
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-300  z-0" />
       </header>
       <div
         className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
