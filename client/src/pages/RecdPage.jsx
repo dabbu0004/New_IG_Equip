@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import RecdHero from "../components/recd/RecdHero";
+import RecdFeatures from "../components/recd/RecdFeatures";
+import WhyChooseUs from "../components/recd/WhyChooseUs";
+import RecdGuidelines from "../components/recd/RecdGuidelines";
+import BlogsSection from "../components/blogs/BlogsSection";
+import CtaBanner from "../components/recd/CtaBanner";
+import RecdApplications from "../components/recd/RecdApplications";
+import Clients from "../components/recd/Clients";
+import Faqs from "../components/recd/Faqs";
+import WhatIsRecd from "../components/recd/WhatIsRecd";
+import HowRecdWork from "../components/recd/HowRecdWork";
 import { Helmet } from "react-helmet-async";
-import SecondPage from "../components/home/SecondPage";
-import ThirdPage from "../components/recd/ThirdPage";
-import SevenPage from "../components/recd/SevenPage";
-import EightPage from "../components/recd/EightPage";
-import ClientSection from "../components/home/ClientsSection";
-import EkPage from "../components/recd/EkPage";
-import SectionData from "../data/SectionData";
-import Section from "../components/recd/SectionPage";
-import ContactForm from "../components/ContactForm";
-import AddressMap from "../components/AddressMap";
 
 const RecdPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div>
+    <div className="pt-0">
       <Helmet>
         <title>
           Retrofit Emission Control Device (RECD) | Emission Control Device by
@@ -21,21 +26,20 @@ const RecdPage = () => {
         </title>
         <meta
           name="description"
-          content="Retrofit Emission Control Device (RECD) by Inventive Gas Equipment ensures CPCB &
-ICAT compliance with advanced technology for cleaner air."
+          content="Retrofit Emission Control Device (RECD) by Inventive Gas Equipment ensures CPCB & ICAT compliance with advanced technology for cleaner air."
         />
       </Helmet>
-
-      <EkPage />
-      <SecondPage />
-      <ThirdPage />
-      {SectionData.map((section) => (
-        <Section key={section.id} section={section} />
-      ))}
-      <EightPage />
-      <SevenPage />
-      <ClientSection />
-      <ContactForm />
+      <RecdHero />
+      <WhatIsRecd />
+      <HowRecdWork />
+      <RecdFeatures />
+      <RecdApplications />
+      <WhyChooseUs />
+      <Clients />
+      <CtaBanner />
+      <RecdGuidelines />
+      <BlogsSection />
+      <Faqs />
     </div>
   );
 };
