@@ -48,7 +48,7 @@ const GalleryPreview = () => {
             Our Portfolio
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-            Glimpses of <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Excellence</span>
+            Glimpses of <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">Excellence</span>
           </h2>
           <p className="text-base md:text-lg text-gray-600">
             Explore moments that reflect our dedication, precision, and the high-quality standards we bring to every project.
@@ -97,7 +97,7 @@ const GalleryPreview = () => {
         <div className="mt-12 lg:mt-16" data-aos="fade-up">
           <Link 
             to="/gallery"
-            className="group flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-orange-500 hover:bg-gradient-to-r hover:from-orange-600 hover:to-red-500 text-white font-bold py-4 px-10 rounded-xl shadow-xl shadow-orange-500/20 transition-all duration-300"
+            className="group flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-orange-500 hover:bg-gradient-to-r  text-white font-bold py-4 px-10 rounded-xl shadow-xl shadow-orange-500/20 transition-all duration-300"
           >
             <span className="tracking-wide">VIEW ALL GALLERY</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300">
