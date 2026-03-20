@@ -50,7 +50,7 @@ const Analysis = () => {
             Proven Performance
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-            Data-Driven <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Impact</span>
+            Data-Driven <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">Impact</span>
           </h2>
           <p className="text-base md:text-lg text-gray-600">
             Hover over our key metrics to explore the real-world analytics and performance charts behind our environmental engineering.

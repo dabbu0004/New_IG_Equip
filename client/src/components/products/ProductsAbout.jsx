@@ -37,7 +37,7 @@ const ProductsAbout = ({ productsData }) => {
 
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-              <span className="text-orange-500">
+              <span className="bg-gradient-to-r from-red-600 to-orange-500 text-transparent bg-clip-text">
                 {productsData.highlightTitle || productsData.title}{" "}
               </span>
               {productsData.restTitle && (
@@ -51,7 +51,7 @@ const ProductsAbout = ({ productsData }) => {
               </p>
             </div>
 
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 px-10 rounded-xl shadow-lg shadow-orange-500/30 transition-all duration-300 w-max tracking-wide flex items-center gap-3 group">
+            <button className="bg-gradient-to-r from-red-500 to-orange-500 hover:bg-gradient-to-r hover:from-orange-600 hover:to-red-500 text-white font-bold py-3.5 px-10 rounded-xl shadow-lg shadow-orange-500/30 transition-all duration-300 w-max tracking-wide flex items-center gap-3 group">
               <span>ADD TO CART</span>
      
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1 transition-transform">

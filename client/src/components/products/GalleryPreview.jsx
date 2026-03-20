@@ -12,24 +12,29 @@ const GalleryPreview = () => {
     let nextAvailableIndex = 6;
 
     const interval = setInterval(() => {
-      const boxToUpdate = Math.floor(Math.random() * 6);
- 
+      const numToChange = Math.random() > 0.5 ? 2 : 3;
+      const boxesToUpdate = [];
+      while (boxesToUpdate.length < numToChange) {
+        const randomBox = Math.floor(Math.random() * 6);
+        if (!boxesToUpdate.includes(randomBox)) {
+          boxesToUpdate.push(randomBox);
+        }
+      }
       setFadingIndex(boxToUpdate);
-
       setTimeout(() => {
         setDisplayIndices((prevIndices) => {
           const newIndices = [...prevIndices];
-         
-          newIndices[boxToUpdate] = nextAvailableIndex % GalleryData.length;
+          boxesToUpdate.forEach((boxIndex) => {
+             newIndices[boxIndex] = nextAvailableIndex % GalleryData.length;
+             nextAvailableIndex++;
+          });
+          
           return newIndices;
         });
-    
-        nextAvailableIndex++;
-  
-        setFadingIndex(null);
+        setFadingIndices([]);
       }, 500); 
       
-    }, 3000); 
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -92,7 +97,7 @@ const GalleryPreview = () => {
         <div className="mt-12 lg:mt-16" data-aos="fade-up">
           <Link 
             to="/gallery"
-            className="group flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-xl shadow-xl shadow-orange-500/20 transition-all duration-300"
+            className="group flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-orange-500 hover:bg-gradient-to-r hover:from-orange-600 hover:to-red-500 text-white font-bold py-4 px-10 rounded-xl shadow-xl shadow-orange-500/20 transition-all duration-300"
           >
             <span className="tracking-wide">VIEW ALL GALLERY</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300">
