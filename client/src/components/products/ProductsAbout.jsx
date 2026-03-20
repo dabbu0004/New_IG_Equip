@@ -36,13 +36,14 @@ const ProductsAbout = ({ productsData }) => {
             </span>
 
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+               {productsData.restTitle && (
+                <span>{productsData.restTitle}</span>
+              )}
               <span className="bg-gradient-to-r from-red-600 to-orange-500 text-transparent bg-clip-text">
                 {productsData.highlightTitle || productsData.title}{" "}
               </span>
-              {productsData.restTitle && (
-                <span>{productsData.restTitle}</span>
-              )}
+             
             </h2>
 
             <div className="mb-10">

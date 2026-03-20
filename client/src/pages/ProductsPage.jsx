@@ -8,7 +8,6 @@ import HomePage from "../pages/HomePage";
 import Certificates from "../components/products/Certificates";
 import GalleryPreview from "../components/products/GalleryPreview";
 import Analysis from "../components/products/Analysis";
-import Clients from "../components/Clients";
 
 const ProductsPage = () => {
   const { slug } = useParams();
@@ -29,8 +28,6 @@ const ProductsPage = () => {
       <Certificates />
       <GalleryPreview/>
       <Analysis />
-      <Clients />
-
     </div>
   );
 };

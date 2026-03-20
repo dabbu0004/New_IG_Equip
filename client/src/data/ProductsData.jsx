@@ -1,4 +1,7 @@
 import flaresystem from "../assets/dualFuelKit.webp";
+import flareSystemVideo from "../assets/products/flare-system.mp4";
+import biogasVideo from "../assets/products/biogas.mp4"
+import digesterTechnologyVideo from "../assets/products/DigesterTechnology.mp4"
 import { FaDroplet, FaCloudSun, FaLayerGroup, FaIndustry, FaWrench, FaIndianRupeeSign } from "react-icons/fa6";
 const standardFeatures = [
   { id: 1, icon: <FaDroplet />, text: "Water Resistance" },
@@ -14,50 +17,54 @@ export const productsData = {
     id: "flare-system",
     slug: "flare-system",
     title: "Flare System",
-    highlightTitle: "Flare", 
-    restTitle: "System",
+    highlightTitle: "Flare System ?", 
+    restTitle: "What is ",
     description:
       "Engineered for reliable combustion and environmental compliance, our Flare System ensures safe disposal of excess biogas. With a team of qualified technicians, we design and manufacture emission control devices designed to reduce particulate matter significantly, improving performance and reducing operational cost.",
     metaTitle: "Flare System | Product Overview",
     metaDescription:
       "Simple product page for Flare System with basic feature and hero information.",
     bannerImage: flaresystem,
+    bannerVideo: flareSystemVideo,
     features: standardFeatures, 
   },
   "biogas-membrane-holder": {
     id: "biogas-membrane-holder",
     slug: "biogas-membrane-holder",
     title: "Biogas Membrane Holder",
-    highlightTitle: "Biogas",
-    restTitle: "Membrane Holder",
+    highlightTitle: "Biogas Membrane Holder ?", 
+    restTitle: "What is ",
     description:
       "Designed for maximum safety and performance, our Biogas Membrane Holder is the perfect fit for modern biogas systems.",
     metaTitle: "Biogas Membrane Holder | Product Overview",
     metaDescription:
       "Simple product page for Biogas Membrane Holder with basic feature and hero information.",
     bannerImage: flaresystem,
+    bannerVideo: biogasVideo,
     features: standardFeatures,
   },
   "digester-technology": {
     id: "digester-technology",
     slug: "digester-technology",
     title: "Digester & Technology",
-    highlightTitle: "Digester",
-    restTitle: "& Technology",
+       highlightTitle: "Digester & Technology ?", 
+    restTitle: "What is ",
     description:
       "Maximize biogas output with our high-efficiency digesters and cutting-edge technology. Designed for optimal waste-to-energy conversion and long-term reliability.",
     metaTitle: "Digester & Technology | Product Overview",
     metaDescription:
       "Simple product page for Digester & Technology with basic feature and hero information.",
     bannerImage: flaresystem,
+    bannerVideo: digesterTechnologyVideo,
+
     features: standardFeatures,
   },
   "co2-removal": {
     id: "co2-removal",
     slug: "co2-removal",
     title: "CO2 Removal",
-    highlightTitle: "CO2",
-    restTitle: "Removal",
+      highlightTitle: "Co2 Removal ?", 
+    restTitle: "What is ",
     description:
       "Enhance the quality of your biogas with our advanced CO₂ Removal systems. Designed for precision and performance, ensuring maximum methane recovery and energy efficiency.",
     metaTitle: "CO2 Removal | Product Overview",
@@ -70,8 +77,8 @@ export const productsData = {
     id: "cbg-plant-support",
     slug: "cbg-plant-support",
     title: "CBG Plant & Support",
-    highlightTitle: "CBG Plant",
-    restTitle: "& Support",
+      highlightTitle: "CBG Plant & Support ?", 
+    restTitle: "What is ",
     description:
       "From design to installation, our CBG (Compressed Biogas) Plants are built for maximum efficiency, reliability, and compliance with government norms.",
     metaTitle: "CBG Plant & Support | Product Overview",

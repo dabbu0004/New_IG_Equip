@@ -101,7 +101,7 @@ const Navbar = () => {
 
   const CareerDropdown = () => (
     <div
-      className="relative career-dropdown"
+      className="relative career-dropdown pb-2 -mb-2"
       style={{ zIndex: 60 }}
       onMouseEnter={() => setIsCareerOpen(true)}
       onMouseLeave={() => setIsCareerOpen(false)}
@@ -119,7 +119,7 @@ const Navbar = () => {
         />
       </button>
       <div
-        className={`absolute top-4 left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
+        className={`absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
         role="menu"
       >
         <div className="py-2">
@@ -140,7 +140,7 @@ const Navbar = () => {
 
   const ProductsDropdown = () => (
     <div
-      className="relative products-dropdown"
+      className="relative products-dropdown pb-2 -mb-2"
       style={{ zIndex: 60 }}
       onMouseEnter={() => setIsProductsOpen(true)}
       onMouseLeave={() => setIsProductsOpen(false)}
@@ -158,7 +158,7 @@ const Navbar = () => {
         />
       </button>
       <div
-        className={`absolute top-4 left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
+        className={`absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
         role="menu"
       >
         <div className="py-2">
@@ -248,8 +248,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="max-w-full relative">
-      <header className="container mx-auto max-w-full relative bg-white shadow-md rounded-bl-[2rem]">
+    <div className="max-w-full relative z-50">
+      <header className="container mx-auto max-w-full relative z-50 bg-white shadow-md rounded-bl-[2rem] overflow-visible">
         <div className="relative z-10 flex items-center justify-between px-4 md:px-16 py-4">
           <div className="flex items-center space-x-3">
             <Link to="/">
