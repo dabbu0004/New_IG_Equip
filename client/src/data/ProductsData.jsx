@@ -1,8 +1,9 @@
 import flaresystem from "../assets/dualFuelKit.webp";
 import flareSystemVideo from "../assets/products/flare-system.mp4";
-import biogasVideo from "../assets/products/biogas.mp4"
-import digesterTechnologyVideo from "../assets/products/DigesterTechnology.mp4"
+import biogasVideo from "../assets/products/biogas.mp4";
+import digesterTechnologyVideo from "../assets/products/DigesterTechnology.mp4";
 import { FaDroplet, FaCloudSun, FaLayerGroup, FaIndustry, FaWrench, FaIndianRupeeSign } from "react-icons/fa6";
+
 const standardFeatures = [
   { id: 1, icon: <FaDroplet />, text: "Water Resistance" },
   { id: 2, icon: <FaCloudSun />, text: "Weather Resistant" },
@@ -10,6 +11,18 @@ const standardFeatures = [
   { id: 4, icon: <FaIndustry />, text: "Reduce Pollution" },
   { id: 5, icon: <FaWrench />, text: "Maintenance Free" },
   { id: 6, icon: <FaIndianRupeeSign />, text: "Low Cost" },
+];
+
+// Added Key Points from your reference image
+const standardKeyPoints = [
+  "Complete in-house design and manufactured for compliant operation.",
+  "Skid mounted for easy low cost installation.",
+  "Proprietary pilot burner configuration ensures complete gas destruction.",
+  "10:1 or greater turndown.",
+  "Candlestick or Enclosed Flares up to 10,000 CFM.",
+  "Combustion systems comply with NFPA 86.",
+  "Windshield design improves operational stability and turndown.",
+  "Adjustable thermocouples to improve operation and temperature control."
 ];
 
 export const productsData = {
@@ -27,6 +40,7 @@ export const productsData = {
     bannerImage: flaresystem,
     bannerVideo: flareSystemVideo,
     features: standardFeatures, 
+    keyPoints: standardKeyPoints, 
   },
   "biogas-membrane-holder": {
     id: "biogas-membrane-holder",
@@ -42,12 +56,13 @@ export const productsData = {
     bannerImage: flaresystem,
     bannerVideo: biogasVideo,
     features: standardFeatures,
+    keyPoints: standardKeyPoints, 
   },
   "digester-technology": {
     id: "digester-technology",
     slug: "digester-technology",
     title: "Digester & Technology",
-       highlightTitle: "Digester & Technology ?", 
+    highlightTitle: "Digester & Technology ?", 
     restTitle: "What is ",
     description:
       "Maximize biogas output with our high-efficiency digesters and cutting-edge technology. Designed for optimal waste-to-energy conversion and long-term reliability.",
@@ -56,14 +71,14 @@ export const productsData = {
       "Simple product page for Digester & Technology with basic feature and hero information.",
     bannerImage: flaresystem,
     bannerVideo: digesterTechnologyVideo,
-
     features: standardFeatures,
+    keyPoints: standardKeyPoints, 
   },
   "co2-removal": {
     id: "co2-removal",
     slug: "co2-removal",
     title: "CO2 Removal",
-      highlightTitle: "Co2 Removal ?", 
+    highlightTitle: "Co2 Removal ?", 
     restTitle: "What is ",
     description:
       "Enhance the quality of your biogas with our advanced CO₂ Removal systems. Designed for precision and performance, ensuring maximum methane recovery and energy efficiency.",
@@ -72,12 +87,13 @@ export const productsData = {
       "Simple product page for CO2 Removal with basic feature and hero information.",
     bannerImage: flaresystem,
     features: standardFeatures,
+    keyPoints: standardKeyPoints,
   },
   "cbg-plant-support": {
     id: "cbg-plant-support",
     slug: "cbg-plant-support",
     title: "CBG Plant & Support",
-      highlightTitle: "CBG Plant & Support ?", 
+    highlightTitle: "CBG Plant & Support ?", 
     restTitle: "What is ",
     description:
       "From design to installation, our CBG (Compressed Biogas) Plants are built for maximum efficiency, reliability, and compliance with government norms.",
@@ -86,6 +102,7 @@ export const productsData = {
       "Simple product page for CBG Plant & Support with basic feature and hero information.",
     bannerImage: flaresystem,
     features: standardFeatures,
+    keyPoints: standardKeyPoints, 
   },
 };
 

@@ -4,7 +4,7 @@ const ProductHero = ({ productsData }) => {
   const isVideo = productsData?.bannerVideo || productsData?.bannerImage?.includes('.mp4');
 
   return (
-    <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] overflow-hidden flex justify-center">
+    <div className="relative w-full h-96 md:h-[500px] lg:h-[250px] overflow-hidden flex justify-center">
       {isVideo ? (
         <video
           src={productsData.bannerVideo || productsData.bannerImage}
@@ -30,14 +30,6 @@ const ProductHero = ({ productsData }) => {
         >
           {productsData?.title}
         </h1>
-        
-        <p 
-          data-aos="fade-up" 
-          data-aos-delay="100"
-          className="text-base md:text-xl lg:text-2xl text-gray-200 text-center drop-shadow-md max-w-3xl"
-        >
-          {productsData?.description}
-        </p>
       </div>
       
     </div>
