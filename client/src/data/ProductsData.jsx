@@ -3,6 +3,8 @@ import flareSystemVideo from "../assets/products/flare-system.mp4";
 import biogasVideo from "../assets/products/biogas.mp4";
 import digesterTechnologyVideo from "../assets/products/DigesterTechnology.mp4";
 import { FaDroplet, FaCloudSun, FaLayerGroup, FaIndustry, FaWrench, FaIndianRupeeSign } from "react-icons/fa6";
+import Enclose from "../assets/products/Enclose_flare.png";
+import Open from "../assets/products/Open_flare.png";
 
 const standardFeatures = [
   { id: 1, icon: <FaDroplet />, text: "Water Resistance" },
@@ -13,7 +15,6 @@ const standardFeatures = [
   { id: 6, icon: <FaIndianRupeeSign />, text: "Low Cost" },
 ];
 
-// Added Key Points from your reference image
 const standardKeyPoints = [
   "Complete in-house design and manufactured for compliant operation.",
   "Skid mounted for easy low cost installation.",
@@ -41,6 +42,31 @@ export const productsData = {
     bannerVideo: flareSystemVideo,
     features: standardFeatures, 
     keyPoints: standardKeyPoints, 
+    subProducts: [
+      {
+        id: "open-type",
+        title: "OPEN-TYPE FLARE",
+        image: Open, 
+        details: [
+          "Open flare systems release and burn waste gases in an open-air environment, usually at the top of a tall flare stack. The gas is ignited by a pilot flame.",
+          "Requires significant vertical clearance due to open flame and heat radiation.",
+          "Visibility of flame and potential noise depending on gas flow and composition.",
+          "Relatively low capital cost but requires careful design for efficiency."
+        ]
+      },
+      {
+        id: "enclosed-type",
+        title: "ENCLOSED-TYPE FLARE",
+        image: Enclose,
+        details: [
+          "Enclosed flare systems burn waste gases inside a combustion chamber or furnace, fully containing the flame. The gas is ignited inside the enclosure. They minimise visible flame, noise, and heat radiation.",
+          "Compact footprint suitable for sites with space constraints.",
+          "Often equipped with heat recovery systems that utilise combustion heat for energy generation.",
+          "Higher capital and operating costs compared to open flare systems due to complexity."
+        ]
+      }
+    ]
+
   },
   "biogas-membrane-holder": {
     id: "biogas-membrane-holder",
