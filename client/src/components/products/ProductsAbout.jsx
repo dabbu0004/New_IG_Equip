@@ -22,14 +22,21 @@ const ProductsAbout = ({ productsData }) => {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20 w-full mb-16 lg:mb-20">
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center py-8" data-aos="fade-right">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[90%] bg-gradient-to-tr from-red-50 to-orange-50 rounded-3xl -z-10 transform -rotate-3 transition-transform hover:rotate-0 duration-500"></div>
-            <img
-              src={productsData.bannerImage}
-              alt={productsData.title}
-              className="w-full max-w-sm lg:max-w-md h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 z-10"
-            />
-          </div>
+
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[100%] bg-gradient-to-tr from-red-50 to-orange-50 rounded-3xl -z-10 transform -rotate-3 transition-transform hover:rotate-0 duration-500"></div>
+            <div className="w-full max-w-lg lg:max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl z-10">
+              <video
+                src={productsData.aboutVideo}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+         
           
           <div className="w-full lg:w-1/2 flex flex-col justify-center" data-aos="fade-left">
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Features</h3>

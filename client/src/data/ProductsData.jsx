@@ -1,5 +1,6 @@
 import flaresystem from "../assets/dualFuelKit.webp";
-import flareSystemVideo from "../assets/products/flare-system.mp4";
+import flareSystemVideo from "../assets/products/flare_system.mp4";
+import flare_about from "../assets/products/flare_about.mp4";
 import biogasVideo from "../assets/products/biogas.mp4";
 import digesterTechnologyVideo from "../assets/products/DigesterTechnology.mp4";
 import { FaDroplet, FaCloudSun, FaLayerGroup, FaIndustry, FaWrench, FaIndianRupeeSign } from "react-icons/fa6";
@@ -40,6 +41,7 @@ export const productsData = {
       "Simple product page for Flare System with basic feature and hero information.",
     bannerImage: flaresystem,
     bannerVideo: flareSystemVideo,
+    aboutVideo: flare_about,
     features: standardFeatures, 
     keyPoints: standardKeyPoints, 
     subProducts: [
