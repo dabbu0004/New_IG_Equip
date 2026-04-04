@@ -23,7 +23,6 @@ const CtaBanner = () => {
   const features = [
     { text: "High Efficiency", icon: FaLeaf },
     { text: "Low Maintenance", icon: FaThumbsUp },
-    { text: "Air Quality Improvement", icon: FaRegCheckCircle },
     { text: "Compact Design", icon: FaGauge },
   ];
 
