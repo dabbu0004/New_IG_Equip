@@ -8,7 +8,7 @@ const GalleryPreview = () => {
   if (topSixImages.length === 0) return null;
 
   return (
-    <section className="w-full py-16 lg:py-24 bg-white overflow-hidden">
+    <section className="w-full py-16 lg:py-5 bg-white overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex flex-col items-center">
         <div className="text-center mb-12 max-w-3xl" data-aos="fade-up">

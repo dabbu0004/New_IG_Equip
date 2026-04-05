@@ -25,9 +25,9 @@ const ProductsPage = () => {
       </Helmet>
       <ProductsHero productsData={productsData} />
       <ProductsAbout productsData={productsData} />
-      <Certificates />
+      {/* <Certificates /> */}
       <GalleryPreview/>
-      <Analysis />
+      {/* <Analysis /> */}
     </div>
   );
 };
