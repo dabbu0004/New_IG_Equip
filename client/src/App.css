@@ -1,13 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: "Baloo Bhaijaan 2", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 html,
 body {
   width: 100%;
   overflow-x: hidden;
-}
+} 

@@ -101,7 +101,7 @@ const Navbar = () => {
 
   const CareerDropdown = () => (
     <div
-      className="relative career-dropdown"
+      className="relative career-dropdown pb-2 -mb-2"
       style={{ zIndex: 60 }}
       onMouseEnter={() => setIsCareerOpen(true)}
       onMouseLeave={() => setIsCareerOpen(false)}
@@ -119,7 +119,7 @@ const Navbar = () => {
         />
       </button>
       <div
-        className={`absolute top-4 left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
+        className={`absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
         role="menu"
       >
         <div className="py-2">
@@ -140,7 +140,7 @@ const Navbar = () => {
 
   const ProductsDropdown = () => (
     <div
-      className="relative products-dropdown"
+      className="relative products-dropdown pb-2 -mb-2"
       style={{ zIndex: 60 }}
       onMouseEnter={() => setIsProductsOpen(true)}
       onMouseLeave={() => setIsProductsOpen(false)}
@@ -158,7 +158,7 @@ const Navbar = () => {
         />
       </button>
       <div
-        className={`absolute top-4 left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
+        className={`absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
         role="menu"
       >
         <div className="py-2">
@@ -248,10 +248,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="max-w-full relative">
-      <header className="container mx-auto max-w-7xl relative bg-white shadow-md rounded-bl-[2rem]">
-        <div className="absolute top-0 left-0 h-full w-2 bg-orange-300 rounded-tl-[2rem] rounded-bl-[2rem] z-0" />
-
+    <div className="max-w-full relative z-50">
+      <header className="container mx-auto max-w-full relative z-50 bg-white shadow-md rounded-bl-[2rem] overflow-visible">
         <div className="relative z-10 flex items-center justify-between px-4 md:px-16 py-4">
           <div className="flex items-center space-x-3">
             <Link to="/">
@@ -275,7 +273,7 @@ const Navbar = () => {
 
           <CTAButton className="hidden md:block" />
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-300 rounded-bl-[2rem] rounded-br-[2rem] z-0" />
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-300  z-0" />
       </header>
       <div
         className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${

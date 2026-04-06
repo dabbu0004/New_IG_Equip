@@ -26,6 +26,7 @@ import GalleryPage from "./pages/GalleryPage";
 import TopMarquee from "./components/TopMarquee";
 import OcemsPage from "./pages/OcemsPage";
 import ProductsPage from "./pages/ProductsPage";
+import CookieStrip from "./components/CookieStrip";
 
 const App = () => {
   useEffect(() => {
@@ -70,10 +71,11 @@ const App = () => {
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/ocems" element={<OcemsPage />} />
-            {/* <Route path="/products/:slug" element={<ProductsPage />} /> */}
+            <Route path="/products/:slug" element={<ProductsPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
           <CallButton />
+          <CookieStrip />
           <Footer />
           <WhatsApp />
           <Popup />
