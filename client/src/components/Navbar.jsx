@@ -119,7 +119,7 @@ const Navbar = () => {
         />
       </button>
       <div
-        className={`absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
+        className={`absolute top-full left-0 -mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
         role="menu"
       >
         <div className="py-2">
@@ -158,7 +158,7 @@ const Navbar = () => {
         />
       </button>
       <div
-        className={`absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
+        className={`absolute top-full left-0 -mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
         role="menu"
       >
         <div className="py-2">
