@@ -8,6 +8,8 @@ const Navbar = () => {
   const [isCareerOpen, setIsCareerOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const isExternalLink = (path) => /^https?:\/\//i.test(path);
+
   const navItems = [
     { path: "/about", label: "About" },
     { path: "/retrofit-emission-control-device-recd", label: "Vayu Pure RECD" },
@@ -31,6 +33,10 @@ const Navbar = () => {
     { path: "/products/digester-technology", label: "Digester & Technology" },
     { path: "/products/co2-removal", label: "Co2 Removal" },
     { path: "/products/cbg-plant-support", label: "CBG Plant & Support" },
+
+     { path: "https://inventiveenviro.com/services/wtp", label: "Water Treatment (WTP)" },
+    { path: "https://inventiveenviro.com/services/stp", label: "Sewage Treatment (STP)" },
+    { path: "https://inventiveenviro.com/services/etp", label: "Effluent Treatment (ETP)" },
   ];
 
   const toggleMenu = () => {
@@ -48,13 +54,25 @@ const Navbar = () => {
   };
 
   const NavLink = ({ item, className = "", onClick = null }) => (
-    <Link
-      to={item.path}
-      className={`hover:text-orange-500 transition-colors ${className}`}
-      onClick={onClick}
-    >
-      {item.label}
-    </Link>
+    isExternalLink(item.path) ? (
+      <a
+        href={item.path}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`hover:text-orange-500 transition-colors ${className}`}
+        onClick={onClick}
+      >
+        {item.label}
+      </a>
+    ) : (
+      <Link
+        to={item.path}
+        className={`hover:text-orange-500 transition-colors ${className}`}
+        onClick={onClick}
+      >
+        {item.label}
+      </Link>
+    )
   );
 
   const CTAButton = ({ className = "", onClick = null }) => (
@@ -163,14 +181,27 @@ const Navbar = () => {
       >
         <div className="py-2">
           {productsDropdownItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
-              onClick={closeMenu}
-            >
-              {item.label}
-            </Link>
+            isExternalLink(item.path) ? (
+              <a
+                key={item.path}
+                href={item.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </div>
       </div>
@@ -198,14 +229,27 @@ const Navbar = () => {
       >
         <div className="pl-4 space-y-2 mb-4">
           {productsDropdownItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className="block text-lg font-medium text-gray-600 hover:text-orange-500 transition-colors py-1"
-              onClick={closeMenu}
-            >
-              {item.label}
-            </Link>
+            isExternalLink(item.path) ? (
+              <a
+                key={item.path}
+                href={item.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-lg font-medium text-gray-600 hover:text-orange-500 transition-colors py-1"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="block text-lg font-medium text-gray-600 hover:text-orange-500 transition-colors py-1"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </div>
       </div>
