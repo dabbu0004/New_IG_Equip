@@ -1,6 +1,7 @@
 import React from "react";
 import SubProducts from "./SubProducts";
 import { useNavigate } from "react-router-dom";
+import placeholder from "../../assets/products/placeholder.jpg";
 
 const ProductsAbout = ({ productsData }) => {
   const navigate = useNavigate();
@@ -22,15 +23,23 @@ const ProductsAbout = ({ productsData }) => {
         </div>
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20 w-full mb-16 lg:mb-20">
           <div className="w-full max-w-lg lg:max-w-lg aspect-[4/3] rounded-2xl overflow-hidden z-10">
-            <video
-              src={productsData.aboutVideo}
-              className="w-full h-full object-contain transition-all duration-300 hover:scale-105"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-            </video>
+            {productsData.aboutVideo ? (
+              <video
+                src={productsData.aboutVideo}
+                className="w-full h-full object-contain transition-all duration-300 hover:scale-105"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              <img
+                src={placeholder}
+                alt="Product placeholder"
+                className="w-full h-full object-cover transition-all duration-300 hover:scale-105"
+                loading="lazy"
+              />
+            )}
           </div>
 
           <div
