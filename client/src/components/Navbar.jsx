@@ -34,9 +34,9 @@ const Navbar = () => {
     { path: "/products/co2-removal", label: "Co2 Removal" },
     { path: "/products/cbg-plant-support", label: "CBG Plant & Support" },
 
-     { path: "https://inventiveenviro.com/services/wtp", label: "Water Treatment (WTP)" },
-    { path: "https://inventiveenviro.com/services/stp", label: "Sewage Treatment (STP)" },
-    { path: "https://inventiveenviro.com/services/etp", label: "Effluent Treatment (ETP)" },
+     { path: "", label: "Water Treatment (WTP)" },
+    { path: "", label: "Sewage Treatment (STP)" },
+    { path: "", label: "Effluent Treatment (ETP)" },
   ];
 
   const toggleMenu = () => {
