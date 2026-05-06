@@ -28,6 +28,10 @@ import OcemsPage from "./pages/OcemsPage";
 import ProductsPage from "./pages/ProductsPage";
 import CookieStrip from "./components/CookieStrip";
 
+//New Design
+
+import NewHomepage from "./pages/NewHomepage";
+
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -52,6 +56,7 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/new-home" element={<NewHomepage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/dual-fuel-kit" element={<DualFuelPage />} />
             <Route path="/gas-ganset" element={<GasPage />} />
