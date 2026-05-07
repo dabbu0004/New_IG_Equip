@@ -51,9 +51,9 @@ const HowWeWork = () => {
   }, [activeStep, steps.length]);
 
   return (
-    <section className="w-full bg-[#fff9f5] py-16 md:py-24 overflow-hidden relative">
+    <section className="w-full bg-[#FFF3EB] py-16 md:pt-24  overflow-hidden relative">
         {/* The tilted top background shape */}
-        <div className="absolute top-0 left-0 w-full h-[150px] bg-white" style={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 100%)" }}></div>
+        <div className="absolute top-0 left-0 w-full h-[130px] bg-white" style={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 100%)" }}></div>
         
       {/* Main Container - Strictly flexbox, no grid */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start gap-12 md:gap-20 relative z-10 pt-10">
@@ -61,7 +61,7 @@ const HowWeWork = () => {
         {/* ======================================= */}
         {/* LEFT SIDE: Headings & Dynamic Image     */}
         {/* ======================================= */}
-        <div className="w-full md:w-1/2 flex flex-col md:sticky md:top-24 z-10">
+        <div className="w-full md:w-1/2 flex flex-col md:sticky md:top-20 z-10">
           
           {/* Headings */}
           <span className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 block">
@@ -120,7 +120,7 @@ const HowWeWork = () => {
                   {isActive && (
                     <motion.div
                       layoutId="moving-spark"
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#F07C3D] shadow-[0_0_15px_rgba(240,124,61,1)]"
+                      className="absolute top-[0px] left-[0px] -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#F07C3D] shadow-[0_0_15px_rgba(240,124,61,1)]"
                       transition={{ type: "spring", stiffness: 60, damping: 15 }}
                     />
                   )}
