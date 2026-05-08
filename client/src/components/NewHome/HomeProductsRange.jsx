@@ -1,7 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 
 const HomeProductRange = () => {
+  const productsButtonRef = useRef(null);
+
+  useEffect(() => {
+    const button = productsButtonRef.current;
+
+    if (!button) return undefined;
+
+    const handleEnter = () => {
+      gsap.to(button, { scale: 1.04, y: -2, duration: 0.25, ease: "power2.out" });
+    };
+
+    const handleLeave = () => {
+      gsap.to(button, { scale: 1, y: 0, duration: 0.25, ease: "power2.out" });
+    };
+
+    const handleDown = () => {
+      gsap.to(button, { scale: 0.98, duration: 0.12, ease: "power2.out" });
+    };
+
+    const handleUp = () => {
+      gsap.to(button, { scale: 1.04, duration: 0.12, ease: "power2.out" });
+    };
+
+    button.addEventListener("mouseenter", handleEnter);
+    button.addEventListener("mouseleave", handleLeave);
+    button.addEventListener("mousedown", handleDown);
+    button.addEventListener("mouseup", handleUp);
+
+    return () => {
+      button.removeEventListener("mouseenter", handleEnter);
+      button.removeEventListener("mouseleave", handleLeave);
+      button.removeEventListener("mousedown", handleDown);
+      button.removeEventListener("mouseup", handleUp);
+    };
+  }, []);
+
   // Product Data based on your image
   const products = [
     {
@@ -56,10 +93,12 @@ const HomeProductRange = () => {
             </p>
           </div>
           
-          <Link to="/products" className="flex-shrink-0">
-            <button className="bg-[#f48131] hover:bg-[#e06d1f] text-white px-8 py-3.5 rounded-lg text-lg font-semibold shadow-md transition-colors duration-300">
-              View All Products
-            </button>
+          <Link
+            ref={productsButtonRef}
+            to="/products"
+            className="inline-flex items-center justify-center bg-[#f48131] text-white px-6 py-4 rounded-md text-xl font-extrabold shadow-md transition-shadow duration-300 will-change-transform"
+          >
+            View All Products
           </Link>
         </div>
 

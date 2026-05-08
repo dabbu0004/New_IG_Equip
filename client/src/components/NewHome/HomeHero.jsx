@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import gsap from "gsap";
 
 const HomeHero = () => {
   const carouselImages = [
@@ -10,6 +10,41 @@ const HomeHero = () => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const heroButtonRef = useRef(null);
+
+  useEffect(() => {
+    const button = heroButtonRef.current;
+
+    if (!button) return undefined;
+
+    const handleEnter = () => {
+      gsap.to(button, { scale: 1.04, y: -2, duration: 0.25, ease: "power2.out" });
+    };
+
+    const handleLeave = () => {
+      gsap.to(button, { scale: 1, y: 0, duration: 0.25, ease: "power2.out" });
+    };
+
+    const handleDown = () => {
+      gsap.to(button, { scale: 0.98, duration: 0.12, ease: "power2.out" });
+    };
+
+    const handleUp = () => {
+      gsap.to(button, { scale: 1.04, duration: 0.12, ease: "power2.out" });
+    };
+
+    button.addEventListener("mouseenter", handleEnter);
+    button.addEventListener("mouseleave", handleLeave);
+    button.addEventListener("mousedown", handleDown);
+    button.addEventListener("mouseup", handleUp);
+
+    return () => {
+      button.removeEventListener("mouseenter", handleEnter);
+      button.removeEventListener("mouseleave", handleLeave);
+      button.removeEventListener("mousedown", handleDown);
+      button.removeEventListener("mouseup", handleUp);
+    };
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -26,12 +61,8 @@ const HomeHero = () => {
       <div className="max-w-7xl container mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 md:px-10 py-10 bg-white">
           {/* Left Section - Animated */}
-          <motion.div
+          <div
             className="w-full pt-12 lg:w-1/2 text-left"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
           >
             {/* Top Badge */}
             <span className="inline-block bg-[#e5e7eb] text-gray-800 px-4 py-1.5 rounded text-sm md:text-base font-medium mb-4">
@@ -49,33 +80,24 @@ const HomeHero = () => {
               that help industries cut costs, reduce emissions, and meet
               environmental standards.
             </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-orange-400 to-red-500  text-white px-6 py-4 rounded-md text-xl font-extrabold shadow-md transition-all duration-300"
-              >
-             Explor Products
-              </motion.button>  
+            <Link
+              ref={heroButtonRef}
+              to="/contact"
+              className="inline-flex items-center justify-center bg-[#f48131] text-white px-6 py-4 rounded-md text-xl font-extrabold shadow-md transition-shadow duration-300 will-change-transform"
+            >
+              Explor Products
             </Link>
-          </motion.div>
+          </div>
 
           {/* Right Section - Image with animation */}
-          <motion.div
+          <div
             className="w-full lg:w-1/2 flex flex-col items-center mb-10 lg:mb-0"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
           >
-            <motion.img
+            <img
               key={currentImageIndex}
               src={carouselImages[currentImageIndex]}
               alt="Inventive Gas Equipment – Industrial Gas Genset for Clean Power"
               className="w-full max-w-md md:max-w-lg"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
             />
 
             {/* Pagination Dots */}
@@ -93,7 +115,7 @@ const HomeHero = () => {
                 ></button>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </>
