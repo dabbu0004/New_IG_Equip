@@ -1,2 +1,2 @@
 # IG-Equip
-Developer Name- Nouman Khan
+Developer Name- Himanshu Sharma
