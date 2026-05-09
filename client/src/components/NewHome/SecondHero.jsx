@@ -177,7 +177,7 @@ const SecondHero = () => {
             </h3>
             
             <p className="text-xl md:text-2xl text-gray-600 font-medium leading-snug mb-6 max-w-xl">
-              is committed to shaping the future of <span className="font-bold text-[#111111]">clean energy in India</span> and worldwide.
+              is committed to shaping the future of the <span className="font-bold text-[#111111]">clean energy in India</span> and worldwide.
             </p>
             
             <p className="text-base md:text-lg text-gray-500 font-medium mb-10 leading-relaxed max-w-xl">
