@@ -1,9 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
+import { AnimatePresence, motion } from "framer-motion";
 
 const HomeProductRange = () => {
   const productsButtonRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(4);
 
   useEffect(() => {
     const button = productsButtonRef.current;
@@ -39,14 +43,44 @@ const HomeProductRange = () => {
     };
   }, []);
 
-  // Product Data based on your image
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth < 768) {
+        setCardsPerView(1);
+        return;
+      }
+      if (window.innerWidth < 1280) {
+        setCardsPerView(2);
+        return;
+      }
+      setCardsPerView(4);
+    };
+
+    updateCardsPerView();
+    window.addEventListener("resize", updateCardsPerView);
+    return () => window.removeEventListener("resize", updateCardsPerView);
+  }, []);
+
+  const handlePrevClick = () => {
+    if (currentIndex === 0) return;
+    setDirection(-1);
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNextClick = () => {
+    if (currentIndex >= products.length - cardsPerView) return;
+    setDirection(1);
+    setCurrentIndex((prev) => Math.min(products.length - cardsPerView, prev + 1));
+  };
+
+  // Product Data - Extended with more demo products
   const products = [
     {
       id: 1,
       category: "Power Generation",
       title: "Gas Gensets",
       description: "15 KVA to 500 KVA natural gas and biogas-powered generators for industrial and commercial use.",
-      image: "/images/image/NewHomeHero.png", // Replace with your actual image path
+      image: "/images/image/NewHomeHero.png",
       link: "/products/gas-gensets"
     },
     {
@@ -54,7 +88,7 @@ const HomeProductRange = () => {
       category: "Fuel Conversion",
       title: "Dual-Fuel Kits",
       description: "Convert existing diesel generators to run on gas + diesel simultaneously. Save up to 40% on fuel costs.",
-      image:  "/images/image/NewHomeHero.png", 
+      image: "/images/image/NewHomeHero.png", 
       link: "/products/dual-fuel-kits"
     },
     {
@@ -62,7 +96,7 @@ const HomeProductRange = () => {
       category: "Emission Control",
       title: "RECD Device",
       description: "CPCB-approved Retrofit Emission Control Devices to reduce particulate matter by up to 99%.",
-      image:  "/images/image/NewHomeHero.png", 
+      image: "/images/image/NewHomeHero.png", 
       link: "/products/recd-device"
     },
     {
@@ -70,25 +104,60 @@ const HomeProductRange = () => {
       category: "Biogas Solutions",
       title: "Biogas Equipment",
       description: "Membrane gas holders, digesters, biogas conditioning and storage systems for sustainable energy.",
-      image:  "/images/image/NewHomeHero.png", 
+      image: "/images/image/NewHomeHero.png", 
+      link: "/products/biogas-equipment"
+    },
+    {
+      id: 5,
+      category: "Power Generation",
+      title: "Prime Gas Gensets",
+      description: "High-performance prime power gensets with advanced fuel injection and emission control.",
+      image: "/images/image/NewHomeHero.png", 
+      link: "/products/gas-gensets"
+    },
+    {
+      id: 6,
+      category: "Fuel Conversion",
+      title: "Advanced Dual-Fuel",
+      description: "Next-generation dual-fuel conversion kits with smart switching technology.",
+      image: "/images/image/NewHomeHero.png", 
+      link: "/products/dual-fuel-kits"
+    },
+    {
+      id: 7,
+      category: "Emission Control",
+      title: "Ultra-RECD Premium",
+      description: "Premium emission control solution with extended durability and performance.",
+      image: "/images/image/NewHomeHero.png", 
+      link: "/products/recd-device"
+    },
+    {
+      id: 8,
+      category: "Biogas Solutions",
+      title: "Complete Biogas Systems",
+      description: "Integrated biogas systems for waste-to-energy conversion and sustainability.",
+      image: "/images/image/NewHomeHero.png", 
       link: "/products/biogas-equipment"
     }
   ];
+
+  const visibleProducts = products.slice(currentIndex, currentIndex + cardsPerView);
+  const gridClass = cardsPerView === 1 ? "grid-cols-1" : cardsPerView === 2 ? "grid-cols-2" : "grid-cols-4";
 
   return (
     <section className="w-full bg-gray-50 py-16 md:py-20 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
-          <div className="max-w-2xl">
-            <span className="text-gray-600 font-semibold text-sm tracking-wide block mb-2">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:justify-between gap-6 mb-12">
+          <div className="max-w-2xl flex flex-col items-center text-center md:items-start md:text-left">
+            <span className="text-gray-600 font-semibold self-center md:self-start text-sm tracking-wide block mb-2">
               Our Product Range
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#111111] mb-4">
+            <h2 className="text-4xl md:text-5xl self-center md:self-start font-extrabold text-[#111111] mb-4">
               Core Solutions
             </h2>
-            <p className="text-gray-700 text-base md:text-lg">
+            <p className="text-gray-700 text-base md:text-lg max-w-2xl">
               End-to-end gas energy products engineered for reliability and fuel efficiency.
             </p>
           </div>
@@ -96,7 +165,7 @@ const HomeProductRange = () => {
           <Link
             ref={productsButtonRef}
             to="/products"
-            className="inline-flex items-center justify-center bg-[#f48131] text-white px-6 py-4 rounded-md text-xl font-extrabold shadow-md transition-shadow duration-300 will-change-transform"
+            className="inline-flex items-center   self-center md:justify-center bg-[#f48131] text-white px-6 py-4 rounded-md text-base md:text-xl font-extrabold shadow-md transition-all duration-300 will-change-transform hover:shadow-xl hover:scale-105"
           >
             View All Products
           </Link>
@@ -105,25 +174,48 @@ const HomeProductRange = () => {
         {/* Product Grid / Slider Track */}
         <div className="relative w-full group">
           
-          {/* Optional: Left/Right decorative arrows just like the image */}
-          <button className="hidden xl:flex absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full border-2 border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white transition-all z-10">
-             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-             </svg>
-          </button>
-          <button className="hidden xl:flex absolute -right-12 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full border-2 border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white transition-all z-10">
-             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-               <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-             </svg>
-          </button>
+          {/* Left Arrow Button */}
+          <motion.button 
+            onClick={handlePrevClick}
+            disabled={currentIndex === 0}
+            className="hidden md:flex absolute -left-4 xl:-left-12 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center rounded-md bg-[#f48131] text-white shadow-md transition-all duration-300 z-10 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-xl"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+          </motion.button>
 
-          {/* 4-Column Grid */}
-          <div className="grid grid-cols-1  md:grid-cols-4 gap-4 md:gap-5">
-            {products.map((product) => (
-              <div 
-                key={product.id} 
-                className="flex flex-col bg-white rounded-2xl overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 border border-transparent hover:border-gray-100 transform transition-transform hover:scale-[1.03] origin-center"
+          {/* Right Arrow Button */}
+          <motion.button 
+            onClick={handleNextClick}
+            disabled={currentIndex >= products.length - cardsPerView}
+            className="hidden md:flex absolute -right-4 xl:-right-12 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center rounded-md bg-[#f48131] text-white shadow-md transition-all duration-300 z-10 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-xl"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </motion.button>
+
+          {/* Swipe-like Grid Transition */}
+          <div className="overflow-hidden">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={`${currentIndex}-${cardsPerView}`}
+                className={`grid ${gridClass} gap-4 md:gap-5`}
+                initial={{ opacity: 0.7, x: direction === 1 ? 90 : -90 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0.7, x: direction === 1 ? -90 : 90 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               >
+                {visibleProducts.map((product) => (
+                  <motion.div 
+                    key={product.id} 
+                    className="flex flex-col bg-white rounded-2xl overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 border border-transparent hover:border-gray-100 transform transition-transform hover:scale-[1.03] origin-center"
+                  >
                 {/* Image Container */}
                 <div className="w-full aspect-[4/3] bg-gray-50 overflow-hidden relative">
                   <img 
@@ -156,8 +248,10 @@ const HomeProductRange = () => {
                     </svg>
                   </Link>
                 </div>
-              </div>
-            ))}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
         </div>

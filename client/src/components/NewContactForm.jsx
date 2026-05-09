@@ -305,7 +305,7 @@ const NewContactForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-red-500 to-orange-400 text-white font-bold text-base px-6 py-3 rounded-xl transition-all duration-300 shadow-lg disabled:opacity-70 flex items-center justify-center gap-2"
+                  className="w-full bg-orange-500 text-white font-bold text-base px-6 py-3 rounded-xl transition-all duration-300 shadow-lg disabled:opacity-70 flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -316,7 +316,7 @@ const NewContactForm = () => {
                     <>
                       <IoSend className="w-4 h-4" />
                       <span>Submit</span>
-                      <IoSparkles className="w-4 h-4" />
+                     
                     </>
                   )}
                 </button>

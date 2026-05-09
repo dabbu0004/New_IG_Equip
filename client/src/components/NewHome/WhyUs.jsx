@@ -38,7 +38,7 @@ const WhyUs = () => {
         <div className="w-full md:w-[70%] flex justify-center items-center relative py-4 md:py-6 group/image">
           {/* Decorative Offset Background Shape */}
           <div className="absolute inset-0 bg-gradient-to-tr  transform -rotate-3 scale-100 transition-transform duration-700 hover:rotate-0"></div>
-          <div className="relative z-10 w-[650px] h-[600px] overflow-hidden rounded-2xl shadow-2xl border-1 border-white min-h-[350px]">
+          <div className="relative z-10 w-[650px] h-[600px] md:mt-1 -mt-20 overflow-hidden rounded-2xl shadow-2xl border-1 border-white min-h-[350px]">
             <img
               src="/images/WhyUsPic.jpeg" // Replace with your actual image path
               alt="Inventive Gas Equipment Team"
@@ -48,13 +48,13 @@ const WhyUs = () => {
         </div>
 
         {/* Right Side: Content & Modern Accordion */}
-        <div className="w-full md:w-1/2 flex flex-col md:-mt-15 justify-center">
+        <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left md:-mt-15 md:justify-center">
           
           {/* Headings */}
-          <span className="text-sm md:text-base font-extrabold text-[#f48131] uppercase tracking-widest mb-2 block">
+          <span className="text-sm md:text-base font-extrabold text-[#f48131] uppercase tracking-widest mb-2 block text-center md:text-left">
             Why Inventive?
           </span>
-          <h2 className="text-3xl md:text-6xl font-black text-[#111111] leading-tight mb-4">
+          <h2 className="text-3xl md:text-6xl self-center md:self-start font-black text-[#111111] leading-tight mb-4">
             Built on Expertise
           </h2>
 

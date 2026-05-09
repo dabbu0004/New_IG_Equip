@@ -52,12 +52,12 @@ const Industries = () => {
   ];
 
   return (
-    <section className="w-full bg-[#fafafa] py-16 md:py-24 overflow-hidden">
+    <section className="w-full bg-[#fafafa] py-16 md:py-18 overflow-hidden">
       {/* Container constraints */}
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         
         {/* Header Section */}
-        <div className="flex flex-col mb-10 md:mb-14">
+        <div className="flex flex-col items-center text-center md:items-start md:text-left mb-10 md:mb-14">
           <span className="text-sm font-semibold text-gray-600 mb-1 md:mb-2">
             Who We Serve
           </span>

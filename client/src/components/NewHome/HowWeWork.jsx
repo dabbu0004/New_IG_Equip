@@ -51,12 +51,12 @@ const HowWeWork = () => {
   }, [activeStep, steps.length]);
 
   return (
-    <section className="w-full bg-[#FFF3EB] py-16 md:pt-24  overflow-hidden relative">
+    <section className="w-full bg-[#FFF3EB] py-16  pt-30 md:pt-24  overflow-hidden relative">
         {/* The tilted top background shape */}
-        <div className="absolute top-0 left-0 w-full h-[130px] bg-white" style={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 100%)" }}></div>
+        <div className="absolute top-0 left-0 w-full md:h-[130px] h-[80px]  bg-white" style={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 100%)" }}></div>
         
       {/* Main Container - Strictly flexbox, no grid */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start gap-12 md:gap-20 relative z-10 pt-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row md:items-start  gap-12 md:gap-20 relative z-10 pt-10">
         
         {/* ======================================= */}
         {/* LEFT SIDE: Headings & Dynamic Image     */}
@@ -64,10 +64,10 @@ const HowWeWork = () => {
         <div className="w-full md:w-1/2 flex flex-col md:sticky md:top-20 z-10">
           
           {/* Headings */}
-          <span className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 block">
+          <span className="text-sm self-center font-bold text-gray-500 uppercase tracking-widest mb-2 block">
             Our Process
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-[#111111] leading-tight mb-8 md:mb-10">
+          <h2 className="text-3xl md:text-4xl self-center font-black text-[#111111] leading-tight mb-8 md:mb-10">
             How We Work
           </h2>
 

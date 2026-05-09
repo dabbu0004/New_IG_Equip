@@ -59,16 +59,16 @@ const HomeHero = () => {
   return (
     <>
       <div className="max-w-7xl container mx-auto">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 md:px-10 py-10 bg-white">
+        <div className="flex flex-col-reverse lg:flex-row items-center md:justify-between px-6 md:px-10 py-10 bg-white">
           {/* Left Section - Animated */}
           <div
-            className="w-full pt-12 lg:w-1/2 text-left"
+            className="w-full pt-12 lg:w-1/2 text-center md:text-left flex flex-col items-center md:items-start"
           >
             {/* Top Badge */}
             <span className="inline-block bg-[#e5e7eb] text-gray-800 px-4 py-1.5 rounded text-sm md:text-base font-medium mb-4">
               India's Leading Gas Energy Solutions Provider
             </span>
-          <h1 className="text-4xl md:text-[3rem]  font-extrabold text-[#333333] leading-[1.1] tracking-tight mb-6">
+          <h1 className="text-4xl md:text-[3rem] self-center font-extrabold text-[#333333] leading-[1.1] tracking-tight mb-6">
               Power Your Industry <br className="hidden md:block" />
               with Clean Gas <span className="text-[#f48131]">Energy</span>
             </h1>
@@ -83,7 +83,7 @@ const HomeHero = () => {
             <Link
               ref={heroButtonRef}
               to="/contact"
-              className="inline-flex items-center justify-center bg-[#f48131] text-white px-6 py-4 rounded-md text-xl font-extrabold shadow-md transition-shadow duration-300 will-change-transform"
+              className="inline-flex items-center justify-center bg-[#f48131] text-white px-6 py-4 rounded-md text-base md:text-xl font-extrabold shadow-md transition-all duration-300 will-change-transform hover:shadow-xl hover:scale-105 mx-auto md:mx-0"
             >
               Explor Products
             </Link>

@@ -20,7 +20,7 @@ const NewGallery = () => {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <section className="w-full bg-[#f8fafc] py-16 md:py-24 overflow-hidden border-t border-gray-100">
+    <section className="w-full bg-[#f8fafc] md:-mt-10 py-16 md:py-20 overflow-hidden border-t border-gray-100">
       
       {/* --- Smooth CSS Marquee Animation --- */}
       <style>
@@ -41,9 +41,9 @@ const NewGallery = () => {
         `}
       </style>
 
-      <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-16 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-16 mb-12 flex flex-col items-center text-center md:flex-row md:items-end md:text-left justify-between gap-6">
         {/* Header Section */}
-        <div>
+        <div className="flex flex-col items-center md:items-start">
           <span className="text-sm md:text-base font-extrabold text-[#f48131] uppercase tracking-widest mb-2 block">
             Our Portfolio
           </span>

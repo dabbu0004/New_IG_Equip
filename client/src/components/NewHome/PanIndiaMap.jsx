@@ -118,7 +118,7 @@ const PanIndiaMap = () => {
   };
 
   return (
-    <section className="w-full bg-[#fcfcfc] py-16 md:py-24 overflow-hidden border-t border-gray-100">
+    <section className="w-full bg-[#fcfcfc] py-16 md:py-18 overflow-hidden border-t border-gray-100">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col items-center">
         
         {/* Header Section */}
@@ -173,11 +173,11 @@ const PanIndiaMap = () => {
 
           {/* Floating Details Window (Z-Index Overlay) */}
           {activeLocation && (
-            <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20 w-[calc(100%-2rem)] md:w-96 bg-white/95 backdrop-blur-md border border-gray-100 rounded-2xl shadow-2xl p-6 transition-all duration-300 animate-in fade-in slide-in-from-right-4">
+            <div className="hidden md:block absolute top-4 right-4 md:top-8 md:right-8 z-20 w-[calc(100%-2rem)] md:w-96 bg-white/95 backdrop-blur-md border border-gray-100 rounded-2xl shadow-2xl p-6 transition-all duration-300 animate-in fade-in slide-in-from-right-4">
               
               <button 
                 onClick={closeDetails}
-                className="absolute top-4 right-4 text-gray-400 hover:text-red-500 bg-gray-50 hover:bg-red-50 p-1.5 rounded-full transition-colors"
+                className="absolute top-4 right-4 text-gray-400 hover:text-red-500 bg-gray-50 hover:bg-red-50 p-1.5 rounded-md transition-all duration-300 hover:scale-105"
               >
                 <FiX className="w-5 h-5" />
               </button>
@@ -229,6 +229,61 @@ const PanIndiaMap = () => {
           )}
         </div>
 
+        {/* Mobile Details Card (below map so map stays visible) */}
+        {activeLocation && (
+          <div className="md:hidden w-full max-w-5xl mb-8 bg-white border border-gray-100 rounded-2xl shadow-lg p-5">
+            <button
+              onClick={closeDetails}
+              className="ml-auto flex items-center justify-center bg-[#f48131] text-white px-3 py-2 rounded-md text-base font-extrabold shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+            >
+              <FiX className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-3 mb-4 mt-2">
+              <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0 border border-orange-100">
+                <FiMapPin className="text-[#f48131] w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-extrabold text-gray-900 leading-tight">
+                  {activeLocation.city}
+                </h3>
+                <p className="text-xs font-bold text-[#f48131] uppercase tracking-wide">
+                  {activeLocation.state}
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full h-px bg-gray-200 mb-4"></div>
+
+            <div className="mb-4">
+              <span className="text-2xl font-black text-gray-900 mr-2">
+                {activeLocation.installations}+
+              </span>
+              <span className="text-sm font-semibold text-gray-500">
+                Active Installations
+              </span>
+            </div>
+
+            <p className="text-gray-600 text-sm leading-relaxed font-medium mb-5">
+              {activeLocation.description}
+            </p>
+
+            <div>
+              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <FiTool /> Key Services Deployed
+              </h4>
+              <ul className="flex flex-col gap-2">
+                {activeLocation.services.map((service, index) => (
+                  <li key={index} className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+                    <FiCheckCircle className="text-green-500 w-4 h-4" />
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
         {/* ========================================================
             STATE BUTTONS (LIST BELOW MAP)
             ======================================================== */}
@@ -244,19 +299,20 @@ const PanIndiaMap = () => {
                 <button
                   key={loc.id}
                   onClick={() => handleLocationClick(loc)}
-                  className={`flex flex-col items-start p-4 rounded-xl transition-all duration-300 border-2 text-left ${
+                  className={`inline-flex flex-col items-start justify-center p-4 rounded-md text-base font-extrabold shadow-md transition-all duration-300 will-change-transform text-left ${
                     isActive 
-                      ? "bg-orange-50 border-[#f48131] shadow-md transform -translate-y-1" 
-                      : "bg-white border-gray-100 hover:border-gray-300 hover:bg-gray-50"
+                      ? "bg-orange-50 text-[#f48131] border border-[#f48131] scale-105" 
+                      : "bg-white text-black border  hover:shadow-xl hover:scale-105"
                   }`}
                 >
-                  <span className={`text-sm md:text-base font-extrabold ${isActive ? "text-[#f48131]" : "text-gray-900"}`}>
+                  <span className="text-base md:text-lg font-extrabold leading-tight">
                     {loc.state}
                   </span>
                   <span className="text-xs md:text-sm font-semibold text-gray-500">
                     {loc.city}
                   </span>
                 </button>
+                
               );
             })}
           </div>

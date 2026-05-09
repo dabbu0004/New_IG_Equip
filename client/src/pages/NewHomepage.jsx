@@ -9,12 +9,14 @@ import NewContactForm from "../components/NewContactForm";
 import NewClientsPage from "../components/NewHome/NewClientsPage";
 import NewGallery from "../components/NewHome/NewGallery";
 import PanIndiaMap from "../components/NewHome/PanIndiaMap";
+import SecondHero from "../components/NewHome/SecondHero";
 
 
 const NewHomepage = () => {
   return (
     <div>
       <HomeHero />
+      <SecondHero />
         <Certified />
             <HomeProductRange />
             <WhyUs/>
