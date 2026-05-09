@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import HomeHero from "../components/NewHome/HomeHero";
 import HomeProductRange from "../components/NewHome/HomeProductsRange";
 import Certified from "../components/NewHome/Certified";
@@ -15,6 +16,9 @@ import SecondHero from "../components/NewHome/SecondHero";
 const NewHomepage = () => {
   return (
     <div>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <HomeHero />
       <SecondHero />
         <Certified />
