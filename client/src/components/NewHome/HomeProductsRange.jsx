@@ -118,7 +118,7 @@ const HomeProductRange = () => {
     {
       id: 6,
       category: "Fuel Conversion",
-      title: "Advanced Dual-Fuel",
+      title: "Dual-Fuel",
       description: "Next-generation dual-fuel conversion kits with smart switching technology.",
       image: "/images/image/NewHomeHero.png", 
       link: "/products/dual-fuel-kits"
@@ -141,23 +141,26 @@ const HomeProductRange = () => {
     }
   ];
 
-  const visibleProducts = products.slice(currentIndex, currentIndex + cardsPerView);
+  const isMobileView = cardsPerView === 1;
+  const visibleProducts = isMobileView
+    ? products
+    : products.slice(currentIndex, currentIndex + cardsPerView);
   const gridClass = cardsPerView === 1 ? "grid-cols-1" : cardsPerView === 2 ? "grid-cols-2" : "grid-cols-4";
 
   return (
-    <section className="w-full bg-gray-50 py-16 md:py-20 overflow-hidden relative">
+    <section className="w-full bg-gray-50  py-16 md:py-24 md:pb-10 overflow-x-hidden overflow-y-visible relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row items-start md:items-end md:justify-between gap-6 mb-12">
           <div className="max-w-2xl flex flex-col items-center text-center md:items-start md:text-left">
-            <span className="text-gray-600 font-semibold self-center md:self-start text-sm tracking-wide block mb-2">
+            <span className="text-gray-600 font-semibold self-center md:self-start text-md tracking-tight block mb-2">
               Our Product Range
             </span>
-            <h2 className="text-4xl md:text-5xl self-center md:self-start font-extrabold text-[#111111] mb-4">
+            <h2 className="text-4xl md:text-5xl self-center md:self-start font-extrabold tracking-tight  text-[#111111] mb-3">
               Core Solutions
             </h2>
-            <p className="text-gray-700 text-base md:text-lg max-w-2xl">
+            <p className="text-gray-700 md:w-[70%] font-semibold text-base md:text-lg max-w-2xl">
               End-to-end gas energy products engineered for reliability and fuel efficiency.
             </p>
           </div>
@@ -165,8 +168,8 @@ const HomeProductRange = () => {
           <Link
             ref={productsButtonRef}
             to="/products"
-            className="inline-flex items-center   self-center md:justify-center bg-[#f48131] text-white px-6 py-4 rounded-md text-base md:text-xl font-extrabold shadow-md transition-all duration-300 will-change-transform hover:shadow-xl hover:scale-105"
-          >
+            className="inline-flex items-center justify-center bg-[#f48131] text-white px-8 py-4 md:-mt-10 rounded-xl text-base md:text-2xl  shadow-md transition-all duration-300 will-change-transform hover:shadow-xl hover:scale-105 mx-auto md:mx-0"
+           >
             View All Products
           </Link>
         </div>
@@ -201,7 +204,7 @@ const HomeProductRange = () => {
           </motion.button>
 
           {/* Swipe-like Grid Transition */}
-          <div className="overflow-hidden">
+          <div className="overflow-x-hidden overflow-y-visible py-2">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={`${currentIndex}-${cardsPerView}`}
@@ -217,30 +220,30 @@ const HomeProductRange = () => {
                     className="flex flex-col bg-white rounded-2xl overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 border border-transparent hover:border-gray-100 transform transition-transform hover:scale-[1.03] origin-center"
                   >
                 {/* Image Container */}
-                <div className="w-full aspect-[4/3] bg-gray-50 overflow-hidden relative">
+                <div className="w-full aspect-[4/3]  overflow-hidden relative">
                   <img 
                     src={product.image} 
                     alt={product.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="block absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col flex-grow p-4">
+                <div className="flex flex-col flex-grow p-3 md:pb-6">
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">
                     {product.category}
                   </span>
                   <h4 className="text-xl md:text-2xl font-extrabold text-[#111111] mb-3">
                     {product.title}
                   </h4>
-                  <p className="text-gray-600 text-sm md:text-sm leading-relaxed mb-3 flex-grow">
+                  <p className="text-gray-700 text-sm md:text-[15px] leading-relaxed mb-3 flex-grow">
                     {product.description}
                   </p>
                   
                   {/* Learn More Link */}
                   <Link 
                     to={product.link} 
-                    className="inline-flex items-center gap-2 text-[#333333] font-bold text-sm md:text-sm hover:text-[#f48131] transition-colors mt-auto w-max"
+                    className="inline-flex items-center gap-2 text-[#333333] font-bold text-sm md:text-md hover:text-[#f48131] transition-colors mt-auto w-max"
                   >
                     Learn More 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 text-[#f48131]">

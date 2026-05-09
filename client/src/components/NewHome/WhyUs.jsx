@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 
 const WhyUs = () => {
-  // State to track which accordion item is open (default to 0 so the first one is open)
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const toggleAccordion = (index) => {
-    // If clicking the currently open item, close it. Otherwise, open the new one.
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  // Accordion Data
   const features = [
     {
       title: "CPCB-Approved Products",
@@ -29,16 +20,26 @@ const WhyUs = () => {
     }
   ];
 
+  // Initialize state so ALL items are true (open) by default
+  const [openStates, setOpenStates] = useState(features.map(() => true));
+
+  const toggleAccordion = (index) => {
+    setOpenStates((prev) => {
+      const newStates = [...prev];
+      newStates[index] = !newStates[index];
+      return newStates;
+    });
+  };
+
   return (
     <section className="w-full bg-[#f8fafc] py-16 md:py-10 overflow-hidden">
       {/* Container - strictly using flex, responsive with md: */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-stretch gap-12 md:gap-5">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-stretch gap-6 md:gap-5">
         
-        {/* Left Side: Premium Image Container (Made significantly bigger) */}
-        <div className="w-full md:w-[70%] flex justify-center items-center relative py-4 md:py-6 group/image">
-          {/* Decorative Offset Background Shape */}
-          <div className="absolute inset-0 bg-gradient-to-tr  transform -rotate-3 scale-100 transition-transform duration-700 hover:rotate-0"></div>
-          <div className="relative z-10 w-[650px] h-[600px] md:mt-1 -mt-20 overflow-hidden rounded-2xl shadow-2xl border-1 border-white min-h-[350px]">
+        {/* Left Side: Premium Image Container (Kept Exactly As You Provided) */}
+        <div className="w-full md:w-[70%] flex justify-center items-center relative py-0 md:py-6 group/image">
+          {/* Decorative Offset Background Shape (responsive, no negative margins) */}
+          <div className="relative z-10 w-full max-w-[650px] aspect-[4/3] md:aspect-auto md:h-[600px] overflow-hidden rounded-2xl shadow-2xl border border-white">
             <img
               src="/images/WhyUsPic.jpeg" // Replace with your actual image path
               alt="Inventive Gas Equipment Team"
@@ -47,84 +48,68 @@ const WhyUs = () => {
           </div>
         </div>
 
-        {/* Right Side: Content & Modern Accordion */}
-        <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left md:-mt-15 md:justify-center">
+        {/* Right Side: Content & Exact Image Match Accordion */}
+        <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left md:justify-center">
           
           {/* Headings */}
-          <span className="text-sm md:text-base font-extrabold text-[#f48131] uppercase tracking-widest mb-2 block text-center md:text-left">
+          <span className="text-sm md:text-lg font-semibold text-[#111111] tracking-widest mb-1 block text-center md:text-left metropolis">
             Why Inventive?
           </span>
-          <h2 className="text-3xl md:text-6xl self-center md:self-start font-black text-[#111111] leading-tight mb-4">
-            Built on Expertise
+          <h2 className="text-4xl md:text-6xl self-center md:self-start font-bold  text-[#111111] leading-[1.05] mb-3 metropolis">
+            Built on <br className="hidden md:block" /> Expertise
           </h2>
 
-          {/* Accordion Wrapper - Separated Cards Style */}
-          <div className="w-full flex flex-col gap-4 md:gap-5">
+          {/* Accordion Wrapper - Exact Separate Card Match */}
+          <div className="w-full flex flex-col gap-2">
             
             {features.map((feature, index) => {
-              const isOpen = openIndex === index;
+              const isOpen = openStates[index];
 
               return (
                 <div 
                   key={index} 
-                  onClick={() => toggleAccordion(index)}
-                  onMouseEnter={() => setOpenIndex(index)}
-                  onMouseLeave={() => setOpenIndex(null)}
-                  // Hover effects applied here: scaling, shadow, and border color change
-                  className={`flex flex-col  border-2 rounded-xl transition-all duration-300 overflow-hidden cursor-pointer ${
-                    isOpen 
-                      ? "border-[#f48131] shadow-[0_8px_30px_rgb(244,129,49,0.15)] scale-[1.02]" 
-                      : "border-gray-100 hover:border-[#f48131]/50 hover:shadow-lg hover:scale-[1.015] hover:bg-orange-50/20"
-                  }`}
+                  className="flex flex-col bg-[#f9ede5] rounded-[0.5rem] overflow-hidden transition-all duration-300"
                 >
                   {/* Accordion Header */}
-                  <div className="flex flex-row items-center justify-between p-5 md:p-4  w-full text-left outline-none">
-                    <h3 className={`text-lg md:text-xl font-extrabold transition-colors duration-300 ${isOpen ? "text-[#f48131]" : "text-[#111111]"}`}>
-                      {feature.title}
-                    </h3>
-                    
-                    {/* Circle Arrow Icon */}
-                    <div className={`flex-shrink-0 ml-4 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${isOpen ? "bg-[#f48131] text-white rotate-180" : "bg-gray-100 text-gray-500 rotate-0"}`}>
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2.5" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        className="w-4 h-4"
-                      >
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
+                  <button 
+                    onClick={() => toggleAccordion(index)}
+                    className="flex flex-col w-full text-left outline-none cursor-pointer px-3 pt-2 pb-1"
+                  >
+                    <div className="flex flex-row items-center justify-between w-full mb-0">
+                      <h3 className="text-[1.1rem] md:text-[20px] font-semibold text-[#111111]">
+                        {feature.title}
+                      </h3>
+                      
+                      {/* Circle Arrow Icon */}
+                      <div className="flex-shrink-0 ml-4">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          className={`w-[1.4rem] h-[1.4rem] text-[#111111] transition-transform duration-300 ${isOpen ? "rotate-0" : "-rotate-90"}`}
+                        >
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <line x1="12" y1="8" x2="12" y2="16"></line>
+                          <polyline points="8 12 12 16 16 12"></polyline>
+                        </svg>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* {!isOpen && (
-                    <p
-                      className="px-5 md:px-6 pb- text-gray-600 text-sm md:text-base font-medium leading-relaxed"
-                      style={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 1,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden"
-                      }}
-                    >
-                      {feature.description}
-                    </p>
-                  )} */}
+                    {/* Exact Thin Divider Line Under Title */}
+                    <div className="w-full h-[1px] bg-[#333333] opacity-70"></div>
+                  </button>
 
                   {/* Accordion Content (Smooth Expansion) */}
                   <div 
                     className={`transition-all duration-500 ease-in-out flex flex-col ${
-                      isOpen ? "max-h-[300px] opacity-100 px-5 md:px-6 pb-5 md:pb-3" : "max-h-0 opacity-0 px-5 md:px-6 pb-0"
+                      isOpen ? "max-h-[300px] opacity-100 px-3 pb-1" : "max-h-0 opacity-0 px-2 pb-0"
                     }`}
                   >
-                    {/* Divider line covering ~85% of the column width */}
-                    <div className="w-[85%] h-[2px] bg-gradient-to-r from-gray-100 to-transparent mb-4"></div> 
-                    
-                    {/* Description spanning full width */}
-                    <p className="text-gray-600 text-sm md:text-base md:-mt-2 font-medium leading-relaxed w-full">
+                    <p className="text-[#111111] md:-mt-1 text-sm md:text-[1rem] font-medium leading-relaxed w-full pt-2">
                       {feature.description}
                     </p>
                   </div>

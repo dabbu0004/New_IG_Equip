@@ -10,3 +10,8 @@ body {
   width: 100%;
   overflow-x: hidden;
 } 
+
+/* Metropolis utility class for selective usage */
+.metropolis {
+  font-family: 'Metropolis', 'Poppins', sans-serif;
+}

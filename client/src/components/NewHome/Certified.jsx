@@ -11,11 +11,11 @@ const Certified = () => {
   ];
 
   return (
-    <section className="w-full bg-[#fcfcfc] border-y  md:-mt-10 border-gray-100 py-6 overflow-hidden">
-      <div className="max-w-8xl mx-auto px-6 md:px-12 md:ml-10  flex flex-col md:flex-row items-center gap-4 md:gap-6">
+    <section className="w-full bg-[#fcfcfc] border-y  md:mt-10 border-gray-100 py-6 overflow-hidden">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 md:ml-12  flex flex-col md:flex-row items-center gap-4 md:gap-6">
         
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-extrabold text-[#111111] whitespace-nowrap">
+        <h3 className="text-xl md:text-2xl font-bold metropolis text-[#111111] whitespace-nowrap">
           Certified & Compliant
         </h3>
 
