@@ -80,7 +80,7 @@ const HomeProductRange = () => {
       category: "Power Generation",
       title: "Gas Gensets",
       description: "15 KVA to 500 KVA natural gas and biogas-powered generators for industrial and commercial use.",
-      image: "/images/image/NewHomeHero.png",
+      image: "/images/image/FinalHero.png",
       link: "/products/gas-gensets"
     },
     {
@@ -96,7 +96,7 @@ const HomeProductRange = () => {
       category: "Emission Control",
       title: "RECD Device",
       description: "CPCB-approved Retrofit Emission Control Devices to reduce particulate matter by up to 99%.",
-      image: "/images/image/NewHomeHero.png", 
+      image: "/images/image/RECD.jpeg", 
       link: "/products/recd-device"
     },
     {
@@ -104,41 +104,12 @@ const HomeProductRange = () => {
       category: "Biogas Solutions",
       title: "Biogas Equipment",
       description: "Membrane gas holders, digesters, biogas conditioning and storage systems for sustainable energy.",
-      image: "/images/image/NewHomeHero.png", 
+      image: "/images/image/BioGas.jpeg", 
       link: "/products/biogas-equipment"
     },
-    {
-      id: 5,
-      category: "Power Generation",
-      title: "Prime Gas Gensets",
-      description: "High-performance prime power gensets with advanced fuel injection and emission control.",
-      image: "/images/image/NewHomeHero.png", 
-      link: "/products/gas-gensets"
-    },
-    {
-      id: 6,
-      category: "Fuel Conversion",
-      title: "Dual-Fuel",
-      description: "Next-generation dual-fuel conversion kits with smart switching technology.",
-      image: "/images/image/NewHomeHero.png", 
-      link: "/products/dual-fuel-kits"
-    },
-    {
-      id: 7,
-      category: "Emission Control",
-      title: "Ultra-RECD Premium",
-      description: "Premium emission control solution with extended durability and performance.",
-      image: "/images/image/NewHomeHero.png", 
-      link: "/products/recd-device"
-    },
-    {
-      id: 8,
-      category: "Biogas Solutions",
-      title: "Complete Biogas Systems",
-      description: "Integrated biogas systems for waste-to-energy conversion and sustainability.",
-      image: "/images/image/NewHomeHero.png", 
-      link: "/products/biogas-equipment"
-    }
+  
+   
+ 
   ];
 
   const isMobileView = cardsPerView === 1;
@@ -208,7 +179,7 @@ const HomeProductRange = () => {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={`${currentIndex}-${cardsPerView}`}
-                className={`grid ${gridClass} gap-4 md:gap-5`}
+                className={`grid ${gridClass} gap-4 md:gap-3`}
                 initial={{ opacity: 0.7, x: direction === 1 ? 90 : -90 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0.7, x: direction === 1 ? -90 : 90 }}
@@ -233,10 +204,10 @@ const HomeProductRange = () => {
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">
                     {product.category}
                   </span>
-                  <h4 className="text-xl md:text-2xl font-extrabold text-[#111111] mb-3">
+                  <h4 className="text-xl md:text-2xl font-extrabold text-[#111111]  md:-mt-1 mb-3">
                     {product.title}
                   </h4>
-                  <p className="text-gray-700 text-sm md:text-[15px] leading-relaxed mb-3 flex-grow">
+                  <p className="text-gray-700 text-sm md:text-[15px] leading-relaxed md:-mt-1 mb-3 flex-grow">
                     {product.description}
                   </p>
                   

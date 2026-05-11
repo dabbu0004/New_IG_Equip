@@ -69,12 +69,12 @@ const HomeHero = () => {
             <span className="inline-block bg-gray-200 text-gray-900 px-2 py-1 font-bold rounded text-sm md:text-sm font-medium mb-4 metropolis">
               India's Leading Gas Energy Solutions Provider
             </span>
-          <h1 className="text-4xl md:text-[2.5rem] md:-ml-5 self-center font-extrabold text-[#333333]  tracking-tight mb-8 metropolis">
+          <h1 className="text-4xl md:text-[2.5rem] md:-ml-5 self-center font-extrabold text-gray-900  tracking-tight mb-8 ">
               Power Your Industry <br className="hidden md:block" />
               with Clean Gas <span className="text-[#f48131]">Energy</span>
             </h1>
 
-            <p className="text-gray-900 metropolis text-base md:text-lg mb-8">
+            <p className="text-gray-700 metropolis text-base md:text-lg mb-8">
            Manufacturers of Gas Gensets, Dual-Fuel Kits, and RECD systems. Reliable, eco-friendly, and cost-saving energy solutions for industrial India.
             </p>
             <Link
