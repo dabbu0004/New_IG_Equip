@@ -6,12 +6,7 @@ import { ToastContainer } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import RecdPage from "./pages/RecdPage";
-import DualFuelPage from "./pages/DualFuelPage";
-import CareerPage from "./pages/CareerPage";
-import GasPage from "./pages/GasPage";
+import NewHomepage from "./pages/NewHomepage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
@@ -20,17 +15,8 @@ import WhatsApp from "./components/WhatsAppButton";
 import CallButton from "./components/CallButton";
 import Popup from "./components/PopupForm";
 import Footer from "./components/Footer";
-import BlogsPage from "./pages/BlogsPage";
-import EachBlogs from "./components/blogs/EachBlogs";
-import GalleryPage from "./pages/GalleryPage";
 import TopMarquee from "./components/TopMarquee";
-import OcemsPage from "./pages/OcemsPage";
-import ProductsPage from "./pages/ProductsPage";
 import CookieStrip from "./components/CookieStrip";
-
-//New Design
-
-import NewHomepage from "./pages/NewHomepage";
 
 const App = () => {
   useEffect(() => {
@@ -55,29 +41,16 @@ const App = () => {
           <TopMarquee />
           <Navbar />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<NewHomepage />} />
             <Route path="/new-home" element={<NewHomepage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/dual-fuel-kit" element={<DualFuelPage />} />
-            <Route path="/gas-ganset" element={<GasPage />} />
-            <Route path="/Contact" element={<ContactPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/thank-you" element={<ThankYouPage />} />
             <Route
               path="/terms-and-conditions"
               element={<TermsAndConditionsPage />}
             />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route
-              path="/retrofit-emission-control-device-recd"
-              element={<RecdPage />}
-            />
-            <Route path="/career" element={<CareerPage />} />
-            <Route path="/blogs/:slug" element={<EachBlogs />} />
-            <Route path="/blogs" element={<BlogsPage />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/ocems" element={<OcemsPage />} />
-            <Route path="/products/:slug" element={<ProductsPage />} />
-            <Route path="*" element={<HomePage />} />
+            <Route path="*" element={<NewHomepage />} />
           </Routes>
           <CallButton />
           <CookieStrip />
