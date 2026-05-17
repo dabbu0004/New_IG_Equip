@@ -19,20 +19,20 @@ const HomeHero = () => {
     if (!button) return undefined;
 
     const handleEnter = () => {
-      gsap.to(button, { scale: 1.04, y: -2, duration: 0.25, ease: "power2.out" });
+      gsap.to(button, { scale: 1.1, y: -3, duration: 0.12, ease: "power2.out" });
     };
 
     const handleLeave = () => {
-      gsap.to(button, { scale: 1, y: 0, duration: 0.25, ease: "power2.out" });
+      gsap.to(button, { scale: 1, y: 0, duration: 0.12, ease: "power2.out" });
     };
 
     const handleDown = () => {
-      gsap.to(button, { scale: 0.98, duration: 0.12, ease: "power2.out" });
+      gsap.to(button, { scale: 0.98, duration: 0.08, ease: "power2.out" });
     };
 
     const handleUp = () => {
-      gsap.to(button, { scale: 1.04, duration: 0.12, ease: "power2.out" });
-    };
+      gsap.to(button, { scale: 1.1, duration: 0.08, ease: "power2.out" });
+    };  
 
     button.addEventListener("mouseenter", handleEnter);
     button.addEventListener("mouseleave", handleLeave);
@@ -69,7 +69,7 @@ const HomeHero = () => {
             <span className="inline-block bg-gray-200 text-gray-900 px-2 py-1 font-bold rounded text-sm md:text-sm font-medium mb-4 metropolis">
               India's Leading Gas Energy Solutions Provider
             </span>
-          <h1 className="text-4xl md:text-[2.5rem] md:-ml-5 self-center font-extrabold text-gray-900  tracking-tight mb-8 ">
+          <h1 className="text-4xl md:text-[2.5rem] md:-ml-5 self-center font-extrabold text-gray-900   mb-8 ">
               Power Your Industry <br className="hidden md:block" />
               with Clean Gas <span className="text-[#f48131]">Energy</span>
             </h1>
@@ -80,7 +80,7 @@ const HomeHero = () => {
             <Link
               ref={heroButtonRef}
               to="/contact"
-              className="inline-flex items-center justify-center bg-[#f48131] text-white px-8 py-4 rounded-xl text-base md:text-2xl  shadow-md transition-all duration-300 will-change-transform hover:shadow-xl hover:scale-105 mx-auto md:mx-0"
+              className="inline-flex items-center justify-center bg-[#f48131] text-white px-8 py-4 rounded-xl text-base md:text-2xl shadow-md transition-all duration-150 will-change-transform hover:shadow-xl mx-auto md:mx-0"
             >
               Explore Products
             </Link>

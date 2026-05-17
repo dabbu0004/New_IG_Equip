@@ -1,366 +1,287 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoChevronDown } from "react-icons/io5";
+import { 
+  FiWind, FiLayers, FiZap, FiDatabase, FiAlertCircle, 
+  FiFilter, FiDroplet, FiCloudOff, FiBox, FiTarget, 
+  FiBriefcase, FiFileText, FiMail, FiInfo 
+} from "react-icons/fi";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isCareerOpen, setIsCareerOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(null);
 
-  const isExternalLink = (path) => /^https?:\/\//i.test(path);
+  let closeTimeout;
 
-  const navItems = [
-    { path: "/about", label: "About" },
-    { path: "/retrofit-emission-control-device-recd", label: "Vayu Pure RECD" },
-    { path: "/dual-fuel-kit", label: "Dual-Fuel Kit" },
-    { path: "/gas-ganset", label: "Gas Ganset" },
-  ];
+  const handleMouseEnter = (menu) => {
+    clearTimeout(closeTimeout);
+    setActiveDropdown(menu);
+  };
 
-  const careerDropdownItems = [
-    { path: "/ocems", label: "OCEMS" },
-    { path: "/blogs", label: "Blogs/News" },
-    { path: "/gallery", label: "Gallery" },
-    { path: "/career", label: "Career" },
-  ];
-
-  const productsDropdownItems = [
-    { path: "/products/flare-system", label: "Flare System" },
-    {
-      path: "/products/biogas-membrane-holder",
-      label: "Biogas Membrane Holder",
-    },
-    { path: "/products/digester-technology", label: "Digester & Technology" },
-    { path: "/products/co2-removal", label: "Co2 Removal" },
-    { path: "/products/cbg-plant-support", label: "CBG Plant & Support" },
-
-     { path: "", label: "Water Treatment (WTP)" },
-    { path: "", label: "Sewage Treatment (STP)" },
-    { path: "", label: "Effluent Treatment (ETP)" },
-  ];
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleMouseLeave = () => {
+    // 200ms delay ensures the menu doesn't flicker close when moving the mouse from the button to the menu
+    closeTimeout = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 200); 
   };
 
   const closeMenu = () => {
-    setIsMenuOpen(false);
-    setIsProductsOpen(false);
-    setIsCareerOpen(false);
+    setIsMobileMenuOpen(false);
+    setMobileExpanded(null);
+    setActiveDropdown(null);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  // --- Navigation Data Structure (Exact matches to your request) ---
+  const navData = {
+    about: {
+      title: "ABOUT US",
+      items: [
+        { path: "/about", label: "Company Profile", desc: "Building the trust infrastructure for a seamless clean energy economy.", icon: <FiInfo className="w-6 h-6" /> },
+      ],
+      columns: "grid-cols-1 md:grid-cols-3"
+    },
+    products: {
+      title: "OUR PRODUCTS",
+      items: [
+        { path: "/products/vayu-pure-recd", label: "Vayu Pure RECD", desc: "Retrofit Emission Control Devices for compliance.", icon: <FiWind className="w-6 h-6" /> },
+        { path: "/products/dfk", label: "DFK", desc: "Dual Fuel Kits for efficient diesel operation.", icon: <FiLayers className="w-6 h-6" /> },
+        { path: "/products/gas-genset", label: "GAS GENSET", desc: "High-performance gas-powered generators.", icon: <FiZap className="w-6 h-6" /> },
+        { path: "/products/double-membrane-gas-holder", label: "Double Membrane Gas Holder", desc: "Advanced and safe biogas storage solutions.", icon: <FiDatabase className="w-6 h-6" /> },
+        { path: "/products/flaring-system", label: "Flaring System", desc: "Safe and efficient industrial gas flaring.", icon: <FiAlertCircle className="w-6 h-6" /> },
+        { path: "/products/h2s-scrubber", label: "H2S Scrubber", desc: "Reliable hydrogen sulfide removal systems.", icon: <FiFilter className="w-6 h-6" /> },
+        { path: "/products/dehumidifier", label: "Dehumidifier", desc: "Precision moisture control for gas systems.", icon: <FiDroplet className="w-6 h-6" /> },
+        { path: "/products/co2-removal", label: "Co2 Removal System", desc: "Advanced carbon dioxide extraction technology.", icon: <FiCloudOff className="w-6 h-6" /> },
+        { path: "/products/ro-uf-plant", label: "RO+UF Plant", desc: "Industrial-grade water treatment plants.", icon: <FiBox className="w-6 h-6" /> },
+      ],
+      columns: "grid-cols-1 md:grid-cols-3"
+    },
+    services: {
+      title: "OUR SERVICES",
+      items: [
+        { path: "/services/air-pollution", label: "Air Pollution Reduction Solutions", desc: "Comprehensive emission control and monitoring.", icon: <FiWind className="w-6 h-6" /> },
+        { path: "/services/water-pollution", label: "Water Pollution", desc: "Advanced industrial water treatment solutions.", icon: <FiDroplet className="w-6 h-6" /> },
+        { path: "/services/biogas", label: "Biogas Solutions", desc: "End-to-end biogas generation and management.", icon: <FiTarget className="w-6 h-6" /> },
+      ],
+      columns: "grid-cols-1 md:grid-cols-3"
+    },
+    other: {
+      title: "OTHER LINKS",
+      items: [
+        { path: "/careers", label: "Careers", desc: "Forge your path in a high-growth environment.", icon: <FiBriefcase className="w-6 h-6" /> },
+        { path: "/blogs", label: "Blogs", desc: "Latest updates, case studies, and industry insights.", icon: <FiFileText className="w-6 h-6" /> },
+        { path: "/newsletter", label: "News Letter", desc: "Subscribe to our monthly updates and news.", icon: <FiMail className="w-6 h-6" /> },
+      ],
+      columns: "grid-cols-1 md:grid-cols-3"
+    }
   };
 
-  const NavLink = ({ item, className = "", onClick = null }) => (
-    isExternalLink(item.path) ? (
-      <a
-        href={item.path}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`hover:text-orange-500 transition-colors ${className}`}
-        onClick={onClick}
-      >
-        {item.label}
-      </a>
-    ) : (
-      <Link
-        to={item.path}
-        className={`hover:text-orange-500 transition-colors ${className}`}
-        onClick={onClick}
-      >
-        {item.label}
-      </Link>
-    )
-  );
+  // --- Reusable Mega Menu Component ---
+  const MegaMenu = ({ data, activeKey }) => {
+    if (activeDropdown !== activeKey) return null;
 
-  const CTAButton = ({ className = "", onClick = null }) => (
-    <Link to="/contact" className={className} onClick={onClick}>
-      <button className="bg-gradient-to-r from-red-500 to-orange-400 text-white px-5 py-2 rounded-xl font-semibold shadow hover:scale-105 transition-transform">
-        Get in touch
-      </button>
-    </Link>
-  );
-
-  const HamburgerIcon = () => (
-    <button
-      className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none z-20"
-      onClick={toggleMenu}
-      aria-label="Toggle menu"
-    >
-      {[0, 1, 2].map((index) => (
-        <span
-          key={index}
-          className={`w-6 h-0.5 bg-black transition-all duration-300 ${
-            isMenuOpen
-              ? index === 0
-                ? "rotate-45 translate-y-2"
-                : index === 1
-                  ? "opacity-0"
-                  : "-rotate-45 -translate-y-2"
-              : ""
-          }`}
-        />
-      ))}
-    </button>
-  );
-
-  const CloseIcon = () => (
-    <button
-      onClick={toggleMenu}
-      className="w-8 h-8 flex items-center justify-center"
-      aria-label="Close menu"
-    >
-      <span className="w-6 h-0.5 bg-black rotate-45 absolute" />
-      <span className="w-6 h-0.5 bg-black -rotate-45 absolute" />
-    </button>
-  );
-
-  const CareerDropdown = () => (
-    <div
-      className="relative career-dropdown pb-2 -mb-2"
-      style={{ zIndex: 60 }}
-      onMouseEnter={() => setIsCareerOpen(true)}
-      onMouseLeave={() => setIsCareerOpen(false)}
-    >
-      <button
-        className="hover:text-orange-500 transition-colors flex items-center space-x-1 focus:outline-none career-dropdown-btn"
-        aria-haspopup="menu"
-        aria-expanded={isCareerOpen}
-        onClick={() => setIsCareerOpen((v) => !v)}
-        type="button"
+    return (
+      <div 
+        // top-full forces it to strictly sit BELOW the header bar, avoiding any overlap
+        className="absolute top-full left-0 w-full z-50 cursor-default bg-white shadow-[0_15px_40px_rgba(0,0,0,0.08)] border-t border-gray-100"
+        onMouseEnter={() => handleMouseEnter(activeKey)}
+        onMouseLeave={handleMouseLeave}
       >
-        <span>Other</span>
-        <IoChevronDown
-          className={`w-4 h-4 transition-transform ${isCareerOpen ? "rotate-180" : ""}`}
-        />
-      </button>
-      <div
-        className={`absolute top-full left-0 -mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isCareerOpen ? "" : "hidden"}`}
-        role="menu"
-      >
-        <div className="py-2">
-          {careerDropdownItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
-              onClick={closeMenu}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const ProductsDropdown = () => (
-    <div
-      className="relative products-dropdown pb-2 -mb-2"
-      style={{ zIndex: 60 }}
-      onMouseEnter={() => setIsProductsOpen(true)}
-      onMouseLeave={() => setIsProductsOpen(false)}
-    >
-      <button
-        className="hover:text-orange-500 transition-colors flex items-center space-x-1 focus:outline-none products-dropdown-btn"
-        aria-haspopup="menu"
-        aria-expanded={isProductsOpen}
-        onClick={() => setIsProductsOpen((v) => !v)}
-        type="button"
-      >
-        <span>Products</span>
-        <IoChevronDown
-          className={`w-4 h-4 transition-transform ${isProductsOpen ? "rotate-180" : ""}`}
-        />
-      </button>
-      <div
-        className={`absolute top-full left-0 -mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[70] ${isProductsOpen ? "" : "hidden"}`}
-        role="menu"
-      >
-        <div className="py-2">
-          {productsDropdownItems.map((item) => (
-            isExternalLink(item.path) ? (
-              <a
-                key={item.path}
-                href={item.path}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
-                onClick={closeMenu}
-              >
-                {item.label}
-              </a>
-            ) : (
-              <Link
-                key={item.path}
+        <div className="max-w-[1300px] mx-auto px-8 py-10 relative">
+          <h3 className="text-xl font-bold text-[#F26413] uppercase tracking-wider mb-6">
+            {data.title}
+          </h3>
+          
+          <div className={`grid ${data.columns} gap-x-12 gap-y-5`}>
+            {data.items.map((item, idx) => (
+              <Link 
+                key={idx} 
                 to={item.path}
-                className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
                 onClick={closeMenu}
+                className="flex items-start gap-4 p-2 -ml-2 rounded-xl hover:bg-gray-50 transition-colors group"
               >
-                {item.label}
+                <div className="text-gray-400 group-hover:text-[#F26413] transition-colors mt-1">
+                  {item.icon}
+                </div>
+                <div>
+                  <h4 className="text-[16px] font-semibold text-gray-900 mb-1 group-hover:text-[#F26413] transition-colors">
+                    {item.label}
+                  </h4>
+                  <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                    {item.desc}
+                  </p>
+                </div>
               </Link>
-            )
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
-
-  const MobileProductsDropdown = () => (
-    <div className="w-full">
-      <button
-        className="flex items-center justify-between w-full text-xl font-medium text-black pb-1 mb-2 border-b-2 border-gray-800"
-        onClick={toggleDropdown}
-      >
-        <span>Products</span>
-        <IoChevronDown
-          className={`w-4 h-4 transition-transform ${
-            isDropdownOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="pl-4 space-y-2 mb-4">
-          {productsDropdownItems.map((item) => (
-            isExternalLink(item.path) ? (
-              <a
-                key={item.path}
-                href={item.path}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-lg font-medium text-gray-600 hover:text-orange-500 transition-colors py-1"
-                onClick={closeMenu}
-              >
-                {item.label}
-              </a>
-            ) : (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="block text-lg font-medium text-gray-600 hover:text-orange-500 transition-colors py-1"
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
-            )
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const MobileCareerDropdown = () => (
-    <div className="w-full">
-      <button
-        className="flex items-center justify-between w-full text-xl font-medium text-black pb-1 mb-2 border-b-2 border-gray-800"
-        onClick={toggleDropdown}
-      >
-        <span>Other</span>
-        <IoChevronDown
-          className={`w-4 h-4 transition-transform ${
-            isDropdownOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isDropdownOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="pl-4 space-y-2 mb-4">
-          {careerDropdownItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className="block text-lg font-medium text-gray-600 hover:text-orange-500 transition-colors py-1"
-              onClick={closeMenu}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
-    <div className="max-w-full relative z-50">
-      <header className="container mx-auto max-w-full relative z-50 bg-white shadow-md rounded-bl-[2rem] overflow-visible">
-        <div className="relative z-10 flex items-center justify-between px-4 md:px-16 py-4">
-          <div className="flex items-center space-x-3">
-            <Link to="/">
-              <img
-                src="/images/logo.webp"
-                alt="Inventive Logo"
-                className="h-8 md:h-12 w-auto"
-              />
-            </Link>
+    // Outer relative wrapper ensures the absolute Mega Menu aligns exactly with this header
+    <header className="w-full relative z-50 bg-white shadow-sm border-b border-gray-200">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-12 py-4">
+        
+        {/* Left: Logo */}
+        <div className="flex items-center space-x-3">
+          <Link to="/" onClick={closeMenu}>
+            <img
+              src="/images/logo.webp"
+              alt="Inventive Logo"
+              className="h-10 md:h-12 w-auto"
+            />
+          </Link>
+        </div>
+
+        {/* Center: Desktop Navigation */}
+        <nav className="hidden lg:flex items-center space-x-2 h-full">
+          
+          <Link 
+            to="/" 
+            className="px-4 py-2 text-gray-600 font-medium hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors"
+          >
+            Home
+          </Link>
+
+          <div 
+            // The padding here acts as a bridge so the mouse doesn't fall off when moving to the menu
+            className="relative flex items-center py-4 px-1 -my-4"
+            onMouseEnter={() => handleMouseEnter('about')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'about' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+              About Us <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
+            </button>
           </div>
 
-          <nav className="hidden md:flex space-x-10 font-medium text-black text-lg">
-            {navItems.map((item) => (
-              <NavLink key={item.path} item={item} />
-            ))}
-            <ProductsDropdown />
-            <CareerDropdown />
-          </nav>
+          <div 
+            className="relative flex items-center py-4 px-1 -my-4"
+            onMouseEnter={() => handleMouseEnter('products')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'products' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+              Products <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
 
-          <HamburgerIcon />
+          <div 
+            className="relative flex items-center py-4 px-1 -my-4"
+            onMouseEnter={() => handleMouseEnter('services')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'services' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+              Services <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
 
-          <CTAButton className="hidden md:block" />
+          <div 
+            className="relative flex items-center py-4 px-1 -my-4"
+            onMouseEnter={() => handleMouseEnter('other')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'other' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+              Other <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'other' ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+
+        </nav>
+
+        {/* Right: CTA Button */}
+        <div className="hidden lg:flex items-center space-x-4">
+          <Link to="/contact">
+            <button className="bg-[#f48131] text-white px-6 py-2.5 rounded-full font-bold shadow-md hover:bg-[#F26413] hover:shadow-lg transition-all">
+              Book a Demo
+            </button>
+          </Link>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-300  z-0" />
-      </header>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-20"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <span className={`w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`} />
+          <span className={`w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
+
+      </div>
+
+      {/* Render the active Mega Menu component DIRECTLY inside the header so top-full works */}
+      {activeDropdown && (
+        <MegaMenu data={navData[activeDropdown]} activeKey={activeDropdown} />
+      )}
+
+      {/* --- Mobile Menu Drawer --- */}
       <div
-        className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        className={`lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
+          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
       >
         <div
-          className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 flex flex-col ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="h-full flex flex-col overflow-hidden">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 flex-shrink-0">
-              <img
-                src="/images/logo.webp"
-                alt="Inventive Logo"
-                className="h-8 w-auto"
-              />
-              <CloseIcon />
-            </div>
-            <div className="flex-1 overflow-y-auto">
-              <nav className="flex flex-col p-6 space-y-3">
-                {navItems.map((item) => (
-                  <NavLink
-                    key={item.path}
-                    item={item}
-                    className="text-xl font-medium text-black pb-1 mb-2 border-b-2 w-fit border-gray-800"
-                    onClick={closeMenu}
-                  />
-                ))}
-                <MobileCareerDropdown />
-                <MobileProductsDropdown />
-                <div className="pt-4">
-                  <CTAButton className="w-full" onClick={closeMenu} />
+          {/* Mobile Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <img src="/images/logo.webp" alt="Inventive Logo" className="h-8 w-auto" />
+            <button onClick={closeMenu} className="w-8 h-8 flex items-center justify-center">
+              <span className="w-6 h-0.5 bg-black rotate-45 absolute" />
+              <span className="w-6 h-0.5 bg-black -rotate-45 absolute" />
+            </button>
+          </div>
+
+          {/* Mobile Links */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-1">
+            <Link to="/" onClick={closeMenu} className="block py-3 text-lg font-medium text-gray-900 border-b border-gray-100">
+              Home
+            </Link>
+
+            {/* Mobile Accordions */}
+            {Object.keys(navData).map((key) => (
+              <div key={key} className="border-b border-gray-100">
+                <button 
+                  onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
+                  className="flex items-center justify-between w-full py-3 text-lg font-medium text-gray-900"
+                >
+                  <span className="capitalize">{key === 'other' ? 'Other' : navData[key].title.toLowerCase().replace('our ', '')}</span>
+                  <IoChevronDown className={`transition-transform ${mobileExpanded === key ? "rotate-180" : ""}`} />
+                </button>
+                
+                <div className={`overflow-hidden transition-all duration-300 ${mobileExpanded === key ? "max-h-[800px]" : "max-h-0"}`}>
+                  <div className="pb-4 pl-4 space-y-3">
+                    {navData[key].items.map((item, idx) => (
+                      <Link 
+                        key={idx} 
+                        to={item.path} 
+                        onClick={closeMenu}
+                        className="block text-gray-600 hover:text-[#c20000] font-medium"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </nav>
-            </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile CTA */}
+          <div className="p-6 border-t border-gray-100 bg-gray-50">
+            <Link to="/contact" onClick={closeMenu}>
+              <button className="w-full bg-[#c20000] text-white py-3 rounded-xl font-bold shadow hover:bg-[#a00000]">
+                Book a Demo
+              </button>
+            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
