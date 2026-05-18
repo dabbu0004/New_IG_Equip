@@ -69,7 +69,7 @@ const HowWeWork = () => {
           <span className="text-sm font-semibold text-gray-500 mb-2 block">
             Our Process
           </span>
-          <h2 className="text-3xl md:text-[3rem] font-black text-[#111111] leading-tight mb-4 md:mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold  text-gray-700 leading-tight mb-4 md:mb-6">
             How We Work
           </h2>
         </div>

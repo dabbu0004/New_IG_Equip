@@ -123,7 +123,7 @@ const PanIndiaMap = () => {
         
         {/* Header Section */}
         <div className="text-center mb-10 md:mb-14">
-          <h2 className="text-3xl md:text-5xl font-black text-[#111111] mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-700 mb-4 tracking-tight">
             Crafting Success Pan India
           </h2>
           <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto font-medium">
@@ -187,7 +187,7 @@ const PanIndiaMap = () => {
                   <FiMapPin className="text-[#f48131] w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-extrabold text-gray-900 leading-tight">
+                  <h3 className="text-xl font-bold text-gray-700 tracking-tight">
                     {activeLocation.city}
                   </h3>
                   <p className="text-sm font-bold text-[#f48131] uppercase tracking-wide">
@@ -199,7 +199,7 @@ const PanIndiaMap = () => {
               <div className="w-full h-px bg-gray-200 mb-4"></div>
 
               <div className="mb-4">
-                <span className="text-3xl font-black text-gray-900 mr-2">
+                <span className="text-3xl font-bold text-gray-900 mr-2">
                   {activeLocation.installations}+
                 </span>
                 <span className="text-sm font-semibold text-gray-500">
@@ -244,7 +244,7 @@ const PanIndiaMap = () => {
                 <FiMapPin className="text-[#f48131] w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-lg font-extrabold text-gray-900 leading-tight">
+                <h3 className="text-lg font-bold text-gray-700 tracking-tight">
                   {activeLocation.city}
                 </h3>
                 <p className="text-xs font-bold text-[#f48131] uppercase tracking-wide">
@@ -288,7 +288,7 @@ const PanIndiaMap = () => {
             STATE BUTTONS (LIST BELOW MAP)
             ======================================================== */}
         <div className="w-full max-w-5xl">
-          <h4 className="text-center md:text-left text-lg font-bold text-gray-800 mb-6">
+          <h4 className="text-center md:text-left text-lg font-bold text-gray-700 mb-6">
             Select a Region to View Details
           </h4>
           
@@ -305,10 +305,10 @@ const PanIndiaMap = () => {
                       : "bg-white text-black border  hover:shadow-xl hover:scale-105"
                   }`}
                 >
-                  <span className="text-base md:text-lg font-extrabold leading-tight">
+                  <span className="text-base md:text-lg font-bold leading-tight">
                     {loc.state}
                   </span>
-                  <span className="text-xs md:text-sm font-semibold text-gray-500">
+                  <span className="text-xs md:text-sm font-bold text-gray-500">
                     {loc.city}
                   </span>
                 </button>

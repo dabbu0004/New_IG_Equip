@@ -25,7 +25,7 @@ const NewClientsPage = () => {
   return (
     <div className="w-full bg-[#FFF3EB] md:mb-10 py-8 px-3 sm:px-6">
       <div className="max-w-full mx-auto">
-        <h2 className="text-center text-black font-extrabold text-2xl md:text-5xl  italic mb-10">
+        <h2 className="text-center text-gray-700 font-bold text-2xl md:text-5xl  italic mb-10">
           Our Clients Who Trust Us
         </h2>
         <style>

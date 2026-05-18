@@ -58,10 +58,10 @@ const Industries = () => {
         
         {/* Header Section */}
         <div className="flex flex-col items-center text-center md:items-start md:text-left mb-10 md:mb-14">
-          <span className="text-sm font-semibold text-gray-600 mb-1 md:mb-2">
+          <span className="text-sm font-bold text-gray-500 mb-1 md:mb-2">
             Who We Serve
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-[#111111] mb-3 md:mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-700 mb-3 md:mb-4 tracking-tight">
             Industries
           </h2>
           <p className="text-gray-700 text-base md:text-lg max-w-2xl font-medium">

@@ -62,7 +62,7 @@ const WhyUs = () => {
           <span className="text-sm md:text-lg font-semibold text-[#111111] tracking-widest mb-1 block text-center md:text-left metropolis">
             Why Inventive?
           </span>
-          <h2 className="text-3xl md:text-5xl self-center md:self-start font-bold  text-[#111111] leading-[1.05] mb-3 metropolis">
+          <h2 className="text-3xl md:text-5xl self-center md:self-start font-bold  text-gray-700 leading-[1.05] mb-3 metropolis">
             Built on <br className="hidden md:block" /> Expertise
           </h2>
 
