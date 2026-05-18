@@ -15,3 +15,33 @@ body {
 .metropolis {
   font-family: 'Metropolis', 'Poppins', sans-serif;
 }
+
+.cert-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.cert-badge {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.cert-badge--pulse {
+  animation: certPulse 900ms ease 1;
+}
+
+@keyframes certPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}

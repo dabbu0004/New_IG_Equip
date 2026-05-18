@@ -80,7 +80,7 @@ const HomeProductRange = () => {
       category: "Power Generation",
       title: "Gas Gensets",
       description: "15 KVA to 500 KVA natural gas and biogas-powered generators for industrial and commercial use.",
-      image: "/images/image/FinalHero.png",
+      image: "/images/image/GasGenset.webp",
       link: "/products/gas-gensets"
     },
     {
@@ -139,7 +139,7 @@ const HomeProductRange = () => {
           <Link
             ref={productsButtonRef}
             to="/products"
-            className="inline-flex items-center justify-center bg-[#f48131] text-white px-8 py-4 md:-mt-10 rounded-xl text-base md:text-2xl shadow-md transition-all duration-150 will-change-transform hover:shadow-xl mx-auto md:mx-0"
+            className="inline-flex items-center justify-center bg-[#f48131] hover:bg-[#e06d1f] text-white px-8 py-3.5 rounded-md text-lg font-bold shadow-md transition-colors duration-300"
            >
             View All Products
           </Link>

@@ -1,121 +1,133 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
+import { motion, AnimatePresence } from "framer-motion";
+import homeHeroSlides from "../../data/HomeHeroData";
 
 const HomeHero = () => {
-  const carouselImages = [
-    "/images/image/FinalHero.png",
-    "/images/image/FinalHero.png",
-    "/images/image/FinalHero.png",
-   
-  ];
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const heroButtonRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const slides = homeHeroSlides;
 
+  // Auto-slide interval
   useEffect(() => {
-    const button = heroButtonRef.current;
+    if (slides.length <= 1 || isPaused) return;
 
-    if (!button) return undefined;
-
-    const handleEnter = () => {
-      gsap.to(button, { scale: 1.1, y: -3, duration: 0.12, ease: "power2.out" });
-    };
-
-    const handleLeave = () => {
-      gsap.to(button, { scale: 1, y: 0, duration: 0.12, ease: "power2.out" });
-    };
-
-    const handleDown = () => {
-      gsap.to(button, { scale: 0.98, duration: 0.08, ease: "power2.out" });
-    };
-
-    const handleUp = () => {
-      gsap.to(button, { scale: 1.1, duration: 0.08, ease: "power2.out" });
-    };  
-
-    button.addEventListener("mouseenter", handleEnter);
-    button.addEventListener("mouseleave", handleLeave);
-    button.addEventListener("mousedown", handleDown);
-    button.addEventListener("mouseup", handleUp);
-
-    return () => {
-      button.removeEventListener("mouseenter", handleEnter);
-      button.removeEventListener("mouseleave", handleLeave);
-      button.removeEventListener("mousedown", handleDown);
-      button.removeEventListener("mouseup", handleUp);
-    };
-  }, []);
-
-  useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000);
+    }, 5000); // Set to 5 seconds to give users time to read the dynamic text
 
     return () => clearInterval(intervalId);
-  }, [carouselImages.length]);
+  }, [slides.length, isPaused]);
+
+  const activeSlide = slides[currentImageIndex] || slides[0] || {};
 
   return (
-    <>
-      <div className="max-w-7xl container mx-auto">
-        <div className="flex flex-col-reverse lg:flex-row  md:mb-20 items-center md:justify-between px-6 md:px-10 py-10 bg-white">
-          {/* Left Section - Animated */}
-          <div
-            className="w-full pt-12 lg:w-1/2 text-center md:text-left flex flex-col items-center md:items-start"
-          >
-            {/* Top Badge */}
-            <span className="inline-block bg-gray-200 text-gray-900 px-2 py-1 font-bold rounded text-sm md:text-sm font-medium mb-4 metropolis">
-              India's Leading Gas Energy Solutions Provider
-            </span>
-          <h1 className="text-4xl md:text-[2.5rem] md:-ml-5 self-center font-extrabold text-gray-900   mb-8 ">
-              Power Your Industry <br className="hidden md:block" />
-              with Clean Gas <span className="text-[#f48131]">Energy</span>
-            </h1>
-
-            <p className="text-gray-700 metropolis text-base md:text-lg mb-8">
-           Manufacturers of Gas Gensets, Dual-Fuel Kits, and RECD systems. Reliable, eco-friendly, and cost-saving energy solutions for industrial India.
-            </p>
-            <Link
-              ref={heroButtonRef}
-              to="/contact"
-              className="inline-flex items-center justify-center bg-[#f48131] text-white px-8 py-4 rounded-xl text-base md:text-2xl shadow-md transition-all duration-150 will-change-transform hover:shadow-xl mx-auto md:mx-0"
+    <section className="w-full bg-white pt-10 pb-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
+        
+        {/* ========================================= */}
+        {/* LEFT SECTION - TEXT DATA (Animated)       */}
+        {/* ========================================= */}
+        <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left min-h-[320px] justify-center md:-mt-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex} // Key forces re-animation when slide changes
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="flex flex-col items-center md:items-start"
             >
-              Explore Products
-            </Link>
+              {/* Dynamic Badge */}
+              {activeSlide.badge && (
+                <span className="inline-block bg-gray-100 text-gray-700 px-4 py-1.5 rounded-md text-sm md:text-base mb-4">
+                  {activeSlide.badge}
+                </span>
+              )}
+
+              {/* Dynamic Title */}
+              <h1 className="text-3xl md:text-[2.5rem] font-semibold text-[#303234] leading-[1.12]  mb-4">
+                {activeSlide.title}
+                {activeSlide.titleBreak && <br className="hidden md:block" />}
+                {" "}{activeSlide.subtitle}{" "}
+                <span className="text-[#f48131]">{activeSlide.highlight}</span>
+              </h1>
+
+              {/* Dynamic Description */}
+              {activeSlide.description && (
+                <p className="text-gray-700 text-sm md:text-base mb-5 max-w-lg">
+                  {activeSlide.description}
+                </p>
+              )}
+
+              {/* Dynamic Button */}
+              {activeSlide.buttonText && activeSlide.buttonLink && (
+                <Link to={activeSlide.buttonLink}>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    className="inline-flex items-center justify-center bg-[#f48131] hover:bg-[#e06d1f] text-white px-8 py-3.5 rounded-md text-lg font-bold shadow-md transition-colors duration-300"
+                  >
+                    {activeSlide.buttonText}
+                  </motion.button>
+                </Link>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* ========================================= */}
+        {/* RIGHT SECTION - IMAGE (Animated)          */}
+        {/* ========================================= */}
+        <div className="w-full md:w-[60%] flex flex-col items-center min-h-[350px] justify-center relative">
+          <div
+            className="relative w-full flex items-center justify-center h-[340px] md:h-[460px]"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <AnimatePresence mode="wait">
+              {activeSlide.image && (
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ opacity: 0, scale: 0.98, x: 20 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 1.02, x: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute w-full max-w-lg md:max-w-xl rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden group"
+                >
+                  <img
+                    src={activeSlide.image}
+                    alt={activeSlide.imageAlt || "Inventive Gas Equipment"}
+                    className="w-full h-[280px] md:h-[360px] object-contain transition-transform duration-300 ease-out scale-[1.03] group-hover:scale-[1.08]"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          {/* Right Section - Image with animation */}
-          <div
-            className="w-full md:w-[70%] flex flex-col items-center mb-10 lg:mb-0"
-          >
-            <img
-              key={currentImageIndex}
-              src={carouselImages[currentImageIndex]}
-              alt="Inventive Gas Equipment – Industrial Gas Genset for Clean Power"
-              className="w-full max-w-md md:max-w-6xl"
-            />
-
-            {/* Pagination Dots */}
-            <div className="mt-6 flex gap-3">
-              {carouselImages.map((_, index) => (
+          {/* Pagination Dots */}
+          {slides.length > 1 && (
+            <div className="mt-8 flex gap-3 z-10">
+              {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                    index === currentImageIndex
-                      ? "bg-[#f48131]"
-                      : "bg-gray-300 hover:bg-gray-400"
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex ? "bg-[#f48131] w-8" : "bg-gray-300 w-2.5 hover:bg-gray-400"
                   }`}
+                  aria-label={`Go to slide ${index + 1}`}
                 ></button>
               ))}
             </div>
-          </div>
+          )}
         </div>
+
       </div>
-    </>
+    </section>
   );
 };
 
