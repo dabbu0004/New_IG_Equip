@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const WhyUs = () => {
   const features = [
@@ -37,9 +38,9 @@ const WhyUs = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-stretch gap-6 md:gap-5">
         
         {/* Left Side: Premium Image Container (Kept Exactly As You Provided) */}
-        <div className="w-full md:w-[70%] flex justify-center items-center relative py-0 md:py-6 group/image">
+        <div className="w-full md:w-[60%] flex justify-center items-center relative py-0 md:py-6 group/image">
           {/* Decorative Offset Background Shape (responsive, no negative margins) */}
-          <div className="relative z-10 w-full max-w-[650px] aspect-[4/3] md:aspect-auto md:h-[600px] overflow-hidden rounded-2xl shadow-2xl border border-white">
+          <div className="relative z-10 w-full max-w-[560px] aspect-[4/3] md:aspect-auto md:h-[520px] overflow-hidden rounded-2xl shadow-2xl border border-white">
             <img
               src="/images/WhyUsPic.jpeg" // Replace with your actual image path
               alt="Inventive Gas Equipment Team"
@@ -49,13 +50,19 @@ const WhyUs = () => {
         </div>
 
         {/* Right Side: Content & Exact Image Match Accordion */}
-        <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left md:justify-center">
+        <motion.div
+          className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left md:justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           
           {/* Headings */}
           <span className="text-sm md:text-lg font-semibold text-[#111111] tracking-widest mb-1 block text-center md:text-left metropolis">
             Why Inventive?
           </span>
-          <h2 className="text-4xl md:text-6xl self-center md:self-start font-bold  text-[#111111] leading-[1.05] mb-3 metropolis">
+          <h2 className="text-3xl md:text-5xl self-center md:self-start font-bold  text-[#111111] leading-[1.05] mb-3 metropolis">
             Built on <br className="hidden md:block" /> Expertise
           </h2>
 
@@ -118,7 +125,7 @@ const WhyUs = () => {
             })}
             
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
