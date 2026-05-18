@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { AnimatePresence, motion } from "framer-motion";
+import homeProductsRangeData from "../../data/HomeProductsRangeData";
 
 const HomeProductRange = () => {
   const productsButtonRef = useRef(null);
@@ -73,44 +74,7 @@ const HomeProductRange = () => {
     setCurrentIndex((prev) => Math.min(products.length - cardsPerView, prev + 1));
   };
 
-  // Product Data - Extended with more demo products
-  const products = [
-    {
-      id: 1,
-      category: "Power Generation",
-      title: "Gas Gensets",
-      description: "15 KVA to 500 KVA natural gas and biogas-powered generators for industrial and commercial use.",
-      image: "/images/image/GasGenset.webp",
-      link: "/products/gas-gensets"
-    },
-    {
-      id: 2,
-      category: "Fuel Conversion",
-      title: "Dual-Fuel Kits",
-      description: "Convert existing diesel generators to run on gas + diesel simultaneously. Save up to 40% on fuel costs.",
-      image: "/images/image/NewHomeHero.png", 
-      link: "/products/dual-fuel-kits"
-    },
-    {
-      id: 3,
-      category: "Emission Control",
-      title: "RECD Device",
-      description: "CPCB-approved Retrofit Emission Control Devices to reduce particulate matter by up to 99%.",
-      image: "/images/image/RECD.jpeg", 
-      link: "/products/recd-device"
-    },
-    {
-      id: 4,
-      category: "Biogas Solutions",
-      title: "Biogas Equipment",
-      description: "Membrane gas holders, digesters, biogas conditioning and storage systems for sustainable energy.",
-      image: "/images/image/BioGas.jpeg", 
-      link: "/products/biogas-equipment"
-    },
-  
-   
- 
-  ];
+  const products = homeProductsRangeData;
 
   const isMobileView = cardsPerView === 1;
   const visibleProducts = isMobileView
@@ -119,7 +83,7 @@ const HomeProductRange = () => {
   const gridClass = cardsPerView === 1 ? "grid-cols-1" : cardsPerView === 2 ? "grid-cols-2" : "grid-cols-4";
 
   return (
-    <section className="w-full bg-gray-50  py-16 md:py-24 md:pb-10 overflow-x-hidden overflow-y-visible relative">
+    <section className="w-full bg-gray-50  py-16 md:py-15 md:pb-10 overflow-x-hidden overflow-y-visible relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header Section */}
@@ -128,10 +92,10 @@ const HomeProductRange = () => {
             <span className="text-gray-600 font-semibold self-center md:self-start text-md tracking-tight block mb-2">
               Our Product Range
             </span>
-            <h2 className="text-4xl md:text-5xl self-center md:self-start font-extrabold tracking-tight  text-[#111111] mb-3">
+            <h2 className="text-4xl md:text-5xl self-center md:self-start font-bold tracking-tight  text-gray-700 mb-3">
               Core Solutions
             </h2>
-            <p className="text-gray-700 md:w-[70%] font-semibold text-base md:text-lg max-w-2xl">
+            <p className="text-gray-600 md:w-[80%]  text-base md:text-lg max-w-2xl">
               End-to-end gas energy products engineered for reliability and fuel efficiency.
             </p>
           </div>
@@ -204,7 +168,7 @@ const HomeProductRange = () => {
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">
                     {product.category}
                   </span>
-                  <h4 className="text-xl md:text-2xl font-extrabold text-[#111111]  md:-mt-1 mb-3">
+                  <h4 className="text-xl md:text-2xl font-bold text-gray-700  md:-mt-1 mb-3">
                     {product.title}
                   </h4>
                   <p className="text-gray-700 text-sm md:text-[15px] leading-relaxed md:-mt-1 mb-3 flex-grow">

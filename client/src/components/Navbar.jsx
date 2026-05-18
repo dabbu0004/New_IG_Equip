@@ -136,7 +136,7 @@ const Navbar = () => {
         </div>
 
         {/* Center: Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-2 h-full">
+        <nav className="hidden lg:flex items-center space-x-0.5 h-full">
           
           <Link 
             to="/" 
@@ -147,7 +147,7 @@ const Navbar = () => {
 
           <div 
             // The padding here acts as a bridge so the mouse doesn't fall off when moving to the menu
-            className="relative flex items-center py-4 px-1 -my-4"
+            className="relative flex items-center py-4 px-0.5 -my-4"
             onMouseEnter={() => handleMouseEnter('about')}
             onMouseLeave={handleMouseLeave}
           >
@@ -157,7 +157,7 @@ const Navbar = () => {
           </div>
 
           <div 
-            className="relative flex items-center py-4 px-1 -my-4"
+            className="relative flex items-center py-4 px-0.5 -my-4"
             onMouseEnter={() => handleMouseEnter('products')}
             onMouseLeave={handleMouseLeave}
           >
@@ -167,7 +167,7 @@ const Navbar = () => {
           </div>
 
           <div 
-            className="relative flex items-center py-4 px-1 -my-4"
+            className="relative flex items-center py-4 px-0.5 -my-4"
             onMouseEnter={() => handleMouseEnter('services')}
             onMouseLeave={handleMouseLeave}
           >
@@ -177,7 +177,7 @@ const Navbar = () => {
           </div>
 
           <div 
-            className="relative flex items-center py-4 px-1 -my-4"
+            className="relative flex items-center py-4 px-0.5 -my-4"
             onMouseEnter={() => handleMouseEnter('other')}
             onMouseLeave={handleMouseLeave}
           >
@@ -192,7 +192,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center space-x-4">
           <Link to="/contact">
             <button className="bg-[#f48131] text-white px-6 py-2.5 rounded-full font-bold shadow-md hover:bg-[#F26413] hover:shadow-lg transition-all">
-              Book a Demo
+              Get call
             </button>
           </Link>
         </div>
