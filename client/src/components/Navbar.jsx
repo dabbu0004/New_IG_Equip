@@ -6,6 +6,7 @@ import {
   FiFilter, FiDroplet, FiCloudOff, FiBox, FiTarget, 
   FiBriefcase, FiFileText, FiMail, FiInfo 
 } from "react-icons/fi";
+import homeProductsRangeData from "../data/HomeProductsRangeData";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -32,6 +33,41 @@ const Navbar = () => {
     setActiveDropdown(null);
   };
 
+  const getProductIcon = (title) => {
+    switch (title) {
+      case "Vayu Pure RECD":
+      case "RECD Device":
+        return <FiWind className="w-6 h-6" />;
+      case "DFK":
+      case "Dual-Fuel Kits":
+        return <FiLayers className="w-6 h-6" />;
+      case "GAS GENSET":
+      case "Gas Gensets":
+        return <FiZap className="w-6 h-6" />;
+      case "Double Membrane Gas Holder":
+        return <FiDatabase className="w-6 h-6" />;
+      case "Flaring System":
+        return <FiAlertCircle className="w-6 h-6" />;
+      case "H2S Scrubber":
+        return <FiFilter className="w-6 h-6" />;
+      case "Dehumidifier":
+        return <FiDroplet className="w-6 h-6" />;
+      case "CO2 Removal System":
+        return <FiCloudOff className="w-6 h-6" />;
+      case "RO+UF Plant":
+        return <FiBox className="w-6 h-6" />;
+      default:
+        return <FiTarget className="w-6 h-6" />;
+    }
+  };
+
+  const productNavItems = homeProductsRangeData.map((product) => ({
+    path: product.link,
+    label: product.title,
+    desc: product.description,
+    icon: getProductIcon(product.title),
+  }));
+
   // --- Navigation Data Structure (Exact matches to your request) ---
   const navData = {
     about: {
@@ -43,17 +79,7 @@ const Navbar = () => {
     },
     products: {
       title: "OUR PRODUCTS",
-      items: [
-        { path: "/products/vayu-pure-recd", label: "Vayu Pure RECD", desc: "Retrofit Emission Control Devices for compliance.", icon: <FiWind className="w-6 h-6" /> },
-        { path: "/products/dfk", label: "DFK", desc: "Dual Fuel Kits for efficient diesel operation.", icon: <FiLayers className="w-6 h-6" /> },
-        { path: "/products/gas-genset", label: "GAS GENSET", desc: "High-performance gas-powered generators.", icon: <FiZap className="w-6 h-6" /> },
-        { path: "/products/double-membrane-gas-holder", label: "Double Membrane Gas Holder", desc: "Advanced and safe biogas storage solutions.", icon: <FiDatabase className="w-6 h-6" /> },
-        { path: "/products/flaring-system", label: "Flaring System", desc: "Safe and efficient industrial gas flaring.", icon: <FiAlertCircle className="w-6 h-6" /> },
-        { path: "/products/h2s-scrubber", label: "H2S Scrubber", desc: "Reliable hydrogen sulfide removal systems.", icon: <FiFilter className="w-6 h-6" /> },
-        { path: "/products/dehumidifier", label: "Dehumidifier", desc: "Precision moisture control for gas systems.", icon: <FiDroplet className="w-6 h-6" /> },
-        { path: "/products/co2-removal", label: "Co2 Removal System", desc: "Advanced carbon dioxide extraction technology.", icon: <FiCloudOff className="w-6 h-6" /> },
-        { path: "/products/ro-uf-plant", label: "RO+UF Plant", desc: "Industrial-grade water treatment plants.", icon: <FiBox className="w-6 h-6" /> },
-      ],
+      items: productNavItems,
       columns: "grid-cols-1 md:grid-cols-3"
     },
     services: {
