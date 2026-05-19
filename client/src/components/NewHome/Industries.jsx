@@ -61,10 +61,10 @@ const Industries = () => {
           <span className="text-sm font-bold text-gray-500 mb-1 md:mb-2">
             Who We Serve
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-700 mb-3 md:mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-3 md:mb-4 tracking-tight">
             Industries
           </h2>
-          <p className="text-gray-700 text-base md:text-lg max-w-2xl font-medium">
+          <p className="text-gray-700 text-sm md:text-base max-w-2xl font-medium">
             Our solutions power a wide range of industrial sectors across India.
           </p>
         </div>

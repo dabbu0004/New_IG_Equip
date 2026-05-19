@@ -76,7 +76,7 @@ const BlogDetail = () => {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}
           className="prose prose-lg prose-gray max-w-none"
         >
-          <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed mb-8">
             {post.excerpt}
           </p>
           

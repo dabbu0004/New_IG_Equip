@@ -122,7 +122,7 @@ const SecondHero = () => {
 
     return (
       <div ref={ref} className={`flex flex-col items-center ${className}`}>
-        <p className="text-4xl sm:text-5xl font-bold leading-none">
+        <p className="text-3xl sm:text-5xl font-bold leading-none">
           {value}
           {suffix}
         </p>
@@ -144,10 +144,10 @@ const SecondHero = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h2 className="text-4xl md:text-6xl font-black text-[#111111] leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-3xl md:text-6xl font-black text-[#111111] leading-[1.1] tracking-tight mb-6">
             Shaping the Future of <span className=" text-[#f48131] italic">Clean Energy</span>
             <br className="hidden md:block" />
-            <span className="text-2xl md:text-2xl font-bold text-gray-400 mt-2 block not-italic">
+            <span className="text-xl md:text-xl font-bold text-gray-400 mt-2 block not-italic">
                 Smarter Gas Solutions for a Better Tomorrow
             </span>
           </h2>
@@ -176,11 +176,11 @@ const SecondHero = () => {
               Inventive Gas Equipment
             </h3>
             
-            <p className="text-xl md:text-2xl text-gray-600 font-medium leading-snug mb-6 max-w-xl">
+            <p className="text-lg md:text-xl text-gray-600 font-medium leading-snug mb-6 max-w-xl">
               is committed to shaping the future of the <span className="font-bold text-[#111111]">clean energy in India</span> and worldwide.
             </p>
             
-            <p className="text-base md:text-lg text-gray-500 font-medium mb-10 leading-relaxed max-w-xl">
+            <p className="text-sm md:text-base text-gray-500 font-medium mb-10 leading-relaxed max-w-xl">
               Offering Smarter Gas Solutions for a Better Future. We design, manufacture, and deploy cutting-edge systems tailored for industrial excellence.
             </p>
             

@@ -44,16 +44,16 @@ const NewGallery = () => {
       <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-16 mb-12 flex flex-col items-center text-center md:flex-row md:items-end md:text-left justify-between gap-6">
         {/* Header Section */}
         <div className="flex flex-col items-center md:items-start">
-          <span className="text-sm md:text-base font-bold text-[#f48131] uppercase tracking-tight mb-2 block">
+          <span className="text-xs md:text-sm font-bold text-[#f48131] uppercase tracking-tight mb-2 block">
             Our Portfolio
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-700 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-700 tracking-tight">
             Project Gallery
           </h2>
         </div>
         
         {/* Optional Context Text */}
-        <p className="text-gray-500 text-base md:text-lg max-w-md font-medium pb-1">
+        <p className="text-gray-500 text-sm md:text-base max-w-md font-medium pb-1">
           A glimpse into our successful installations and manufacturing excellence across India.
         </p>
       </div>

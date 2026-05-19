@@ -108,10 +108,10 @@ const HomeProductRange = () => {
             <span className="text-gray-600 font-semibold self-center md:self-start text-md tracking-tight block mb-2">
               Our Product Range
             </span>
-            <h2 className="text-4xl md:text-5xl self-center md:self-start font-bold tracking-tight  text-gray-700 mb-3">
+            <h2 className="text-3xl md:text-4xl self-center md:self-start font-bold tracking-tight  text-gray-700 mb-3">
               Core Solutions
             </h2>
-            <p className="text-gray-600 md:w-[80%]  text-base md:text-lg max-w-2xl">
+            <p className="text-gray-600 md:w-[80%]  text-sm md:text-base max-w-2xl">
               End-to-end gas energy products engineered for reliability and fuel efficiency.
             </p>
           </div>

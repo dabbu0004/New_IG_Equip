@@ -71,15 +71,15 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full bg-[#fcfcfc] py-20 md:py-28 overflow-hidden font-sans border-t border-gray-100">
+    <section className="w-full bg-[#fcfcfc] py-20 md:py-20 overflow-hidden font-sans border-t border-gray-100">
       <div className="max-w-[1250px] mx-auto px-6 md:px-12">
         
         {/* Header Section */}
-        <div className="max-w-3xl mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-4xl font-bold text-gray-700 tracking-tight mb-5">
+        <div className="max-w-3xl mb-16 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-700 tracking-tight mb-5">
             Frequently asked questions
           </h2>
-          <p className="text-lg md:text-md text-gray-600 font-medium leading-relaxed">
+          <p className="text-base md:text-base text-gray-600 font-medium leading-relaxed">
             Stuck on something? We're here to help with all your queries regarding our gas energy solutions, compliance, and installations in one place.
           </p>
         </div>
@@ -110,7 +110,7 @@ const FAQ = () => {
                   <h4 className="text-lg md:text-md font-bold text-gray-700 mb-2 leading-snug">
                     {faq.question}
                   </h4>
-                  <p className="text-gray-600 text-[15px] md:text-md font-medium leading-relaxed">
+                  <p className="text-gray-500 text-[15px] md:text-md font-medium leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

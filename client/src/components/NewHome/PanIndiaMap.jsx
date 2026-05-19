@@ -123,10 +123,10 @@ const PanIndiaMap = () => {
         
         {/* Header Section */}
         <div className="text-center mb-10 md:mb-14">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-700 mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-4 tracking-tight">
             Crafting Success Pan India
           </h2>
-          <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto font-medium">
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto font-medium">
             Explore our nationwide footprint. Click on a region below to view our specialized installations, services, and industrial impact.
           </p>
         </div>

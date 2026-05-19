@@ -56,14 +56,14 @@ const HowWeWork = () => {
             OUR PROCESS
           </span>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-700 leading-tight mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-700 leading-tight mb-4 tracking-tight">
             How We Work
           </h2>
           
           {/* Thick Orange Underline */}
           <div className="w-16 h-1.5 bg-[#f48131] mb-6"></div>
 
-          <p className="text-gray-700 text-base md:text-md font-medium leading-relaxed max-w-sm mb-8">
+          <p className="text-gray-700 text-sm md:text-base font-medium leading-relaxed max-w-sm mb-8">
             A streamlined process designed to deliver reliable gas energy solutions from concept to commissioning.
           </p>
 

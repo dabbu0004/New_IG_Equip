@@ -1,96 +1,128 @@
 import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaPhone,
-} from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FiFacebook, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 py-16 px-4 md:px-20 border-t">
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-4">
-        {/* Logo Section */}
-        <div className="flex items-center space-x-4 mb-4 md:mb-0">
-          <img
-            src="/images/logo.webp"
-            alt="Inventive Logo"
-            className="w-28 md:w-36"
-          />
+    <footer className="w-full bg-[#fdfdfd] border-t border-gray-100 pt-10 pb-8 font-sans">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        
+        {/* Top Grid Section */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-12 lg:gap-20 mb-8">
+          
+          {/* Left Column: Logo & Brand Info (Takes up 2 columns) */}
+          <div className="lg:col-span-2 flex flex-col">
+            <Link to="/" className="mb-6 cursor-pointer">
+              <img
+                src="/images/logo.webp"
+                alt="Inventive Logo"
+                className="h-[5rem] w-auto"
+              />
+            </Link>
+            <p className="text-[15px] text-gray-500 leading-relaxed max-w-sm mb-6">
+              India's Leading Gas Energy Solutions Provider. Powering your business with clean, efficient, and future-ready energy systems.
+            </p>
+            
+            {/* Social Icons */}
+            <div className="flex items-center gap-5 text-gray-400 mb-8">
+              <a href="https://www.facebook.com/InventiveGasEquipment" target="_blank" rel="noreferrer" className="hover:text-[#111111] transition-colors cursor-pointer">
+                <FiFacebook className="w-[18px] h-[18px]" />
+              </a>
+              <a href="https://www.instagram.com/igequipment/" target="_blank" rel="noreferrer" className="hover:text-[#111111] transition-colors cursor-pointer">
+                <FiInstagram className="w-[18px] h-[18px]" />
+              </a>
+              <a href="https://www.linkedin.com/company/igequipment-com/" target="_blank" rel="noreferrer" className="hover:text-[#111111] transition-colors cursor-pointer">
+                <FiLinkedin className="w-[18px] h-[18px]" />
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" className="hover:text-[#111111] transition-colors cursor-pointer">
+                <FiTwitter className="w-[18px] h-[18px]" />
+              </a>
+            </div>
+
+          
+          </div>
+
+          {/* Column 1: Products */}
+          <div className="flex md:pt-6 flex-col">
+            <h4 className="text-[15px] font-bold text-gray-700 mb-6">Products</h4>
+            <ul className="flex flex-col space-y-3">
+              <li>
+                <Link to="/products/vayu-pure-recd" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors flex items-center gap-2 cursor-pointer">
+                  Vayu Pure RECD <span className="text-[10px] font-bold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">New</span>
+                </Link>
+              </li>
+              <li><Link to="/products/dfk" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Dual-Fuel Kits</Link></li>
+              <li><Link to="/products/gas-genset" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Gas Gensets</Link></li>
+              <li><Link to="/products/double-membrane-gas-holder" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Biogas Holders</Link></li>
+              <li><Link to="/products/flaring-system" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Flaring Systems</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 2: Services & Solutions */}
+          <div className="flex md:pt-6  flex-col">
+            <h4 className="text-[15px] font-bold text-gray-700 mb-6">Services</h4>
+            <ul className="flex flex-col space-y-3">
+              <li><Link to="/services/air-pollution" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Air Pollution Control</Link></li>
+              <li><Link to="/services/water-pollution" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Water Treatment</Link></li>
+              <li><Link to="/services/biogas" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Biogas Solutions</Link></li>
+              <li><Link to="/services/amc" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">AMC Support</Link></li>
+              <li><Link to="/services/consulting" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Engineering Consulting</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Company */}
+          <div className="flex  md:pt-6 flex-col">
+            <h4 className="text-[15px] font-bold text-gray-700 mb-6">Company</h4>
+            <ul className="flex flex-col space-y-3">
+              <li><Link to="/about" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">About Inventive</Link></li>
+              <li><Link to="/careers" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Careers</Link></li>
+              <li><Link to="/gallery" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Project Gallery</Link></li>
+              <li><Link to="/contact" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Contact Us</Link></li>
+              <li><Link to="/partner" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Partner with us</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Resources & Support */}
+          <div className="flex  md:pt-6 flex-col">
+            <h4 className="text-[15px] font-bold text-gray-700 mb-6">Explore</h4>
+            <ul className="flex flex-col space-y-3">
+              <li><Link to="/blogs" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Official Blog</Link></li>
+              <li><Link to="/case-studies" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Case Studies</Link></li>
+              <li><Link to="/newsletter" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer">Newsletter</Link></li>
+              <li><a href="tel:+918830317796" className="text-[14px] text-gray-500 hover:text-[#f48131] transition-colors cursor-pointer flex items-center gap-1">Support Docs <span className="text-[11px] ml-1">↗</span></a></li>
+            </ul>
+          </div>
+
         </div>
 
-        {/* Quick Links */}
-        <div className="flex flex-col md:flex-row md:items-center md:space-x-6 text-center md:text-left text-sm font-medium text-gray-800">
-          <span className="font-bold">Quick Links</span>
-          <a href="/about" className="hover:text-orange-600">
-            About
-          </a>
-          <a href="/dual-fuel-kit" className="hover:text-orange-600">
-            Dual-Fuel Kit
-          </a>
+        {/* Bottom Bar: Copyright & Legal */}
+        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[13px] text-gray-500">
+            © {new Date().getFullYear()} Inventive Gas Equipment — All rights reserved.
+          </p>
           <a
-            href="/retrofit-emission-control-device-recd"
-            className="hover:text-orange-600"
+            href="https://creativeoncoffee.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[13px] md:text-sm font-semibold text-gray-500 hover:text-[#f48131] transition-colors"
           >
-            Vayu Pure RECD
+            Developed by Creative On Coffee
           </a>
-          <a href="/gas-ganset" className="hover:text-orange-600">
-            Gas Ganset
-          </a>
-          <a href="/biogas" className="hover:text-orange-600">
-            Bio Gas
-          </a>
-          <a href="/contact" className="hover:text-orange-600">
-            Contact
-          </a>
-          <a href="/terms-and-conditions" className="hover:text-orange-600">
-            Terms & Conditions
-          </a>
-          <a href="/privacy-policy" className="hover:text-orange-600">
-            Privacy Policy
-          </a>
-        </div>
 
-        {/* Social Icons */}
-        <div className="flex items-center space-x-4 mt-4 md:mt-0">
-          <span className="text-sm text-gray-600">Follow Us</span>
-          <a href="https://www.facebook.com/InventiveGasEquipment">
-            <FaFacebookF className="text-blue-600 hover:scale-110" />
-          </a>
-          <a href="https://www.instagram.com/igequipment/">
-            <FaInstagram className="text-pink-600 hover:scale-110" />
-          </a>
-          <a href="https://www.linkedin.com/company/igequipment-com/">
-            <FaLinkedinIn className="text-blue-800 hover:scale-110" />
-          </a>
-        </div>
-      </div>
-
-      {/* Contact Information */}
-      <div className="border-t border-orange-200 pt-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Address */}
-          <div className="text-center md:text-left text-sm font-medium text-gray-800 mb-3 md:mb-0">
-            Plot No.21, Udyog Vihar, Ecotech-II, Udyog Vihar, Greater Noida,
-            Uttar Pradesh 201306
-          </div>
-
-          {/* Phone Numbers */}
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-            <div className="flex items-center space-x-2 text-sm font-medium text-gray-800">
-              <FaPhone className="text-orange-600 text-xs" />
-              <a href="tel:+918830317796" className="hover:text-orange-600">
-                +91 8830317796
-              </a>
-            </div>
-            <div className="flex items-center space-x-2 text-sm font-medium text-gray-800">
-              <FaPhone className="text-orange-600 text-xs" />
-              <a href="tel:+917042100426" className="hover:text-orange-600">
-                +91 7042100426
-              </a>
-            </div>
+          
+          <div className="flex items-center gap-6">
+            <Link to="/privacy-policy" className="text-[13px] text-gray-500 hover:text-[#111111] transition-colors cursor-pointer">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-and-conditions" className="text-[13px] text-gray-500 hover:text-[#111111] transition-colors cursor-pointer">
+              Terms
+            </Link>
+            <Link to="/code-of-conduct" className="text-[13px] text-gray-500 hover:text-[#111111] transition-colors cursor-pointer">
+              Code of conduct
+            </Link>
           </div>
         </div>
+
       </div>
     </footer>
   );

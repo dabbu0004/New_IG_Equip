@@ -23,7 +23,7 @@ const HomeBlogs = () => {
   };
 
   return (
-    <section className="w-full bg-[#f8fafc] py-20 md:py-28 font-sans border-t border-gray-100 overflow-hidden">
+    <section className="w-full bg-[#f8fafc] py-20 md:py-10 font-sans border-t border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* ======================================= */}
@@ -40,10 +40,10 @@ const HomeBlogs = () => {
             <span className="inline-block text-[#f48131] text-sm font-bold uppercase tracking-widest mb-3">
               Industry Insights
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-700 leading-tight tracking-tight mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-700 leading-tight tracking-tight mb-4">
               Latest News & Updates
             </h2>
-            <p className="text-gray-600 text-base md:text-lg font-medium leading-relaxed">
+            <p className="text-gray-600 text-sm md:text-base font-medium leading-relaxed">
               Discover the latest trends, technological advancements, and expert insights in clean energy and industrial gas solutions.
             </p>
           </div>
