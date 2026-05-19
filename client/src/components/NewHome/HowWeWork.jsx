@@ -1,129 +1,135 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { FiClipboard, FiEdit3, FiSettings, FiTool, FiHeadphones, FiAward } from "react-icons/fi";
 
 const HowWeWork = () => {
-  // Step Data
+  // Step Data matching the new image exactly, including specific icons
   const steps = [
     {
       id: 1,
       title: "Enquiry & Site Survey",
       description: "Share requirements; we assess your site and power needs.",
-      image: "https://via.placeholder.com/800x600/f8fafc/333333?text=Step+1:+Survey",
+      icon: <FiClipboard className="w-6 h-6 md:w-7 md:h-7 text-[#111111]" />,
     },
     {
       id: 2,
       title: "Custom Solution Design",
       description: "Our engineers design the optimal gas energy system.",
-      image: "https://via.placeholder.com/800x600/f8fafc/333333?text=Step+2:+Design",
+      icon: <FiEdit3 className="w-6 h-6 md:w-7 md:h-7 text-[#111111]" />,
     },
     {
       id: 3,
       title: "Manufacturing & Testing",
       description: "Products built to spec and rigorously tested in-house.",
-      image: "https://via.placeholder.com/800x600/f8fafc/333333?text=Step+3:+Testing",
+      icon: <FiSettings className="w-6 h-6 md:w-7 md:h-7 text-[#111111]" />,
     },
     {
       id: 4,
       title: "Installation",
       description: "Expert on-site installation by our technical team.",
-      image: "https://via.placeholder.com/800x600/f8fafc/333333?text=Step+4:+Installation",
+      icon: <FiTool className="w-6 h-6 md:w-7 md:h-7 text-[#111111]" />,
     },
     {
       id: 5,
       title: "Commissioning & Support",
       description: "Full commissioning with ongoing AMC support available.",
-      image: "https://via.placeholder.com/800x600/f8fafc/333333?text=Step+5:+Support",
+      icon: <FiHeadphones className="w-6 h-6 md:w-7 md:h-7 text-[#111111]" />,
     }
   ];
 
-  const [activeStep, setActiveStep] = useState(0);
-
-  // Auto-progress animation timer
-  useEffect(() => {
-    if (activeStep >= steps.length - 1) return;
-
-    const timer = setTimeout(() => {
-      setActiveStep((prev) => prev + 1);
-    }, 4000); 
-
-    return () => clearTimeout(timer);
-  }, [activeStep, steps.length]);
-
   return (
-    <section className="w-full bg-[#FFF3EB] py-14 md:py-10 overflow-hidden relative">
+    <section className="w-full bg-[#fafafa] py-16 md:py-24 overflow-hidden relative flex items-center">
       
-      {/* The tilted top background shape (Fixed to match image exactly)
-        Triangle on the top right creates a slant that goes down from left to right.
-      */}
-      <div 
-        className="absolute top-0 left-0 w-full h-[60px] md:h-[90px] bg-white z-0" 
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }}
-      ></div>
+      {/* ======================================= */}
+      {/* LEFT SIDE: Giant Semi-Circle Background */}
+      {/* ======================================= */}
+      <div className="absolute top-0 left-0 w-full md:w-[45%] h-[400px] md:h-full bg-[#fff6f0] rounded-b-full md:rounded-b-none md:rounded-r-full shadow-sm z-0 transform md:-translate-x-10"></div>
         
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start gap-8 md:gap-20 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-16 relative z-10">
         
         {/* ======================================= */}
-        {/* LEFT SIDE: Headings & Dynamic Image     */}
+        {/* LEFT SIDE: Text Content & Badge         */}
         {/* ======================================= */}
-        <div className="w-full md:w-[45%] flex flex-col -mt-2 md:-mt-6 md:sticky md:top-24 z-10">
-          <span className="text-sm font-semibold text-gray-500 mb-2 block">
-            Our Process
+        <div className="w-full md:w-[40%] flex flex-col pt-10 md:pt-20">
+          
+          <span className="text-xs font-bold text-[#f48131] uppercase tracking-widest mb-3">
+            OUR PROCESS
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold  text-gray-700 leading-tight mb-4 md:mb-6">
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-700 leading-tight mb-4 tracking-tight">
             How We Work
           </h2>
+          
+          {/* Thick Orange Underline */}
+          <div className="w-16 h-1.5 bg-[#f48131] mb-6"></div>
+
+          <p className="text-gray-700 text-base md:text-md font-medium leading-relaxed max-w-sm mb-8">
+            A streamlined process designed to deliver reliable gas energy solutions from concept to commissioning.
+          </p>
+
+          {/* Quality Badge Match */}
+          <div className="flex items-center gap-4 bg-[#fff0e6] p-4 pr-8 rounded-xl w-max shadow-sm border border-orange-50/50">
+            <FiAward className="w-10 h-10 text-[#f48131] flex-shrink-0" />
+            <div className="flex flex-col">
+              <span className="text-[#111111] font-bold text-sm md:text-base">Quality • Safety • Reliability</span>
+              <span className="text-gray-500 text-xs md:text-sm font-medium">At every step</span>
+            </div>
+          </div>
         </div>
 
         {/* ======================================= */}
-        {/* RIGHT SIDE: Perfect Match Timeline      */}
+        {/* RIGHT SIDE: Horizontal Cards Timeline   */}
         {/* ======================================= */}
-        <div className="w-full md:w-[55%] flex flex-col pt-2 md:pt-12">
+        <div className="w-full md:w-[60%] flex flex-col relative py-4">
           
-          {steps.map((step, index) => {
-            const isActive = activeStep === index;
-            const isPast = activeStep > index;
+          {/* Continuous Vertical Orange Line */}
+          {/* Hidden on very small mobile, shown on slightly larger screens and up */}
+          <div className="hidden sm:block absolute left-[11px] top-12 bottom-12 w-[2px] bg-[#f48131] z-0"></div>
 
-            return (
+          <div className="flex flex-col gap-5 md:gap-3 w-full relative z-10">
+            {steps.map((step) => (
               <div 
                 key={step.id} 
-                onClick={() => setActiveStep(index)}
-                className={`flex flex-row items-stretch gap-4 md:gap-3 cursor-pointer group transition-opacity duration-300 ${
-                  isActive || isPast ? "opacity-100" : "opacity-100"
-                }`}
+                className="flex flex-row items-center gap-6 group cursor-default"
               >
                 
-                {/* 1. Number, Line, & Dot Column (Stacked Vertically) */}
-                <div className="flex flex-col items-center w-12 md:w-16 flex-shrink-0">
-                  
-                  {/* Large Number */}
-                  <span className="text-4xl md:text-[3rem] font-black text-[#111111] leading-none">
-                    {step.id}
-                  </span>
-                  
-                  {/* Vertical Line & Dot (Only renders if NOT the last step) */}
-                  {index < steps.length - 1 && (
-                    <div className="w-[1.5px] flex-grow bg-gray-400 my-2 md:my-3 relative min-h-[42px] md:min-h-[50px]">
-                      
-                      {/* Center Orange Dot */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#f48131]"></div>
-                      
-                    </div>
-                  )}
+                {/* 1. Timeline Dot (Hidden on tiny mobile to save space) */}
+                <div className="hidden sm:flex flex-col items-center justify-center w-6 h-6 bg-[#fafafa] rounded-full z-10 flex-shrink-0">
+                  <div className="w-3 h-3 bg-[#f48131] rounded-full group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_#f48131]"></div>
                 </div>
 
-                {/* 2. Text Content Column */}
-                <div className={`flex flex-col pt-1 ${index < steps.length - 1 ? "pb-4 md:pb-6" : "pb-0"}`}>
-                  <h3 className="text-xl md:text-[1.35rem] font-semibold text-[#111111] mb-1 md:-mb-1 group-hover:text-[#f48131] transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-800 text-sm md:text-[1.2rem] max-w-full md:max-w-[72%] font-medium leading-snug md:leading-[1.35]">
-                    {step.description}
-                  </p>
+                {/* 2. Content Card (Exact Image Match + Hover Effects) */}
+                <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-5 md:gap-8 bg-white p-5 md:p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-transparent hover:border-[#f48131]/30 hover:shadow-[0_8px_30px_rgba(244,129,49,0.12)] hover:-translate-y-1 transition-all duration-300 w-full">
+                  
+                  <div className="flex items-center gap-5 md:gap-8 w-full sm:w-auto">
+                    {/* Icon with Peach Background */}
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#fff6f0] flex items-center justify-center flex-shrink-0 group-hover:bg-[#f48131] group-hover:text-white transition-colors duration-300">
+                      {/* React.cloneElement used to swap icon color on hover cleanly */}
+                      {React.cloneElement(step.icon, { className: `w-6 h-6 md:w-7 md:h-7 transition-colors duration-300 group-hover:text-white ${step.icon.props.className}` })}
+                    </div>
+
+                    {/* Number */}
+                    <span className="text-3xl md:text-4xl font-bold text-[#f48131] flex-shrink-0">
+                      {/* Add leading zero */}
+                      {step.id < 10 ? `0${step.id}` : step.id}
+                    </span>
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="flex flex-col pt-1">
+                    <h3 className="text-lg md:text-xl font-bold text-[#111122] mb-1">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-[0.95rem] font-medium leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+
                 </div>
 
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
       </div>
