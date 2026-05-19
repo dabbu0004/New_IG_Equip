@@ -5,7 +5,7 @@ const homeProductsRangeData = [
 		title: "Gas Gensets",
 		description:
 			"15 KVA to 500 KVA natural gas and biogas-powered generators for industrial and commercial use.",
-		image: "/images/image/GasGenset.webp",
+		image: "/images/HomeProductRange/GasGenset.webp",
 		link: "/products/gas-gensets",
 	},
 	{
@@ -23,7 +23,7 @@ const homeProductsRangeData = [
 		title: "RECD Device",
 		description:
 			"CPCB-approved Retrofit Emission Control Devices to reduce particulate matter by up to 99%.",
-		image: "/images/image/RECD.jpeg",
+		image: "/images/HomeProductRange/RECD.jpeg",
 		link: "/products/recd-device",
 	},
 	{
@@ -32,7 +32,7 @@ const homeProductsRangeData = [
 		title: "Biogas Equipment",
 		description:
 			"Membrane gas holders, digesters, biogas conditioning and storage systems for sustainable energy.",
-		image: "/images/image/BioGas.jpeg",
+		image: "/images/HomeProductRange/BioGas.jpeg",
 		link: "/products/biogas-equipment",
 	},
     	{
@@ -40,8 +40,8 @@ const homeProductsRangeData = [
 		category: "Gas Holder",
 		title: "Double Membrane Gas Holder",
 		description:
-			"Double Membrane Gas Holder.",
-		image: "/images/image/BioGas.jpeg",
+				"Engineering, installation, and commissioning of double-membrane gas holders for stable biogas storage and pressure control.",
+		image: "/images/HomeProductRange/doubleMembrane.jpg",
 		link: "/products/double-membrane-gas-holder",
 	},
      	{
@@ -49,8 +49,8 @@ const homeProductsRangeData = [
 		category: "Gas Removal",
 		title: "CO2 Removal System",
 		description:
-			"CO2 Removal System.",
-		image: "/images/image/BioGas.jpeg",
+				"Design and setup of CO2 removal skids to upgrade biogas quality for gensets and pipeline-ready applications.",
+		image: "/images/HomeProductRange/CO2Remover.jpg",
 		link: "/products/co2-removal-system",
 	},
      	{
@@ -58,8 +58,8 @@ const homeProductsRangeData = [
 		category: "Flaring System",
 		title: "Flaring System",
 		description:
-			"Flaring System.",
-		image: "/images/image/BioGas.jpeg",
+				"Supply and commissioning of open/closed flares for safe excess gas handling with compliant flame safety controls.",
+		image: "/images/HomeProductRange/flareOpenClose.png",
 		link: "/products/flaring-system",
 	},
      	{
@@ -67,8 +67,8 @@ const homeProductsRangeData = [
 		category: "H2S Scrubber",
 		title: "H2S Scrubber",
 		description:
-			"H2S Scrubber.",
-		image: "/images/image/BioGas.jpeg",
+				"H2S scrubbing solutions with media selection, vessel sizing, and on-site integration for low-sulfur gas output.",
+		image: "/images/HomeProductRange/H2SRemover.jpg",
 		link: "/products/h2s-scrubber",
 	},
      	{
@@ -76,8 +76,8 @@ const homeProductsRangeData = [
 		category: "Dehumidifier",
 		title: "Dehumidifier",
 		description:
-			"Dehumidifier.",
-		image: "/images/image/BioGas.jpeg",
+				"Biogas dehumidification units to reduce moisture, protect downstream equipment, and improve system efficiency.",
+		image: "/images/HomeProductRange/dehumidifier.webp",
 		link: "/products/dehumidifier",
 	},
       	{
@@ -85,8 +85,8 @@ const homeProductsRangeData = [
 		category: "Water Treatment",
 		title: "RO+UF Plant ",
 		description:
-			"RO+UF Plant",
-		image: "/images/image/BioGas.jpeg",
+				"Turnkey RO+UF water treatment plants with sizing, installation, and operator training for reliable process water.",
+		image: "/images/HomeProductRange/wtp.jpg",
 		link: "/products/ro-uf-plant",
 	},
     

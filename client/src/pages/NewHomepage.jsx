@@ -9,7 +9,8 @@ import NewContactForm from "../components/NewContactForm";
 import NewClientsPage from "../components/NewHome/NewClientsPage";
 import NewGallery from "../components/NewHome/NewGallery";
 import PanIndiaMap from "../components/NewHome/PanIndiaMap";
-
+import Faq from "../components/Faq";
+import HomeBlogs from "../components/NewHome/HomeBlogs";
 
 const NewHomepage = () => {
   return (
@@ -23,6 +24,8 @@ const NewHomepage = () => {
           <NewClientsPage/>
           <PanIndiaMap/>
           <NewGallery/>
+          <HomeBlogs/>
+          <Faq/>
           <NewContactForm/>
 
     </div>

@@ -133,7 +133,7 @@ const Navbar = () => {
                   <h4 className="text-[16px] font-semibold text-gray-900 mb-1 group-hover:text-[#F26413] transition-colors">
                     {item.label}
                   </h4>
-                  <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                  <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-2">
                     {item.desc}
                   </p>
                 </div>

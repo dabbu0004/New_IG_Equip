@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import homeProductsRangeData from "../../data/HomeProductsRangeData";
 
 const HomeProductRange = () => {
   const productsButtonRef = useRef(null);
+  const gridRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(4);
@@ -61,6 +62,21 @@ const HomeProductRange = () => {
     window.addEventListener("resize", updateCardsPerView);
     return () => window.removeEventListener("resize", updateCardsPerView);
   }, []);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+
+    if (!grid) return undefined;
+
+    const fromX = direction === 1 ? 80 : -80;
+    gsap.fromTo(
+      grid,
+      { x: fromX, opacity: 0.7 },
+      { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }
+    );
+
+    return () => gsap.killTweensOf(grid);
+  }, [currentIndex, cardsPerView, direction]);
 
   const handlePrevClick = () => {
     if (currentIndex === 0) return;
@@ -140,20 +156,16 @@ const HomeProductRange = () => {
 
           {/* Swipe-like Grid Transition */}
           <div className="overflow-x-hidden overflow-y-visible py-2">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={`${currentIndex}-${cardsPerView}`}
-                className={`grid ${gridClass} gap-4 md:gap-3`}
-                initial={{ opacity: 0.7, x: direction === 1 ? 90 : -90 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0.7, x: direction === 1 ? -90 : 90 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {visibleProducts.map((product) => (
-                  <motion.div 
-                    key={product.id} 
-                    className="flex flex-col bg-white rounded-2xl overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 border border-transparent hover:border-gray-100 transform transition-transform hover:scale-[1.03] origin-center"
-                  >
+            <div
+              ref={gridRef}
+              key={`${currentIndex}-${cardsPerView}`}
+              className={`grid ${gridClass} gap-4 md:gap-3`}
+            >
+              {visibleProducts.map((product) => (
+                <motion.div
+                  key={product.id}
+                  className="flex flex-col bg-white rounded-2xl overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 border border-transparent hover:border-gray-100 transform transition-transform hover:scale-[1.03] origin-center"
+                >
                 {/* Image Container */}
                 <div className="w-full aspect-[4/3]  overflow-hidden relative">
                   <img 
@@ -186,10 +198,9 @@ const HomeProductRange = () => {
                     </svg>
                   </Link>
                 </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
         </div>

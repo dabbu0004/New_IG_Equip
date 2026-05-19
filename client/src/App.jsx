@@ -7,7 +7,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
 import NewHomepage from "./pages/NewHomepage";
-import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import ThankYouPage from "./pages/ThankYouPage";
@@ -16,7 +15,10 @@ import CallButton from "./components/CallButton";
 import Popup from "./components/PopupForm";
 import Footer from "./components/Footer";
 import TopMarquee from "./components/TopMarquee";
+import NewContactForm from "./pages/ContactPage.jsx";
 import CookieStrip from "./components/CookieStrip";
+import BlogPage from "./pages/BlogPage";
+import BlogDetails from "./pages/BlogDetails";
 
 const App = () => {
   useEffect(() => {
@@ -43,7 +45,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<NewHomepage />} />
             <Route path="/new-home" element={<NewHomepage />} />
-            <Route path="/contact" element={<ContactPage />} />
             <Route path="/thank-you" element={<ThankYouPage />} />
             <Route
               path="/terms-and-conditions"
@@ -51,6 +52,9 @@ const App = () => {
             />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<NewHomepage />} />
+            <Route path="/contact" element={<NewContactForm />} /> 
+            <Route path="/blogs" element={<BlogPage />} />
+      <Route path="/blog/:slug" element={<BlogDetails />} />
           </Routes>
           <CallButton />
           <CookieStrip />

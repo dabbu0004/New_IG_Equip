@@ -1,11 +1,11 @@
 import React from 'react'
-import ContactForm from '../components/ContactForm.jsx'
 import AddressMap from '../components/AddressMap.jsx'
+import NewContactForm from '../components/NewContactForm.jsx'
 const ContactPage = () => {
   return (
     <div>
-      <ContactForm />
-      <AddressMap />
+      <NewContactForm />
+      
     </div>
   )
 }
