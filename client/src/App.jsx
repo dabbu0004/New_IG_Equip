@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
+import Breadcrumb from "./components/Breadcrumb";
 import NewHomepage from "./pages/NewHomepage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
@@ -19,6 +20,7 @@ import NewContactForm from "./pages/ContactPage.jsx";
 import CookieStrip from "./components/CookieStrip";
 import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./pages/BlogDetails";
+import ProductDetail from "./pages/ProductDetail";
 
 const App = () => {
   useEffect(() => {
@@ -42,20 +44,24 @@ const App = () => {
         <HelmetProvider>
           <TopMarquee />
           <Navbar />
-          <Routes>
-            <Route path="/" element={<NewHomepage />} />
-            <Route path="/new-home" element={<NewHomepage />} />
-            <Route path="/thank-you" element={<ThankYouPage />} />
-            <Route
-              path="/terms-and-conditions"
-              element={<TermsAndConditionsPage />}
-            />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="*" element={<NewHomepage />} />
-            <Route path="/contact" element={<NewContactForm />} /> 
-            <Route path="/blogs" element={<BlogPage />} />
-      <Route path="/blog/:slug" element={<BlogDetails />} />
-          </Routes>
+          <div className="relative">
+            <Breadcrumb />
+            <Routes>
+              <Route path="/" element={<NewHomepage />} />
+              <Route path="/new-home" element={<NewHomepage />} />
+              <Route path="/thank-you" element={<ThankYouPage />} />
+              <Route
+                path="/terms-and-conditions"
+                element={<TermsAndConditionsPage />}
+              />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="*" element={<NewHomepage />} />
+              <Route path="/contact" element={<NewContactForm />} /> 
+              <Route path="/blogs" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogDetails />} />
+              <Route path="/products/:slug" element={<ProductDetail />} />
+            </Routes>
+          </div>
           <CallButton />
           <CookieStrip />
           <Footer />
