@@ -11,9 +11,9 @@ import {
   FiClock
 } from "react-icons/fi";
 
-const FAQ = () => {
+const FAQ = ({ faqs, title, subtitle }) => {
   // Custom FAQ Data tailored to Inventive Gas Equipment
-  const faqs = [
+  const defaultFaqs = [
     {
       question: "Are your RECD systems CPCB approved?",
       answer: "Yes, absolutely. All our Retrofit Emission Control Devices (RECD) are strictly tested and certified by the Central Pollution Control Board (CPCB), ensuring 100% regulatory compliance for your business.",
@@ -70,17 +70,19 @@ const FAQ = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
+  const items = faqs && faqs.length ? faqs : defaultFaqs;
+
   return (
     <section className="w-full bg-[#fcfcfc] py-20 md:py-20 overflow-hidden font-sans border-t border-gray-100">
-      <div className="max-w-[1250px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Header Section */}
         <div className="max-w-3xl mb-16 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-700 tracking-tight mb-5">
-            Frequently asked questions
+            {title || "Frequently asked questions"}
           </h2>
           <p className="text-base md:text-base text-gray-600 font-medium leading-relaxed">
-            Stuck on something? We're here to help with all your queries regarding our gas energy solutions, compliance, and installations in one place.
+            {subtitle || "Stuck on something? We're here to help with all your queries regarding our gas energy solutions, compliance, and installations in one place."}
           </p>
         </div>
 
@@ -92,8 +94,8 @@ const FAQ = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {faqs.map((faq, index) => {
-            const Icon = faq.icon;
+          {items.map((faq, index) => {
+            const Icon = faq.icon || FiCheckCircle;
             return (
               <motion.div 
                 key={index} 
@@ -119,22 +121,6 @@ const FAQ = () => {
           })}
         </motion.div>
 
-        {/* Bottom CTA (Optional, matches the reference vibe) */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="mt-20 p-8 md:p-10 bg-[#fff9f5] rounded-3xl border border-orange-100 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
-        >
-          <div>
-            <h4 className="text-xl font-bold text-[#111111] mb-2">Still have questions?</h4>
-            <p className="text-gray-600 font-medium">Can't find the answer you're looking for? Please chat with our team.</p>
-          </div>
-          <button className="whitespace-nowrap bg-[#f48131] hover:bg-[#e06d1f] text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
-            Get in touch
-          </button>
-        </motion.div>
 
       </div>
     </section>

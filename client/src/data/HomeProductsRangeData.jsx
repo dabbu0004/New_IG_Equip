@@ -8,17 +8,33 @@ const sharedDetails = {
 	heroImages: [],
 	features: [
 		{ icon: "capacity", title: "Custom Sizing", subtitle: "Tailored to your site" },
+		{ icon: "emissions", title: "Low Emissions", subtitle: "Environment Friendly" },
 		{ icon: "efficiency", title: "High Efficiency", subtitle: "Lower operating costs" },
 		{ icon: "reliability", title: "Reliable Performance", subtitle: "Built for uptime" },
 		{ icon: "maintenance", title: "Easy Maintenance", subtitle: "Service-friendly design" }
 	],
 	overviewText:
-		"Designed and delivered by Inventive Gas Equipment with a focus on safety, performance, and long-term reliability.",
+		"Designed and delivered by Inventive Gas Equipment with a focus on safety, performance, and long-term reliability. Each system is engineered to fit your site requirements, optimize operating efficiency, and support consistent uptime. Our team supports the full lifecycle from design to commissioning and ongoing service.",
+	overviewExtraText:
+		"We align layout, utilities, and safety norms to match your operating environment and long-term expansion plans.",
+	bannerDescription:
+		"Project-specific engineering and on-site integration help maintain stable performance, lower operating costs, and smooth service support.",
+	bannerHeading: "Why It Matters",
+	bannerLongDescription:
+		"Every installation is aligned with your process demands, available utilities, and safety requirements. We evaluate site conditions, fuel quality, and operating cycles before finalizing the configuration. This ensures stable performance, lower operating costs, and a smoother service lifecycle after commissioning.",
+	bannerImage: "/images/HomeHero/GasEnergy.png",
 	fuelOptions: "Natural Gas / Biogas",
 	applications: "Industrial, Commercial, Utilities",
+	overviewOptions: [],
+	lowerBannerMobile: "/images/ProductsBanner/LowerBanner.png",
+
 	technicalSpecs: [
 		{ parameter: "Model Range", details: "Configured per project" },
-		{ parameter: "Compliance", details: "As per applicable norms" }
+		{ parameter: "Compliance", details: "As per applicable norms" },
+		{ parameter: "Design Basis", details: "Site-specific inputs" },
+		{ parameter: "Materials", details: "Project dependent" },
+		{ parameter: "Controls", details: "Standard safety interlocks" },
+		{ parameter: "Installation", details: "On-site commissioning" }
 	],
 	installationRegions: [
 		"Maharashtra",
@@ -27,6 +43,13 @@ const sharedDetails = {
 		"Karnataka",
 		"Uttar Pradesh",
 		"West Bengal"
+	],
+	mapLocations: [
+		{ name: "Maharashtra", top: "62%", left: "38%" },
+		{ name: "Gujarat", top: "48%", left: "32%" },
+		{ name: "Tamil Nadu", top: "82%", left: "45%" },
+		{ name: "Karnataka", top: "70%", left: "40%" },
+		{ name: "Uttar Pradesh", top: "38%", left: "55%" }
 	],
 	keyBenefits: [
 		"Reliable performance across operating conditions",
@@ -47,6 +70,8 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "POWER GENERATION",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroChecklist: [
 			"Available in natural gas and biogas variants",
 			"High fuel efficiency and low emissions",
@@ -60,25 +85,50 @@ const homeProductsRangeData = [
 			"/images/gallery/img4.webp"
 		],
 		features: [
-			{ icon: "capacity", title: "15 - 500 KVA", subtitle: "Capacity Range" },
+			{ icon: "capacity", title: "15 - 500 KVA", subtitle: "Capacity Range, Low Emissions" },
 			{ icon: "emissions", title: "Low Emissions", subtitle: "Environment Friendly" },
 			{ icon: "efficiency", title: "High Efficiency", subtitle: "Lower Fuel Consumption" },
 			{ icon: "reliability", title: "Reliable Performance", subtitle: "Built for Continuous Operation" },
 			{ icon: "maintenance", title: "Easy Maintenance", subtitle: "User-friendly Design" }
 		],
 		overviewText:
-			"Our gas gensets are built using advanced technology and stringent quality standards to deliver reliable power with reduced operational costs. Suitable for industries, commercial establishments, and captive power plants.",
+			"Our gas gensets are built using advanced technology and stringent quality standards to deliver reliable power with reduced operational costs. The range supports continuous duty cycles and stable output for industrial, commercial, and captive power applications. Each installation is configured to site load profiles, fuel availability, and compliance requirements.",
+		overviewExtraText:
+			"We size the solution around your load profile, operating hours, and fuel quality to ensure dependable output and efficient running costs.",
+		bannerDescription:
+			"Built for continuous duty, our gas gensets combine reliable control systems and proven alternator performance to keep critical operations running without interruption.",
+		bannerHeading: "Gas Gensets Advantage",
+		bannerLongDescription:
+			"Our gas gensets are designed for continuous duty with a focus on fuel efficiency and consistent power delivery. The control system adapts to load changes while maintaining stable output and lower emissions. Each system is configured to match site loads, fuel availability, and compliance requirements to keep critical operations running without interruption.",
+		bannerImage: "/images/HomeHero/GasEnergy.png",
 		fuelOptions: "Natural Gas / Biogas",
 		applications: "Industrial, Commercial, Captive Power, Agriculture",
+		overviewOptions: [
+			{ icon: "performance", label: "Performance", value: "Continuous duty readiness" },
+			{ icon: "service", label: "Service Coverage", value: "Installation + AMC support" }
+		],
+		faqs: [
+			{
+				question: "What fuel options are supported?",
+				answer: "Gas gensets can operate on Natural Gas or Biogas based on site availability."
+			},
+			{
+				question: "What is the capacity range?",
+				answer: "Configured from 15 KVA up to 500 KVA for industrial and commercial loads."
+			},
+			{
+				question: "Are they suitable for continuous duty?",
+				answer: "Yes, they are engineered for continuous operation with stable output."
+			},
+			{
+				question: "Do they meet emission norms?",
+				answer: "Systems are configured to meet applicable CPCB compliance requirements."
+			}
+		],
 		technicalSpecs: [
 			{ parameter: "Capacity Range", details: "15 KVA - 500 KVA" },
-			{ parameter: "Voltage", details: "415V / 3 Phase / 50Hz" },
-			{ parameter: "Fuel Type", details: "Natural Gas / Biogas" },
+			{ parameter: "Voltage", details: "415V / 3 Phase / 50Hz" },  
 			{ parameter: "Emission Compliance", details: "CPCB Compliant" },
-			{ parameter: "Control System", details: "Smart Digital Controller" },
-			{ parameter: "Cooling System", details: "Water Cooled" },
-			{ parameter: "Starting System", details: "Auto / Manual" },
-			{ parameter: "Power Factor", details: "0.8 / 1.0 (Optional)" },
 			{ parameter: "Frequency", details: "50 Hz" },
 			{ parameter: "Alternator", details: "Brushless, Self Excited" }
 		],
@@ -99,13 +149,53 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "FUEL CONVERSION",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/image/NewHomeHero.png",
 			"/images/image/NewHomeHero.png",
 			"/images/image/NewHomeHero.png"
 		],
+		overviewExtraText:
+			"The kit is engineered for quick retrofit with minimal downtime, while keeping the generator within safe operating limits.",
+		bannerDescription:
+			"Dual-fuel operation lowers diesel consumption while maintaining stable power output, making it ideal for backup and continuous running applications.",
+		bannerHeading: "Dual-Fuel Advantage",
+		bannerLongDescription:
+			"Dual-fuel kits reduce diesel consumption without sacrificing power stability. The system balances gas and diesel mix based on load and fuel availability to keep operating costs in check. It is ideal for retrofit projects where you want savings with minimal downtime and no major engine replacement.",
+		bannerImage: "/images/HomeHero/DualFuel.png",
+		technicalSpecs: [
+			{ parameter: "Conversion Type", details: "Diesel + Gas" },
+			{ parameter: "Compatibility", details: "15 KVA - 500 KVA" },
+			{ parameter: "Gas Supply", details: "PNG / CNG / Biogas" },
+			{ parameter: "Diesel Substitution", details: "Up to 60% (site dependent)" },
+			{ parameter: "Control System", details: "Auto changeover controller" },
+			{ parameter: "Installation", details: "Retrofit kit" }
+		],
 		fuelOptions: "Diesel + Gas",
 		applications: "Generator Retrofits, Industrial Backup Power",
+		overviewOptions: [
+			{ icon: "performance", label: "Fuel Savings", value: "Up to 60% diesel substitution" },
+			{ icon: "service", label: "Retrofit Time", value: "Minimal downtime on site" }
+		],
+		faqs: [
+			{
+				question: "How much diesel saving can I expect?",
+				answer: "Typical projects achieve up to 60% diesel substitution depending on load and gas supply."
+			},
+			{
+				question: "Is major engine replacement required?",
+				answer: "No, the kit retrofits onto existing diesel generators."
+			},
+			{
+				question: "What gas types are supported?",
+				answer: "PNG, CNG, and Biogas can be used based on availability."
+			},
+			{
+				question: "How long does installation take?",
+				answer: "Most retrofits are completed with minimal downtime on site."
+			}
+		],
 		keyBenefits: [
 			"Fuel savings without full replacement",
 			"Quick retrofit with minimal downtime",
@@ -123,13 +213,53 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "EMISSION CONTROL",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/RECD.jpeg",
 			"/images/HomeProductRange/RECD.jpeg",
 			"/images/HomeProductRange/RECD.jpeg"
 		],
+		overviewExtraText:
+			"Our retrofit solutions help you meet regulatory requirements while maintaining generator performance and reliability.",
+		bannerDescription:
+			"RECD systems are designed to reduce particulate matter and support compliance without the need to replace existing equipment.",
+		bannerHeading: "Cleaner Emissions",
+		bannerLongDescription:
+			"RECD solutions help your generators meet regulatory requirements while keeping performance stable. The system reduces particulate matter and maintains safe back pressure within OEM limits. It is a retrofit-friendly approach for fleets that must comply with CPCB norms without full replacement.",
+		bannerImage: "/images/HomeHero/RECD.png",
+		technicalSpecs: [
+			{ parameter: "Compliance", details: "CPCB II" },
+			{ parameter: "PM Reduction", details: "Up to 99%" },
+			{ parameter: "Fuel Type", details: "Diesel" },
+			{ parameter: "Retrofit Type", details: "On-site installation" },
+			{ parameter: "Back Pressure", details: "Within OEM limits" },
+			{ parameter: "Monitoring", details: "DP gauge + soot level" }
+		],
 		fuelOptions: "Diesel",
 		applications: "Compliance, Retrofit, Industrial Fleets",
+		overviewOptions: [
+			{ icon: "reliability", label: "Compliance", value: "CPCB retrofit ready" },
+			{ icon: "service", label: "Maintenance", value: "Simple media handling" }
+		],
+		faqs: [
+			{
+				question: "Is the RECD system CPCB compliant?",
+				answer: "Yes, the system is designed to support CPCB II compliance."
+			},
+			{
+				question: "What particulate reduction is achieved?",
+				answer: "Up to 99% particulate reduction based on site conditions."
+			},
+			{
+				question: "Will it affect engine performance?",
+				answer: "Back pressure remains within OEM limits for safe operation."
+			},
+			{
+				question: "Is it a retrofit solution?",
+				answer: "Yes, it is installed on existing diesel generators without replacement."
+			}
+		],
 		keyBenefits: [
 			"CPCB compliance support",
 			"High particulate reduction",
@@ -147,10 +277,50 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "BIOGAS SOLUTIONS",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/BioGas.jpeg",
 			"/images/HomeProductRange/BioGas.jpeg",
 			"/images/HomeProductRange/BioGas.jpeg"
+		],
+		overviewExtraText:
+			"We integrate digestion, storage, and conditioning to improve gas stability and make downstream usage more efficient.",
+		bannerDescription:
+			"End-to-end biogas handling improves plant performance, reduces energy losses, and enables reliable utilization across applications.",
+		bannerHeading: "End-to-End Biogas",
+		bannerLongDescription:
+			"Our biogas equipment integrates digestion, storage, and conditioning into a reliable system. This improves gas stability and enables smoother downstream utilization for engines or burners. The layout is customized to site conditions to reduce losses and support future expansion.",
+		bannerImage: "/images/HomeHero/BioGas.png",
+		overviewOptions: [
+			{ icon: "performance", label: "Gas Stability", value: "Conditioning + storage integrated" },
+			{ icon: "service", label: "Scalability", value: "Expansion-ready layouts" }
+		],
+		faqs: [
+			{
+				question: "What systems are included?",
+				answer: "Digesters, gas holders, and conditioning for end-to-end biogas handling."
+			},
+			{
+				question: "Can it integrate with gensets?",
+				answer: "Yes, output can feed gensets, burners, or pipeline-ready systems."
+			},
+			{
+				question: "How is gas stored?",
+				answer: "Storage uses membrane gas holders sized for each project."
+			},
+			{
+				question: "Is the system scalable?",
+				answer: "Yes, layouts are designed for future plant expansion."
+			}
+		],
+		technicalSpecs: [
+			{ parameter: "System Type", details: "Digesters + Gas Holders" },
+			{ parameter: "Gas Conditioning", details: "H2S + Moisture control" },
+			{ parameter: "Storage", details: "Membrane gas holder" },
+			{ parameter: "Pressure Range", details: "As per plant design" },
+			{ parameter: "Materials", details: "UV resistant membrane" },
+			{ parameter: "Integration", details: "Gensets / burners / pipeline" }
 		],
 		keyBenefits: [
 			"End-to-end biogas handling",
@@ -169,10 +339,50 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "GAS STORAGE",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/doubleMembrane.jpg",
 			"/images/HomeProductRange/doubleMembrane.jpg",
 			"/images/HomeProductRange/doubleMembrane.jpg"
+		],
+		overviewExtraText:
+			"Stable pressure control and safe storage help maintain consistent gas supply for engines and burners.",
+		bannerDescription:
+			"Double membrane holders provide reliable storage with robust safety features, optimized footprint, and long service life.",
+		bannerHeading: "Stable Gas Storage",
+		bannerLongDescription:
+			"Double membrane gas holders provide stable pressure control and safe storage for continuous operation. The design optimizes footprint while delivering reliable supply to engines or burners. Safety systems and robust membranes support long service life with minimal maintenance.",
+		bannerImage: "/images/HomeHero/GasEnergy.png",
+		overviewOptions: [
+			{ icon: "reliability", label: "Pressure Control", value: "Stable storage pressure" },
+			{ icon: "service", label: "Safety Systems", value: "Over/under pressure valves" }
+		],
+		faqs: [
+			{
+				question: "What storage type is used?",
+				answer: "Double membrane storage with stable pressure control."
+			},
+			{
+				question: "How is pressure managed?",
+				answer: "Auto blower and control system maintain safe pressure."
+			},
+			{
+				question: "What safety features are included?",
+				answer: "Over/under pressure valves and robust membrane design."
+			},
+			{
+				question: "Can capacity be customized?",
+				answer: "Yes, capacity is configured per project requirement."
+			}
+		],
+		technicalSpecs: [
+			{ parameter: "Storage Type", details: "Double membrane" },
+			{ parameter: "Pressure Control", details: "Auto blower" },
+			{ parameter: "Capacity", details: "Configured per project" },
+			{ parameter: "Fabric", details: "UV / flame resistant" },
+			{ parameter: "Safety", details: "Over/under pressure valves" },
+			{ parameter: "Installation", details: "Civil + MEP integration" }
 		],
 		keyBenefits: [
 			"Stable storage pressure",
@@ -191,10 +401,50 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "GAS UPGRADING",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/CO2Remover.jpg",
 			"/images/HomeProductRange/CO2Remover.jpg",
 			"/images/HomeProductRange/CO2Remover.jpg"
+		],
+		overviewExtraText:
+			"Upgraded gas quality improves combustion efficiency and makes the output suitable for higher-value applications.",
+		bannerDescription:
+			"CO2 removal skids enhance methane concentration, delivering pipeline-ready gas or efficient genset fuel.",
+		bannerHeading: "Gas Upgrading",
+		bannerLongDescription:
+			"CO2 removal systems improve methane concentration and overall fuel quality. The modular skid approach simplifies installation while maintaining reliable control and monitoring. The result is pipeline-ready gas or more efficient genset fuel with improved combustion performance.",
+		bannerImage: "/images/HomeHero/GasEnergy.png",
+		overviewOptions: [
+			{ icon: "performance", label: "Methane Upgrade", value: "Up to 95% CH4" },
+			{ icon: "service", label: "Skid Build", value: "Modular installation" }
+		],
+		faqs: [
+			{
+				question: "What technology is used?",
+				answer: "Water scrubbing or PSA based on project requirements."
+			},
+			{
+				question: "What methane purity is achieved?",
+				answer: "Up to 95% CH4 outlet quality is possible."
+			},
+			{
+				question: "Is it skid-mounted?",
+				answer: "Yes, modular skid design simplifies installation."
+			},
+			{
+				question: "What utilities are needed?",
+				answer: "Standard power and water connections based on capacity."
+			}
+		],
+		technicalSpecs: [
+			{ parameter: "Technology", details: "Water scrubbing / PSA" },
+			{ parameter: "Inlet CH4", details: "55-65%" },
+			{ parameter: "Outlet CH4", details: "Up to 95%" },
+			{ parameter: "Skid Type", details: "Modular skid" },
+			{ parameter: "Utilities", details: "Power + water" },
+			{ parameter: "Control", details: "PLC-based" }
 		],
 		keyBenefits: [
 			"Higher methane concentration",
@@ -213,10 +463,50 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "SAFETY SYSTEMS",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/flareOpenClose.png",
 			"/images/HomeProductRange/flareOpenClose.png",
 			"/images/HomeProductRange/flareOpenClose.png"
+		],
+		overviewExtraText:
+			"Our flare systems are engineered for safe, controlled disposal of excess gas with dependable ignition and monitoring.",
+		bannerDescription:
+			"Open or closed flare options provide reliable safety for biogas plants while maintaining compliance with site norms.",
+		bannerHeading: "Safe Flaring",
+		bannerLongDescription:
+			"Flaring systems provide safe disposal of excess gas with dependable ignition and monitoring. Options include open or closed flares based on site safety and regulatory requirements. This ensures plant protection during maintenance or gas surplus conditions.",
+		bannerImage: "/images/HomeHero/GasEnergy.png",
+		overviewOptions: [
+			{ icon: "reliability", label: "Ignition", value: "Auto ignition with monitoring" },
+			{ icon: "service", label: "Compliance", value: "Applicable safety norms" }
+		],
+		faqs: [
+			{
+				question: "Do you provide open and closed flares?",
+				answer: "Yes, both open and closed flare options are available."
+			},
+			{
+				question: "How is ignition handled?",
+				answer: "Auto ignition with monitoring ensures safe operation."
+			},
+			{
+				question: "Is it compliant with safety norms?",
+				answer: "Designed to meet applicable safety and regulatory requirements."
+			},
+			{
+				question: "What monitoring is included?",
+				answer: "Temperature and flame sensors are integrated."
+			}
+		],
+		technicalSpecs: [
+			{ parameter: "Type", details: "Open / Closed" },
+			{ parameter: "Capacity", details: "Configured per project" },
+			{ parameter: "Ignition", details: "Auto ignition" },
+			{ parameter: "Safety", details: "Flame arrestor" },
+			{ parameter: "Monitoring", details: "Temperature + flame sensor" },
+			{ parameter: "Compliance", details: "Applicable norms" }
 		],
 		keyBenefits: [
 			"Safe excess gas handling",
@@ -235,10 +525,50 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "GAS CLEANING",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/H2SRemover.jpg",
 			"/images/HomeProductRange/H2SRemover.jpg",
 			"/images/HomeProductRange/H2SRemover.jpg"
+		],
+		overviewExtraText:
+			"Reduced H2S levels protect engines, pipelines, and downstream equipment from corrosion and damage.",
+		bannerDescription:
+			"Scrubber systems are sized for your flow and media selection to deliver clean, low-sulfur gas output.",
+		bannerHeading: "H2S Control",
+		bannerLongDescription:
+			"H2S scrubbers reduce corrosion risk and protect downstream equipment. Media selection and vessel sizing are matched to your flow rate and gas quality. The result is cleaner gas with consistent performance and simpler maintenance.",
+		bannerImage: "/images/HomeHero/GasEnergy.png",
+		overviewOptions: [
+			{ icon: "performance", label: "Gas Quality", value: "Low H2S output" },
+			{ icon: "service", label: "Media Life", value: "Site dependent cycles" }
+		],
+		faqs: [
+			{
+				question: "What media is used for scrubbing?",
+				answer: "Iron oxide or activated carbon based on site needs."
+			},
+			{
+				question: "What outlet H2S levels can be reached?",
+				answer: "Low ppm levels based on system sizing."
+			},
+			{
+				question: "Is maintenance simple?",
+				answer: "Yes, media replacement is straightforward."
+			},
+			{
+				question: "What vessel materials are used?",
+				answer: "FRP or MS vessels based on project requirements."
+			}
+		],
+		technicalSpecs: [
+			{ parameter: "Media Type", details: "Iron oxide / activated carbon" },
+			{ parameter: "Inlet H2S", details: "As per site" },
+			{ parameter: "Outlet H2S", details: "Low ppm" },
+			{ parameter: "Vessel", details: "FRP / MS" },
+			{ parameter: "Media Life", details: "Site dependent" },
+			{ parameter: "Maintenance", details: "Easy media replacement" }
 		],
 		keyBenefits: [
 			"Lower H2S for equipment protection",
@@ -257,10 +587,50 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "GAS DRYING",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/dehumidifier.webp",
 			"/images/HomeProductRange/dehumidifier.webp",
 			"/images/HomeProductRange/dehumidifier.webp"
+		],
+		overviewExtraText:
+			"Moisture control improves gas quality and reduces maintenance issues in engines and piping.",
+		bannerDescription:
+			"Dehumidification units stabilize gas output and protect downstream equipment for long-term performance.",
+		bannerHeading: "Moisture Management",
+		bannerLongDescription:
+			"Dehumidification improves gas stability and reduces moisture-related equipment issues. Systems are configured to match flow rate and target dew point for consistent output. This helps protect engines, pipelines, and instrumentation over long operating cycles.",
+		bannerImage: "/images/HomeHero/GasEnergy.png",
+		overviewOptions: [
+			{ icon: "performance", label: "Moisture Control", value: "Configured dew point" },
+			{ icon: "service", label: "Integration", value: "Upstream of genset" }
+		],
+		faqs: [
+			{
+				question: "What type of dehumidification is used?",
+				answer: "Chiller or adsorption based on flow and site needs."
+			},
+			{
+				question: "Can dew point be customized?",
+				answer: "Yes, configured per project requirements."
+			},
+			{
+				question: "How is condensate handled?",
+				answer: "Auto condensate drain is included."
+			},
+			{
+				question: "Where is it installed?",
+				answer: "Typically upstream of the genset or process equipment."
+			}
+		],
+		technicalSpecs: [
+			{ parameter: "Type", details: "Chiller / adsorption" },
+			{ parameter: "Moisture Removal", details: "As per flow rate" },
+			{ parameter: "Outlet Dew Point", details: "Configured per project" },
+			{ parameter: "Drain", details: "Auto condensate drain" },
+			{ parameter: "Power", details: "Single / three phase" },
+			{ parameter: "Integration", details: "Upstream of genset" }
 		],
 		keyBenefits: [
 			"Moisture control for stable output",
@@ -279,13 +649,53 @@ const homeProductsRangeData = [
 		...sharedDetails,
 		heroBadge: "WATER TREATMENT",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+
 		heroImages: [
 			"/images/HomeProductRange/wtp.jpg",
 			"/images/HomeProductRange/wtp.jpg",
 			"/images/HomeProductRange/wtp.jpg"
 		],
+		overviewExtraText:
+			"The plant is configured for site-specific feed water and delivers stable process quality for continuous use.",
+		bannerDescription:
+			"RO+UF systems are engineered for consistent output quality with efficient recovery and reliable automation.",
+		bannerHeading: "Reliable Water Treatment",
+		bannerLongDescription:
+			"RO+UF plants are designed for stable process water quality and efficient recovery. Automation and dosing systems keep performance consistent with low operator effort. The plant is configured to your feed water conditions and process requirements.",
+		bannerImage: "/images/HomeHero/GasEnergy.png",
+		technicalSpecs: [
+			{ parameter: "Process", details: "UF + RO" },
+			{ parameter: "Capacity", details: "Configured per project" },
+			{ parameter: "Feed TDS", details: "As per site" },
+			{ parameter: "Recovery", details: "Up to 75%" },
+			{ parameter: "Controls", details: "Auto dosing + PLC" },
+			{ parameter: "Installation", details: "Turnkey with training" }
+		],
 		fuelOptions: "Not Applicable",
 		applications: "Industrial Water, Process Water",
+		overviewOptions: [
+			{ icon: "performance", label: "Recovery", value: "Up to 75%" },
+			{ icon: "service", label: "Automation", value: "PLC + dosing control" }
+		],
+		faqs: [
+			{
+				question: "What treatment process is used?",
+				answer: "UF + RO process with site-specific configuration."
+			},
+			{
+				question: "What recovery can be achieved?",
+				answer: "Up to 75% recovery depending on feed water."
+			},
+			{
+				question: "How is automation handled?",
+				answer: "PLC and dosing control for stable operations."
+			},
+			{
+				question: "Is installation turnkey?",
+				answer: "Yes, turnkey installation with operator training."
+			}
+		],
 		keyBenefits: [
 			"Consistent output quality",
 			"Turnkey installation and training",
