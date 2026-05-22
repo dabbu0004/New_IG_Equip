@@ -21,6 +21,7 @@ import CookieStrip from "./components/CookieStrip";
 import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./pages/BlogDetails";
 import ProductDetail from "./pages/ProductDetail";
+import CareerPage from "./pages/CareerPage";
 
 const App = () => {
   useEffect(() => {
@@ -60,6 +61,7 @@ const App = () => {
               <Route path="/blogs" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogDetails />} />
               <Route path="/products/:slug" element={<ProductDetail />} />
+              {/* <Route path="/careers" element={<CareerPage />} /> */}
             </Routes>
           </div>
           <CallButton />

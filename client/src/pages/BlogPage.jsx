@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import { blogPosts } from "../data/BlogData";
 
 const BlogPage = () => {
-  const mainFeatured = blogPosts.find((post) => post.isMainFeatured);
+  const mainFeatured = blogPosts.find((post) => post.isMainFeatured) || blogPosts[0];
   const sideFeatured = blogPosts.filter((post) => post.isSideFeatured).slice(0, 4);
   const recentPosts = blogPosts.filter((post) => post.isRecent).slice(0, 3);
+
+  const getPostMeta = (post) => ({
+    category: post.category || "Blog",
+    authorName: post.authorName || "Inventive Gas Equipment",
+    authorAvatar: post.authorAvatar || "/images/logo.webp",
+    readTime: post.readTime || "5 min read",
+    excerpt: post.excerpt || post.description || "",
+  });
 
   return (
     <section className="w-full bg-white py-12 md:py-20 font-sans">
@@ -34,7 +42,7 @@ const BlogPage = () => {
               {/* Text Content */}
               <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
                 <span className="inline-block px-4 py-1.5 rounded-full border border-white/40 bg-black/30 backdrop-blur-md text-white text-xs font-semibold tracking-wide mb-4">
-                  {mainFeatured.category}
+                  {getPostMeta(mainFeatured).category}
                 </span>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight group-hover:text-[#f48131] transition-colors duration-300">
                   {mainFeatured.title}
@@ -108,20 +116,20 @@ const BlogPage = () => {
                     {post.title}
                   </h4>
                   <p className="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow line-clamp-3">
-                    {post.excerpt}
+                    {getPostMeta(post).excerpt}
                   </p>
 
                   {/* Author Meta */}
                   <div className="flex items-center gap-3 mt-auto">
                     <img 
-                      src={post.authorAvatar} 
-                      alt={post.authorName} 
+                      src={getPostMeta(post).authorAvatar} 
+                      alt={getPostMeta(post).authorName} 
                       className="w-7 h-7 rounded-full object-cover"
                     />
                     <div className="flex items-center gap-2 text-sm font-medium text-gray-600">
-                      <span className="text-gray-900">{post.authorName}</span>
+                      <span className="text-gray-900">{getPostMeta(post).authorName}</span>
                       <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-                      <span>{post.readTime}</span>
+                      <span>{getPostMeta(post).readTime}</span>
                     </div>
                   </div>
 
