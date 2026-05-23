@@ -24,7 +24,7 @@ const HomeHero = () => {
   const activeSlide = slides[currentImageIndex] || slides[0] || {};
 
   return (
-    <section className="w-full bg-white pt-10 pb-16 overflow-hidden">
+    <section className="w-full bg-gradient-to-br from-[#f48131]/20   to-[#f48131]/10 pt-10 pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
         
         {/* ========================================= */}
@@ -42,17 +42,19 @@ const HomeHero = () => {
             >
               {/* Dynamic Badge */}
               {activeSlide.badge && (
-                <span className="inline-block bg-gray-100 text-gray-700 px-4 py-1.5 rounded-md text-sm md:text-base mb-4">
+                <span className="inline-block bg-gray-50 text-gray-700 px-4 py-1.5 rounded-md text-sm md:text-base mb-4">
                   {activeSlide.badge}
                 </span>
               )}
 
               {/* Dynamic Title */}
-              <h1 className="text-3xl md:text-[2.5rem] font-semibold text-[#303234] leading-[1.12]  mb-4">
+              <h1 className="text-3xl md:text-[2.5rem] font-semibold text-[#303234] leading-[1.12] mb-4">
                 {activeSlide.title}
                 {activeSlide.titleBreak && <br className="hidden md:block" />}
-                {" "}{activeSlide.subtitle}{" "}
-                <span className="text-[#f48131]">{activeSlide.highlight}</span>
+                <span className="block">
+                  {activeSlide.subtitle}{" "}
+                  <span className="text-[#f48131]">{activeSlide.highlight}</span>
+                </span>
               </h1>
 
               {/* Dynamic Description */}

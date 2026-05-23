@@ -49,6 +49,13 @@ const Breadcrumb = () => {
 		return staticLabelMap[segment] || toTitleCase(segment);
 	};
 
+	const isHomeRoute = pathParts.length === 0 || pathParts[0] === "new-home";
+	if (isHomeRoute) {
+		return null;
+	}
+
+	const isProductRoute = pathParts[0] === "products";
+
 	const crumbs = [
 		{ label: "Home", path: "/" },
 		...pathParts.map((segment, index) => ({
@@ -62,7 +69,9 @@ const Breadcrumb = () => {
 			<div className="max-w-[1400px] mx-auto px-6 md:px-12">
 				<nav
 					aria-label="Breadcrumb"
-					className="pointer-events-auto inline-flex flex-wrap items-center gap-2 rounded-full bg-black/45 px-4 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-sm"
+					className={`pointer-events-auto inline-flex flex-wrap items-center gap-2 text-xs font-semibold ${
+						isProductRoute ? "text-white" : "text-gray-900"
+					}`}
 				>
 					{crumbs.map((crumb, index) => {
 						const isLast = index === crumbs.length - 1;
@@ -70,13 +79,17 @@ const Breadcrumb = () => {
 						return (
 							<React.Fragment key={crumb.path}>
 								{isLast ? (
-									<span className="text-white/90">{crumb.label}</span>
+									<span className={isProductRoute ? "text-white" : "text-gray-900"}>
+										{crumb.label}
+									</span>
 								) : (
 									<Link to={crumb.path} className="hover:text-[#f48131] transition-colors">
 										{crumb.label}
 									</Link>
 								)}
-								{!isLast && <span className="text-white/40">/</span>}
+								{!isLast && (
+									<span className={isProductRoute ? "text-white/60" : "text-gray-400"}>/</span>
+								)}
 							</React.Fragment>
 						);
 					})}

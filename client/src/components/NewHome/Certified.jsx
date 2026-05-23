@@ -8,6 +8,7 @@ const Certified = () => {
     "ICAT Approved",
     "Startup India",
     "MSME",
+    
   ];
 
   const [pulseOnLoad, setPulseOnLoad] = useState(true);
@@ -18,25 +19,25 @@ const Certified = () => {
   }, []);
 
   return (
-    <section className="w-full bg-[#fcfcfc] border-y border-gray-100 py-6 md:py-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 md:gap-6">
+    <section className="w-full bg-[#fcfcfc] border-y border-gray-100 py-5 md:py-8 overflow-hidden">
+      <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 md:pl-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 md:gap-6">
         
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-bold metropolis text-[#111111] whitespace-nowrap">
+        <h3 className="text-lg sm:text-xl  md:text-2xl font-bold metropolis text-[#111111] whitespace-nowrap">
           Certified & Compliant
         </h3>
 
         {/* Badges */}
-        <div className="flex flex-nowrap md:flex-wrap items-center gap-2 md:gap-6 w-full overflow-x-auto md:overflow-visible">
+        <div className="flex flex-nowrap items-center item-space-between gap-1.5 sm:gap-2 md:gap-8 w-full overflow-x-auto md:overflow-x-hidden">
           {certifications.map((cert, index) => (
             <div 
               key={index}
-              className={`cert-badge flex items-center cursor-pointer gap-2 bg-[#e5e7eb] px-2 md:px-3 py-1 rounded-md shadow-sm hover:-translate-y-0.5 hover:shadow-md ${
+              className={`cert-badge flex items-center cursor-pointer gap-1.5 md:gap-2 bg-[#e5e7eb] px-2 md:px-3 py-0.5 md:py-1 rounded-md shadow-sm hover:-translate-y-0.5 hover:shadow-md ${
                 pulseOnLoad ? "cert-badge--pulse" : ""
               }`}
             >
-              <div className="w-2.5 h-2.5 rounded-full bg-[#f48131]"></div>
-              <span className="text-[#333333] text-[11px] sm:text-xs md:text-sm whitespace-nowrap">
+              <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#f48131]"></div>
+              <span className="text-[#333333] text-[10px] sm:text-xs md:text-sm whitespace-nowrap">
                 {cert}
               </span>
             </div>
