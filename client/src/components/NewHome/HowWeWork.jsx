@@ -50,7 +50,7 @@ const HowWeWork = () => {
         {/* ======================================= */}
         {/* LEFT SIDE: Text Content & Badge         */}
         {/* ======================================= */}
-        <div className="w-full md:w-[40%] flex flex-col pt-10 md:pt-20">
+        <div className="w-full md:w-[40%] flex flex-col pt-10 pl-10 md:pl-0 md:pt-40">
           
           <span className="text-xs font-bold text-[#f48131] uppercase tracking-widest mb-3">
             OUR PROCESS

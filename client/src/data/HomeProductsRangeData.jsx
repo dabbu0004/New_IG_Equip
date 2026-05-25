@@ -266,70 +266,9 @@ const homeProductsRangeData = [
 			"Retrofit for existing fleets"
 		]
 	},
+
 	{
 		id: 4,
-		category: "Biogas Solutions",
-		title: "Biogas Equipment",
-		description:
-			"Membrane gas holders, digesters, biogas conditioning and storage systems for sustainable energy.",
-		image: "/images/HomeProductRange/BioGas.jpeg",
-		link: "/products/biogas-equipment",
-		...sharedDetails,
-		heroBadge: "BIOGAS SOLUTIONS",
-		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
-
-		heroImages: [
-			"/images/HomeProductRange/BioGas.jpeg",
-			"/images/HomeProductRange/BioGas.jpeg",
-			"/images/HomeProductRange/BioGas.jpeg"
-		],
-		overviewExtraText:
-			"We integrate digestion, storage, and conditioning to improve gas stability and make downstream usage more efficient.",
-		bannerDescription:
-			"End-to-end biogas handling improves plant performance, reduces energy losses, and enables reliable utilization across applications.",
-		bannerHeading: "End-to-End Biogas",
-		bannerLongDescription:
-			"Our biogas equipment integrates digestion, storage, and conditioning into a reliable system. This improves gas stability and enables smoother downstream utilization for engines or burners. The layout is customized to site conditions to reduce losses and support future expansion.",
-		bannerImage: "/images/HomeHero/BioGas.png",
-		overviewOptions: [
-			{ icon: "performance", label: "Gas Stability", value: "Conditioning + storage integrated" },
-			{ icon: "service", label: "Scalability", value: "Expansion-ready layouts" }
-		],
-		faqs: [
-			{
-				question: "What systems are included?",
-				answer: "Digesters, gas holders, and conditioning for end-to-end biogas handling."
-			},
-			{
-				question: "Can it integrate with gensets?",
-				answer: "Yes, output can feed gensets, burners, or pipeline-ready systems."
-			},
-			{
-				question: "How is gas stored?",
-				answer: "Storage uses membrane gas holders sized for each project."
-			},
-			{
-				question: "Is the system scalable?",
-				answer: "Yes, layouts are designed for future plant expansion."
-			}
-		],
-		technicalSpecs: [
-			{ parameter: "System Type", details: "Digesters + Gas Holders" },
-			{ parameter: "Gas Conditioning", details: "H2S + Moisture control" },
-			{ parameter: "Storage", details: "Membrane gas holder" },
-			{ parameter: "Pressure Range", details: "As per plant design" },
-			{ parameter: "Materials", details: "UV resistant membrane" },
-			{ parameter: "Integration", details: "Gensets / burners / pipeline" }
-		],
-		keyBenefits: [
-			"End-to-end biogas handling",
-			"Improved gas quality and stability",
-			"Scalable for plant expansion"
-		]
-	},
-	{
-		id: 5,
 		category: "Gas Holder",
 		title: "Double Membrane Gas Holder",
 		description:
@@ -391,7 +330,7 @@ const homeProductsRangeData = [
 		]
 	},
 	{
-		id: 6,
+		id: 5,
 		category: "Gas Removal",
 		title: "CO2 Removal System",
 		description:
@@ -453,7 +392,7 @@ const homeProductsRangeData = [
 		]
 	},
 	{
-		id: 7,
+		id: 6,
 		category: "Flaring System",
 		title: "Flaring System",
 		description:
@@ -515,7 +454,7 @@ const homeProductsRangeData = [
 		]
 	},
 	{
-		id: 8,
+		id: 7,
 		category: "H2S Scrubber",
 		title: "H2S Scrubber",
 		description:
@@ -577,7 +516,7 @@ const homeProductsRangeData = [
 		]
 	},
 	{
-		id: 9,
+		id: 8,
 		category: "Dehumidifier",
 		title: "Dehumidifier",
 		description:
@@ -639,7 +578,7 @@ const homeProductsRangeData = [
 		]
 	},
 	{
-		id: 10,
+		id: 9,
 		category: "Water Treatment",
 		title: "RO+UF Plant",
 		description:

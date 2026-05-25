@@ -148,7 +148,7 @@ const NewContactForm = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-orange-500 to-orange-400 py-6 px-4 overflow-x-hidden">
+    <div className="w-full min-h-screen  py-6 px-4 overflow-x-hidden">
       <div className="max-w-6xl mx-auto md:mt-10 flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
          {/* Right Section - Form */}
         <div className="w-full lg:w-1/2 max-w-lg">
@@ -325,7 +325,7 @@ const NewContactForm = () => {
           </div>
         </div>
         {/* Left Section */}
-        <div className="w-full lg:w-1/2 text-white text-center lg:text-left space-y-6">
+        <div className="w-full lg:w-1/2 text-[#F26413] text-center lg:text-left space-y-6">
           <div className="space-y-3">
             <h1 className="text-3xl md:text-4xl font-bold leading-snug sm:leading-tight">
               Partner with Inventive Gas Equipment for a Sustainable Future

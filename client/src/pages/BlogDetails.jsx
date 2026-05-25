@@ -102,15 +102,8 @@ const BlogDetail = () => {
 
   return (
     <article className="w-full bg-white py-16 md:py-4 font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        
-        {/* Back Button */}
-        <Link 
-          to="/blogs" 
-          className="inline-flex items-center gap-2 text-gray-500 hover:text-[#f48131] font-semibold text-sm mb-10 transition-colors"
-        >
-          <FiArrowLeft className="text-lg" /> Back to all posts
-        </Link>
+      <div className="max-w-7xl md:mt-10 mx-auto px-4 sm:px-6 md:px-12">
+      
 
         {/* Header Information */}
         <motion.div 

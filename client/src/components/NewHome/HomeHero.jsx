@@ -16,7 +16,7 @@ const HomeHero = () => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === slides.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Set to 5 seconds to give users time to read the dynamic text
+    }, 4000); // Slightly faster cycle for new title/image changes
 
     return () => clearInterval(intervalId);
   }, [slides.length, isPaused]);
@@ -37,12 +37,12 @@ const HomeHero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="flex flex-col items-center md:items-start"
             >
               {/* Dynamic Badge */}
               {activeSlide.badge && (
-                <span className="inline-block bg-gray-50 text-gray-700 px-4 py-1.5 rounded-md text-sm md:text-base mb-4">
+                <span className="inline-block bg-gray-100 text-gray-700 px-4 py-1.5 rounded-md text-sm md:text-base mb-4">
                   {activeSlide.badge}
                 </span>
               )}
@@ -98,7 +98,7 @@ const HomeHero = () => {
                   initial={{ opacity: 0, scale: 0.98, x: 20 }}
                   animate={{ opacity: 1, scale: 1, x: 0 }}
                   exit={{ opacity: 0, scale: 1.02, x: -20 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="absolute w-full max-w-lg md:max-w-xl rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden group"
                 >
                   <img

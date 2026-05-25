@@ -23,12 +23,12 @@ const Certified = () => {
       <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 md:pl-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 md:gap-6">
         
         {/* Title */}
-        <h3 className="text-lg sm:text-xl  md:text-2xl font-bold metropolis text-[#111111] whitespace-nowrap">
+        <h3 className="text-lg sm:text-xl  md:ml-12  md:text-2xl font-bold metropolis text-[#111111] whitespace-nowrap">
           Certified & Compliant
         </h3>
 
         {/* Badges */}
-        <div className="flex flex-nowrap items-center item-space-between gap-1.5 sm:gap-2 md:gap-8 w-full overflow-x-auto md:overflow-x-hidden">
+        <div className="flex flex-nowrap items-center item-space-between gap-1.5 sm:gap-2 md:gap-4 w-full overflow-x-auto md:overflow-x-hidden">
           {certifications.map((cert, index) => (
             <div 
               key={index}

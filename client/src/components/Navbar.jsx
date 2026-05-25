@@ -68,18 +68,49 @@ const Navbar = () => {
     icon: getProductIcon(product.title),
   }));
 
+  const getProductByTitle = (title) =>
+    productNavItems.find((item) => item.label === title);
+
+  const productGroups = [
+      {
+      title: "Biogas Equipment",
+      items: [
+        "Double Membrane Gas Holder",
+        "CO2 Removal System",
+        "Flaring System",
+        "H2S Scrubber",
+        "Dehumidifier",
+      ].map(getProductByTitle).filter(Boolean),
+    },
+    {
+      title: "Air Pollution",
+      items: [
+        "Gas Gensets",
+        "Dual-Fuel Kits",
+        "RECD Device",
+      ].map(getProductByTitle).filter(Boolean),
+    },
+  
+    {
+      title: "Others",
+      items: ["RO+UF Plant"].map(getProductByTitle).filter(Boolean),
+    },
+  ];
+
   // --- Navigation Data Structure (Exact matches to your request) ---
   const navData = {
     about: {
       title: "ABOUT US",
       items: [
         { path: "/about", label: "Company Profile", desc: "Building the trust infrastructure for a seamless clean energy economy.", icon: <FiInfo className="w-6 h-6" /> },
+                { path: "/gallery", label: "Gallery", desc: "Explore our projects and achievements.", icon: <FiInfo className="w-6 h-6" /> },
       ],
       columns: "grid-cols-1 md:grid-cols-3"
     },
     products: {
       title: "OUR PRODUCTS",
       items: productNavItems,
+      groups: productGroups,
       columns: "grid-cols-1 md:grid-cols-3"
     },
     services: {
@@ -106,6 +137,8 @@ const Navbar = () => {
   const MegaMenu = ({ data, activeKey }) => {
     if (activeDropdown !== activeKey) return null;
 
+    const isProductsMenu = activeKey === "products";
+
     return (
       <div 
         // top-full forces it to strictly sit BELOW the header bar, avoiding any overlap
@@ -113,33 +146,70 @@ const Navbar = () => {
         onMouseEnter={() => handleMouseEnter(activeKey)}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="max-w-[1300px] mx-auto px-8 py-10 relative">
-          <h3 className="text-xl font-bold text-[#F26413] uppercase tracking-wider mb-6">
+        <div className="max-w-[1300px] mx-auto px-8 py-10  md:-mt-5 relative">
+          <h3 className="text-xl font-bold text-[#F26413] uppercase tracking-wider mb-3">
             {data.title}
           </h3>
           
-          <div className={`grid ${data.columns} gap-x-12 gap-y-5`}>
-            {data.items.map((item, idx) => (
-              <Link 
-                key={idx} 
-                to={item.path}
-                onClick={closeMenu}
-                className="flex items-start gap-4 p-2 -ml-2 rounded-xl hover:bg-gray-50 transition-colors group"
-              >
-                <div className="text-gray-400 group-hover:text-[#F26413] transition-colors mt-1">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-[16px] font-semibold text-gray-900 mb-1 group-hover:text-[#F26413] transition-colors">
-                    {item.label}
+          {isProductsMenu ? (
+            <div className={`grid ${data.columns} gap-x-12 gap-y-8`}>
+              {data.groups.map((group, groupIndex) => (
+                <div
+                  key={group.title}
+                  className={`${groupIndex === 0 ? "" : "md:border-l md:border-gray-200 md:pl-8"}`}
+                >
+                  <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-2">
+                    {group.title}
                   </h4>
-                  <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-2">
-                    {item.desc}
-                  </p>
+                  <div className="space-y-1">
+                    {group.items.map((item, idx) => (
+                      <Link
+                        key={`${group.title}-${idx}`}
+                        to={item.path}
+                        onClick={closeMenu}
+                        className="flex items-start gap-4 p-2 -ml-2 rounded-xl hover:bg-gray-50 transition-colors group"
+                      >
+                        <div className="text-gray-400 group-hover:text-[#F26413] transition-colors mt-1">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <h5 className="text-[16px] font-semibold text-gray-700 mb-1 group-hover:text-[#F26413] transition-colors">
+                            {item.label}
+                          </h5>
+                          <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-2">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </Link>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className={`grid ${data.columns} gap-x-12 gap-y-5`}>
+              {data.items.map((item, idx) => (
+                <Link 
+                  key={idx} 
+                  to={item.path}
+                  onClick={closeMenu}
+                  className="flex items-start gap-4 p-2 -ml-2 rounded-xl hover:bg-gray-50 transition-colors group"
+                >
+                  <div className="text-gray-400 group-hover:text-[#F26413] transition-colors mt-1">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-[16px] font-semibold text-gray-900 mb-1 group-hover:text-[#F26413] transition-colors">
+                      {item.label}
+                    </h4>
+                    <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-2">
+                      {item.desc}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -166,7 +236,7 @@ const Navbar = () => {
           
           <Link 
             to="/" 
-            className="px-4 py-2 text-gray-600 font-medium hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors"
+            className="px-4 py-2 text-gray-600 font-medium md:font-semibold hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors"
           >
             Home
           </Link>
@@ -177,7 +247,7 @@ const Navbar = () => {
             onMouseEnter={() => handleMouseEnter('about')}
             onMouseLeave={handleMouseLeave}
           >
-            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'about' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium md:font-semibold rounded-lg transition-colors ${activeDropdown === 'about' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
               About Us <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
             </button>
           </div>
@@ -187,7 +257,7 @@ const Navbar = () => {
             onMouseEnter={() => handleMouseEnter('products')}
             onMouseLeave={handleMouseLeave}
           >
-            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'products' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium md:font-semibold rounded-lg transition-colors ${activeDropdown === 'products' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
               Products <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
             </button>
           </div>
@@ -197,7 +267,7 @@ const Navbar = () => {
             onMouseEnter={() => handleMouseEnter('services')}
             onMouseLeave={handleMouseLeave}
           >
-            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'services' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium md:font-semibold rounded-lg transition-colors ${activeDropdown === 'services' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
               Services <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
             </button>
           </div>
@@ -207,7 +277,7 @@ const Navbar = () => {
             onMouseEnter={() => handleMouseEnter('other')}
             onMouseLeave={handleMouseLeave}
           >
-            <button className={`flex items-center gap-1 px-4 py-2 font-medium rounded-lg transition-colors ${activeDropdown === 'other' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium :font-semibold rounded-lg transition-colors ${activeDropdown === 'other' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
               Other <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'other' ? 'rotate-180' : ''}`} />
             </button>
           </div>
@@ -264,7 +334,7 @@ const Navbar = () => {
 
           {/* Mobile Links */}
           <div className="flex-1 overflow-y-auto p-6 space-y-1">
-            <Link to="/" onClick={closeMenu} className="block py-3 text-lg font-medium text-gray-900 border-b border-gray-100">
+            <Link to="/" onClick={closeMenu} className="block py-3 text-lg font-semibold  text-gray-900 border-b border-gray-100">
               Home
             </Link>
 
@@ -281,16 +351,41 @@ const Navbar = () => {
                 
                 <div className={`overflow-hidden transition-all duration-300 ${mobileExpanded === key ? "max-h-[800px]" : "max-h-0"}`}>
                   <div className="pb-4 pl-4 space-y-3">
-                    {navData[key].items.map((item, idx) => (
-                      <Link 
-                        key={idx} 
-                        to={item.path} 
-                        onClick={closeMenu}
-                        className="block text-gray-600 hover:text-[#c20000] font-medium"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                    {key === "products" ? (
+                      navData.products.groups.map((group, groupIndex) => (
+                        <div
+                          key={group.title}
+                          className={`${groupIndex === 0 ? "" : "border-t border-gray-200 pt-3"}`}
+                        >
+                          <p className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">
+                            {group.title}
+                          </p>
+                          <div className="space-y-2">
+                            {group.items.map((item, idx) => (
+                              <Link
+                                key={`${group.title}-${idx}`}
+                                to={item.path}
+                                onClick={closeMenu}
+                                className="block text-gray-600 hover:text-[#f48131] font-medium"
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))
+                    ) : (
+                      navData[key].items.map((item, idx) => (
+                        <Link 
+                          key={idx} 
+                          to={item.path} 
+                          onClick={closeMenu}
+                          className="block text-gray-600 hover:text-[#f48131] font-medium"
+                        >
+                          {item.label}
+                        </Link>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
@@ -300,7 +395,7 @@ const Navbar = () => {
           {/* Mobile CTA */}
           <div className="p-6 border-t border-gray-100 bg-gray-50">
             <Link to="/contact" onClick={closeMenu}>
-              <button className="w-full bg-[#c20000] text-white py-3 rounded-xl font-bold shadow hover:bg-[#a00000]">
+              <button className="w-full bg-[#f48131] text-white py-3 rounded-xl font-bold shadow hover:bg-[#F26413]">
                 Book a Demo
               </button>
             </Link>

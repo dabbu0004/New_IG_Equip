@@ -180,7 +180,7 @@ const HomeProductRange = () => {
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">
                     {product.category}
                   </span>
-                  <h4 className="text-xl md:text-2xl font-bold text-gray-700  md:-mt-1 mb-3">
+                  <h4 className="text-xl md:text-2xl font-bold text-gray-700 line-clamp-1 md:-mt-1 mb-3">
                     {product.title}
                   </h4>
                   <p className="text-gray-700 text-sm md:text-[15px] leading-relaxed md:-mt-1 mb-3 flex-grow">
