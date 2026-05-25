@@ -99,7 +99,7 @@ const HomeProductRange = () => {
   const gridClass = cardsPerView === 1 ? "grid-cols-1" : cardsPerView === 2 ? "grid-cols-2" : "grid-cols-4";
 
   return (
-    <section className="w-full bg-gray-50  py-16 md:py-15 md:pb-10 overflow-x-hidden overflow-y-visible relative">
+    <section className="w-full bg-gray-50  py-16 md:py-15 md:-mt-10 md:pb-10 overflow-x-hidden overflow-y-visible relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Header Section */}

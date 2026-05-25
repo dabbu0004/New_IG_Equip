@@ -277,7 +277,7 @@ const Navbar = () => {
             onMouseEnter={() => handleMouseEnter('other')}
             onMouseLeave={handleMouseLeave}
           >
-            <button className={`flex items-center gap-1 px-4 py-2 font-medium :font-semibold rounded-lg transition-colors ${activeDropdown === 'other' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
+            <button className={`flex items-center gap-1 px-4 py-2 font-medium md:font-semibold rounded-lg transition-colors ${activeDropdown === 'other' ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100'}`}>
               Other <IoChevronDown className={`transition-transform duration-300 ${activeDropdown === 'other' ? 'rotate-180' : ''}`} />
             </button>
           </div>
