@@ -4,7 +4,7 @@ import { FiFacebook, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#fdfdfd] border-t border-gray-100 pt-10 pb-8 font-sans">
+    <footer className="w-full bg-gray-50 border-t border-gray-100 pt-10 pb-8 font-sans">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Top Grid Section */}
