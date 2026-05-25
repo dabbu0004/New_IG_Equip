@@ -20,7 +20,7 @@ import NewContactForm from "./pages/ContactPage.jsx";
 import CookieStrip from "./components/CookieStrip";
 import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./pages/BlogDetails";
-import ProductDetail from "./pages/ProductDetail";
+import EachProductPage from "./pages/EachProduct";
 import CareerPage from "./pages/CareerPage";
 
 const App = () => {
@@ -60,7 +60,7 @@ const App = () => {
               <Route path="/contact" element={<NewContactForm />} /> 
               <Route path="/blogs" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogDetails />} />
-              <Route path="/products/:slug" element={<ProductDetail />} />
+              <Route path="/products/:slug" element={<EachProductPage />} />
               <Route path="/careers" element={<CareerPage />} />
             </Routes>
           </div>

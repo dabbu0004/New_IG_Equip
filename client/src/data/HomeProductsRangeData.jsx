@@ -55,7 +55,18 @@ const sharedDetails = {
 		"Reliable performance across operating conditions",
 		"Designed for low maintenance overhead",
 		"Supported by expert site integration"
-	]
+	],
+	whySection: {
+		heading: "Why Moisture Removal Matters",
+		points: [
+			"missed",
+			"missed",
+			"missed",
+			"missed",
+			"missed",
+			"missed"
+		]
+	}
 };
 
 const homeProductsRangeData = [
@@ -533,8 +544,9 @@ const homeProductsRangeData = [
 			"/images/HomeProductRange/dehumidifier.webp",
 			"/images/HomeProductRange/dehumidifier.webp"
 		],
+		overviewText:"Inventive Gas Equipment’s Biogas Dehumidifier System is not just another moisture removal unit—it is a fully engineered solution designed to optimize gas quality, protect downstream equipment, and enhance overall plant performance.Biogas typically contains high levels of moisture, which can lead to corrosion, reduced efficiency, and damage to critical equipment such as compressors, gas engines, pipelines, and upgrading systems. Our dehumidification systems are specifically designed to reduce gas dew point and ensure consistent, dry gas supply across the plant." ,
 		overviewExtraText:
-			"Moisture control improves gas quality and reduces maintenance issues in engines and piping.",
+			"Built with a focus on durability, efficiency, and ease of operation, our systems are widely deployed across biogas and CBG projects.",
 		bannerDescription:
 			"Dehumidification units stabilize gas output and protect downstream equipment for long-term performance.",
 		bannerHeading: "Moisture Management",
@@ -545,6 +557,16 @@ const homeProductsRangeData = [
 			{ icon: "performance", label: "Moisture Control", value: "Configured dew point" },
 			{ icon: "service", label: "Integration", value: "Upstream of genset" }
 		],
+		whySection: {
+		heading: "Why Moisture Removal Matters",
+		points: [
+			"Prevents corrosion in pipelines and equipment",
+			"Improves combustion efficiency in engines and flare systems",
+			"Protects compressors and upgrading systems",
+			"Reduces maintenance and downtime",
+			"Ensures stable and high-quality gas output"
+		]
+	},
 		faqs: [
 			{
 				question: "What type of dehumidification is used?",
@@ -571,10 +593,12 @@ const homeProductsRangeData = [
 			{ parameter: "Power", details: "Single / three phase" },
 			{ parameter: "Integration", details: "Upstream of genset" }
 		],
-		keyBenefits: [
-			"Moisture control for stable output",
-			"Protects downstream equipment",
-			"Energy-efficient operation"
+		keyBenefits: [" Engineered system for effective dew point reduction",
+			"Designed for continuous industrial operation",
+			"Compact and easy-to-integrate design",
+			"Low maintenance with high operational reliability",
+			"Suitable for varied gas flow rates and compositions",
+			"Built with industrial-grade components"
 		]
 	},
 	{
