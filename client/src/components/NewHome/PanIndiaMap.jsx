@@ -134,13 +134,16 @@ const PanIndiaMap = () => {
         {/* ========================================================
             MAP AREA
             ======================================================== */}
-        <div className="relative w-full max-w-5xl aspect-[4/3] md:aspect-[16/9] bg-[#fff9f5] rounded-3xl overflow-hidden shadow-sm border border-gray-200 mb-12">
+        <div className="relative md:-mt-6 w-full md:max-w-5xl bg-[#fff9f5] rounded-3xl overflow-hidden shadow-sm mb-12">
           
-          {/* Map Background Image (Replace with your actual wavy map image) */}
+          {/* Map Background Image 
+              Using h-auto and block to prevent any edge clipping 
+              while perfectly maintaining pin percentage positions. 
+          */}
           <img 
-            src="/images/your-india-map.png" // Replace with your map image path
+            src="/images/HomeHero/Map.jpg" // Replace with your map image path
             alt="India Map" 
-            className="absolute inset-0 w-full h-full object-cover opacity-80"
+            className="w-full h-auto block opacity-80"
           />
 
           {/* Map Pins */}
@@ -182,7 +185,7 @@ const PanIndiaMap = () => {
                 <FiX className="w-5 h-5" />
               </button>
 
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0 border border-orange-100">
                   <FiMapPin className="text-[#f48131] w-5 h-5" />
                 </div>
@@ -196,9 +199,9 @@ const PanIndiaMap = () => {
                 </div>
               </div>
 
-              <div className="w-full h-px bg-gray-200 mb-4"></div>
+              <div className="w-full h-px bg-gray-200 mb-2"></div>
 
-              <div className="mb-4">
+              <div className="mb-2">
                 <span className="text-3xl font-bold text-gray-900 mr-2">
                   {activeLocation.installations}+
                 </span>
@@ -207,18 +210,18 @@ const PanIndiaMap = () => {
                 </span>
               </div>
 
-              <p className="text-gray-600 text-sm leading-relaxed font-medium mb-5">
+              <p className="text-gray-600 text-sm leading-relaxed font-medium mb-3">
                 {activeLocation.description}
               </p>
 
               <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <FiTool /> Key Services Deployed
+                <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-tight mb-3 flex items-center gap-2">
+                  <FiTool  className="text-[#f48131] w-5 h-5"  /> Key Services Deployed
                 </h4>
                 <ul className="flex flex-col gap-2">
                   {activeLocation.services.map((service, index) => (
-                    <li key={index} className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-                      <FiCheckCircle className="text-green-500 w-4 h-4" />
+                    <li key={index} className="flex items-center gap-2 text-sm font-semibold text-gray-500">
+                      <FiCheckCircle className="text-green-400 w-4 h-4" />
                       {service}
                     </li>
                   ))}
@@ -239,7 +242,7 @@ const PanIndiaMap = () => {
               <FiX className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center gap-3 mb-4 mt-2">
+            <d  iv className="flex items-center gap-3 mb-2 mt-2">
               <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0 border border-orange-100">
                 <FiMapPin className="text-[#f48131] w-5 h-5" />
               </div>
@@ -251,11 +254,11 @@ const PanIndiaMap = () => {
                   {activeLocation.state}
                 </p>
               </div>
-            </div>
+            </d>
 
             <div className="w-full h-px bg-gray-200 mb-4"></div>
 
-            <div className="mb-4">
+            <div className="mb-2">
               <span className="text-2xl font-black text-gray-900 mr-2">
                 {activeLocation.installations}+
               </span>
@@ -287,8 +290,8 @@ const PanIndiaMap = () => {
         {/* ========================================================
             STATE BUTTONS (LIST BELOW MAP)
             ======================================================== */}
-        <div className="w-full max-w-5xl">
-          <h4 className="text-center md:text-left text-lg font-bold text-gray-700 mb-6">
+        <div className="w-full md:max-w-4xl">
+          <h4 className="text-center md:-mt-5 md:text-left text-lg font-bold text-gray-700 mb-6">
             Select a Region to View Details
           </h4>
           
@@ -299,7 +302,7 @@ const PanIndiaMap = () => {
                 <button
                   key={loc.id}
                   onClick={() => handleLocationClick(loc)}
-                  className={`inline-flex flex-col items-start justify-center p-4 rounded-md text-base font-extrabold shadow-md transition-all duration-300 will-change-transform text-left ${
+                  className={`inline-flex flex-col items-start justify-center p-3  rounded-md text-base font-extrabold shadow-md transition-all duration-300 will-change-transform text-left ${
                     isActive 
                       ? "bg-orange-50 text-[#f48131] border border-[#f48131] scale-105" 
                       : "bg-white text-black border  hover:shadow-xl hover:scale-105"

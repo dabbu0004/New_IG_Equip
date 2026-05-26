@@ -23,34 +23,34 @@ const HomeBlogs = () => {
   };
 
   return (
-    <section className="w-full bg-[#f8fafc] py-20 md:py-10 font-sans border-t border-gray-100 overflow-hidden">
+    <section className="w-full bg-[#f8fafc] py-12 md:py-8 font-sans border-t border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* ======================================= */}
         {/* HEADER SECTION                          */}
         {/* ======================================= */}
         <motion.div 
-          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 md:mb-16"
+          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-8 md:mb-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={itemVariants}
         >
           <div className="max-w-2xl">
-            <span className="inline-block text-[#f48131] text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block text-[#f48131] text-sm font-bold uppercase tracking-widest mb-2">
               Industry Insights
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-700 leading-tight tracking-tight mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-700 leading-tight tracking-tight mb-3">
               Latest News & Updates
             </h2>
-            <p className="text-gray-600 text-sm md:text-base font-medium leading-relaxed">
+            <p className="text-gray-600 text-sm font-medium leading-relaxed">
               Discover the latest trends, technological advancements, and expert insights in clean energy and industrial gas solutions.
             </p>
           </div>
 
-          <Link to="/blogs" className="group hidden md:inline-flex items-center gap-2 bg-white border-2 border-gray-200 text-[#111111] hover:border-[#f48131] hover:text-[#f48131] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap">
+          <Link to="/blogs" className="group hidden md:inline-flex items-center gap-2 bg-white border-2 border-gray-200 text-[#111111] hover:border-[#f48131] hover:text-[#f48131] font-bold px-5 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap text-sm">
             View All Articles
-            <FiArrowRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
+            <FiArrowRight className="text-base group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </motion.div>
 
@@ -58,7 +58,7 @@ const HomeBlogs = () => {
         {/* BLOG GRID                               */}
         {/* ======================================= */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -68,39 +68,39 @@ const HomeBlogs = () => {
             <motion.div key={post.id} variants={itemVariants} className="h-full">
               <Link 
                 to={`/blog/${post.slug}`} 
-                className="flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(244,129,49,0.08)] hover:-translate-y-1.5 hover:border-orange-100 transition-all duration-300 group"
+                className="flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(244,129,49,0.08)] hover:-translate-y-1 transition-all duration-300 group"
               >
                 
-                {/* Image Container */}
-                <div className="w-full aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                {/* Image Container (Adjusted aspect ratio to make cards less tall) */}
+                <div className="w-full aspect-[3/2] bg-gray-100 overflow-hidden relative">
                   <img 
                     src={post.image} 
                     alt={post.title} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
                   />
                   {/* Floating Category Badge */}
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#111111] text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#111111] text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
                     {post.category}
                   </div>
                 </div>
 
-                {/* Content Container */}
-                <div className="flex flex-col flex-grow p-6 md:p-4">
-                  <h4 className="text-xl md:text-xl font-bold text-[#111111] leading-snug mb-3 group-hover:text-[#f48131] transition-colors duration-300">
+                {/* Content Container (Reduced padding & text sizes) */}
+                <div className="flex flex-col flex-grow p-5">
+                  <h4 className="text-lg font-bold text-[#111111] leading-snug mb-2 group-hover:text-[#f48131] transition-colors duration-300 line-clamp-2">
                     {post.title}
                   </h4>
-                  <p className="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow line-clamp-2">
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-grow line-clamp-2">
                     {post.excerpt}
                   </p>
 
-                  {/* Author Meta (Bottom aligned) */}
-                  <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100">
+                  {/* Author Meta */}
+                  <div className="flex items-center gap-3 mt-auto pt-3 border-t border-gray-100">
                     <img 
                       src={post.authorAvatar} 
                       alt={post.authorName} 
-                      className="w-8 h-8 rounded-full object-cover"
+                      className="w-7 h-7 rounded-full object-cover"
                     />
-                    <div className="flex items-center flex-wrap gap-2 text-sm font-medium text-gray-500">
+                    <div className="flex items-center flex-wrap gap-2 text-xs font-medium text-gray-500">
                       <span className="text-gray-900">{post.authorName}</span>
                       <span className="w-1 h-1 rounded-full bg-gray-300"></span>
                       <span>{post.date}</span>
@@ -115,15 +115,15 @@ const HomeBlogs = () => {
 
         {/* Mobile View All Button */}
         <motion.div 
-          className="mt-10 md:hidden flex justify-center"
+          className="mt-8 md:hidden flex justify-center"
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <Link to="/blogs" className="group inline-flex items-center gap-2 bg-white border-2 border-gray-200 text-[#111111] hover:border-[#f48131] hover:text-[#f48131] font-bold px-8 py-3.5 rounded-xl transition-all duration-300 shadow-sm w-full justify-center">
+          <Link to="/blogs" className="group inline-flex items-center gap-2 bg-white border-2 border-gray-200 text-[#111111] hover:border-[#f48131] hover:text-[#f48131] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm w-full justify-center text-sm">
             View All Articles
-            <FiArrowRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
+            <FiArrowRight className="text-base group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </motion.div>
 
