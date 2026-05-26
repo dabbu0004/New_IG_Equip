@@ -8,6 +8,7 @@ import {
   FiSettings,
   FiTool,
   FiHeadphones,
+  FiGrid, 
 } from "react-icons/fi";
 import {
   BsLightningCharge,
@@ -21,7 +22,7 @@ import gsap from "gsap";
 import homeProductsRangeData from "../../data/HomeProductsRangeData";
 import HomeProductRange from "../NewHome/HomeProductsRange";
 import Faq from "../Faq";
-import MoistureSection from "./MoistureSection";
+import KeyFeatures from "./KeyFeatures";
 
 const EachProduct = () => {
   const { slug } = useParams();
@@ -71,6 +72,43 @@ const EachProduct = () => {
     }
   };
 
+  // --- Compile dynamic cards for the unified "Why Choose Us" section ---
+  const advantageCards = [];
+  
+  if (product?.whySection) {
+    advantageCards.push({
+      id: "why",
+      icon: <FiSettings className="text-3xl text-[#f48131]" />,
+      title: product.whySection.heading || "Why Choose Us",
+      subtitle: "We deliver excellence through innovation and commitment.",
+      points: product.whySection.points || [],
+    });
+  }
+
+  if (product?.advantage) {
+    advantageCards.push({
+      id: "advantage",
+      icon: <BsShieldCheck className="text-3xl text-[#f48131]" />,
+      title: product.advantage.heading || "Double Membrane Advantage",
+      subtitle: product.advantage.description 
+        ? (product.advantage.description.length > 75 ? product.advantage.description.substring(0, 75) + '...' : product.advantage.description)
+        : "Stable storage, enhanced safety and long-lasting performance.",
+      points: product.advantage.points || [],
+    });
+  }
+
+  if (product?.applicationsList?.length > 0) {
+    advantageCards.push({
+      id: "applications",
+      icon: <FiGrid className="text-3xl text-[#f48131]" />,
+      title: "Applications",
+      subtitle: "Versatile solutions for multiple industries and use cases.",
+      points: product.applicationsList,
+    });
+  }
+
+  const gridColsClass = advantageCards.length === 1 ? "md:grid-cols-1" : advantageCards.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3";
+
   return (
     <div className="w-full bg-[#fcfcfc] font-sans pb-20">
       <section
@@ -90,8 +128,8 @@ const EachProduct = () => {
           className="absolute inset-0 h-full w-full object-cover sm:hidden"
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row gap-12 items-center">
-          <div className="w-full lg:w-1/2 flex flex-col items-start fade-in-section">
+        <div className="max-w-7xl mx-auto px-4  md:px-12 relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+          <div className="w-full lg:w-1/2 flex md:-mt-5 flex-col items-start fade-in-section">
             <span className="border border-gray-600 text-gray-300 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest mb-4">
               {product?.heroBadge}
             </span>
@@ -140,11 +178,18 @@ const EachProduct = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-20 pb-10 flex flex-col md:flex-row gap-12 fade-in-section">
-        <div className="w-full md:w-8/12 flex flex-col">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-100 w-max">
-            Overview
-          </h2>
+      {/* ================= OVERVIEW & TECH SPECS SECTION ================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-20 pb-10 flex flex-col md:flex-row gap-10 fade-in-section">
+        
+        {/* Adjusted from w-8/12 to w-7/12 to give table more room */}
+        <div className="w-full md:w-7/12 flex flex-col">
+          <p className="text-sm font-bold text-[#f48131]  md:-mt-5 mb-4 border-b-2 border-gray-100 w-max">
+            About Product
+          </p>
+          <h className="text-2xl font-bold text-gray-900 mb-2 self-start border-b-2 border-gray-100 w-max">
+            {product?.overviewTitle}
+          </h>
+
           <p className="text-gray-600 leading-relaxed mb-2">
             {product?.overviewText}
           </p>
@@ -153,28 +198,10 @@ const EachProduct = () => {
           </p>
 
           <div className="flex flex-wrap gap-6">
-            {[
-              {
-                icon: "fuel",
-                label: "Fuel Options",
-                value: product?.fuelOptions,
-              },
-              {
-                icon: "applications",
-                label: "Applications",
-                value: product?.applications,
-              },
-              ...((product?.overviewOptions || []).slice(0, 2)),
-            ].map((option, idx) => (
+            {(product?.overviewOptions || []).map((option, idx) => (
               <div key={idx} className="flex w-full sm:w-[calc(50%-12px)] gap-4">
                 <div className="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
-                  {option.icon === "fuel" ? (
-                    <BsDroplet className="text-[#f48131] text-xl" />
-                  ) : option.icon === "applications" ? (
-                    <FiSettings className="text-[#f48131] text-xl" />
-                  ) : (
-                    renderOverviewIcon(option.icon)
-                  )}
+                  {renderOverviewIcon(option.icon)}
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900">{option.label}</h4>
@@ -185,16 +212,19 @@ const EachProduct = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-4/12 flex flex-col md:items-end">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 self-start border-b-2 border-gray-100 w-max">
+        {/* Adjusted from w-4/12 to w-5/12 for more width */}
+        <div className="w-full md:w-5/12 flex flex-col md:items-end">
+          <h2 className="text-2xl font-bold text-gray-900 md:mt-5 mb-6 self-start border-b-2 border-gray-100 w-max">
             Technical Specifications
           </h2>
-          <div className="w-full max-w-lg">
+          {/* Removed max-w-lg and replaced with w-full so table takes all available space */}
+          <div className="w-full">
             <div className="overflow-hidden border border-gray-200 rounded-xl shadow-sm">
               <table className="w-full text-left text-sm">
                 <thead className="bg-gray-50 text-gray-700">
                   <tr>
-                    <th className="px-5 py-3 font-bold border-b border-gray-200 w-1/3">
+                    {/* Added whitespace-nowrap and slightly wider width to force single line */}
+                    <th className="px-5 py-3 font-bold border-b border-gray-200 w-2/5 whitespace-nowrap">
                       Parameter
                     </th>
                     <th className="px-5 py-3 font-bold border-b border-gray-200">
@@ -205,7 +235,8 @@ const EachProduct = () => {
                 <tbody className="divide-y divide-gray-100 bg-white">
                   {(product?.technicalSpecs || []).map((spec, idx) => (
                     <tr key={idx} className="hover:bg-gray-50/50 transition">
-                      <td className="px-5 py-3 font-medium text-gray-700">
+                      {/* Added whitespace-nowrap to prevent parameter lines from wrapping */}
+                      <td className="px-5 py-3 font-medium text-gray-700 whitespace-nowrap">
                         {spec.parameter}
                       </td>
                       <td className="px-5 py-3 text-gray-600">{spec.details}</td>
@@ -217,8 +248,6 @@ const EachProduct = () => {
           </div>
         </div>
       </section>
-
-  
 
       <section
         className="relative md:mb-10 w-full bg-cover bg-center"
@@ -257,24 +286,6 @@ const EachProduct = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-          <div className="mt-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Key Benefits</h3>
-            <div className="flex flex-wrap gap-4">
-              {(product?.keyBenefits || []).slice(0, 3).map((benefit, idx) => (
-                <div
-                  key={idx}
-                  className="flex w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-10.7px)] items-center gap-3 rounded-xl border border-gray-200 bg-white/90 px-5 py-4 shadow-sm"
-                >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-50 text-[#f48131]">
-                    <FiCheckCircle className="h-5 w-5" />
-                  </span>
-                  <p className="text-sm font-medium text-gray-700 leading-relaxed">
-                    {benefit}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -378,15 +389,82 @@ const EachProduct = () => {
           </div>
         </div>
       </section>
-      <MoistureSection section={product?.whySection} />
+      
+      <KeyFeatures items={product?.keyFeatures} />
 
-      <div className="md:-mt-15">
+      {/* ================= UNIFIED ADVANTAGES & APPLICATIONS GRID ================= */}
+      {advantageCards.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-20 fade-in-section">
+          
+          {/* Header */}
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold text-[#f48131] uppercase tracking-widest mb-3 block">
+              WHY CHOOSE US
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111111] mb-4">
+              Why Choose <span className="text-[#f48131]">Inventive Gas Equipment?</span>
+            </h2>
+            <div className="w-12 h-1 bg-[#f48131] mx-auto mb-5"></div>
+            <p className="text-gray-500 font-medium max-w-2xl mx-auto text-sm md:text-base">
+              Delivering reliable, efficient and future-ready solutions for your energy needs.
+            </p>
+          </div>
+
+          {/* Responsive Grid */}
+          <div className={`grid grid-cols-1 ${gridColsClass} gap-6 md:gap-8`}>
+            {advantageCards.map((card) => (
+              <div 
+                key={card.id} 
+                className="bg-white rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col items-center text-center hover:shadow-[0_8px_30px_rgba(244,129,49,0.08)] transition-shadow duration-300"
+              >
+                
+                {/* Orange Theme Icon */}
+                <div className="w-16 h-16 rounded-full bg-orange-50 border-2 border-orange-100 flex items-center justify-center mb-6">
+                  {card.icon}
+                </div>
+                
+                {/* Titles */}
+                <h3 className="text-xl line-clamp-1 font-bold text-gray-900 mb-3">{card.title}</h3>
+                <p className="text-sm text-gray-500 font-medium mb-6 h-10 overflow-hidden">
+                  {card.subtitle}
+                </p>
+                
+                <div className="w-full h-px bg-gray-100 mb-6"></div>
+                
+                {/* Custom Solid Checkmark List */}
+                <ul className="flex flex-col gap-4 w-full text-left flex-grow">
+                  {card.points.map((point, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 font-medium leading-snug">
+                      <span className="mt-[2px] flex-shrink-0 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#f48131] text-white">
+                        <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" className="h-[12px] w-[12px]" strokeWidth="3.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Decorative Bottom Dots */}
+                <div className="mt-8 pt-4 flex flex-col items-center gap-1.5 opacity-30">
+                  <div className="flex gap-1.5">
+                    {[...Array(5)].map((_, i) => <div key={`r1-${i}`} className="w-1.5 h-1.5 rounded-full bg-[#f48131]"></div>)}
+                  </div>
+                  <div className="flex gap-1.5">
+                    {[...Array(5)].map((_, i) => <div key={`r2-${i}`} className="w-1.5 h-1.5 rounded-full bg-[#f48131]"></div>)}
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <div className="md:-mt-10">
         <Faq faqs={product?.faqs} />
       </div>
 
-      <div className="md:-mt-20">
-        <HomeProductRange />
-      </div>
     </div>
   );
 };

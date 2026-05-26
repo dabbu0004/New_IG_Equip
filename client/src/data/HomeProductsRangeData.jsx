@@ -2,8 +2,8 @@ const sharedDetails = {
 	heroBadge: "PRODUCT",
 	heroChecklist: [
 		"Engineered for reliable performance",
-		"Designed for industrial duty cycles",
-		"Supported by expert installation"
+		"Designed for industrial duty cycles"	
+		
 	],
 	heroImages: [],
 	features: [
@@ -13,8 +13,7 @@ const sharedDetails = {
 		{ icon: "reliability", title: "Reliable Performance", subtitle: "Built for uptime" },
 		{ icon: "maintenance", title: "Easy Maintenance", subtitle: "Service-friendly design" }
 	],
-	overviewText:
-		"Designed and delivered by Inventive Gas Equipment with a focus on safety, performance, and long-term reliability. Each system is engineered to fit your site requirements, optimize operating efficiency, and support consistent uptime. Our team supports the full lifecycle from design to commissioning and ongoing service.",
+	overviewTitle:"",
 	overviewExtraText:
 		"We align layout, utilities, and safety norms to match your operating environment and long-term expansion plans.",
 	bannerDescription:
@@ -51,22 +50,18 @@ const sharedDetails = {
 		{ name: "Karnataka", top: "70%", left: "40%" },
 		{ name: "Uttar Pradesh", top: "38%", left: "55%" }
 	],
-	keyBenefits: [
-		"Reliable performance across operating conditions",
-		"Designed for low maintenance overhead",
-		"Supported by expert site integration"
-	],
 	whySection: {
-		heading: "Why Moisture Removal Matters",
+		heading: "Why Choose Inventive Gas Equipment",
 		points: [
-			"missed",
-			"missed",
-			"missed",
-			"missed",
-			"missed",
-			"missed"
+			"Strong in-house manufacturing capabilities",
+			"Proven execution in large-scale infrastructure projects",
+			"Focus on customized engineering solutions",
+			"Expertise in complete biogas system integration",
+			"Reliable after-sales service and support"
 		]
-	}
+	},
+	applicationsList: [],
+
 };
 
 const homeProductsRangeData = [
@@ -283,11 +278,11 @@ const homeProductsRangeData = [
 		category: "Gas Holder",
 		title: "Double Membrane Gas Holder",
 		description:
-			"Engineering, installation, and commissioning of double-membrane gas holders for stable biogas storage and pressure control.",
+			"High-performance double membrane gas holders engineered for safe, reliable and efficient biogas storage in industrial renewable energy systems",
 		image: "/images/HomeProductRange/doubleMembrane.jpg",
 		link: "/products/double-membrane-gas-holder",
 		...sharedDetails,
-		heroBadge: "GAS STORAGE",
+		heroBadge: "Advanced Biogas Storage Solution",
 		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
 		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
 
@@ -296,6 +291,8 @@ const homeProductsRangeData = [
 			"/images/HomeProductRange/doubleMembrane.jpg",
 			"/images/HomeProductRange/doubleMembrane.jpg"
 		],
+		overviewTitle:"Reliable Biogas Storage for Mordern Energy Systems",
+		overviewText:"Inventive Gas Equipment’s Double Membrane Gas Holder is an advanced gas storage system designed to ensure safe, efficient, and consistent biogas handling in anaerobic digestion and CBG applications. Manufactured in-house using high-quality European-grade membrane materials, our gas holders are engineered to deliver stable pressure, long service life, and reliable performance under varying operating conditions.With flexible installation options and fully customized designs, our systems are suitable for a wide range of applications including STPs, industrial biogas plants, and large-scale CBG projects. ",
 		overviewExtraText:
 			"Stable pressure control and safe storage help maintain consistent gas supply for engines and burners.",
 		bannerDescription:
@@ -303,10 +300,14 @@ const homeProductsRangeData = [
 		bannerHeading: "Stable Gas Storage",
 		bannerLongDescription:
 			"Double membrane gas holders provide stable pressure control and safe storage for continuous operation. The design optimizes footprint while delivering reliable supply to engines or burners. Safety systems and robust membranes support long service life with minimal maintenance.",
-		bannerImage: "/images/HomeHero/GasEnergy.png",
+		bannerImage: "/images/HomeProductRange/doubleMembrane.jpg",
 		overviewOptions: [
-			{ icon: "reliability", label: "Pressure Control", value: "Stable storage pressure" },
-			{ icon: "service", label: "Safety Systems", value: "Over/under pressure valves" }
+			{ icon: "reliability", label: "Constant Gas Pressure", value: "Stable storage pressure" },
+			{ icon: "service", label: "Weather Resistant", value: "Outdoor-ready membrane" },
+			{ icon: "performance", label: "Fast Installation", value: "Quick on-site setup" },
+			{ icon: "maintenance", label: "Low Maintenance", value: "Reduced upkeep" },
+			{ icon: "emissions", label: "Corrosion Resistant", value: "Durable materials" },
+			{ icon: "capacity", label: "Custom Engineered", value: "Project-specific sizing" }
 		],
 		faqs: [
 			{
@@ -326,18 +327,71 @@ const homeProductsRangeData = [
 				answer: "Yes, capacity is configured per project requirement."
 			}
 		],
-		technicalSpecs: [
-			{ parameter: "Storage Type", details: "Double membrane" },
-			{ parameter: "Pressure Control", details: "Auto blower" },
-			{ parameter: "Capacity", details: "Configured per project" },
-			{ parameter: "Fabric", details: "UV / flame resistant" },
-			{ parameter: "Safety", details: "Over/under pressure valves" },
-			{ parameter: "Installation", details: "Civil + MEP integration" }
-		],
+	technicalSpecs: [
+      { parameter: "Storage Capacity", details: "Customizable" },
+      { parameter: "Membrane Material", details: "PVC / PVDF Coated Fabric" },
+      { parameter: "Gas Type", details: "Biogas / Methane / Biomethane" },
+      { parameter: "Structure Type", details: "Double Membrane" },
+      { parameter: "Pressure Control", details: "Automatic" },
+      { parameter: "Installation Type", details: "Ground or Tank Mounted" },
+      { parameter: "Weather Resistance", details: "Yes" },
+      { parameter: "Corrosion Protection", details: "High" }
+    ],
 		keyBenefits: [
 			"Stable storage pressure",
 			"High safety with robust membranes",
 			"Optimized footprint and layout"
+		],
+		keyFeatures: [
+			{
+				id: 1,
+				title: "Stable Pressure Control",
+				description: "Maintains uniform gas pressure for uninterrupted system operation."
+			},
+			{
+				id: 2,
+				title: "High Storage Efficiency",
+				description: "Optimized design allows maximum gas storage with minimal footprint."
+			},
+			{
+				id: 3,
+				title: "Leak-Proof Construction",
+				description: "Precision welded membranes ensure superior gas tightness."
+			},
+			{
+				id: 4,
+				title: "UV & Weather Resistant",
+				description: "Built for harsh environmental and outdoor conditions."
+			},
+			{
+				id: 5,
+				title: "Quick Installation",
+				description: "Modular design enables fast and easy on-site setup."
+			},
+			{
+				id: 6,
+				title: "Long Service Life",
+				description: "Industrial-grade material built for continuous operation."
+			}
+		],
+		advantage: {
+			heading: "Double Membrane Advantage",
+			description:
+				"Double membrane gas holders deliver stable storage pressure with efficient footprint utilization, robust safety systems, and long service life. The design supports consistent gas supply with dependable pressure control for engines, burners, and downstream processes.",
+			points: [
+				"Stable pressure control for reliable gas supply",
+				"High safety with over/under pressure protection",
+				"Optimized footprint with efficient storage",
+				"Weather-resistant membrane materials",
+				"Lower maintenance with long service life"
+			]
+		},
+		applicationsList: [
+			"Biogas Plants",
+			"CBG (Compressed Biogas) Projects",
+			"Sewage Treatment Plants (STP)",
+			"Industrial Waste-to-Energy Plants",
+			"Food & Agro Processing Units"
 		]
 	},
 	{
@@ -365,7 +419,7 @@ const homeProductsRangeData = [
 		bannerHeading: "Gas Upgrading",
 		bannerLongDescription:
 			"CO2 removal systems improve methane concentration and overall fuel quality. The modular skid approach simplifies installation while maintaining reliable control and monitoring. The result is pipeline-ready gas or more efficient genset fuel with improved combustion performance.",
-		bannerImage: "/images/HomeHero/GasEnergy.png",
+		bannerImage: "/images/HomeProductRange/CO2Remover.jpg",
 		overviewOptions: [
 			{ icon: "performance", label: "Methane Upgrade", value: "Up to 95% CH4" },
 			{ icon: "service", label: "Skid Build", value: "Modular installation" }
@@ -427,7 +481,7 @@ const homeProductsRangeData = [
 		bannerHeading: "Safe Flaring",
 		bannerLongDescription:
 			"Flaring systems provide safe disposal of excess gas with dependable ignition and monitoring. Options include open or closed flares based on site safety and regulatory requirements. This ensures plant protection during maintenance or gas surplus conditions.",
-		bannerImage: "/images/HomeHero/GasEnergy.png",
+		bannerImage: "/images/HomeProductRange/flareOpenClose.png",
 		overviewOptions: [
 			{ icon: "reliability", label: "Ignition", value: "Auto ignition with monitoring" },
 			{ icon: "service", label: "Compliance", value: "Applicable safety norms" }
@@ -489,7 +543,7 @@ const homeProductsRangeData = [
 		bannerHeading: "H2S Control",
 		bannerLongDescription:
 			"H2S scrubbers reduce corrosion risk and protect downstream equipment. Media selection and vessel sizing are matched to your flow rate and gas quality. The result is cleaner gas with consistent performance and simpler maintenance.",
-		bannerImage: "/images/HomeHero/GasEnergy.png",
+		bannerImage: "/images/HomeProductRange/H2SRemover.jpg	",
 		overviewOptions: [
 			{ icon: "performance", label: "Gas Quality", value: "Low H2S output" },
 			{ icon: "service", label: "Media Life", value: "Site dependent cycles" }
@@ -552,21 +606,13 @@ const homeProductsRangeData = [
 		bannerHeading: "Moisture Management",
 		bannerLongDescription:
 			"Dehumidification improves gas stability and reduces moisture-related equipment issues. Systems are configured to match flow rate and target dew point for consistent output. This helps protect engines, pipelines, and instrumentation over long operating cycles.",
-		bannerImage: "/images/HomeHero/GasEnergy.png",
+		bannerImage: "/images/HomeProductRange/dehumidifier.webp",
 		overviewOptions: [
 			{ icon: "performance", label: "Moisture Control", value: "Configured dew point" },
 			{ icon: "service", label: "Integration", value: "Upstream of genset" }
 		],
-		whySection: {
-		heading: "Why Moisture Removal Matters",
-		points: [
-			"Prevents corrosion in pipelines and equipment",
-			"Improves combustion efficiency in engines and flare systems",
-			"Protects compressors and upgrading systems",
-			"Reduces maintenance and downtime",
-			"Ensures stable and high-quality gas output"
-		]
-	},
+	
+		
 		faqs: [
 			{
 				question: "What type of dehumidification is used?",

@@ -1,8 +1,8 @@
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
 
-const MoistureSection = ({ section }) => {
-  const heading = section?.heading || "Why Moisture Removal Matters";
+const WhySection = ({ section }) => {
+  const heading = section?.heading ;
   const points = section?.points || [];
 
   return (
@@ -24,4 +24,4 @@ const MoistureSection = ({ section }) => {
   );
 };
 
-export default MoistureSection;
+export default WhySection;

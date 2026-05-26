@@ -73,7 +73,7 @@ const FAQ = ({ faqs, title, subtitle }) => {
   const items = faqs && faqs.length ? faqs : defaultFaqs;
 
   return (
-    <section className="w-full bg-[#fcfcfc] py-20 md:py-20 overflow-hidden font-sans border-t border-gray-100">
+    <section className="w-full bg-[#fcfcfc] py-20 md:py-15 md:-mt-10 overflow-hidden font-sans border-t border-gray-100">
       <div className="max-w-[1250px] mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Header Section */}

@@ -158,7 +158,7 @@ const Navbar = () => {
                   key={group.title}
                   className={`${groupIndex === 0 ? "" : "md:border-l md:border-gray-200 md:pl-8"}`}
                 >
-                  <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-2">
+                  <h4 className="text-md font-semibold text-gray-800 uppercase tracking-wider mb-2">
                     {group.title}
                   </h4>
                   <div className="space-y-1">
