@@ -22,6 +22,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./pages/BlogDetails";
 import EachProductPage from "./pages/EachProduct";
 import CareerPage from "./pages/CareerPage";
+import AboutPage from "./pages/AboutPage";
 
 const App = () => {
   useEffect(() => {
@@ -57,6 +58,7 @@ const App = () => {
               />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="*" element={<NewHomepage />} />
+               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<NewContactForm />} /> 
               <Route path="/blogs" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogDetails />} />
