@@ -112,7 +112,7 @@ const EachProduct = () => {
   return (
     <div className="w-full bg-[#fcfcfc] font-sans pb-20">
       <section
-        className="relative w-full text-white pt-24 pb-16 overflow-hidden bg-cover bg-center"
+        className="relative  w-full text-white pt-24 pb-16 overflow-hidden bg-cover bg-center"
         style={{
           backgroundImage: `url('${product?.heroBanner || "/images/ProductsBanner/gas-geset-banner.png"}')`,
         }}
@@ -127,24 +127,24 @@ const EachProduct = () => {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover sm:hidden"
         />
-
-        <div className="max-w-7xl mx-auto px-4  md:px-12 relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+<div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-transparent w-full md:w-[80%] lg:w-[60%] pointer-events-none"></div>
+        <div className="max-w-7xl  mx-auto px-4  md:px-12 relative z-10 flex flex-col lg:flex-row gap-12 items-center">
           <div className="w-full lg:w-1/2 flex md:-mt-5 flex-col items-start fade-in-section">
-            <span className="border border-gray-600 text-gray-300 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest mb-4">
+            <span className="border border-gray-600 text-gray-900 px-3 py-1 bg-gray-100 rounded text-xs font-bold uppercase tracking-widest mb-4">
               {product?.heroBadge}
             </span>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl text-gray-700 md:text-5xl font-bold mb-4">
               {product?.title}
             </h1>
 
-            <p className="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">
+            <p className="text-gray-700 text-base md:text-lg mb-6 leading-relaxed">
               {product?.description}
             </p>
 
             <ul className="flex flex-col gap-3 mb-8">
               {(product?.heroChecklist || []).map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-gray-200">
+                <li key={idx} className="flex items-center gap-3 text-gray-700">
                   <FiCheckCircle className="text-[#f48131] w-5 h-5 flex-shrink-0" />
                   <span>{item}</span>
                 </li>
@@ -155,7 +155,7 @@ const EachProduct = () => {
               <button className="bg-[#f48131] hover:bg-[#e06d1f] text-white px-8 py-3.5 rounded-md font-bold transition-all shadow-lg hover:shadow-[#f48131]/20">
                 Request a Quote
               </button>
-              <button className="flex items-center gap-2 border border-white hover:bg-white hover:text-black text-white px-8 py-3.5 rounded-md font-bold transition-all">
+              <button className="flex items-center gap-2  border border-white hover:bg-white hover:text-black text-white px-8 py-3.5 rounded-md font-bold transition-all">
                 Download Brochure <FiDownload />
               </button>
             </div>

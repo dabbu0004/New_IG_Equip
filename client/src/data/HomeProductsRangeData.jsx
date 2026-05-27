@@ -283,8 +283,8 @@ const homeProductsRangeData = [
 		link: "/products/double-membrane-gas-holder",
 		...sharedDetails,
 		heroBadge: "Advanced Biogas Storage Solution",
-		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBanner: "/images/ProductsBanner/DoubleMembraneBanner.png",
+		heroBannerMobile: "/images/ProductsBanner/DoubleMembraneBanner.png",
 
 		heroImages: [
 			"/images/HomeProductRange/doubleMembrane.jpg",

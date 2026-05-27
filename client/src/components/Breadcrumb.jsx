@@ -70,7 +70,7 @@ const Breadcrumb = () => {
 				<nav
 					aria-label="Breadcrumb"
 					className={`pointer-events-auto inline-flex flex-wrap items-center gap-2 text-xs font-semibold ${
-						isProductRoute ? "text-white" : "text-gray-900"
+						isProductRoute ? "text-gray-900" : "text-gray-900"
 					}`}
 				>
 					{crumbs.map((crumb, index) => {
@@ -79,7 +79,7 @@ const Breadcrumb = () => {
 						return (
 							<React.Fragment key={crumb.path}>
 								{isLast ? (
-									<span className={isProductRoute ? "text-white" : "text-gray-900"}>
+									<span className={isProductRoute ? "text-gray-900" : "text-gray-900"}>
 										{crumb.label}
 									</span>
 								) : (
@@ -88,7 +88,7 @@ const Breadcrumb = () => {
 									</Link>
 								)}
 								{!isLast && (
-									<span className={isProductRoute ? "text-white/60" : "text-gray-400"}>/</span>
+									<span className={isProductRoute ? "text-gray-400" : "text-gray-400"}>/</span>
 								)}
 							</React.Fragment>
 						);
