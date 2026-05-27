@@ -290,32 +290,51 @@ const PanIndiaMap = () => {
         {/* ========================================================
             STATE BUTTONS (LIST BELOW MAP)
             ======================================================== */}
-        <div className="w-full md:max-w-4xl">
-          <h4 className="text-center md:-mt-5 md:text-left text-lg font-bold text-gray-700 mb-6">
-            Select a Region to View Details
-          </h4>
+        <div className="w-full md:max-w-5xl mt-6 md:mt-10">
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-6 md:mb-8">
+            <div className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center border border-orange-100">
+              <FiMapPin className="text-[#f48131] w-4 h-4" />
+            </div>
+            <h4 className="text-lg md:text-2xl font-bold text-gray-800 tracking-tight">
+              Select a Region to View Details
+            </h4>
+          </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5">
             {locations.map((loc) => {
               const isActive = activeLocation?.id === loc.id;
+              
               return (
                 <button
                   key={loc.id}
                   onClick={() => handleLocationClick(loc)}
-                  className={`inline-flex flex-col items-start justify-center p-3  rounded-md text-base font-extrabold shadow-md transition-all duration-300 will-change-transform text-left ${
+                  className={`relative flex items-center p-3 md:p-4 rounded-xl transition-all duration-300 w-full text-left group bg-white border ${
                     isActive 
-                      ? "bg-orange-50 text-[#f48131] border border-[#f48131] scale-105" 
-                      : "bg-white text-black border  hover:shadow-xl hover:scale-105"
+                      ? "border-[#f48131] ring-2 ring-offset-2 ring-[#f48131] shadow-md scale-[1.03] -translate-y-1 z-10" 
+                      : "border-gray-200 hover:border-[#f48131]/60 hover:shadow-md hover:-translate-y-1"
                   }`}
                 >
-                  <span className="text-base md:text-lg font-bold leading-tight">
-                    {loc.state}
-                  </span>
-                  <span className="text-xs md:text-sm font-bold text-gray-500">
-                    {loc.city}
-                  </span>
+                  {/* Icon Circle */}
+                  <div className={`flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center ml-1 mr-3 transition-colors duration-300 ${
+                    isActive 
+                      ? "bg-[#f48131] text-white shadow-inner" 
+                      : "bg-gray-50 text-gray-400 group-hover:bg-orange-50 group-hover:text-[#f48131]"
+                  }`}>
+                    <FiMapPin className="w-4 h-4 md:w-5 md:h-5" />
+                  </div>
+
+                  {/* Text Container */}
+                  <div className="flex flex-col">
+                    <span className={`text-sm md:text-[15px] font-bold leading-tight mb-0.5 transition-colors duration-300 ${
+                      isActive ? "text-[#f48131]" : "text-gray-800 group-hover:text-[#f48131]"
+                    }`}>
+                      {loc.state}
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {loc.city}
+                    </span>
+                  </div>
                 </button>
-                
               );
             })}
           </div>

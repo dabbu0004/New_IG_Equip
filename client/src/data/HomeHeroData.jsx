@@ -38,7 +38,7 @@ const homeHeroSlides = [
 			"Manufacturers of Gas Gensets, Dual-Fuel Kits, and RECD systems. Reliable, eco-friendly, and cost-saving energy solutions for industrial Indian",
 		buttonText: "Explore Products",
 		buttonLink: "/contact",
-		image: "/images/HomeHero/BioGas.png",
+		image: "/images/HomeProductRange/doubleMembrane.png",
 		imageAlt: "Biogas plant equipment",
 	},
     	{

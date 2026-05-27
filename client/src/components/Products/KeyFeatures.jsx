@@ -68,7 +68,9 @@ const KeyFeatures = ({ items = [] }) => {
             <motion.div
               key={feature.id}
               variants={itemVariants}
-              className="bg-white rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-transparent hover:border-orange-50 hover:shadow-[0_12px_40px_rgba(244,129,49,0.08)] transition-all duration-300 transform hover:-translate-y-1 group"
+              whileHover={{ scale: 1.03, y: -6 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="bg-white rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-transparent hover:border-orange-100 hover:shadow-[0_20px_50px_rgba(244,129,49,0.15)] transition-all duration-300 ease-out group"
             >
               
               {/* Flex container to place Icon and Title side-by-side */}
@@ -81,7 +83,7 @@ const KeyFeatures = ({ items = [] }) => {
                 </div>
 
                 {/* Text Content */}
-                <h3 className="text-lg font-bold text-gray-900">
+                <h3 className="text-lg font-bold text-gray-900 leading-tight">
                   {feature.title}
                 </h3>
               </div>

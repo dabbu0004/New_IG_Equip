@@ -104,7 +104,7 @@ const HomeHero = () => {
                   <img
                     src={activeSlide.image}
                     alt={activeSlide.imageAlt || "Inventive Gas Equipment"}
-                    className="w-full h-[280px] md:h-[360px] object-contain transition-transform duration-300 ease-out scale-[1.03] group-hover:scale-[1.08]"
+                    className="w-full h-full object-cover transition-transform duration-300 ease-out scale-[1.03] group-hover:scale-[1.08]"
                   />
                 </motion.div>
               )}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   FiCheckCircle,
@@ -8,7 +8,10 @@ import {
   FiSettings,
   FiTool,
   FiHeadphones,
-  FiGrid, 
+  FiGrid,
+  FiLayers,
+  FiShield,
+  FiUsers
 } from "react-icons/fi";
 import {
   BsLightningCharge,
@@ -20,7 +23,6 @@ import { BiWrench } from "react-icons/bi";
 import gsap from "gsap";
 
 import homeProductsRangeData from "../../data/HomeProductsRangeData";
-import HomeProductRange from "../NewHome/HomeProductsRange";
 import Faq from "../Faq";
 import KeyFeatures from "./KeyFeatures";
 
@@ -72,47 +74,88 @@ const EachProduct = () => {
     }
   };
 
-  // --- Compile dynamic cards for the unified "Why Choose Us" section ---
-  const advantageCards = [];
-  
-  if (product?.whySection) {
-    advantageCards.push({
-      id: "why",
-      icon: <FiSettings className="text-3xl text-[#f48131]" />,
-      title: product.whySection.heading || "Why Choose Us",
-      subtitle: "We deliver excellence through innovation and commitment.",
-      points: product.whySection.points || [],
-    });
-  }
+  // --- Auto-Hover Animation Logic for Service Process ---
+  const processRef = useRef(null);
+  const [autoActiveStep, setAutoActiveStep] = useState(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  if (product?.advantage) {
-    advantageCards.push({
-      id: "advantage",
-      icon: <BsShieldCheck className="text-3xl text-[#f48131]" />,
-      title: product.advantage.heading || "Double Membrane Advantage",
-      subtitle: product.advantage.description 
-        ? (product.advantage.description.length > 75 ? product.advantage.description.substring(0, 75) + '...' : product.advantage.description)
-        : "Stable storage, enhanced safety and long-lasting performance.",
-      points: product.advantage.points || [],
-    });
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
 
-  if (product?.applicationsList?.length > 0) {
-    advantageCards.push({
-      id: "applications",
-      icon: <FiGrid className="text-3xl text-[#f48131]" />,
-      title: "Applications",
-      subtitle: "Versatile solutions for multiple industries and use cases.",
-      points: product.applicationsList,
-    });
-  }
+          let currentStep = 1;
+          setAutoActiveStep(currentStep);
 
-  const gridColsClass = advantageCards.length === 1 ? "md:grid-cols-1" : advantageCards.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3";
+          const interval = setInterval(() => {
+            currentStep += 1;
+            if (currentStep > 5) {
+              clearInterval(interval);
+              setAutoActiveStep(null);
+            } else {
+              setAutoActiveStep(currentStep);
+            }
+          }, 600);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (processRef.current) {
+      observer.observe(processRef.current);
+    }
+
+    return () => {
+      if (processRef.current) observer.unobserve(processRef.current);
+    };
+  }, [hasAnimated]);
+
+  // --- Static Hardcoded Data for Why Choose Us Section ---
+  const whyChooseUsData = [
+    {
+      icon: <FiLayers className="w-6 h-6 md:w-7 md:h-7" />,
+      title: "Strong In-house Manufacturing",
+      desc: "Advanced manufacturing capabilities ensuring top-quality and durability in every product.",
+      image: "/images/gallery/img1.webp"
+    },
+    {
+      icon: <FiTool className="w-6 h-6 md:w-7 md:h-7" />,
+      title: "Proven Execution",
+      desc: "Successfully delivered large-scale infrastructure projects with excellence and on-time performance.",
+      image: "/images/HomeHero/GasEnergy.png"
+    },
+    {
+      icon: <FiSettings className="w-6 h-6 md:w-7 md:h-7" />,
+      title: "Customized Engineering Solutions",
+      desc: "Tailored solutions designed to meet unique operational needs and industry challenges.",
+      image: "/images/HomeProductRange/GasGenset.webp"
+    },
+    {
+      icon: <FiGrid className="w-6 h-6 md:w-7 md:h-7" />,
+      title: "Complete System Integration",
+      desc: "Expertise in complete biogas system integration from concept to commissioning.",
+      image: "/images/HomeProductRange/CO2Remover.jpg"
+    },
+    {
+      icon: <FiShield className="w-6 h-6 md:w-7 md:h-7" />,
+      title: "Reliable After-sales Support",
+      desc: "Dedicated support and maintenance ensuring uninterrupted performance and long-term reliability.",
+      image: "/images/HomeProductRange/wtp.jpg"
+    },
+    {
+      icon: <FiUsers className="w-6 h-6 md:w-7 md:h-7" />,
+      title: "Focus on Client Success",
+      desc: "Building long-term relationships through trust, transparency, and a commitment to your success.",
+      image: "/images/gallery/img2.webp"
+    }
+  ];
 
   return (
     <div className="w-full bg-[#fcfcfc] font-sans pb-20">
+      
       <section
-        className="relative  w-full text-white pt-24 pb-16 overflow-hidden bg-cover bg-center"
+        className="relative w-full text-white pt-24 pb-16 overflow-hidden bg-cover bg-center"
         style={{
           backgroundImage: `url('${product?.heroBanner || "/images/ProductsBanner/gas-geset-banner.png"}')`,
         }}
@@ -127,10 +170,10 @@ const EachProduct = () => {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover sm:hidden"
         />
-<div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-transparent w-full md:w-[80%] lg:w-[60%] pointer-events-none"></div>
-        <div className="max-w-7xl  mx-auto px-4  md:px-12 relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-transparent w-full md:w-[80%] lg:w-[60%] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 md:px-12 relative z-10 flex flex-col lg:flex-row gap-12 items-center">
           <div className="w-full lg:w-1/2 flex md:-mt-5 flex-col items-start fade-in-section">
-            <span className="border border-gray-600 text-gray-900 px-3 py-1 bg-gray-100 rounded text-xs font-bold uppercase tracking-widest mb-4">
+            <span className="border border-gray-300 text-gray-900 px-3 py-1 bg-gray-100 rounded text-xs font-bold uppercase tracking-widest mb-4">
               {product?.heroBadge}
             </span>
 
@@ -155,7 +198,7 @@ const EachProduct = () => {
               <button className="bg-[#f48131] hover:bg-[#e06d1f] text-white px-8 py-3.5 rounded-md font-bold transition-all shadow-lg hover:shadow-[#f48131]/20">
                 Request a Quote
               </button>
-              <button className="flex items-center gap-2  border border-white hover:bg-white hover:text-black text-white px-8 py-3.5 rounded-md font-bold transition-all">
+              <button className="flex items-center gap-2 border border-gray-600 hover:bg-white hover:text-black text-gray-700 px-8 py-3.5 rounded-md font-bold transition-all">
                 Download Brochure <FiDownload />
               </button>
             </div>
@@ -178,17 +221,14 @@ const EachProduct = () => {
         </div>
       </section>
 
-      {/* ================= OVERVIEW & TECH SPECS SECTION ================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-20 pb-10 flex flex-col md:flex-row gap-10 fade-in-section">
-        
-        {/* Adjusted from w-8/12 to w-7/12 to give table more room */}
         <div className="w-full md:w-7/12 flex flex-col">
-          <p className="text-sm font-bold text-[#f48131]  md:-mt-5 mb-4 border-b-2 border-gray-100 w-max">
+          <p className="text-sm font-bold text-[#f48131] md:-mt-5 mb-4 border-b-2 border-gray-100 w-max">
             About Product
           </p>
-          <h className="text-2xl font-bold text-gray-900 mb-2 self-start border-b-2 border-gray-100 w-max">
+          <h2 className="text-4xl font-bold text-gray-900 mb-2 self-start border-b-2 border-gray-100 w-full">
             {product?.overviewTitle}
-          </h>
+          </h2>
 
           <p className="text-gray-600 leading-relaxed mb-2">
             {product?.overviewText}
@@ -197,7 +237,7 @@ const EachProduct = () => {
             {product?.overviewExtraText}
           </p>
 
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-4">
             {(product?.overviewOptions || []).map((option, idx) => (
               <div key={idx} className="flex w-full sm:w-[calc(50%-12px)] gap-4">
                 <div className="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
@@ -212,18 +252,15 @@ const EachProduct = () => {
           </div>
         </div>
 
-        {/* Adjusted from w-4/12 to w-5/12 for more width */}
         <div className="w-full md:w-5/12 flex flex-col md:items-end">
           <h2 className="text-2xl font-bold text-gray-900 md:mt-5 mb-6 self-start border-b-2 border-gray-100 w-max">
             Technical Specifications
           </h2>
-          {/* Removed max-w-lg and replaced with w-full so table takes all available space */}
           <div className="w-full">
             <div className="overflow-hidden border border-gray-200 rounded-xl shadow-sm">
               <table className="w-full text-left text-sm">
                 <thead className="bg-gray-50 text-gray-700">
                   <tr>
-                    {/* Added whitespace-nowrap and slightly wider width to force single line */}
                     <th className="px-5 py-3 font-bold border-b border-gray-200 w-2/5 whitespace-nowrap">
                       Parameter
                     </th>
@@ -235,7 +272,6 @@ const EachProduct = () => {
                 <tbody className="divide-y divide-gray-100 bg-white">
                   {(product?.technicalSpecs || []).map((spec, idx) => (
                     <tr key={idx} className="hover:bg-gray-50/50 transition">
-                      {/* Added whitespace-nowrap to prevent parameter lines from wrapping */}
                       <td className="px-5 py-3 font-medium text-gray-700 whitespace-nowrap">
                         {spec.parameter}
                       </td>
@@ -291,175 +327,152 @@ const EachProduct = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pb-1 flex flex-col lg:flex-row gap-12 fade-in-section">
-        <div className="w-full lg:w-5/12 bg-[#f8fafc] rounded-2xl p-8 border border-gray-100 relative overflow-hidden">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">Where We Install</h2>
-          <div className="flex flex-col md:flex-row gap-6 items-center">
-            <ul className="flex flex-col gap-3 relative z-10">
-              {(product?.installationRegions || []).map((region, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-sm font-medium text-gray-700">
-                  <FiChevronRight className="text-[#f48131]" /> {region}
-                </li>
-              ))}
-              <li className="text-[#f48131] font-bold text-sm mt-2 ml-1">
-                ...and many more
-              </li>
-            </ul>
-            <div className="relative w-full max-w-[700px] md:max-w-[760px] mx-auto">
-              <img
-                src="/images/ProductsBanner/MapEachProduct.png"
-                alt="Installation map"
-                className="w-full h-auto"
-              />
-              {(product?.mapLocations || []).map((location, idx) => (
-                <span
-                  key={idx}
-                  className="absolute -translate-x-1/2 -translate-y-full"
-                  style={{ top: location.top, left: location.left }}
-                  title={location.name}
-                >
-                  <svg width="26" height="32" viewBox="0 0 26 32" fill="none" aria-hidden="true">
-                    <path
-                      d="M13 1C7.48 1 3 5.48 3 11c0 6.3 8.2 16.8 9.1 17.9.48.56 1.32.56 1.8 0C14.8 27.8 23 17.3 23 11 23 5.48 18.52 1 13 1Z"
-                      fill="#FFFFFF"
-                      stroke="#46505A"
-                      strokeWidth="2"
-                    />
-                    <circle cx="13" cy="11" r="4" stroke="#46505A" strokeWidth="2" fill="#FFFFFF" />
-                  </svg>
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+      <section
+        ref={processRef}
+        className="max-w-7xl mx-auto px-4 md:px-12 py-16 md:-mt-10 fade-in-section"
+      >
+        <style>{`
+          @keyframes running-line {
+            0% { stroke-dashoffset: 24; }
+            100% { stroke-dashoffset: 0; }
+          }
+          .animate-running-line {
+            animation: running-line 1.5s linear infinite;
+          }
+        `}</style>
 
-        <div className="w-full lg:w-7/12 flex flex-col justify-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-2 border-b-2 border-gray-100 w-max">
+        <div className="mb-4 border-b border-gray-100 pb-4 inline-block w-full md:w-auto text-center md:text-left">
+          <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
             Our Service Process
           </h2>
+        </div>
 
-          <div className="flex flex-wrap md:flex-nowrap justify-between gap-4 w-full">
-            {[
-              {
-                id: 1,
-                title: "Consultation",
-                desc: "Understanding your power needs.",
-                icon: <FiSettings className="text-2xl" />,
-              },
-              {
-                id: 2,
-                title: "Solution Design",
-                desc: "Recommending the right model.",
-                icon: <BsGearWideConnected className="text-2xl" />,
-              },
-              {
-                id: 3,
-                title: "Manufacturing",
-                desc: "Built with advanced tech.",
-                icon: <FiTool className="text-2xl" />,
-              },
-              {
-                id: 4,
-                title: "Installation",
-                desc: "On-site installation.",
-                icon: <FiMapPin className="text-2xl" />,
-              },
-              {
-                id: 5,
-                title: "Support",
-                desc: "24/7 technical support.",
-                icon: <FiHeadphones className="text-2xl" />,
-              },
-            ].map((step, idx, arr) => (
-              <div key={idx} className="flex flex-col items-center text-center w-[45%] md:w-1/5 relative">
-                <div className="w-16 h-16 rounded-full bg-orange-50 border-2 border-orange-100 text-[#f48131] flex items-center justify-center mb-4 z-10 relative">
-                  {step.icon}
+        <div className="relative flex flex-wrap md:flex-nowrap justify-between gap-12 md:gap-4 w-full">
+          <div className="hidden md:block absolute top-[2.5rem] left-[10%] right-[10%] h-[2px] z-0 pointer-events-none">
+            <svg width="100%" height="100%" preserveAspectRatio="none">
+              <line x1="0" y1="1" x2="100%" y2="1" stroke="#e2e8f0" strokeWidth="2" strokeDasharray="6, 6" />
+              <line 
+                x1="0" y1="1" x2="100%" y2="1" 
+                stroke="#f48131" 
+                strokeWidth="2" 
+                strokeDasharray="6, 6" 
+                className="animate-running-line opacity-80" 
+              />
+            </svg>
+          </div>
+
+          {[
+            { id: 1, title: "Consultation", desc: "Detailed analysis of your power needs and site requirements.", icon: <FiSettings className="text-2xl md:text-3xl" /> },
+            { id: 2, title: "Solution Design", desc: "Engineering a customized model for maximum efficiency.", icon: <BsGearWideConnected className="text-2xl md:text-3xl" /> },
+            { id: 3, title: "Manufacturing", desc: "Built in-house using advanced technology and quality checks.", icon: <FiTool className="text-2xl md:text-3xl" /> },
+            { id: 4, title: "Installation", desc: "Seamless on-site integration by expert technicians.", icon: <FiMapPin className="text-2xl md:text-3xl" /> },
+            { id: 5, title: "Support", desc: "Round-the-clock maintenance and technical assistance.", icon: <FiHeadphones className="text-2xl md:text-3xl" /> },
+          ].map((step, idx) => {
+            const isActive = autoActiveStep === step.id;
+
+            return (
+              <div key={idx} className="flex flex-col items-center text-center w-full md:w-1/5 relative group cursor-default">
+                <div
+                  className={`w-20 h-20 rounded-full border-2 flex items-center justify-center mb-5 z-10 relative transition-all duration-400 ease-out group-hover:bg-[#f48131] group-hover:text-white group-hover:border-[#f48131] group-hover:shadow-[0_8px_20px_rgba(244,129,49,0.3)] group-hover:-translate-y-1 ${
+                    isActive
+                      ? "bg-[#f48131] text-white border-[#f48131] shadow-[0_8px_20px_rgba(244,129,49,0.3)] -translate-y-1"
+                      : "bg-[#fffcf5] border-[#fce3d0] text-[#f48131]"
+                  }`}
+                >
+                  <div className={`transform transition-transform duration-300 group-hover:scale-110 ${isActive ? "scale-110" : ""}`}>
+                    {step.icon}
+                  </div>
                 </div>
-                {idx !== arr.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-full h-[2px] border-t-2 border-dashed border-gray-200 z-0"></div>
+
+                {idx !== 4 && (
+                  <div className="md:hidden absolute top-20 left-1/2 w-[2px] h-12 border-l-2 border-dashed border-[#f48131]/40 -translate-x-1/2 z-0"></div>
                 )}
-                <h4 className="font-bold text-gray-900 text-sm mb-1">
+
+                <h4
+                  className={`font-bold text-base md:text-lg mb-2 transition-colors duration-300 group-hover:text-[#f48131] ${
+                    isActive ? "text-[#f48131]" : "text-gray-900"
+                  }`}
+                >
                   {step.id}. {step.title}
                 </h4>
-                <p className="text-xs text-gray-500 leading-relaxed px-1">
+                <p className="text-sm text-gray-500 leading-relaxed px-2 font-medium">
                   {step.desc}
                 </p>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
       
       <KeyFeatures items={product?.keyFeatures} />
 
-      {/* ================= UNIFIED ADVANTAGES & APPLICATIONS GRID ================= */}
-      {advantageCards.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-20 fade-in-section">
-          
-          {/* Header */}
-          <div className="text-center mb-12">
-            <span className="text-xs font-bold text-[#f48131] uppercase tracking-widest mb-3 block">
-              WHY CHOOSE US
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111111] mb-4">
-              Why Choose <span className="text-[#f48131]">Inventive Gas Equipment?</span>
-            </h2>
-            <div className="w-12 h-1 bg-[#f48131] mx-auto mb-5"></div>
-            <p className="text-gray-500 font-medium max-w-2xl mx-auto text-sm md:text-base">
-              Delivering reliable, efficient and future-ready solutions for your energy needs.
-            </p>
-          </div>
+      {/* ================= STATIC WHY CHOOSE US SECTION ================= */}
+     <section className="max-w-7xl mx-auto px-4 md:px-12 pt-5 pb-10 fade-in-section relative z-10">
+        
+        {/* Header Section */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="text-xs font-bold text-[#f48131] uppercase tracking-widest mb-3 block">
+            THE INVENTIVE ADVANTAGE
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#111111] mb-6 tracking-tight">
+            Why Choose <span className="text-[#f48131] relative">Inventive</span>
+          </h2>
+          <p className="text-gray-500 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            We deliver reliable, efficient, and future-ready energy solutions with an unwavering commitment to quality, innovation, and long-term value.
+          </p>
+        </div>
 
-          {/* Responsive Grid */}
-          <div className={`grid grid-cols-1 ${gridColsClass} gap-6 md:gap-8`}>
-            {advantageCards.map((card) => (
-              <div 
-                key={card.id} 
-                className="bg-white rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col items-center text-center hover:shadow-[0_8px_30px_rgba(244,129,49,0.08)] transition-shadow duration-300"
-              >
+        {/* Staggered Image Grid Container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:pb-12">
+          {whyChooseUsData.map((item, idx) => (
+            <div 
+              key={idx} 
+              className={`
+                relative rounded-[2rem] overflow-hidden group shadow-[0_8px_30px_rgba(0,0,0,0.08)] 
+                hover:shadow-[0_20px_50px_rgba(244,129,49,0.2)] transition-all duration-500 ease-out 
+                transform hover:-translate-y-3 flex flex-col justify-end min-h-[380px] md:min-h-[420px]
+                /* Stagger the middle column on large screens */
+                ${idx % 3 === 1 ? 'lg:mt-12' : ''}
+              `}
+            >
+              {/* Background Image with Hover Zoom */}
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+
+              {/* Dark Gradient Overlay for Text Readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              {/* Content Box (Z-10 brings it above the image and gradient) */}
+              <div className="relative z-10 p-8 flex flex-col h-full justify-end">
                 
-                {/* Orange Theme Icon */}
-                <div className="w-16 h-16 rounded-full bg-orange-50 border-2 border-orange-100 flex items-center justify-center mb-6">
-                  {card.icon}
+                {/* Frosted Glass Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white mb-6 group-hover:bg-[#f48131] group-hover:border-[#f48131] transition-all duration-500">
+                  <div className="transform transition-transform duration-300 group-hover:scale-110">
+                    {item.icon}
+                  </div>
                 </div>
                 
-                {/* Titles */}
-                <h3 className="text-xl line-clamp-1 font-bold text-gray-900 mb-3">{card.title}</h3>
-                <p className="text-sm text-gray-500 font-medium mb-6 h-10 overflow-hidden">
-                  {card.subtitle}
+                <h3 className="text-xl font-bold text-white mb-3 leading-tight group-hover:text-[#f48131] transition-colors duration-300">
+                  {item.title}
+                </h3>
+                
+                <p className="text-sm text-gray-300 leading-relaxed font-medium">
+                  {item.desc}
                 </p>
-                
-                <div className="w-full h-px bg-gray-100 mb-6"></div>
-                
-                {/* Custom Solid Checkmark List */}
-                <ul className="flex flex-col gap-4 w-full text-left flex-grow">
-                  {card.points.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 font-medium leading-snug">
-                      <span className="mt-[2px] flex-shrink-0 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#f48131] text-white">
-                        <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" className="h-[12px] w-[12px]" strokeWidth="3.5">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
 
-                {/* Decorative Bottom Dots */}
-                <div className="mt-8 pt-4 flex flex-col items-center gap-1.5 opacity-30">
-                  <div className="flex gap-1.5">
-                    {[...Array(5)].map((_, i) => <div key={`r1-${i}`} className="w-1.5 h-1.5 rounded-full bg-[#f48131]"></div>)}
-                  </div>
-                  <div className="flex gap-1.5">
-                    {[...Array(5)].map((_, i) => <div key={`r2-${i}`} className="w-1.5 h-1.5 rounded-full bg-[#f48131]"></div>)}
-                  </div>
+                {/* Animated Bottom Line */}
+                <div className="mt-8 pt-6 border-t border-white/20 w-full flex items-center">
+                  <div className="w-10 h-[3px] rounded-full bg-[#f48131] group-hover:w-full transition-all duration-500 ease-out"></div>
                 </div>
 
               </div>
-            ))}
-          </div>
-        </section>
-      )}
+            </div>
+          ))}
+        </div>
+      </section>
 
       <div className="md:-mt-10">
         <Faq faqs={product?.faqs} />

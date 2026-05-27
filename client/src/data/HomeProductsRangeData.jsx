@@ -279,7 +279,7 @@ const homeProductsRangeData = [
 		title: "Double Membrane Gas Holder",
 		description:
 			"High-performance double membrane gas holders engineered for safe, reliable and efficient biogas storage in industrial renewable energy systems",
-		image: "/images/HomeProductRange/doubleMembrane.jpg",
+		image: "/images/HomeProductRange/doubleMembrane.png",
 		link: "/products/double-membrane-gas-holder",
 		...sharedDetails,
 		heroBadge: "Advanced Biogas Storage Solution",
@@ -287,9 +287,9 @@ const homeProductsRangeData = [
 		heroBannerMobile: "/images/ProductsBanner/DoubleMembraneBanner.png",
 
 		heroImages: [
-			"/images/HomeProductRange/doubleMembrane.jpg",
-			"/images/HomeProductRange/doubleMembrane.jpg",
-			"/images/HomeProductRange/doubleMembrane.jpg"
+			"/images/HomeProductRange/doubleMembrane.png",
+			"/images/HomeProductRange/doubleMembrane.png",
+			"/images/HomeProductRange/doubleMembrane.png"
 		],
 		overviewTitle:"Reliable Biogas Storage for Mordern Energy Systems",
 		overviewText:"Inventive Gas Equipment’s Double Membrane Gas Holder is an advanced gas storage system designed to ensure safe, efficient, and consistent biogas handling in anaerobic digestion and CBG applications. Manufactured in-house using high-quality European-grade membrane materials, our gas holders are engineered to deliver stable pressure, long service life, and reliable performance under varying operating conditions.With flexible installation options and fully customized designs, our systems are suitable for a wide range of applications including STPs, industrial biogas plants, and large-scale CBG projects. ",
@@ -299,8 +299,8 @@ const homeProductsRangeData = [
 			"Double membrane holders provide reliable storage with robust safety features, optimized footprint, and long service life.",
 		bannerHeading: "Stable Gas Storage",
 		bannerLongDescription:
-			"Double membrane gas holders provide stable pressure control and safe storage for continuous operation. The design optimizes footprint while delivering reliable supply to engines or burners. Safety systems and robust membranes support long service life with minimal maintenance.",
-		bannerImage: "/images/HomeProductRange/doubleMembrane.jpg",
+			"Double membrane gas holders provide stable pressure control and safe storage for continuous operation. The design optimizes footprint while delivering reliable supply to engines or burners. Safety systems and robust membranes support long service life with minimal maintenance and consistent performance under varying conditions. This makes them ideal for biogas plants, CBG projects, and STPs where dependable gas storage is critical.",
+		bannerImage: "/images/HomeProductRange/doubleMembrane.png",
 		overviewOptions: [
 			{ icon: "reliability", label: "Constant Gas Pressure", value: "Stable storage pressure" },
 			{ icon: "service", label: "Weather Resistant", value: "Outdoor-ready membrane" },
@@ -338,9 +338,10 @@ const homeProductsRangeData = [
       { parameter: "Corrosion Protection", details: "High" }
     ],
 		keyBenefits: [
-			"Stable storage pressure",
-			"High safety with robust membranes",
-			"Optimized footprint and layout"
+				"Stable pressure control for reliable gas supply",
+				"High safety with over/under pressure protection",
+				"Optimized footprint with efficient storage"
+			
 		],
 		keyFeatures: [
 			{
