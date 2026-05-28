@@ -1,33 +1,50 @@
 // src/data/AboutData.jsx
-import React from "react";
-import { FiSettings, FiHeadphones, FiCheckCircle, FiSearch, FiPenTool, FiShield } from "react-icons/fi";
+import { FiSettings, FiHeadphones, FiCheckCircle, FiSearch, FiPenTool } from "react-icons/fi";
 import { BsLightningCharge, BsShieldCheck } from "react-icons/bs";
+import { FaHandHoldingUsd, FaUsers } from "react-icons/fa";
+import { FiTool } from "react-icons/fi";
 
 export const aboutData = {
-  hero: {
-    badge: "Trusted Partner for Industrial Solutions",
-    title1: "Powering Industries,",
-    title2: "Building Relationships.",
-    description: "We deliver reliable, efficient, and future-ready energy solutions with a commitment to quality, innovation, and long-term value.",
-    image: "/images/gallery/img1.webp", // Replace with actual meeting image
-  },
-  endToEnd: {
-    badge: "WHAT WE DO",
-    title: "End-to-End Solutions for Industrial",
-    titleHighlight: "Excellence",
-    description: "From consultation to execution, we provide comprehensive solutions tailored to your business needs.",
-    cards: [
-      {
-        icon: <FiSettings className="text-3xl text-[#f48131]" />,
-        title: "Custom Solutions",
-        description: "Tailored systems designed to meet your unique operational needs."
-      },
-      {
-        icon: <FiHeadphones className="text-3xl text-[#f48131]" />,
-        title: "Reliable Support",
-        description: "24/7 expert support ensuring seamless performance."
-      }
-    ]
+  bannerImage: "/images/gallery/img1.webp", // Top background image
+  pageTitle: "About us",
+  
+  // Intro Section
+  badge: "ABOUT US",
+  introTitleHighlight: "Introduction", 
+  introTitleNormal: "To Best",
+  introTitleBottom: "Digital Agency!", 
+  description1: "Harum quisquam amet debitis pariatur quas? Nemo excepturi duis minim nostrud officiis dolorem fugit itaque, fugiat excepturi modi, porta.",
+  description2: "Odio velit, odit, est, euismod aliquid luctus pharetra vero, condimentum, nostrum mi venenatis, mollit odio mi, unde semper adipiscing aut.",
+  
+  // Feature Cards
+  features: [
+    {
+      id: 1,
+      icon: <FaHandHoldingUsd className="text-2xl" />,
+      title: "Best Price Guaranteed",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      isDarkIcon: false, // Uses your #f48131 orange
+    },
+    {
+      id: 2,
+      icon: <FiTool className="text-2xl" />,
+      title: "Finance Analysis",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      isDarkIcon: true, // Uses black background like the image
+    },
+    {
+      id: 3,
+      icon: <FaUsers className="text-2xl" />,
+      title: "Professional Team",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      isDarkIcon: false, // Uses your #f48131 orange
+    }
+  ],
+  
+  // Bottom Image Composition
+  images: {
+    main: "/images/gallery/team-working.jpg", // The large group image
+    videoThumb: "/images/gallery/office-video.jpg", // The smaller overlapping video image
   },
   engineered: {
     badge: "BUILT FOR PERFORMANCE",

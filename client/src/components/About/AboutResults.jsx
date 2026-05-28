@@ -24,9 +24,12 @@ const AboutResults = () => {
             
             <div className="grid grid-cols-2 gap-4">
               {results.stats.map((stat, idx) => (
-                <div key={idx} className="bg-[#1f3b34] text-white rounded-2xl p-6 flex flex-col justify-center shadow-lg hover:bg-[#24443b] transition-colors">
+                <div
+                  key={idx}
+                  className="bg-white text-gray-900 rounded-2xl p-6 flex flex-col justify-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                >
                   <span className="text-3xl md:text-4xl font-bold text-[#f48131] mb-2">{stat.value}</span>
-                  <span className="text-sm text-gray-200">{stat.label}</span>
+                  <span className="text-sm text-gray-600">{stat.label}</span>
                 </div>
               ))}
             </div>
@@ -64,7 +67,7 @@ const AboutResults = () => {
               {faq.title} <span className="text-[#f48131]">{faq.titleHighlight}</span>
             </h2>
             <p className="text-gray-500 mb-8 text-sm">{faq.description}</p>
-            <button className="bg-[#1f3b34] text-white px-8 py-3.5 rounded-lg font-bold hover:bg-[#f48131] transition-colors duration-300 w-full sm:w-auto">
+            <button className="bg-[#f48131] text-white px-8 py-3.5 rounded-lg font-bold hover:bg-[#f48131] transition-colors duration-300 w-full sm:w-auto">
               Talk to Our Experts →
             </button>
           </div>
