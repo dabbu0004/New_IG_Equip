@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import ClientsData from "../data/ClientsData";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { FaStar } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +37,7 @@ const Clients = () => {
             start: "top 90%",
             toggleActions: "play reverse play reverse",
           },
-        },
+        }
       );
 
       gsap.fromTo(
@@ -55,7 +54,7 @@ const Clients = () => {
             start: "top 85%",
             toggleActions: "play reverse play reverse",
           },
-        },
+        }
       );
     }, sectionRef.current);
 
@@ -101,65 +100,60 @@ const Clients = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-gradient-to-br from-white via-orange-50 to-white py-20"
+      className="w-full bg-[#fcfcfc] py-24 border-t border-gray-100"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row gap-12 md:gap-24">
-        <div ref={titleRef} className="md:w-1/4 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className="text-orange-500 text-sm" />
-                ))}
-              </span>
-            </div>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+        
+        {/* Left: Text Content */}
+        <div ref={titleRef} className="w-full lg:w-1/3 flex flex-col justify-center">
+          <span className="text-xs font-bold text-[#f48131] uppercase tracking-widest mb-3 block">
+            {splitWords("OUR REFERENCES")}
+          </span>
 
-            <p className="uppercase tracking-wide text-xs font-semibold text-gray-600 mb-3">
-              {splitWords("Our References")}
-            </p>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-[#111111] mb-6">
+            {splitWords("Proud of")}{" "}
+            <span className="text-[#f48131]">
+              {splitWords("Our Clients")}
+            </span>
+          </h2>
 
-            <h2 className="text-3xl md:text-5xl font-bold leading-normal text-gray-800 mb-4">
-              {splitWords("Proud of")}{" "}
-              <span className="text-orange-600">
-                {splitWords("Our Clients")}
-              </span>
-            </h2>
-
-            <p className="text-sm md:text-base text-gray-600 max-w-xs">
-              {splitWords(
-                "We collaborate with leading businesses across industries, powering mission critical operations with reliable solutions.",
-              )}
-            </p>
-          </div>
+          <p className="text-base md:text-lg text-gray-500 leading-relaxed font-medium">
+            {splitWords(
+              "We collaborate with leading businesses across industries, powering mission critical operations with reliable solutions."
+            )}
+          </p>
         </div>
 
-        <div className="md:w-2/3">
-          <div className="flex gap-4">
+        {/* Right: Scrolling Columns */}
+        <div className="w-full lg:w-2/3">
+          {/* The mask-image creates a smooth fade at the top and bottom of the scrolling area */}
+          <div 
+            className="flex gap-4 md:gap-6 h-[400px] md:h-[500px]"
+            style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}
+          >
             {ClientsData.map((column, colIndex) => (
               <div
                 key={colIndex}
-                className={`flex-1 h-96 overflow-hidden ${
-                  colIndex > 1 ? "hidden md:flex" : ""
+                className={`flex-1 h-full overflow-hidden ${
+                  colIndex > 1 ? "hidden sm:flex" : "flex"
                 }`}
               >
                 <div
                   ref={(el) => (columnsRef.current[colIndex] = el)}
-                  className="flex flex-col gap-4 py-2"
+                  className="flex flex-col gap-4 md:gap-6 py-4"
                 >
                   {[...Array(3)].map((_, dupIndex) => (
                     <React.Fragment key={dupIndex}>
                       {column.map((client) => (
                         <div
                           key={`${client.logo}-${dupIndex}`}
-                          className="flex items-center justify-center group"
+                          className="flex items-center justify-center bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-2xl h-24 md:h-32 p-4 md:p-6 w-full group hover:border-orange-100 hover:shadow-md transition-all duration-300"
                         >
-                          <div className="w-full flex items-center justify-center p-4 transition duration-300">
-                            <img
-                              src={client.logo}
-                              alt="Client Logo"
-                              className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110"
-                            />
-                          </div>
+                          <img
+                            src={client.logo}
+                            alt="Client Logo"
+                            className="max-w-full max-h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          />
                         </div>
                       ))}
                     </React.Fragment>
