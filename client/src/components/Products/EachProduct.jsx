@@ -25,6 +25,8 @@ import gsap from "gsap";
 import homeProductsRangeData from "../../data/HomeProductsRangeData";
 import Faq from "../Faq";
 import KeyFeatures from "./KeyFeatures";
+import Clients from "../Clients";
+import CtaBanner from "../CtaBanner";
 
 const EachProduct = () => {
   const { slug } = useParams();
@@ -477,6 +479,8 @@ const EachProduct = () => {
       <div className="md:-mt-10">
         <Faq faqs={product?.faqs} />
       </div>
+      <Clients />
+      <CtaBanner />
 
     </div>
   );
