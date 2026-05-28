@@ -38,9 +38,9 @@ const EndToEndSolutions = () => {
           initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="w-full md:w-7/12 relative"
         >
-          <div className="rounded-3xl overflow-hidden shadow-2xl relative h-[500px]">
-            <img src={engineered.image} alt="Industrial" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700" />
-            <div className="absolute inset-0 bg-black/10"></div>
+         <div className="rounded-3xl overflow-hidden shadow-2xl relative h-[500px]">
+            {/* Removed the grayscale classes and dark overlay to show original colors */}
+            <img src={engineered.image} alt="Industrial" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
           
           {/* Floating Circle Badge */}

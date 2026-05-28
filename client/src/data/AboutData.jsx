@@ -10,67 +10,67 @@ export const aboutData = {
   
   // Intro Section
   badge: "ABOUT US",
-  introTitleHighlight: "Introduction", 
-  introTitleNormal: "To Best",
-  introTitleBottom: "Digital Agency!", 
-  description1: "Harum quisquam amet debitis pariatur quas? Nemo excepturi duis minim nostrud officiis dolorem fugit itaque, fugiat excepturi modi, porta.",
-  description2: "Odio velit, odit, est, euismod aliquid luctus pharetra vero, condimentum, nostrum mi venenatis, mollit odio mi, unde semper adipiscing aut.",
+  introTitleHighlight: "Introduction",
+  introTitleNormal: "To Industrial",
+  introTitleBottom: "Energy & Equipment Services",
+  description1: "We deliver end to end solutions for industrial energy systems, equipment supply, and on site commissioning. From design and procurement to installation and optimization, our team ensures safe, efficient, and reliable operations for every project.",
+  description2: "Our service model blends engineering expertise with responsive support. We provide preventive maintenance, performance audits, and compliance driven upgrades so your plants run cleaner, longer, and with lower operating costs.",
   
   // Feature Cards
   features: [
     {
       id: 1,
       icon: <FaHandHoldingUsd className="text-2xl" />,
-      title: "Best Price Guaranteed",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Transparent Pricing",
+      description: "Clear scopes, competitive rates, and no surprise charges.",
       isDarkIcon: false, // Uses your #f48131 orange
     },
     {
       id: 2,
       icon: <FiTool className="text-2xl" />,
-      title: "Finance Analysis",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Lifecycle Value",
+      description: "Optimized solutions that cut energy waste over time.",
       isDarkIcon: true, // Uses black background like the image
     },
     {
       id: 3,
       icon: <FaUsers className="text-2xl" />,
-      title: "Professional Team",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Certified Experts",
+      description: "Experienced engineers and technicians for critical systems.",
       isDarkIcon: false, // Uses your #f48131 orange
     }
   ],
   
   // Bottom Image Composition
   images: {
-    main: "/images/gallery/team-working.jpg", // The large group image
+    main: "/images/About/AboutPic.jpeg", // The large group image
     videoThumb: "/images/gallery/office-video.jpg", // The smaller overlapping video image
   },
   engineered: {
     badge: "BUILT FOR PERFORMANCE",
-    title: "Engineered for Your Success",
-    image: "/images/gallery/img2.webp", // Replace with actual industrial structure image
+    title: "Engineered for Reliable Performance",
+    image: "/images/About/Excellence.webp", // Replace with actual industrial structure image
     yearsExperience: "15+",
     features: [
       {
         icon: <BsLightningCharge className="text-xl text-[#f48131]" />,
         title: "High Efficiency",
-        description: "Optimized systems for maximum output."
+        description: "Smart designs that improve throughput and reduce downtime."
       },
       {
         icon: <BsShieldCheck className="text-xl text-[#f48131]" />,
         title: "Sustainable",
-        description: "Eco-friendly solutions for a better tomorrow."
+        description: "Cleaner operations with efficient fuel and resource usage."
       },
       {
         icon: <FiSettings className="text-xl text-[#f48131]" />,
         title: "Innovative Technology",
-        description: "Advanced engineering for superior performance."
+        description: "Modern controls and monitoring for predictable output."
       },
       {
         icon: <FiCheckCircle className="text-xl text-[#f48131]" />,
         title: "Cost Effective",
-        description: "Reliable solutions that reduce operational costs."
+        description: "Lower lifetime cost with dependable components."
       }
     ]
   },
@@ -78,7 +78,7 @@ export const aboutData = {
     badge: "OUR TEAM",
     title: "Meet Our",
     titleHighlight: "Experts",
-    description: "Dedicated professionals driving innovation and delivering results.",
+    description: "Dedicated professionals delivering safe installations and responsive support.",
     members: [
       { name: "Rajesh Kumar", role: "Managing Director", image: "/images/team/1.jpg" },
       { name: "Anita Sharma", role: "Chief Operations Officer", image: "/images/team/2.jpg" },
@@ -90,47 +90,48 @@ export const aboutData = {
   timeline: {
     stats: [
       { value: "100+", label: "Team Members" },
-      { value: "110,000", label: "CO2 Offset" },
-      { value: "4", label: "Active Sites" }
+      { value: "110,000", label: "Hours Supported" },
+      { value: "4", label: "Regional Service Hubs" }
     ],
     title: "Tracing Our Journey Through Time",
-    description: "Unveil the remarkable story of our legacy through a meticulously crafted timeline, celebrating the transformative moments that have led us to become a leading force in the renewable energy revolution.",
+    description: "A growth story shaped by on site delivery, stronger partnerships, and continuous improvement in industrial energy and equipment services.",
     events: [
-      { year: "2016", text: "Inception of the company", position: "bottom" },
-      { year: "2019", text: "Commissioning of Haryana state 1st captive solar power plant 12MWp. LR Energy plans to enter advance Biofuel market", position: "top" },
-      { year: "2020", text: "Lr energy Bags 20Lois from Oil Marketing PSUs for setting up CBG plants in North india.", position: "bottom" },
-      { year: "2021", text: "Successfully commissioned its 2nd Solar Power plant of capacity 24MWp", position: "top" },
-      { year: "2022", text: "Became the 1st company in the state of HARYANA to receive long term approval to supply power under group captive mode to its captive user.", position: "bottom" }
+      { year: "2016", text: "Company founded with a focus on industrial energy systems.", position: "bottom" },
+      { year: "2018", text: "Expanded commissioning and maintenance services across multiple sites.", position: "top" },
+      { year: "2020", text: "Added performance auditing and efficiency retrofit programs.", position: "bottom" },
+      { year: "2022", text: "Built regional service hubs for faster response times.", position: "top" },
+      { year: "2024", text: "Delivered large scale turnkey installations and upgrades.", position: "bottom" }
     ]
   },
   results: {
     badge: "OUR RESULTS",
     title: "Delivering Impact That",
-    titleHighlight: "Drives Growth",
-    description: "Our solutions are built to deliver measurable results and long-term value.",
+    titleHighlight: "Drives Efficiency",
+    description: "We focus on measurable uptime, safer operations, and long term energy savings.",
     stats: [
-      { value: "120+", label: "Projects Completed" },
-      { value: "94.7%", label: "Client Satisfaction" },
-      { value: "24/7", label: "Support Available" },
-      { value: "15+", label: "Years of Experience" }
+      { value: "180+", label: "Projects Delivered" },
+      { value: "98%", label: "On Time Completion" },
+      { value: "24/7", label: "Service Support" },
+      { value: "15+", label: "Years of Field Experience" }
     ],
     process: [
-      { icon: <FiSearch />, title: "Understand", desc: "We analyze your requirements." },
-      { icon: <FiPenTool />, title: "Design", desc: "Custom solutions engineered for you." },
-      { icon: <FiSettings />, title: "Implement", desc: "Precision execution with advanced technology." },
-      { icon: <FiHeadphones />, title: "Support", desc: "Continuous support for lasting performance." }
+      { icon: <FiSearch />, title: "Assess", desc: "We audit your site and operational needs." },
+      { icon: <FiPenTool />, title: "Engineer", desc: "We design reliable, compliant solutions." },
+      { icon: <FiSettings />, title: "Execute", desc: "We install, test, and commission on time." },
+      { icon: <FiHeadphones />, title: "Support", desc: "We monitor and maintain for long term uptime." }
     ]
   },
   faq: {
     badge: "QUESTIONS?",
     title: "We're Here to",
     titleHighlight: "Help",
-    description: "Get answers to common questions about our products, services, and support.",
+    description: "Get answers about commissioning, maintenance, audits, and service coverage.",
     questions: [
-      { q: "What industries do you serve?", a: "We serve manufacturing, commercial, captive power, agriculture, and more." },
-      { q: "How do your solutions improve efficiency?", a: "By optimizing fuel usage, reducing emissions, and utilizing advanced control systems." },
-      { q: "Do you provide installation and support?", a: "Yes, we offer turnkey solutions including end-to-end installation and 24/7 AMC support." },
-      { q: "Can solutions be customized for my needs?", a: "Absolutely. Every project is engineered to match your specific site requirements." }
+      { q: "What industries do you support?", a: "We serve manufacturing, commercial facilities, captive power, and process industries." },
+      { q: "Do you provide turnkey commissioning?", a: "Yes, we handle design, supply, installation, testing, and handover." },
+      { q: "How do you improve energy performance?", a: "We audit usage, optimize systems, and install efficient controls and upgrades." },
+      { q: "Is preventive maintenance available?", a: "Yes, we offer AMC plans with scheduled inspections and rapid response support." },
+      { q: "Can solutions be customized?", a: "Every project is tailored to site conditions, compliance, and production goals." }
     ]
   }
 };

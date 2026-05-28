@@ -76,7 +76,7 @@ const AboutHero = () => {
       <section className="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-28">
         
         {/* Intro Row */}
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 mb-20">
+        <div className="flex flex-col lg:flex-row gap-10 md:gap-10   mb-20">
           
           {/* Left: Titles */}
           <div ref={titleRef} className="w-full lg:w-5/12">
@@ -88,10 +88,10 @@ const AboutHero = () => {
               <span className="w-2 h-2 rounded-full bg-[#f48131]"></span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] leading-tight">
-              <span className="text-[#f48131]">{aboutHero.introTitleHighlight}</span> <br />
-              {aboutHero.introTitleNormal} <br />
-              {aboutHero.introTitleBottom}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] leading-[1.15]">
+              <span className="block text-[#f48131]">{aboutHero.introTitleHighlight}</span>
+              <span className="block">{aboutHero.introTitleNormal}</span>
+              <span className="block">{aboutHero.introTitleBottom}</span>
             </h2>
           </div>
 
