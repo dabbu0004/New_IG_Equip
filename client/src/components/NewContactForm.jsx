@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {
   IoSend,
   IoCheckmarkCircle,
-  IoSparkles,
   IoPerson,
   IoCall,
   IoMail,
   IoChatbubble,
   IoBusiness,
   IoLocationSharp,
+  IoGlobeOutline
 } from "react-icons/io5";
 import axios from "axios";
 import {
@@ -124,77 +124,74 @@ const NewContactForm = () => {
     },
   ];
 
+  // Restructured features array for a cleaner look
   const features = [
     {
       icon: IoCall,
-      text: "+91 8830317796 , +91 7042100426",
-      color: "from-blue-400 to-cyan-400",
+      title: "Call Us",
+      text: "+91 8830317796, +91 7042100426",
     },
     {
       icon: IoChatbubble,
-      text: "Quick Response Time",
-      color: "from-green-400 to-emerald-400",
+      title: "Fast Support",
+      text: "Quick response time for all inquiries",
+    },
+    {
+      icon: IoGlobeOutline,
+      title: "Global Reach",
+      text: "Serving clients and industries worldwide",
     },
     {
       icon: IoLocationSharp,
-      text: "Global Reach",
-      color: "from-purple-400 to-pink-400",
-    },
-    {
-      icon: IoLocationSharp,
-      text: "Plot No.21, Udyog Vihar, Ecotech-II, Udyog Vihar, Greater Noida, Uttar Pradesh 201306",
-      color: "from-yellow-400 to-orange-400",
+      title: "Headquarters",
+      text: "Plot No.21, Udyog Vihar, Ecotech-II, Greater Noida, UP 201306",
     },
   ];
 
   return (
-    <div className="w-full min-h-screen  py-6 px-4 overflow-x-hidden">
-      <div className="max-w-6xl mx-auto md:mt-10 flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
-         {/* Right Section - Form */}
-        <div className="w-full lg:w-1/2 max-w-lg">
-          <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 space-y-4 border border-white/30">
+    <div className="w-full min-h-screen py-12 px-4 overflow-x-hidden bg-[#f9f8f6]">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 h-full">
+        
+        {/* ================= LEFT SECTION (FORM) ================= */}
+        <div className="w-full lg:w-1/2 max-w-lg order-2 lg:order-1">
+          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] p-6 border border-gray-100">
             {submitted ? (
-              <div className="text-center py-6 space-y-3 flex items-center justify-center flex-col">
-                <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                  <IoCheckmarkCircle className="w-7 h-7 text-green-600" />
+              <div className="text-center py-10 space-y-4 flex flex-col items-center justify-center">
+                <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-2">
+                  <IoCheckmarkCircle className="w-10 h-10 text-green-500" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">
+                <h3 className="text-2xl font-bold text-gray-900">
                   Message Sent!
                 </h3>
-                <p className="text-gray-600 text-sm">
-                  Thank you! We'll connect with you soon.
+                <p className="text-gray-500 font-medium">
+                  Thank you! We'll connect with you shortly.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="text-center space-y-1">
-                  <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="text-center space-y-2 mb-8">
+                  <h2 className="text-3xl font-bold text-gray-900">
                     Send us a message
                   </h2>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-sm text-gray-500 font-medium">
                     Contact us today to discuss your requirements.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {formFields.slice(0, -1).map((field) => {
                     const IconComponent = field.icon;
-                    const isFieldFilled =
-                      formData[field.name] && formData[field.name].length > 0;
+                    const isFieldFilled = formData[field.name] && formData[field.name].length > 0;
                     return (
                       <div key={field.name}>
-                        <label className="block text-xs font-semibold text-gray-700 mb-1">
-                          {field.label}{" "}
-                          {field.required && (
-                            <span className="text-red-500">*</span>
-                          )}
+                        <label className="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wide">
+                          {field.label}
                         </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <div className="relative group">
+                          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                             <IconComponent
-                              className={`w-4 h-4 ${
-                                focusedField === field.name || isFieldFilled
-                                  ? "text-orange-500"
-                                  : "text-gray-400"
+                              className={`w-4 h-4 transition-colors ${
+                                focusedField === field.name || isFieldFilled ? "text-[#f48131]" : "text-gray-400 group-hover:text-gray-600"
                               }`}
                             />
                           </div>
@@ -207,10 +204,10 @@ const NewContactForm = () => {
                             onBlur={() => setFocusedField(null)}
                             placeholder={field.placeholder}
                             required={field.required}
-                            className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg text-sm focus:border-orange-500 outline-none"
+                            className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:bg-white focus:border-[#f48131] focus:ring-4 focus:ring-orange-50 outline-none transition-all"
                           />
                           {isFieldFilled && (
-                            <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
                               <IoCheckmarkCircle className="w-4 h-4 text-green-500" />
                             </div>
                           )}
@@ -220,19 +217,17 @@ const NewContactForm = () => {
                   })}
                 </div>
 
-                {/* Location Field - Full Width */}
+                {/* Location Field */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wide">
                     Location*
                   </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <IoLocationSharp
-                        className={`w-4 h-4 ${
-                          focusedField === "location" ||
-                          (formData.location && formData.location.length > 0)
-                            ? "text-orange-500"
-                            : "text-gray-400"
+                        className={`w-4 h-4 transition-colors ${
+                          focusedField === "location" || (formData.location && formData.location.length > 0)
+                            ? "text-[#f48131]" : "text-gray-400 group-hover:text-gray-600"
                         }`}
                       />
                     </div>
@@ -244,28 +239,27 @@ const NewContactForm = () => {
                       onFocus={() => setFocusedField("location")}
                       onBlur={() => setFocusedField(null)}
                       placeholder="City, Country"
-                      className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg text-sm focus:border-orange-500 outline-none"
+                      className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:bg-white focus:border-[#f48131] focus:ring-4 focus:ring-orange-50 outline-none transition-all"
                     />
                     {formData.location && formData.location.length > 0 && (
-                      <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                      <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
                         <IoCheckmarkCircle className="w-4 h-4 text-green-500" />
                       </div>
                     )}
                   </div>
                 </div>
 
+                {/* Message Field */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wide">
                     Additional Information
                   </label>
-                  <div className="relative">
-                    <div className="absolute top-2 left-3 pointer-events-none">
+                  <div className="relative group">
+                    <div className="absolute top-3 left-4 pointer-events-none">
                       <IoChatbubble
-                        className={`w-4 h-4 ${
-                          focusedField === "message" ||
-                          formData.message.length > 0
-                            ? "text-orange-500"
-                            : "text-gray-400"
+                        className={`w-4 h-4 transition-colors ${
+                          focusedField === "message" || formData.message.length > 0
+                            ? "text-[#f48131]" : "text-gray-400 group-hover:text-gray-600"
                         }`}
                       />
                     </div>
@@ -277,35 +271,27 @@ const NewContactForm = () => {
                       onBlur={() => setFocusedField(null)}
                       rows="3"
                       placeholder="Tell us about your project..."
-                      className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg text-sm focus:border-orange-500 outline-none resize-none"
+                      className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 focus:bg-white focus:border-[#f48131] focus:ring-4 focus:ring-orange-50 outline-none resize-none transition-all"
                     />
-                    {formData.message.length > 0 && (
-                      <div className="absolute top-2 right-3">
-                        <IoCheckmarkCircle className="w-4 h-4 text-green-500" />
-                      </div>
-                    )}
                   </div>
                 </div>
 
-                <div className="flex items-start gap-2 p-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200">
-                  <p className="text-xs text-gray-700">
-                    By Submitting this, I agree to the{" "}
-                    <Link
-                      to={"/privacy"}
-                      target="_blank"
-                      className="text-orange-600 font-semibold cursor-pointer hover:underline"
-                    >
+                {/* Privacy Policy */}
+                <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    By submitting this, I agree to the{" "}
+                    <Link to={"/privacy"} target="_blank" className="text-[#f48131] font-bold hover:underline">
                       privacy policy
                     </Link>{" "}
-                    and acknowledge that my information will remain confidential
-                    and secure.
+                    and acknowledge that my information will remain confidential and secure.
                   </p>
                 </div>
 
+                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-orange-500 text-white font-bold text-base px-6 py-3 rounded-xl transition-all duration-300 shadow-lg disabled:opacity-70 flex items-center justify-center gap-2"
+                  className="w-full bg-[#111111] hover:bg-[#f48131] text-white font-bold text-sm px-6 py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-xl disabled:opacity-70 flex items-center justify-center gap-2 mt-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -314,9 +300,8 @@ const NewContactForm = () => {
                     </>
                   ) : (
                     <>
-                      <IoSend className="w-4 h-4" />
-                      <span>Submit</span>
-                     
+                      <span>Submit Request</span>
+                      <IoSend className="w-4 h-4 ml-1" />
                     </>
                   )}
                 </button>
@@ -324,42 +309,49 @@ const NewContactForm = () => {
             )}
           </div>
         </div>
-        {/* Left Section */}
-        <div className="w-full lg:w-1/2 text-[#F26413] text-center lg:text-left space-y-6">
-          <div className="space-y-3">
-            <h1 className="text-3xl md:text-4xl font-bold leading-snug sm:leading-tight">
-              Partner with Inventive Gas Equipment for a Sustainable Future
+
+        {/* ================= RIGHT SECTION (TEXT & ICONS) ================= */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left space-y-10 order-1 lg:order-2">
+          
+          {/* Header Texts */}
+          <div className="space-y-4">
+            <span className="text-[#f48131] font-extrabold tracking-widest text-xs md:text-sm uppercase bg-orange-50 px-3 py-1 rounded-full">
+              Let's Connect
+            </span>
+            <h1 className="text-3xl md:text-4xl  font-semibold text-[#111111] leading-[1.2] tracking-tight">
+              Partner with <span className="text-[#f48131]">Inventive Gas</span> for a Sustainable Future.
             </h1>
-            <p className="text-xl md:text-2xl font-light opacity-90 leading-relaxed">
-              Let's power your business with{" "}
-              <span className="font-bold">
-                clean, efficient, and future-ready energy solutions.
-              </span>
+            <p className="text-base md:text-lg text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Let's power your business with clean, efficient, and future-ready energy solutions. 
+              Reach out today to discuss your industrial requirements.
             </p>
           </div>
 
-          {/* Features List */}
-          <div className="space-y-3 sm:space-y-4">
+          {/* Clean, Professional Feature List */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 pt-4">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <div
-                  key={index}
-                  className="flex items-center justify-center sm:justify-start gap-3 text-sm sm:text-base transition-all duration-300"
-                >
-                  <div
-                    className={`p-2 sm:p-3 bg-gradient-to-r ${feature.color} rounded-full backdrop-blur-sm shadow-lg`}
-                  >
-                    <IconComponent className="w-4 h-4 text-white" />
+                <div key={index} className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+                  
+                  {/* Premium Icon Container */}
+                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.06)] border border-gray-100 text-[#f48131]">
+                    <IconComponent className="w-5 h-5" />
                   </div>
-                  <span className="font-medium">{feature.text}</span>
+                  
+                  {/* Text Container */}
+                  <div>
+                    <h4 className="text-gray-900 font-bold text-base mb-1">{feature.title}</h4>
+                    <p className="text-gray-500 text-sm font-medium leading-relaxed">{feature.text}</p>
+                  </div>
+
                 </div>
               );
             })}
           </div>
+          
         </div>
 
-       
       </div>
     </div>
   );

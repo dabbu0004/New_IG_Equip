@@ -1,20 +1,10 @@
 import React from "react";
+// Ensure this relative path matches your folder structure based on the sidebar
+import GalleryData from "../../data/GalleryData"; 
 
 const NewGallery = () => {
-  const images = [
-    "/images/image/41.webp",
-    "/images/image/42.webp",
-    "/images/image/43.webp",
-    "/images/image/44.webp",
-    "/images/image/45.webp",
-    "/images/image/46.webp",
-    "/images/image/47.webp",
-    "/images/image/48.webp",
-    "/images/image/49.webp",
-    "/images/image/50.webp",
-    "/images/image/51.webp",
-    "/images/image/52.webp",
-  ];
+  // Extract just the image URLs from the imported GalleryData array
+  const images = GalleryData.map(item => item.image);
 
   // Duplicate the array to create a seamless infinite loop
   const duplicatedImages = [...images, ...images];
@@ -32,7 +22,7 @@ const NewGallery = () => {
           .animate-marquee {
             display: flex;
             width: max-content;
-            animation: marquee 40s linear infinite;
+            animation: marquee 90s linear infinite;
           }
           /* Pause the animation when a user hovers to let them look at an image */
           .animate-marquee:hover {
