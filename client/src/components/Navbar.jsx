@@ -49,6 +49,7 @@ const Navbar = () => {
       case "Flaring System":
         return <FiAlertCircle className="w-6 h-6" />;
       case "H2S Scrubber":
+      case "H₂S Scrubber":
         return <FiFilter className="w-6 h-6" />;
       case "Dehumidifier":
         return <FiDroplet className="w-6 h-6" />;
@@ -78,6 +79,7 @@ const Navbar = () => {
         "Double Membrane Gas Holder",
         "CO2 Removal System",
         "Flaring System",
+        "H₂S Scrubber",
         "H2S Scrubber",
         "Dehumidifier",
       ].map(getProductByTitle).filter(Boolean),

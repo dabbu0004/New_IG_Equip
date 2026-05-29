@@ -285,6 +285,40 @@ const EachProduct = () => {
         </div>
       </section>
 
+      {(product?.types || []).length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-14 fade-in-section">
+          <div className="mb-8 border-b border-gray-100 pb-4">
+            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
+              Types of Flare System
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {product.types.map((type, idx) => (
+              <div
+                key={idx}
+                className="bg-white border border-gray-100 rounded-2xl shadow-md p-6 hover:shadow-lg transition"
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-4">{type.content}</p>
+                <ul className="flex flex-col gap-2">
+                  {(type.features || []).map((feature, featureIdx) => (
+                    <li
+                      key={featureIdx}
+                      className="flex items-start gap-3 text-sm text-gray-700"
+                    >
+                      <span className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-orange-50 text-[#f48131]">
+                        <FiCheckCircle className="h-4 w-4" />
+                      </span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section
         ref={processRef}
         className="max-w-7xl mx-auto px-4 md:px-12 py-16 md:-mt-10 fade-in-section"
