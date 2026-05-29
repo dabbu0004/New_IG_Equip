@@ -61,15 +61,16 @@ const AboutHero = () => {
       <section className="relative w-full h-[350px] md:h-[450px] flex items-center justify-center overflow-hidden">
         {/* Background Image & Overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center grayscale opacity-80"
+          className="absolute inset-0 bg-cover bg-center  opacity-90"
           style={{ backgroundImage: `url(${aboutHero.bannerImage})` }}
         ></div>
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
         
         {/* Banner Title */}
-        <h1 className="relative z-10 text-white text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
+        <h1 className="relative z-10  text-black text-5xl md:text-6xl  font-bold tracking-tight">
           {aboutHero.pageTitle}
         </h1>
+        
       </section>
 
       {/* ================= MAIN CONTENT CONTAINER ================= */}

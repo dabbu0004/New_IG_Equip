@@ -5,7 +5,7 @@ import { FaHandHoldingUsd, FaUsers } from "react-icons/fa";
 import { FiTool } from "react-icons/fi";
 
 export const aboutData = {
-  bannerImage: "/images/gallery/img1.webp", // Top background image
+  bannerImage: "/images/About/AboutBanner.jpg", // Top background image
   pageTitle: "About us",
   
   // Intro Section
@@ -44,7 +44,7 @@ export const aboutData = {
   // Bottom Image Composition
   images: {
     main: "/images/About/AboutPic.jpeg", // The large group image
-    videoThumb: "/images/gallery/office-video.jpg", // The smaller overlapping video image
+    videoThumb: "/images/About/office-video.jpg", // The smaller overlapping video image
   },
   engineered: {
     badge: "BUILT FOR PERFORMANCE",
@@ -80,11 +80,11 @@ export const aboutData = {
     titleHighlight: "Experts",
     description: "Dedicated professionals delivering safe installations and responsive support.",
     members: [
-      { name: "Rajesh Kumar", role: "Managing Director", image: "/images/team/1.jpg" },
-      { name: "Anita Sharma", role: "Chief Operations Officer", image: "/images/team/2.jpg" },
-      { name: "Vikram Mehta", role: "Head of Engineering", image: "/images/team/3.jpg" },
-      { name: "Sneha Reddy", role: "Project Head", image: "/images/team/4.jpg" },
-      { name: "Arun Verma", role: "Technical Director", image: "/images/team/5.jpg" }
+      { name: "Rajesh Kumar", role: "Managing Director", image: "/images/team/1.png" },
+      { name: "Anita Sharma", role: "Chief Operations Officer", image: "/images/team/1.png" },
+      { name: "Vikram Mehta", role: "Head of Engineering", image: "/images/team/1.png" },
+      { name: "Sneha Reddy", role: "Project Head", image: "/images/team/1.png" },
+      { name: "Arun Verma", role: "Technical Director", image: "/images/team/1.png" }
     ]
   },
   timeline: {
@@ -100,7 +100,9 @@ export const aboutData = {
       { year: "2018", text: "Expanded commissioning and maintenance services across multiple sites.", position: "top" },
       { year: "2020", text: "Added performance auditing and efficiency retrofit programs.", position: "bottom" },
       { year: "2022", text: "Built regional service hubs for faster response times.", position: "top" },
-      { year: "2024", text: "Delivered large scale turnkey installations and upgrades.", position: "bottom" }
+      { year: "2024", text: "Delivered large scale turnkey installations and upgrades.", position: "bottom" },
+      { year: "2018", text: "Launched dedicated field response teams for rapid site support.", position: "top" },
+      { year: "2022", text: "Upgraded fleet diagnostics for predictive maintenance programs.", position: "bottom" }
     ]
   },
   results: {
