@@ -1,9 +1,9 @@
-import img1 from "../assets/blogs/1.webp";
-import img2 from "../assets/blogs/4.webp";
-import img3 from "../assets/blogs/3.webp";
-import img4 from "../assets/blogs/2.webp";
-import img5 from "../assets/blogs/5.webp";
-import img6 from "../assets/blogs/6.png";
+const img1 = "/images/blogs/1.webp";
+const img2 = "/images/blogs/4.webp";
+const img3 = "/images/blogs/3.webp";
+const img4 = "/images/blogs/2.webp";
+const img5 = "/images/blogs/5.webp";
+const img6 = "/images/blogs/6.png";
 
 const BlogsData = [
   {

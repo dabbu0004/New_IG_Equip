@@ -1,17 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   FiCheckCircle,
   FiDownload,
-  FiChevronRight,
   FiMapPin,
   FiSettings,
   FiTool,
   FiHeadphones,
-  FiGrid,
-  FiLayers,
-  FiShield,
-  FiUsers
 } from "react-icons/fi";
 import {
   BsLightningCharge,
@@ -25,9 +20,10 @@ import gsap from "gsap";
 import homeProductsRangeData from "../../data/HomeProductsRangeData";
 import Faq from "../Faq";
 import KeyFeatures from "./KeyFeatures";
+import WhySection from "./WhySection";
 import Clients from "../Clients";
 import CtaBanner from "../CtaBanner";
-
+import NewContactForm from "../NewContactForm";
 const EachProduct = () => {
   const { slug } = useParams();
   const product =
@@ -112,46 +108,6 @@ const EachProduct = () => {
       if (processRef.current) observer.unobserve(processRef.current);
     };
   }, [hasAnimated]);
-
-  // --- Static Hardcoded Data for Why Choose Us Section ---
-  const whyChooseUsData = [
-    {
-      icon: <FiLayers className="w-6 h-6 md:w-7 md:h-7" />,
-      title: "Strong In-house Manufacturing",
-      desc: "Advanced manufacturing capabilities ensuring top-quality and durability in every product.",
-      image: "/images/gallery/img1.webp"
-    },
-    {
-      icon: <FiTool className="w-6 h-6 md:w-7 md:h-7" />,
-      title: "Proven Execution",
-      desc: "Successfully delivered large-scale infrastructure projects with excellence and on-time performance.",
-      image: "/images/HomeHero/GasEnergy.png"
-    },
-    {
-      icon: <FiSettings className="w-6 h-6 md:w-7 md:h-7" />,
-      title: "Customized Engineering Solutions",
-      desc: "Tailored solutions designed to meet unique operational needs and industry challenges.",
-      image: "/images/HomeProductRange/GasGenset.webp"
-    },
-    {
-      icon: <FiGrid className="w-6 h-6 md:w-7 md:h-7" />,
-      title: "Complete System Integration",
-      desc: "Expertise in complete biogas system integration from concept to commissioning.",
-      image: "/images/HomeProductRange/CO2Remover.jpg"
-    },
-    {
-      icon: <FiShield className="w-6 h-6 md:w-7 md:h-7" />,
-      title: "Reliable After-sales Support",
-      desc: "Dedicated support and maintenance ensuring uninterrupted performance and long-term reliability.",
-      image: "/images/HomeProductRange/wtp.jpg"
-    },
-    {
-      icon: <FiUsers className="w-6 h-6 md:w-7 md:h-7" />,
-      title: "Focus on Client Success",
-      desc: "Building long-term relationships through trust, transparency, and a commitment to your success.",
-      image: "/images/gallery/img2.webp"
-    }
-  ];
 
   return (
     <div className="w-full bg-[#fcfcfc] font-sans pb-20">
@@ -407,80 +363,14 @@ const EachProduct = () => {
       </section>
       
       <KeyFeatures items={product?.keyFeatures} />
-
-      {/* ================= STATIC WHY CHOOSE US SECTION ================= */}
-     <section className="max-w-7xl mx-auto px-4 md:px-12 pt-5 pb-10 fade-in-section relative z-10">
-        
-        {/* Header Section */}
-        <div className="text-center mb-16 md:mb-20">
-          <span className="text-xs font-bold text-[#f48131] uppercase tracking-widest mb-3 block">
-            THE INVENTIVE ADVANTAGE
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-[#111111] mb-6 tracking-tight">
-            Why Choose <span className="text-[#f48131] relative">Inventive</span>
-          </h2>
-          <p className="text-gray-500 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            We deliver reliable, efficient, and future-ready energy solutions with an unwavering commitment to quality, innovation, and long-term value.
-          </p>
-        </div>
-
-        {/* Staggered Image Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:pb-12">
-          {whyChooseUsData.map((item, idx) => (
-            <div 
-              key={idx} 
-              className={`
-                relative rounded-[2rem] overflow-hidden group shadow-[0_8px_30px_rgba(0,0,0,0.08)] 
-                hover:shadow-[0_20px_50px_rgba(244,129,49,0.2)] transition-all duration-500 ease-out 
-                transform hover:-translate-y-3 flex flex-col justify-end min-h-[380px] md:min-h-[420px]
-                /* Stagger the middle column on large screens */
-                ${idx % 3 === 1 ? 'lg:mt-12' : ''}
-              `}
-            >
-              {/* Background Image with Hover Zoom */}
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-
-              {/* Dark Gradient Overlay for Text Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              {/* Content Box (Z-10 brings it above the image and gradient) */}
-              <div className="relative z-10 p-8 flex flex-col h-full justify-end">
-                
-                {/* Frosted Glass Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white mb-6 group-hover:bg-[#f48131] group-hover:border-[#f48131] transition-all duration-500">
-                  <div className="transform transition-transform duration-300 group-hover:scale-110">
-                    {item.icon}
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-white mb-3 leading-tight group-hover:text-[#f48131] transition-colors duration-300">
-                  {item.title}
-                </h3>
-                
-                <p className="text-sm text-gray-300 leading-relaxed font-medium">
-                  {item.desc}
-                </p>
-
-                {/* Animated Bottom Line */}
-                <div className="mt-8 pt-6 border-t border-white/20 w-full flex items-center">
-                  <div className="w-10 h-[3px] rounded-full bg-[#f48131] group-hover:w-full transition-all duration-500 ease-out"></div>
-                </div>
-
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <WhySection section={product?.whySection} />
 
       <div className="md:-mt-10">
         <Faq faqs={product?.faqs} />
       </div>
       <Clients />
       <CtaBanner />
+      <NewContactForm />
 
     </div>
   );

@@ -23,6 +23,7 @@ import BlogDetails from "./pages/BlogDetails";
 import EachProductPage from "./pages/EachProduct";
 import CareerPage from "./pages/CareerPage";
 import AboutPage from "./pages/AboutPage";
+import Gallery from "./components/Gallery";
 
 const App = () => {
   useEffect(() => {
@@ -64,6 +65,7 @@ const App = () => {
               <Route path="/blog/:slug" element={<BlogDetails />} />
               <Route path="/products/:slug" element={<EachProductPage />} />
               <Route path="/careers" element={<CareerPage />} />
+              <Route path="/gallery" element={<Gallery />} />
             </Routes>
           </div>
           <CallButton />

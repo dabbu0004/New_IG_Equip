@@ -51,7 +51,35 @@ const sharedDetails = {
 		{ name: "Uttar Pradesh", top: "38%", left: "55%" }
 	],
 	whySection: {
-		heading: "Why Choose Inventive Gas Equipment",
+		heading: "Why Choose Inventive",
+		description:
+			"We deliver reliable, efficient, and future-ready energy solutions with an unwavering commitment to quality, innovation, and long-term value.",
+		cards: [
+			{
+				icon: "settings",
+				title: "Customized\nSolutions",
+				desc:
+					"We offer tailored engineering designs to meet your unique operational needs. Whether you need custom sizing, specific utility layouts, or retrofit kits."
+			},
+			{
+				icon: "tool",
+				title: "Proven\nExecution",
+				desc:
+					"We understand that every project is unique. Our team has successfully delivered large-scale infrastructure projects with excellence and on-time performance."
+			},
+			{
+				icon: "check",
+				title: "Complete\nIntegration",
+				desc:
+					"Our expertise goes beyond standard manufacturing. We handle complete biogas system integration from initial concept to final on-site commissioning."
+			},
+			{
+				icon: "shield",
+				title: "Reliable\nSupport",
+				desc:
+					"Our services go beyond the installation. We offer dedicated 24/7 maintenance and support ensuring uninterrupted performance and long-term reliability."
+			}
+		],
 		points: [
 			"Strong in-house manufacturing capabilities",
 			"Proven execution in large-scale infrastructure projects",
