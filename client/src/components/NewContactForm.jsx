@@ -153,7 +153,7 @@ const NewContactForm = () => {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 h-full">
         
         {/* ================= LEFT SECTION (FORM) ================= */}
-        <div className="w-full lg:w-1/2 max-w-lg order-2 lg:order-1">
+        <div className="w-full lg:w-1/2 max-w-lg order-2 lg:order-2">
           <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] p-6 border border-gray-100">
             {submitted ? (
               <div className="text-center py-10 space-y-4 flex flex-col items-center justify-center">
@@ -311,7 +311,7 @@ const NewContactForm = () => {
         </div>
 
         {/* ================= RIGHT SECTION (TEXT & ICONS) ================= */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left space-y-10 order-1 lg:order-2">
+        <div className="w-full lg:w-1/2 text-center lg:text-left space-y-10 order-1 lg:order-1">
           
           {/* Header Texts */}
           <div className="space-y-4">
