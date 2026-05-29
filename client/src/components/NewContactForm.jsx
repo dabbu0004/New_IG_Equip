@@ -319,7 +319,7 @@ const NewContactForm = () => {
               Let's Connect
             </span>
             <h1 className="text-3xl md:text-4xl  font-semibold text-[#111111] leading-[1.2] tracking-tight">
-              Partner with <span className="text-[#f48131]">Inventive Gas</span> for a Sustainable Future.
+              Partner with <span className="text-[#f48131]">Inventive</span> for a Sustainable Future.
             </h1>
             <p className="text-base md:text-lg text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
               Let's power your business with clean, efficient, and future-ready energy solutions. 
