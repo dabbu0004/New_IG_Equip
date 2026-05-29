@@ -17,7 +17,7 @@ const AboutResults = () => {
           {/* Left: Stats */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="w-full lg:w-1/2">
             <span className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-3 block">{results.badge}</span>
-            <h2 className="text-xl font-bold text-gray-900 mb-4 leading-snug">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 leading-snug">
               {results.title} <span className="text-[#f48131]">{results.titleHighlight}</span>
             </h2>
             <p className="text-gray-500 mb-10">{results.description}</p>

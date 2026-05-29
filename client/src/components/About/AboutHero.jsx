@@ -58,18 +58,25 @@ const AboutHero = () => {
     <div ref={sectionRef} className="w-full font-sans bg-white pb-24">
       
       {/* ================= TOP BANNER ================= */}
-      <section className="relative w-full h-[350px] md:h-[450px] flex items-center justify-center overflow-hidden">
+      {/* REDUCED padding-top here (pt-12 md:pt-16) to push the text higher to the top */}
+      <section className="relative w-full h-[350px] md:h-[450px] flex flex-col items-center justify-start pt-8 md:pt-10 overflow-hidden px-6 text-center">
         {/* Background Image & Overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center  opacity-90"
+          className="absolute inset-0 bg-cover bg-center opacity-90"
           style={{ backgroundImage: `url(${aboutHero.bannerImage})` }}
         ></div>
         <div className="absolute inset-0 bg-black/10"></div>
         
-        {/* Banner Title */}
-        <h1 className="relative z-10  text-black text-5xl md:text-6xl  font-bold tracking-tight">
-          {aboutHero.pageTitle}
-        </h1>
+        {/* Banner Title & Subtitle */}
+        <div className="relative z-10 flex flex-col items-center">
+          <h1 className="text-black text-5xl md:text-6xl font-bold tracking-tight mb-3 md:mb-4 drop-shadow-sm">
+            {aboutHero.pageTitle}
+          </h1>
+          {/* Hardcoded paragraph under the title */}
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl font-medium leading-relaxed drop-shadow-sm px-4">
+            We deliver end-to-end engineering solutions for sustainable gas systems, blending innovation with proven reliability to power your industrial journey.
+          </p>
+        </div>
         
       </section>
 
@@ -77,7 +84,7 @@ const AboutHero = () => {
       <section className="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-28">
         
         {/* Intro Row */}
-        <div className="flex flex-col lg:flex-row gap-10 md:gap-10   mb-20">
+        <div className="flex flex-col lg:flex-row gap-10 md:gap-10 mb-20">
           
           {/* Left: Titles */}
           <div ref={titleRef} className="w-full lg:w-5/12">
@@ -111,7 +118,7 @@ const AboutHero = () => {
               ref={(el) => (cardsRef.current[idx] = el)}
               className="flex items-center gap-5 p-6 md:p-8 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-gray-50 hover:-translate-y-1 transition-transform duration-300"
             >
-              {/* Icon Circle (Matches image: middle is black, outer are theme color) */}
+              {/* Icon Circle */}
               <div className={`w-16 h-16 flex-shrink-0 rounded-full flex items-center justify-center text-white shadow-md ${
                 feature.isDarkIcon ? 'bg-[#111111]' : 'bg-[#f48131]'
               }`}>

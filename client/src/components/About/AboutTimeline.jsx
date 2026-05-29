@@ -40,18 +40,8 @@ const AboutTimeline = () => {
   };
 
   return (
-    <section ref={timelineRef} className="w-full bg-[#fcfcfc] py-24 font-sans overflow-hidden">
+    <section ref={timelineRef} className="w-full bg-[#fcfcfc] py-10 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
-        {/* Top Stats */}
-        <div className="flex flex-wrap justify-center gap-12 md:gap-32 mb-20 text-center">
-          {timeline.stats.map((stat, idx) => (
-            <motion.div key={idx} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
-              <h3 className="text-4xl md:text-5xl font-extrabold text-[#111111] mb-2">{stat.value}</h3>
-              <p className="text-sm text-gray-500 uppercase tracking-widest">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
 
         <div className="text-center mb-24">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{timeline.title}</h2>
