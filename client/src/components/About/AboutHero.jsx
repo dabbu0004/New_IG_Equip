@@ -58,7 +58,6 @@ const AboutHero = () => {
     <div ref={sectionRef} className="w-full font-sans bg-white pb-24">
       
       {/* ================= TOP BANNER ================= */}
-      {/* REDUCED padding-top here (pt-12 md:pt-16) to push the text higher to the top */}
       <section className="relative w-full h-[350px] md:h-[450px] flex flex-col items-center justify-start pt-8 md:pt-10 overflow-hidden px-6 text-center">
         {/* Background Image & Overlay */}
         <div 
@@ -72,7 +71,6 @@ const AboutHero = () => {
           <h1 className="text-black text-5xl md:text-6xl font-bold tracking-tight mb-3 md:mb-4 drop-shadow-sm">
             {aboutHero.pageTitle}
           </h1>
-          {/* Hardcoded paragraph under the title */}
           <p className="text-gray-600 text-sm md:text-base max-w-2xl font-medium leading-relaxed drop-shadow-sm px-4">
             We deliver end-to-end engineering solutions for sustainable gas systems, blending innovation with proven reliability to power your industrial journey.
           </p>
@@ -81,37 +79,57 @@ const AboutHero = () => {
       </section>
 
       {/* ================= MAIN CONTENT CONTAINER ================= */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-28">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-12 md:pt-16">
         
-        {/* Intro Row */}
-        <div className="flex flex-col lg:flex-row gap-10 md:gap-10 mb-20">
+        {/* ================= INTRO ROW (UPDATED) ================= */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 md:gap-16 mb-1">
           
           {/* Left: Titles */}
           <div ref={titleRef} className="w-full lg:w-5/12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-50 rounded-full border border-gray-100 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#f48131]"></span>
-              <span className="text-xs font-bold text-gray-500 tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-50 rounded-full border border-gray-100 mb-6 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f48131]"></span>
+              <span className="text-xs font-bold text-gray-500 tracking-[0.2em] uppercase">
                 {aboutHero.badge}
               </span>
-              <span className="w-2 h-2 rounded-full bg-[#f48131]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f48131]"></span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] leading-[1.15]">
-              <span className="block text-[#f48131]">{aboutHero.introTitleHighlight}</span>
+            <h2 className="text-4xl md:text-5xl  font-semibold text-gray-900 leading-[1.1] tracking-tight">
+              <span className="block text-[#f48131] mb-2">{aboutHero.introTitleHighlight}</span>
               <span className="block">{aboutHero.introTitleNormal}</span>
               <span className="block">{aboutHero.introTitleBottom}</span>
             </h2>
           </div>
 
-          {/* Right: Descriptions */}
-          <div ref={textRef} className="w-full lg:w-7/12 flex flex-col md:flex-row gap-6 lg:gap-10 text-gray-500 font-medium leading-relaxed pt-2">
-            <p className="flex-1 text-sm md:text-base">{aboutHero.description1}</p>
-            <p className="flex-1 text-sm md:text-base">{aboutHero.description2}</p>
+          {/* Right: Descriptions (Enhanced with dividers and spacing) */}
+          <div ref={textRef} className="w-full lg:w-7/12 flex flex-col md:flex-row gap-8 md:gap-12 pt-2 md:pt-4">
+            
+            {/* Paragraph 1 */}
+            <div className="flex-1 relative">
+              {/* Subtle orange accent line on the left (Desktop only) */}
+              <div className="absolute -left-5 top-2 bottom-2 w-[3px] bg-gradient-to-b from-[#f48131] to-transparent rounded-full hidden md:block opacity-60"></div>
+              
+              <p className="text-base  md:text-md text-gray-500 font-medium leading-[1.8]">
+                {aboutHero.description1}
+              </p>
+            </div>
+
+            {/* Middle Vertical Divider (Desktop only) */}
+            <div className="hidden md:block w-[1px] bg-gray-200 mt-2 mb-2"></div>
+
+            {/* Paragraph 2 */}
+            <div className="flex-1">
+              <p className="text-base md:text-md text-gray-500 font-medium leading-[1.8]">
+                {aboutHero.description2}
+              </p>
+            </div>
+
           </div>
         </div>
+        {/* ================= END INTRO ROW ================= */}
 
         {/* Feature Cards Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-20">
           {aboutHero.features.map((feature, idx) => (
             <div 
               key={feature.id}

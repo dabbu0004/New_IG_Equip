@@ -1,23 +1,7 @@
 import React from "react";
+import ClientsData from "../../data/ClientsData";
 
-const clientLogos = [
-  "/images/1.jpeg",
-  "/images/10.jpeg",
-  "/images/11.jpeg",
-  "/images/13.jpeg",
-  "/images/1.jpeg",
-  "/images/10.jpeg",
-  "/images/11.jpeg",
-  "/images/13.jpeg",
-  "/images/1.jpeg",
-  "/images/10.jpeg",
-  "/images/11.jpeg",
-  "/images/13.jpeg",
-  "/images/1.jpeg",
-  "/images/10.jpeg",
-  "/images/11.jpeg",
-  "/images/13.jpeg",
-];
+const clientLogos = ClientsData.flat().map((client) => client.logo);
 
 const NewClientsPage = () => {
   const duplicatedLogos = [...clientLogos, ...clientLogos];

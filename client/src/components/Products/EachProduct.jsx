@@ -111,7 +111,7 @@ const EachProduct = () => {
 
   return (
     <div className="w-full bg-[#fcfcfc] font-sans pb-20">
-      
+
       <section
         className="relative w-full text-white pt-24 pb-16 overflow-hidden bg-cover bg-center"
         style={{
@@ -332,10 +332,9 @@ const EachProduct = () => {
             animation: running-line 1.5s linear infinite;
           }
         `}</style>
-
-        <div className="mb-4 border-b border-gray-100 pb-4 inline-block w-full md:w-auto text-center md:text-left">
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
-            Our Service Process
+        <div className="mb-4 border-b border-gray-100 pb-4 mx-auto w-max text-center">
+          <h2 className=" text:3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+            Our Process
           </h2>
         </div>
 
@@ -343,12 +342,12 @@ const EachProduct = () => {
           <div className="hidden md:block absolute top-[2.5rem] left-[10%] right-[10%] h-[2px] z-0 pointer-events-none">
             <svg width="100%" height="100%" preserveAspectRatio="none">
               <line x1="0" y1="1" x2="100%" y2="1" stroke="#e2e8f0" strokeWidth="2" strokeDasharray="6, 6" />
-              <line 
-                x1="0" y1="1" x2="100%" y2="1" 
-                stroke="#f48131" 
-                strokeWidth="2" 
-                strokeDasharray="6, 6" 
-                className="animate-running-line opacity-80" 
+              <line
+                x1="0" y1="1" x2="100%" y2="1"
+                stroke="#f48131"
+                strokeWidth="2"
+                strokeDasharray="6, 6"
+                className="animate-running-line opacity-80"
               />
             </svg>
           </div>
@@ -365,11 +364,10 @@ const EachProduct = () => {
             return (
               <div key={idx} className="flex flex-col items-center text-center w-full md:w-1/5 relative group cursor-default">
                 <div
-                  className={`w-20 h-20 rounded-full border-2 flex items-center justify-center mb-5 z-10 relative transition-all duration-400 ease-out group-hover:bg-[#f48131] group-hover:text-white group-hover:border-[#f48131] group-hover:shadow-[0_8px_20px_rgba(244,129,49,0.3)] group-hover:-translate-y-1 ${
-                    isActive
+                  className={`w-20 h-20 rounded-full border-2 flex items-center justify-center mb-5 z-10 relative transition-all duration-400 ease-out group-hover:bg-[#f48131] group-hover:text-white group-hover:border-[#f48131] group-hover:shadow-[0_8px_20px_rgba(244,129,49,0.3)] group-hover:-translate-y-1 ${isActive
                       ? "bg-[#f48131] text-white border-[#f48131] shadow-[0_8px_20px_rgba(244,129,49,0.3)] -translate-y-1"
                       : "bg-[#fffcf5] border-[#fce3d0] text-[#f48131]"
-                  }`}
+                    }`}
                 >
                   <div className={`transform transition-transform duration-300 group-hover:scale-110 ${isActive ? "scale-110" : ""}`}>
                     {step.icon}
@@ -381,9 +379,8 @@ const EachProduct = () => {
                 )}
 
                 <h4
-                  className={`font-bold text-base md:text-lg mb-2 transition-colors duration-300 group-hover:text-[#f48131] ${
-                    isActive ? "text-[#f48131]" : "text-gray-900"
-                  }`}
+                  className={`font-bold text-base md:text-lg mb-2 transition-colors duration-300 group-hover:text-[#f48131] ${isActive ? "text-[#f48131]" : "text-gray-900"
+                    }`}
                 >
                   {step.id}. {step.title}
                 </h4>
@@ -395,7 +392,7 @@ const EachProduct = () => {
           })}
         </div>
       </section>
-      
+
       <KeyFeatures items={product?.keyFeatures} />
       <WhySection section={product?.whySection} />
 

@@ -233,7 +233,7 @@ const homeProductsRangeData = [
         title: "Dual-Fuel Kits",
         description:
             "Convert existing diesel generators to run on gas + diesel simultaneously. Save up to 60% on fuel costs.",
-        image: "/images/image/NewHomeHero.png",
+		image: "/images/HomeHero/DualFuel.png",
         link: "/products/dual-fuel-kits",
         ...sharedDetails,
         heroBadge: "FUEL CONVERSION",
@@ -506,7 +506,7 @@ const homeProductsRangeData = [
 			"Stable pressure control and safe storage help maintain consistent gas supply for engines and burners.",
 		bannerDescription:
 			"Double membrane holders provide reliable storage with robust safety features, optimized footprint, and long service life.",
-		bannerHeading: "Stable Gas Storage",
+		bannerHeading: " Double Membrane Stable Gas Storage",
 		bannerLongDescription:
 			"Double membrane gas holders provide stable pressure control and safe storage for continuous operation. The design optimizes footprint while delivering reliable supply to engines or burners. Safety systems and robust membranes support long service life with minimal maintenance and consistent performance under varying conditions. This makes them ideal for biogas plants, CBG projects, and STPs where dependable gas storage is critical.",
 		bannerImage: "/images/HomeProductRange/doubleMembrane.png",
@@ -518,24 +518,48 @@ const homeProductsRangeData = [
 			{ icon: "emissions", label: "Corrosion Resistant", value: "Durable materials" },
 			{ icon: "capacity", label: "Custom Engineered", value: "Project-specific sizing" }
 		],
-		faqs: [
-			{
-				question: "What storage type is used?",
-				answer: "Double membrane storage with stable pressure control."
-			},
-			{
-				question: "How is pressure managed?",
-				answer: "Auto blower and control system maintain safe pressure."
-			},
-			{
-				question: "What safety features are included?",
-				answer: "Over/under pressure valves and robust membrane design."
-			},
-			{
-				question: "Can capacity be customized?",
-				answer: "Yes, capacity is configured per project requirement."
-			}
-		],
+	faqs: [
+        {
+            question: "How does a Double Membrane gas storage system work?",
+            answer: "It consists of two layers: an inner membrane that expands and contracts to store the biogas, and an outer membrane kept inflated by an air blower to provide structural shape and maintain constant gas pressure."
+        },
+        {
+            question: "What materials are the membranes made of?",
+            answer: "We utilize industrial-grade, high-frequency welded PVC/PVDF coated polyester fabrics that are highly resistant to biogas, UV radiation, and severe weather conditions."
+        },
+        {
+            question: "How is the gas pressure managed and kept stable?",
+            answer: "A dedicated, automated air blower continuously regulates the air pressure between the inner and outer membranes. This ensures the biogas is pushed out at a constant, stable pressure for downstream equipment."
+        },
+        {
+            question: "What safety features are included in the design?",
+            answer: "The system is equipped with mechanical over-pressure and under-pressure relief valves to prevent over-inflation or structural damage during sudden flow changes."
+        },
+        {
+            question: "Where can these membrane systems be installed?",
+            answer: "They are highly versatile and can be installed either as standalone ground-mounted units or directly mounted on top of concrete or steel anaerobic digesters."
+        },
+        {
+            question: "How do operators know how much gas is currently stored?",
+            answer: "The system integrates advanced ultrasonic or laser level sensors that continuously measure the height of the inner membrane, sending real-time volume data to your control panel or SCADA system."
+        },
+        {
+            question: "Can the outer membrane withstand harsh weather conditions?",
+            answer: "Yes, the outer envelope is engineered to endure high wind loads, snow accumulation, heavy rain, and extreme temperature fluctuations while protecting the inner gas-holding membrane."
+        },
+        {
+            question: "What capacities are available?",
+            answer: "Capacities are entirely customizable based on your plant's specific generation and consumption rates, ranging from small 50 m³ units to massive industrial volumes of several thousand cubic meters."
+        },
+        {
+            question: "What is the expected lifespan of the membrane material?",
+            answer: "Constructed with premium European or equivalent grade fabrics, the membranes are designed for longevity and typically offer a highly reliable service life of 10 to 15 years with basic maintenance."
+        },
+        {
+            question: "What routine maintenance does the system require?",
+            answer: "The system requires very low maintenance. Routine checks generally involve inspecting the air blower filters, calibrating the level sensors, and performing a visual check of the outer membrane."
+        }
+    ],
 	technicalSpecs: [
       { parameter: "Storage Capacity", details: "Customizable" },
       { parameter: "Membrane Material", details: "PVC / PVDF Coated Fabric" },

@@ -13,7 +13,7 @@ const EndToEndSolutions = () => {
           initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="w-full md:w-5/12"
         >
-          <span className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-3 block">{engineered.badge}</span>
+          <span className="text-xs font-bold text-[#f48131] tracking-widest uppercase mb-3 block">{engineered.badge}</span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 leading-snug">
             {engineered.title.split(' ').slice(0, 2).join(' ')} <br/>
             {engineered.title.split(' ').slice(2).join(' ')}

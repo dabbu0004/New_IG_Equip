@@ -40,16 +40,16 @@ const AboutTimeline = () => {
   };
 
   return (
-    <section ref={timelineRef} className="w-full bg-[#fcfcfc] py-10 font-sans overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section ref={timelineRef} className="w-full bg-[#fcfcfc] py-4 font-sans overflow-hidden">
+      <div className="max-w-full mx-auto px-0 md:px-0">
 
-        <div className="text-center mb-24">
+        <div className="text-center mb-1">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{timeline.title}</h2>
           <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">{timeline.description}</p>
         </div>
 
         {/* Exact Horizontal Timeline */}
-        <div className="relative w-full h-64 md:h-80 flex items-center overflow-x-auto scrollbar-hide pb-10">
+        <div className="relative w-full h-64 md:h-80 flex items-center overflow-x-auto scrollbar-hide pb-1">
           {/* Base Horizontal Line */}
           <div className="absolute left-0 right-0 h-[2px] bg-gray-300 top-1/2 transform -translate-y-1/2 min-w-[800px]"></div>
           {/* Running Glow Line */}

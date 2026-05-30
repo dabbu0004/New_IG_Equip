@@ -19,7 +19,7 @@ const Certified = () => {
   }, []);
 
   return (
-    <section className="w-full bg-[#fcfcfc] border-y border-gray-100 py-5 md:py-8 overflow-hidden">
+    <section className="w-full bg-[#fcfcfc] border-y border-gray-100 py-5 md:py-12 overflow-hidden">
       <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 md:pl-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 md:gap-6">
         
         {/* Title */}
