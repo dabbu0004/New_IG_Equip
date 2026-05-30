@@ -1151,70 +1151,133 @@ const homeProductsRangeData = [
 			}
 		]
 	},
-	{
-		id: 9,
-		category: "Water Treatment",
-		title: "RO+UF Plant",
-		description:
-			"Turnkey RO+UF water treatment plants with sizing, installation, and operator training for reliable process water.",
-		image: "/images/HomeProductRange/wtp.jpg",
-		link: "/products/ro-uf-plant",
-		...sharedDetails,
-		heroBadge: "WATER TREATMENT",
-		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+{
+        id: 9,
+        category: "Water Treatment",
+        title: "RO+UF Plant",
+        description:
+            "Turnkey RO+UF water treatment plants with advanced sizing, intelligent automation, and operator training for ultra-reliable process water.",
+        image: "/images/HomeProductRange/wtp.jpg",
+        link: "/products/ro-uf-plant",
+        ...sharedDetails,
+        heroBadge: "WATER TREATMENT",
+        heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+        heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
 
-		heroImages: [
-			"/images/HomeProductRange/wtp.jpg",
-			"/images/HomeProductRange/wtp.jpg",
-			"/images/HomeProductRange/wtp.jpg"
-		],
-		overviewExtraText:
-			"The plant is configured for site-specific feed water and delivers stable process quality for continuous use.",
-		bannerDescription:
-			"RO+UF systems are engineered for consistent output quality with efficient recovery and reliable automation.",
-		bannerHeading: "Reliable Water Treatment",
-		bannerLongDescription:
-			"RO+UF plants are designed for stable process water quality and efficient recovery. Automation and dosing systems keep performance consistent with low operator effort. The plant is configured to your feed water conditions and process requirements.",
-		bannerImage: "/images/HomeHero/GasEnergy.png",
-		technicalSpecs: [
-			{ parameter: "Process", details: "UF + RO" },
-			{ parameter: "Capacity", details: "Configured per project" },
-			{ parameter: "Feed TDS", details: "As per site" },
-			{ parameter: "Recovery", details: "Up to 75%" },
-			{ parameter: "Controls", details: "Auto dosing + PLC" },
-			{ parameter: "Installation", details: "Turnkey with training" }
-		],
-		fuelOptions: "Not Applicable",
-		applications: "Industrial Water, Process Water",
-		overviewOptions: [
-			{ icon: "performance", label: "Recovery", value: "Up to 75%" },
-			{ icon: "service", label: "Automation", value: "PLC + dosing control" }
-		],
-		faqs: [
-			{
-				question: "What treatment process is used?",
-				answer: "UF + RO process with site-specific configuration."
-			},
-			{
-				question: "What recovery can be achieved?",
-				answer: "Up to 75% recovery depending on feed water."
-			},
-			{
-				question: "How is automation handled?",
-				answer: "PLC and dosing control for stable operations."
-			},
-			{
-				question: "Is installation turnkey?",
-				answer: "Yes, turnkey installation with operator training."
-			}
-		],
-		keyBenefits: [
-			"Consistent output quality",
-			"Turnkey installation and training",
-			"Optimized for low OPEX"
-		]
-	}
+        heroImages: [
+            "/images/HomeProductRange/wtp.jpg",
+            "/images/HomeProductRange/wtp.jpg",
+            "/images/HomeProductRange/wtp.jpg"
+        ],
+        overviewTitle: "Industrial-Grade RO & UF Water Treatment Plants",
+        overviewText:
+            "Inventive Gas Equipment provides advanced, turnkey Reverse Osmosis (RO) and Ultrafiltration (UF) water treatment plants engineered for high-efficiency industrial applications. Clean, reliable process water is critical for continuous operations, preventing scaling and corrosion in boilers, cooling towers, and gas upgrading systems.\n\nOur bespoke RO+UF solutions are meticulously designed based on comprehensive raw water analysis. By combining precise pretreatment, robust UF membrane filtration to remove suspended solids and pathogens, and high-rejection RO systems to eliminate dissolved solids, we ensure optimal water quality tailored to your exact process requirements.\n\nFrom skid-mounted modular designs to large-scale site-built plants, our systems are characterized by intelligent PLC automation, high recovery rates, and low specific energy consumption, ensuring maximum operational reliability with minimal operator intervention.",
+        overviewExtraText:
+            "Our systems are meticulously configured to handle site-specific feed water challenges, delivering ultra-pure process water to safeguard your critical downstream assets.",
+        bannerDescription:
+            "Custom-engineered RO+UF systems delivering consistent ultra-pure water with maximum recovery, reduced OPEX, and fully automated intelligent controls.",
+        bannerHeading: "Advanced Water Purification Systems",
+        bannerLongDescription:
+            "Our advanced Reverse Osmosis (RO) and Ultrafiltration (UF) plants are engineered to provide unwavering process water quality and maximum volumetric recovery. By integrating cutting-edge membrane technology with precise auto-dosing and PLC-based automation, we ensure consistent performance while significantly reducing manual operator effort. Every plant is uniquely configured to your specific feed water TDS and downstream purity requirements, safeguarding your industrial processes.",
+        bannerImage: "/images/HomeHero/GasEnergy.png",
+        technicalSpecs: [
+            { parameter: "Treatment Technology", details: "Ultrafiltration (UF) + Reverse Osmosis (RO)" },
+            { parameter: "System Recovery Rate", details: "Typically 65% - 80% (Feed water dependent)" },
+            { parameter: "Feed Water Handling", details: "Custom engineered for varying TDS levels" },
+            { parameter: "Control & Automation", details: "Advanced PLC Panel with Touch HMI & SCADA" },
+            { parameter: "Membrane Maintenance", details: "Integrated Auto-Flush & CIP Systems" },
+            { parameter: "Piping & Skid Material", details: "SS304 / SS316 / UPVC (Application based)" }
+        ],
+        fuelOptions: "Not Applicable",
+        applications: "Industrial Water, Process Water, Boiler Feed",
+        overviewOptions: [
+            { icon: "performance", label: "Max Recovery", value: "Up to 75-80% efficiency" },
+            { icon: "reliability", label: "Membrane Life", value: "Advanced auto-flushing" },
+            { icon: "capacity", label: "Plant Scaling", value: "Custom flow rate sizing" },
+            { icon: "settings", label: "Filtration", value: "Multi-stage UF + RO" },
+            { icon: "maintenance", label: "Pre-treatment", value: "Integrated dosing systems" },
+            { icon: "service", label: "Delivery", value: "Turnkey design & training" }
+        ],
+        faqs: [
+            {
+                question: "What is the difference between UF and RO in the system?",
+                answer: "Ultrafiltration (UF) physically removes suspended solids, bacteria, and macromolecules, acting as a powerful pre-treatment. Reverse Osmosis (RO) then removes dissolved salts and minerals (TDS) at a molecular level."
+            },
+            {
+                question: "Do you provide custom-sized water treatment plants?",
+                answer: "Yes, every RO+UF plant is custom-engineered based on your required daily flow rate and the specific chemical analysis of your inlet water."
+            },
+            {
+                question: "What is the typical water recovery rate?",
+                answer: "Depending on the feed water quality and system design, our industrial RO systems achieve high recovery rates of up to 75-80%, minimizing wastewater rejection."
+            },
+            {
+                question: "How do you prevent membrane fouling and scaling?",
+                answer: "Our systems incorporate advanced pre-treatment modules, automated chemical dosing (anti-scalants), and programmable CIP (Clean-In-Place) protocols to maximize membrane lifespan."
+            },
+            {
+                question: "What level of automation is included in the plant?",
+                answer: "The plants feature comprehensive PLC-based automation with HMI touch panels. They automatically monitor pressure, flow rates, and TDS, while controlling backwashes without manual intervention."
+            },
+            {
+                question: "Can the system handle high TDS brackish or borewell water?",
+                answer: "Absolutely. We design robust, high-pressure RO configurations specifically tailored to handle brackish water or high-TDS industrial borewell sources safely and efficiently."
+            },
+            {
+                question: "Are your RO+UF systems skid-mounted?",
+                answer: "We offer pre-assembled, skid-mounted modular units for rapid site deployment, as well as custom field-erected plants for massive industrial capacities."
+            },
+            {
+                question: "Do you provide operator training post-installation?",
+                answer: "Yes. Our turnkey installation includes comprehensive on-site training for your staff, covering daily operations, parameter monitoring, and routine maintenance protocols."
+            },
+            {
+                question: "What industries benefit most from your RO+UF plants?",
+                answer: "Our systems are ideal for biogas plants, power generation facilities, textiles, pharmaceuticals, heavy manufacturing, and demanding boiler feed water applications."
+            },
+            {
+                question: "What happens to the reject water (brine)?",
+                answer: "The highly concentrated reject water can be routed to a Zero Liquid Discharge (ZLD) system, an evaporation pond, or discharged according to your local environmental regulations."
+            }
+        ],
+        keyBenefits: [
+            "Guarantees continuous, ultra-pure process water to protect critical boilers, cooling towers, and industrial machinery from severe scaling.",
+            "Reduces overall operational costs (OPEX) through high-efficiency membranes, optimized energy consumption, and automated chemical dosing.",
+            "Provides a complete turnkey experience, from detailed water analysis and custom engineering to final installation and operator training."
+        ],
+        keyFeatures: [
+            {
+                id: 1,
+                title: "Dual-Stage Purification",
+                description: "Combines Ultrafiltration (UF) for superior physical filtration with Reverse Osmosis (RO) for total dissolved solid removal."
+            },
+            {
+                id: 2,
+                title: "Smart PLC Automation",
+                description: "Fully automated operations with HMI touchscreens for real-time monitoring of TDS, system pressure, and flow rates."
+            },
+            {
+                id: 3,
+                title: "Integrated Clean-In-Place (CIP)",
+                description: "Built-in, automated CIP skids to routinely clean membranes chemically, significantly extending their operational lifespan."
+            },
+            {
+                id: 4,
+                title: "Advanced Pre-Treatment Integration",
+                description: "Includes tailored multimedia filters, activated carbon, and precision anti-scalant dosing to protect delicate RO membranes."
+            },
+            {
+                id: 5,
+                title: "High-Pressure Industrial Pumps",
+                description: "Utilizes heavy-duty, energy-efficient multi-stage centrifugal pumps for reliable 24/7 continuous plant operation."
+            },
+            {
+                id: 6,
+                title: "Modular Skid Design",
+                description: "Pre-piped and pre-wired on robust stainless steel or epoxy-coated MS skids for rapid plug-and-play site installation."
+            }
+        ]
+    }
 ];
 
 export default homeProductsRangeData;
