@@ -216,28 +216,64 @@ const EachProduct = () => {
           </h2>
           <div className="w-full">
             <div className="overflow-hidden border border-gray-200 rounded-xl shadow-sm">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-gray-50 text-gray-700">
-                  <tr>
-                    <th className="px-5 py-3 font-bold border-b border-gray-200 w-2/5 whitespace-nowrap">
-                      Parameter
-                    </th>
-                    <th className="px-5 py-3 font-bold border-b border-gray-200">
-                      Details
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100 bg-white">
-                  {(product?.technicalSpecs || []).map((spec, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50/50 transition">
-                      <td className="px-5 py-3 font-medium text-gray-700 whitespace-nowrap">
-                        {spec.parameter}
-                      </td>
-                      <td className="px-5 py-3 text-gray-600">{spec.details}</td>
+              {(product?.technicalSpecTable?.columns || []).length > 0 ? (
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-gray-50 text-gray-700">
+                    <tr>
+                      <th className="px-5 py-3 font-bold border-b border-gray-200 w-1/4 whitespace-nowrap">
+                        Parameter
+                      </th>
+                      {product.technicalSpecTable.columns.map((column, idx) => (
+                        <th
+                          key={idx}
+                          className="px-5 py-3 font-bold border-b border-gray-200"
+                        >
+                          {column}
+                        </th>
+                      ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 bg-white">
+                    {(product?.technicalSpecTable?.rows || []).map((row, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50/50 transition">
+                        <td className="px-5 py-3 font-medium text-gray-700 whitespace-nowrap">
+                          {row.parameter}
+                        </td>
+                        {(product?.technicalSpecTable?.columns || []).map(
+                          (column, colIdx) => (
+                            <td key={column} className="px-5 py-3 text-gray-600">
+                              {row.values?.[colIdx] || ""}
+                            </td>
+                          )
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-gray-50 text-gray-700">
+                    <tr>
+                      <th className="px-5 py-3 font-bold border-b border-gray-200 w-2/5 whitespace-nowrap">
+                        Parameter
+                      </th>
+                      <th className="px-5 py-3 font-bold border-b border-gray-200">
+                        Details
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 bg-white">
+                    {(product?.technicalSpecs || []).map((spec, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50/50 transition">
+                        <td className="px-5 py-3 font-medium text-gray-700 whitespace-nowrap">
+                          {spec.parameter}
+                        </td>
+                        <td className="px-5 py-3 text-gray-600">{spec.details}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
             </div>
           </div>
         </div>

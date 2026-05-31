@@ -9,12 +9,27 @@ export const aboutData = {
   pageTitle: "About us",
   
   // Intro Section
-  badge: "ABOUT US",
-  introTitleHighlight: "Introduction",
-  introTitleNormal: "To Industrial",
-  introTitleBottom: "Energy & Equipment Services",
+  badge: "Overview",
+  introTitleHighlight: "Process engineering ",
+  introTitleNormal: "solutions for Biogas,",
+  introTitleBottom: "STP,CBG & Emission Control",
   description1: "We deliver end to end solutions for industrial energy systems, equipment supply, and on site commissioning. From design and procurement to installation and optimization, our team ensures safe, efficient, and reliable operations for every project.",
   description2: "Our service model blends engineering expertise with responsive support. We provide preventive maintenance, performance audits, and compliance driven upgrades so your plants run cleaner, longer, and with lower operating costs.",
+
+  companyIntroTitle: "Inventive Gas Equipment Pvt. Ltd.",
+  companyIntroText:
+    "Inventive Gas Equipment Pvt. Ltd. is an engineering-focused company specializing in biogas systems, emission control solutions, and CBG plant equipment.",
+  companyIntroText2:
+    "We work closely with EPC contractors and plant operators to deliver reliable, efficient, and performance-driven solutions across a wide range of industrial applications.",
+  capabilitiesTitle: "Our Expertise Covers",
+  capabilities: [
+    "RECD systems for diesel generator emission control",
+    "Double membrane biogas gas holders",
+    "H2S removal systems (scrubbers)",
+    "Gas dehumidification systems",
+    "Flare systems for safe gas handling",
+    "Balance of plant equipment for CBG facilities"
+  ],
   
   // Feature Cards
   features: [
@@ -45,6 +60,27 @@ export const aboutData = {
   images: {
     main: "/images/About/AboutPic.jpeg", // The large group image
     videoThumb: "/images/About/office-video.jpg", // The smaller overlapping video image
+  },
+  videoShowcase: {
+    title: "Company Videos",
+    subtitle: "Add MP4s later to highlight projects, commissioning, and systems in operation.",
+    items: [
+      {
+        title: "Project Walkthroughs",
+        description: "Site layouts, equipment placement, and commissioning highlights.",
+        thumb: "/images/About/office-video.jpg"
+      },
+      {
+        title: "Factory & Fabrication",
+        description: "Manufacturing quality, testing, and in-house build capabilities.",
+        thumb: "/images/About/office-video.jpg"
+      },
+      {
+        title: "Operations & Support",
+        description: "Service response, preventive maintenance, and uptime performance.",
+        thumb: "/images/About/office-video.jpg"
+      }
+    ]
   },
   engineered: {
     badge: "BUILT FOR PERFORMANCE",
@@ -87,22 +123,23 @@ export const aboutData = {
       { name: "Arun Verma", role: "Technical Director", image: "/images/team/1.png" }
     ]
   },
-  timeline: {
+ timeline: {
     stats: [
       { value: "100+", label: "Team Members" },
-      { value: "110,000", label: "Hours Supported" },
+      { value: "2000+", label: "Dual Fuel Installs" },
       { value: "4", label: "Regional Service Hubs" }
     ],
     title: "Tracing Our Journey Through Time",
-    description: "A growth story shaped by on site delivery, stronger partnerships, and continuous improvement in industrial energy and equipment services.",
+    description: "A growth story shaped by continuous innovation, from foundational biogas solutions to market-leading emission control technology.",
     events: [
-      { year: "2016", text: "Company founded with a focus on industrial energy systems.", position: "bottom" },
-      { year: "2018", text: "Expanded commissioning and maintenance services across multiple sites.", position: "top" },
-      { year: "2020", text: "Added performance auditing and efficiency retrofit programs.", position: "bottom" },
-      { year: "2022", text: "Built regional service hubs for faster response times.", position: "top" },
-      { year: "2024", text: "Delivered large scale turnkey installations and upgrades.", position: "bottom" },
-      { year: "2018", text: "Launched dedicated field response teams for rapid site support.", position: "top" },
-      { year: "2022", text: "Upgraded fleet diagnostics for predictive maintenance programs.", position: "bottom" }
+      { year: "2017", text: "Founded with a vision to deliver high-quality, reliable biogas solutions.", position: "bottom" },
+      { year: "2018", text: "Engineered and developed single & double membrane biogas holders.", position: "top" },
+      { year: "2020", text: "Pioneered dual fuel systems and initiated early-stage deployments.", position: "bottom" },
+      { year: "2022", text: "Pan-India expansion (2000+ installs), OEM CPCB approval, & launched PSI Gensets.", position: "top" },
+      { year: "2023", text: "Diversified into gas treatment (H₂S & Dehumidification) and STP EPC projects.", position: "bottom" },
+      { year: "2024", text: "Launched CPCB-approved Vayu-Pure RECD achieving >95% PM reduction.", position: "top" },
+      { year: "2025", text: "Commissioned in-house manufacturing; expanded footprint in STP and CBG sectors.", position: "bottom" },
+      { year: "2026", text: "Achieving market leadership with major EPC orders and next-gen equipment R&D.", position: "top" }
     ]
   },
   results: {

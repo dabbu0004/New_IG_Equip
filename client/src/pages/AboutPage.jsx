@@ -9,6 +9,7 @@ const AboutPage = () => {
   return (
     <div className="w-full overflow-hidden">
       <AboutHero />
+     
       <EndToEndSolutions />
       <AboutTeam />
       <AboutTimeline />

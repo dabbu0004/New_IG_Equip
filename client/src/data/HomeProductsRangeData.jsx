@@ -237,8 +237,8 @@ const homeProductsRangeData = [
         link: "/products/dual-fuel-kits",
         ...sharedDetails,
         heroBadge: "FUEL CONVERSION",
-        heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-        heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+        heroBanner: "/images/ProductsBanner/DualFuelBanner.png",
+        heroBannerMobile: "/images/ProductsBanner/DualFuelBanner.png",
 
         heroImages: [
             "/images/image/NewHomeHero.png",
@@ -763,8 +763,8 @@ const homeProductsRangeData = [
 		link: "/products/flaring-system",
 		...sharedDetails,
 		heroBadge: "SAFETY SYSTEMS",
-		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBanner: "/images/ProductsBanner/FlareBanner.png",
+		heroBannerMobile: "/images/ProductsBanner/FlareBanner.png",
 
 		heroImages: [
 			"/images/HomeProductRange/flareOpenClose.png",
@@ -911,8 +911,8 @@ const homeProductsRangeData = [
 		link: "/products/h2s-scrubber",
 		...sharedDetails,
 		heroBadge: "GAS CLEANING",
-		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBanner: "/images/ProductsBanner/H2SBanner.jpeg",
+		heroBannerMobile: "/images/ProductsBanner/H2SBanner.jpeg",
 
 		heroImages: [
 			"/images/HomeProductRange/H2SRemover.jpg",
@@ -981,13 +981,44 @@ const homeProductsRangeData = [
 			}
 		],
 		technicalSpecs: [
-			{ parameter: "Removal Technology", details: "Chemical Absorption (Iron Oxide / Carbon)" },
-			{ parameter: "Vessel Construction", details: "FRP / SS / Epoxy-coated MS" },
-			{ parameter: "Inlet H₂S Capacity", details: "Configured per site baseline" },
-			{ parameter: "Outlet Guarantee", details: "As low as <50 ppm" },
-			{ parameter: "Moisture Handling", details: "Integrated condensate knockout" },
-			{ parameter: "Maintenance Setup", details: "Ergonomic top-fill / bottom-empty ports" }
-		],
+        ],
+        technicalSpecTable: {
+            columns: ["Bio-Chemical Scrubber", "Dry Scrubber", "Wet Scrubber"],
+            rows: [
+                {
+                    parameter: "Removal efficiency",
+                    values: ["90-98%", "85-95%", "99-99%"]
+                },
+                {
+                    parameter: "OPEX (Operating cost)",
+                    values: ["Low", "Medium", "High"]
+                },
+                {
+                    parameter: "CAPEX (Initial cost)",
+                    values: ["High", "Low", "Medium"]
+                },
+                {
+                    parameter: "Chemical use",
+                    values: ["Yes", "No / minimal", "Yes"]
+                },
+                {
+                    parameter: "Maintenance",
+                    values: ["Moderate", "Low", "Moderate"]
+                },
+                {
+                    parameter: "Suitable capacity",
+                    values: ["Large continuous", "Small-medium", "Medium-large"]
+                },
+                {
+                    parameter: "Waste generation",
+                    values: ["Sulfur sludge", "Spent media", "Wastewater"]
+                },
+                {
+                    parameter: "Regeneration required",
+                    values: ["Bacterial maintenance", "Yes", "No"]
+                }
+            ]
+        },
 		keyBenefits: [
 			"Drastically reduces equipment corrosion, preventing premature failure of gas engines, compressors, and pipelines.",
 			"Extends engine oil life and reduces maintenance downtime, significantly lowering overall OPEX.",

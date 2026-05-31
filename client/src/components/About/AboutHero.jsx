@@ -3,6 +3,7 @@ import { aboutData } from "../../data/AboutData";
 import { FaPlay } from "react-icons/fa";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import AboutOverview from "./AboutOverview";  
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,6 +78,7 @@ const AboutHero = () => {
         </div>
         
       </section>
+      <AboutOverview />
 
       {/* ================= MAIN CONTENT CONTAINER ================= */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 pt-12 md:pt-16">
@@ -129,7 +131,7 @@ const AboutHero = () => {
         {/* ================= END INTRO ROW ================= */}
 
         {/* Feature Cards Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-16">
           {aboutHero.features.map((feature, idx) => (
             <div 
               key={feature.id}
