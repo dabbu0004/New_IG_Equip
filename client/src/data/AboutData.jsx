@@ -5,7 +5,7 @@ import { FaHandHoldingUsd, FaUsers } from "react-icons/fa";
 import { FiTool } from "react-icons/fi";
 
 export const aboutData = {
-  bannerImage: "/images/About/AboutBanner.jpg", // Top background image
+  bannerImage: "/images/About/AboutBanner.jpeg", // Top background image
   pageTitle: "About us",
   
   // Intro Section
@@ -18,9 +18,9 @@ export const aboutData = {
 
   companyIntroTitle: "Inventive Gas Equipment Pvt. Ltd.",
   companyIntroText:
-    "Inventive Gas Equipment Pvt. Ltd. is an engineering-focused company specializing in biogas systems, emission control solutions, and CBG plant equipment.",
+    "Inventive Gas Equipment Pvt. Ltd. is an engineering-focused company specializing in biogas systems, emission control solutions, and CBG plant equipment.Also serving STP and industrial gas applications, we design, supply, and commission high-performance equipment that meets stringent environmental standards.",
   companyIntroText2:
-    "We work closely with EPC contractors and plant operators to deliver reliable, efficient, and performance-driven solutions across a wide range of industrial applications.",
+    "We work closely with EPC contractors and plant operators to deliver reliable, efficient, and performance-driven solutions across a wide range of industrial applications.The company is committed to innovation, quality, and customer satisfaction, ensuring that every project is executed with precision and care.",
   capabilitiesTitle: "Our Expertise Covers",
   capabilities: [
     "RECD systems for diesel generator emission control",
@@ -58,7 +58,7 @@ export const aboutData = {
   
   // Bottom Image Composition
   images: {
-    main: "/images/About/AboutPic.jpeg", // The large group image
+    main: "/images/About/AboutImg.png", // The large group image
     videoThumb: "/images/About/office-video.jpg", // The smaller overlapping video image
   },
   videoShowcase: {

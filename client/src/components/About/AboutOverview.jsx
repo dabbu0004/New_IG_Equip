@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { aboutData } from "../../data/AboutData";
-import { FaPlay } from "react-icons/fa";
+
+import { FaPlay, FaPause } from "react-icons/fa";
 import { 
   FiSettings, 
   FiVolume2, 
@@ -75,7 +76,7 @@ const AboutOverview = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:pt-15 md:pb-8">
         
         {/* ================= TOP SECTION: Text & Video ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center mb-12">
           
           {/* Left Text Column */}
           <div className="flex flex-col">
@@ -99,58 +100,8 @@ const AboutOverview = () => {
           </div>
 
           {/* Right Video Player Mockup */}
-          <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] group">
-            {/* Background Image */}
-            <img
-              src={aboutOverview.bannerImage} // Using bannerImage to look like an industrial plant
-              alt="Industrial Plant Overview"
-              className="w-full h-[300px] md:h-[400px] object-cover"
-            />
-            
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-500"></div>
-
-            {/* Top Left Badge */}
-            <div className="absolute top-4 left-4 bg-[#1f2128]/90 backdrop-blur-sm text-white/90 text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2 shadow-lg">
-              <HiOutlineDocumentText className="text-base" />
-              Company Overview
-            </div>
-
-            {/* Top Right Dots */}
-            <div className="absolute top-4 right-4 text-white/90 p-2 cursor-pointer hover:bg-white/10 rounded-full transition-colors">
-              <BiDotsVerticalRounded className="text-xl" />
-            </div>
-
-            {/* Center Play Button with Blur Ring */}
-            <div className="absolute inset-0 m-auto w-[88px] h-[88px] flex items-center justify-center cursor-pointer">
-              <div className="absolute inset-0 bg-white/20 backdrop-blur-md rounded-full scale-100 group-hover:scale-110 transition-transform duration-500"></div>
-              <div className="relative w-16 h-16 bg-[#f48131] rounded-full flex items-center justify-center text-white shadow-[0_0_30px_rgba(244,129,49,0.4)] pl-1">
-                <FaPlay className="text-xl" />
-              </div>
-            </div>
-
-            {/* Bottom Player Controls */}
-            <div className="absolute bottom-3 left-3 right-3 bg-[#1f2128]/90 backdrop-blur-md rounded-xl p-3 flex items-center gap-4 shadow-lg">
-              <FaPlay className="text-white/80 text-sm ml-2 cursor-pointer hover:text-white" />
-              
-              {/* Progress Bar */}
-              <div className="flex-1 flex items-center gap-3">
-                <div className="relative w-full h-1.5 bg-white/20 rounded-full cursor-pointer">
-                  <div className="absolute left-0 top-0 h-full w-[45%] bg-[#f48131] rounded-full"></div>
-                  <div className="absolute left-[45%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#f48131] rounded-full shadow-md border border-white/20"></div>
-                </div>
-                <span className="text-white/70 text-[10px] font-medium whitespace-nowrap">
-                  01:35 / 03:40
-                </span>
-              </div>
-
-              {/* Right Controls */}
-              <div className="flex items-center gap-4 mr-2 text-white/80">
-                <FiVolume2 className="text-[17px] cursor-pointer hover:text-white transition-colors" />
-                <FiSettings className="text-[17px] cursor-pointer hover:text-white transition-colors" />
-                <FiMaximize className="text-[17px] cursor-pointer hover:text-white transition-colors" />
-              </div>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] group bg-black">
+            <VideoPlayer />
           </div>
         </div>
 
@@ -204,5 +155,92 @@ const AboutOverview = () => {
     </section>
   );
 };
+
+function VideoPlayer() {
+  const videoRef = useRef(null);
+  const timeoutRef = useRef(null); // Ref to hold the timer ID
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [showPlayButton, setShowPlayButton] = useState(false);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.playsInline = true;
+    v.loop = true;
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
+    setIsPlaying(!v.paused);
+  }, []);
+
+  const togglePlay = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const v = videoRef.current;
+    if (!v) return;
+
+    // Clear any existing timer so it doesn't accidentally hide the button while paused
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    if (!v.paused) {
+      v.pause();
+      setIsPlaying(false);
+      setShowPlayButton(true); // Always visible when paused
+    } else {
+      v.muted = false; // Unmute on user interaction
+      v.play();
+      setIsPlaying(true);
+      setShowPlayButton(true); // Show briefly when started
+
+      // Hide after 5 seconds
+      timeoutRef.current = setTimeout(() => {
+        setShowPlayButton(false);
+      }, 2000);
+    }
+  };
+
+  return (
+    <>
+      <video
+        ref={videoRef}
+        src="/images/About/AboutVid1.mp4"
+        className="w-full h-[360px] md:h-[480px] object-cover cursor-pointer"
+        onClick={togglePlay}
+      />
+
+      {/* Full overlay to ensure clicking anywhere on the video toggles play/pause */}
+      <div 
+        className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-500 cursor-pointer"
+        onClick={togglePlay}
+      ></div>
+
+      <div className="absolute top-4 left-4 bg-[#1f2128]/90 backdrop-blur-sm text-white/90 text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2 shadow-lg pointer-events-none">
+        <HiOutlineDocumentText className="text-base" />
+        Company Overview
+      </div>
+
+      <div className="absolute top-4 right-4 text-white/90 p-2 cursor-pointer hover:bg-white/10 rounded-full transition-colors z-10">
+        <BiDotsVerticalRounded className="text-xl" />
+      </div>
+
+      {/* Center Play/Pause Control (Uses opacity for smooth fading) */}
+      <div 
+        className={`absolute inset-0 m-auto w-[88px] h-[88px] flex items-center justify-center pointer-events-none transition-opacity duration-500 ${
+          (showPlayButton || !isPlaying) ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-md rounded-full"></div>
+        <button
+          onClick={togglePlay}
+          aria-label={isPlaying ? "Pause video" : "Play video"}
+          className="relative w-16 h-16 bg-[#f48131] rounded-full flex items-center justify-center text-white shadow-[0_0_30px_rgba(244,129,49,0.4)] pointer-events-auto hover:scale-105 transition-transform"
+        >
+          {isPlaying ? <FaPause className="text-xl" /> : <FaPlay className="text-xl pl-1" />}
+        </button>
+      </div>
+    </>
+  );
+}
 
 export default AboutOverview;

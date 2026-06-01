@@ -59,7 +59,7 @@ const AboutHero = () => {
     <div ref={sectionRef} className="w-full font-sans bg-white pb-24">
       
       {/* ================= TOP BANNER ================= */}
-      <section className="relative w-full h-[350px] md:h-[450px] flex flex-col items-center justify-start pt-8 md:pt-10 overflow-hidden px-6 text-center">
+      <section className="relative w-full h-[500px] md:h-[610px] flex flex-col items-center justify-start pt-8 md:pt-10 overflow-hidden px-6 text-center">
         {/* Background Image & Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-90"
@@ -67,16 +67,7 @@ const AboutHero = () => {
         ></div>
         <div className="absolute inset-0 bg-black/10"></div>
         
-        {/* Banner Title & Subtitle */}
-        <div className="relative z-10 flex flex-col items-center">
-          <h1 className="text-black text-5xl md:text-6xl font-bold tracking-tight mb-3 md:mb-4 drop-shadow-sm">
-            {aboutHero.pageTitle}
-          </h1>
-          <p className="text-gray-600 text-sm md:text-base max-w-2xl font-medium leading-relaxed drop-shadow-sm px-4">
-            We deliver end-to-end engineering solutions for sustainable gas systems, blending innovation with proven reliability to power your industrial journey.
-          </p>
-        </div>
-        
+    
       </section>
       <AboutOverview />
 

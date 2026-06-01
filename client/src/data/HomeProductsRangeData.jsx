@@ -237,8 +237,8 @@ const homeProductsRangeData = [
         link: "/products/dual-fuel-kits",
         ...sharedDetails,
         heroBadge: "FUEL CONVERSION",
-        heroBanner: "/images/ProductsBanner/DualFuelBanner.png",
-        heroBannerMobile: "/images/ProductsBanner/DualFuelBanner.png",
+        heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
+        heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
 
         heroImages: [
             "/images/image/NewHomeHero.png",
@@ -1067,8 +1067,8 @@ const homeProductsRangeData = [
 		link: "/products/dehumidifier",
 		...sharedDetails,
 		heroBadge: "GAS DRYING",
-		heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-		heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+		heroBanner: "/images/ProductsBanner/DehumidifierBanner.png",
+		heroBannerMobile: "/images/ProductsBanner/DehumidifierBanner.png",
 
 		heroImages: [
 			"/images/HomeProductRange/dehumidifier.webp",
