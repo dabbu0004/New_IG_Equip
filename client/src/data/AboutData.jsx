@@ -59,7 +59,7 @@ export const aboutData = {
   // Bottom Image Composition
   images: {
     main: "/images/About/AboutImg.png", // The large group image
-    videoThumb: "/images/About/office-video.jpg", // The smaller overlapping video image
+    videoThumb: "/images/About/AboutVid1.mp4", // The smaller overlapping video image
   },
   videoShowcase: {
     title: "Company Videos",

@@ -14,6 +14,9 @@ const AboutHero = () => {
   const textRef = useRef(null);
   const cardsRef = useRef([]);
   const imagesRef = useRef(null);
+  
+  // Reference for the video thumbnail
+  const thumbnailVideoRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -55,6 +58,36 @@ const AboutHero = () => {
     return () => ctx.revert(); // Cleanup GSAP on unmount
   }, []);
 
+  // Safe Video Control & Cleanup
+  useEffect(() => {
+    const video = thumbnailVideoRef.current;
+    if (video) {
+      // Ensure it starts playing when mounted
+      video.play().catch(e => console.log("Autoplay prevented by browser:", e));
+    }
+    
+    return () => {
+      // Safe cleanup: Just pause it when navigating away so it doesn't play in the background.
+      // Do NOT remove the src, or React Strict Mode will make it invisible!
+      if (video) {
+        video.pause();
+      }
+    };
+  }, []);
+
+  // Handlers for hover sound effects
+  const handleMouseEnter = () => {
+    if (thumbnailVideoRef.current) {
+      thumbnailVideoRef.current.muted = false;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (thumbnailVideoRef.current) {
+      thumbnailVideoRef.current.muted = true;
+    }
+  };
+
   return (
     <div ref={sectionRef} className="w-full font-sans bg-white pb-24">
       
@@ -66,9 +99,8 @@ const AboutHero = () => {
           style={{ backgroundImage: `url(${aboutHero.bannerImage})` }}
         ></div>
         <div className="absolute inset-0 bg-black/10"></div>
-        
-    
       </section>
+
       <AboutOverview />
 
       {/* ================= MAIN CONTENT CONTAINER ================= */}
@@ -87,7 +119,7 @@ const AboutHero = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-[#f48131]"></span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl  font-semibold text-gray-900 leading-[1.1] tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 leading-[1.1] tracking-tight">
               <span className="block text-[#f48131] mb-2">{aboutHero.introTitleHighlight}</span>
               <span className="block">{aboutHero.introTitleNormal}</span>
               <span className="block">{aboutHero.introTitleBottom}</span>
@@ -102,7 +134,7 @@ const AboutHero = () => {
               {/* Subtle orange accent line on the left (Desktop only) */}
               <div className="absolute -left-5 top-2 bottom-2 w-[3px] bg-gradient-to-b from-[#f48131] to-transparent rounded-full hidden md:block opacity-60"></div>
               
-              <p className="text-base  md:text-md text-gray-500 font-medium leading-[1.8]">
+              <p className="text-base md:text-md text-gray-500 font-medium leading-[1.8]">
                 {aboutHero.description1}
               </p>
             </div>
@@ -160,18 +192,23 @@ const AboutHero = () => {
 
           {/* Overlapping Video Thumbnail */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[90%] md:w-[45%] bg-white p-1 md:p-2 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
-            <div className="relative rounded-2xl overflow-hidden group cursor-pointer">
-              <img 
+            <div 
+              className="relative rounded-2xl overflow-hidden group cursor-pointer"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <video
+                ref={thumbnailVideoRef}
                 src={aboutHero.images.videoThumb} 
-                alt="Video Thumbnail" 
                 className="w-full h-[200px] md:h-[350px] object-cover transition-transform duration-700 group-hover:scale-105"
+                autoPlay={true}
+                muted={true}
+                loop={true}
+                playsInline={true}
+                preload="metadata"
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
-              
-              {/* Play Button */}
-              <div className="absolute inset-0 m-auto w-16 h-16 md:w-20 md:h-20 bg-[#f48131] rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(244,129,49,0.5)] group-hover:scale-110 transition-transform duration-300 pl-1">
-                <FaPlay className="text-xl md:text-2xl" />
-              </div>
+              {/* Subtle dark overlay that fades slightly on hover */}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none"></div>
             </div>
           </div>
         </div>
