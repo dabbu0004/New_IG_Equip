@@ -47,8 +47,13 @@ const AboutTeam = () => {
             >
               
               {/* Image Wrapper (Enhanced Design) */}
-              <div className="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6 bg-gray-50 shadow-[0_8px_30px_rgba(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_rgba(244,129,49,0.15)] group-hover:-translate-y-2 transition-all duration-500 relative">
-                
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${member.name}'s LinkedIn profile`}
+                className="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6 bg-gray-50 shadow-[0_8px_30px_rgba(0,0,0,0.04)] group-hover:shadow-[0_20px_40px_rgba(244,129,49,0.15)] group-hover:-translate-y-2 transition-all duration-500 relative block"
+              >
                 <img 
                   src={member.image} 
                   alt={member.name} 
@@ -60,7 +65,7 @@ const AboutTeam = () => {
                 
                 {/* Inner border to give it a crisp edge */}
                 <div className="absolute inset-0 border border-black/5 rounded-[2rem] pointer-events-none"></div>
-              </div>
+              </a>
               
               {/* Text Details */}
               <h4 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#f48131] transition-colors duration-300">
@@ -70,6 +75,18 @@ const AboutTeam = () => {
               <p className="text-xs md:text-sm font-bold text-gray-400 group-hover:text-gray-500 uppercase tracking-[0.15em] mt-2 transition-colors duration-300">
                 {member.role}
               </p>
+
+              {member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${member.name}'s LinkedIn profile`}
+                  className="mt-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-[#0a66c2] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0a66c2] hover:shadow-md"
+                >
+                  {member.icon}
+                </a>
+              )}
 
             </div>
           ))}

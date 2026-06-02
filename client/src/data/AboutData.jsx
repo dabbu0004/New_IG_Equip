@@ -3,6 +3,7 @@ import { FiSettings, FiHeadphones, FiCheckCircle, FiSearch, FiPenTool } from "re
 import { BsLightningCharge, BsShieldCheck } from "react-icons/bs";
 import { FaHandHoldingUsd, FaUsers } from "react-icons/fa";
 import { FiTool } from "react-icons/fi";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export const aboutData = {
   bannerImage: "/images/About/AboutHero.png", // Top background image
@@ -116,10 +117,9 @@ export const aboutData = {
     titleHighlight: "Experts",
     description: "Dedicated professionals delivering safe installations and responsive support.",
     members: [
-      { name: "Rajesh Kumar", role: "Managing Director", image: "/images/team/1.png" },
-      { name: "Anita Sharma", role: "Chief Operations Officer", image: "/images/team/1.png" },
-      { name: "Vikram Mehta", role: "Head of Engineering", image: "/images/team/1.png" },
-     
+      { name: "Deepak Singh ", role: "Managing Director & CO-Founder", image: "/images/About/DeepakSingh.jpg", linkedin: "https://www.linkedin.com/in/deepak-singh-a15a922b6/", icon: <FaLinkedinIn /> },
+      { name: "Vipin Kumar", role: "Co-Founder & CFO", image: "/images/About/VipinKumar.jpg", linkedin: "https://www.linkedin.com/in/vipin-kumar-776762192/", icon: <FaLinkedinIn /> },
+      { name: "Ravi Kumar", role: "Co-Founder & Director ", image: "/images/About/RaviKumar.jpg", linkedin: "http://linkedin.com/in/ravi-kumar-897b4810b/", icon: <FaLinkedinIn /> }
     ]
   },
  timeline: {
