@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import {
-  FaArrowUpRightFromSquare,
+  FaExternalLinkAlt, // Replaced the fa6 arrow icon
+  FaTachometerAlt,   // Replaced the fa6 gauge icon
   FaLeaf,
-  FaThumbsUp,
-  FaGauge,
-} from "react-icons/fa6";
-import { FaRegCheckCircle } from "react-icons/fa";
+  FaRecycle,
+  FaHeadset,
+  FaTools,           // Replaced FaTool
+  FaRegCheckCircle
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -20,16 +22,20 @@ const CtaBanner = () => {
   const chipsRef = useRef([]);
   const statsRef = useRef([]);
 
+  // Using strictly standard 'fa' icons to prevent crashes
   const features = [
-    { text: "High Efficiency", icon: FaLeaf },
-    { text: "Low Maintenance", icon: FaThumbsUp },
-    { text: "Compact Design", icon: FaGauge },
+    { text: "High Performance", icon: FaTachometerAlt },
+    { text: "Industry Compliant", icon: FaRegCheckCircle },
+    { text: "Custom Engineering", icon: FaTools },
+    { text: "Energy Efficient", icon: FaLeaf },
+    { text: "Reliable Support", icon: FaHeadset },
+    { text: "Sustainable Solutions", icon: FaRecycle },
   ];
 
   const stats = [
-    { value: "99.6%", label: "Emission Reduction" },
+    { value: "99.6%", label: "Efficiency Focus" },
     { value: "100%", label: "Compliance Ready" },
-    { value: "24/7", label: "Support Service" },
+    { value: "24/7", label: "Technical Support" },
   ];
 
   useEffect(() => {
@@ -111,21 +117,20 @@ const CtaBanner = () => {
             <div className="flex items-center gap-2 mb-4">
               <FaRegCheckCircle className="text-orange-500 text-lg" />
               <span className="text-xs sm:text-sm text-gray-500 uppercase tracking-wider">
-                CPCB Approved Solution
+                Sustainable Energy. Smarter Tomorrow.
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-900 leading-tight mb-4">
-              Upgrade Your RECD with{" "}
-              <span className="text-orange-500">Vayu Pure™</span>
+            <h2 className="text-2xl  md:text-[2.8rem] font-semibold text-gray-900 leading-tight mb-2">
+              Powering the Future with{" "}
+              <span className="text-orange-500">Sustainable Biogas Energy</span>
             </h2>
 
-            <p className="text-gray-600 text-sm sm:text-base max-w-xl">
-              High-performance retrofit emission control device ensuring
-              compliance, efficiency, and cleaner air across all environments.
+            <p className="text-gray-600 text-md  max-w-xl">
+              We deliver advanced biogas solutions that convert organic waste into clean, renewable energy—driving sustainability, efficiency, and a greener future.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               {features.map((f, i) => {
                 const Icon = f.icon;
                 return (
@@ -146,7 +151,7 @@ const CtaBanner = () => {
             ref={rightRef}
             className="flex-1 w-full flex flex-col items-center lg:items-end justify-center gap-4"
           >
-            <div className="grid grid-cols-3 gap-4 w-full max-w-sm">
+            <div className="grid grid-cols-3 gap-4 w-full max-w-sm mb-4">
               {stats.map((s, i) => (
                 <div
                   key={i}
@@ -156,27 +161,27 @@ const CtaBanner = () => {
                   <div className="text-lg md:text-3xl font-bold text-orange-500">
                     {s.value}
                   </div>
-                  <div className="text-base md:text-base text-gray-600">
+                  <div className="text-sm md:text-base text-gray-600">
                     {s.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center lg:text-right">
-              Contact Us Now
+            <div className="text-2xl  md:text-4xl font-bold text-gray-900 text-center md:text-right">
+              Let's Build Your Next Energy Solution
             </div>
 
             <button
               onClick={() => navigate("/contact")}
-              className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 shadow-md"
+              className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 shadow-md mt-2"
             >
               Get Quote
-              <FaArrowUpRightFromSquare />
+              <FaExternalLinkAlt />
             </button>
 
-            <span className="text-xs sm:text-sm text-gray-500 text-center lg:text-right">
-              Quick response • Expert support
+            <span className="text-xs sm:text-sm text-gray-500 text-center lg:text-right mt-2">
+              Quick Response • Expert Engineering Support
             </span>
           </div>
         </div>

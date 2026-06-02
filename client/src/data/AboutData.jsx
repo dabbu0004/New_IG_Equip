@@ -5,7 +5,7 @@ import { FaHandHoldingUsd, FaUsers } from "react-icons/fa";
 import { FiTool } from "react-icons/fi";
 
 export const aboutData = {
-  bannerImage: "/images/About/AboutBanner.jpeg", // Top background image
+  bannerImage: "/images/About/AboutHero.png", // Top background image
   pageTitle: "About us",
   
   // Intro Section
@@ -58,7 +58,7 @@ export const aboutData = {
   
   // Bottom Image Composition
   images: {
-    main: "/images/About/AboutImg.png", // The large group image
+    main: "/images/WhyUsPic.jpeg", // The large group image
     videoThumb: "/images/About/AboutVid1.mp4", // The smaller overlapping video image
   },
   videoShowcase: {
@@ -119,8 +119,7 @@ export const aboutData = {
       { name: "Rajesh Kumar", role: "Managing Director", image: "/images/team/1.png" },
       { name: "Anita Sharma", role: "Chief Operations Officer", image: "/images/team/1.png" },
       { name: "Vikram Mehta", role: "Head of Engineering", image: "/images/team/1.png" },
-      { name: "Sneha Reddy", role: "Project Head", image: "/images/team/1.png" },
-      { name: "Arun Verma", role: "Technical Director", image: "/images/team/1.png" }
+     
     ]
   },
  timeline: {
