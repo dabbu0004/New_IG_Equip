@@ -364,8 +364,8 @@ const homeProductsRangeData = [
         link: "/products/retrofit-emission-control-device-recd",
         ...sharedDetails,
         heroBadge: "EMISSION CONTROL",
-        heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
-        heroBannerMobile: "/images/ProductsBanner/gas-genset-banner.png",
+        heroBanner: "/images/ProductsBanner/RecdBanner.png",
+        heroBannerMobile: "/images/ProductsBanner/RecdBanner.png",
 
         heroImages: [
             "/images/HomeProductRange/RECD.jpeg",
