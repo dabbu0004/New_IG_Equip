@@ -361,7 +361,7 @@ const homeProductsRangeData = [
         description:
             "CPCB-approved Retrofit Emission Control Devices to reduce particulate matter by up to 99%.",
         image: "/images/HomeProductRange/RECD.jpeg",
-        link: "/products/recd-device",
+        link: "/products/retrofit-emission-control-device-recd",
         ...sharedDetails,
         heroBadge: "EMISSION CONTROL",
         heroBanner: "/images/ProductsBanner/gas-genset-banner.png",
